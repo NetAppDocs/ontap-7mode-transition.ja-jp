@@ -1,0 +1,61 @@
+---
+permalink: copy-free/reference_failed_to_boot_7_mode_controller_in_maintenance_mode.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, failed, boot, controller, maintenance, mode 
+summary: 次のエラーメッセージが表示されて、エクスポートおよび停止処理が失敗します。 Failed to boot the 7-Mode controller in maintenance mode.保守モードでコントローラを手動で停止してブートし、処理を再実行する必要があります。 
+---
+= メンテナンスモードで 7-Mode コントローラをブートできませんでした
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+「 Failed to boot the 7-Mode controller in maintenance mode. 」というエラーメッセージが表示されて、エクスポートおよび停止処理が失敗します。保守モードでコントローラを手動で停止してブートし、処理を再実行する必要があります。
+
+
+
+== 回避策
+
+. 7-Mode ストレージシステムを停止します。
++
+*halt -f -t 0*`
+
+. LOADER プロンプトで、「 * bootarg.init.console_muted*` 」および「 * bootarg.init.console_level boot * 」ブートパラメータに設定されている値を記録します。
++
+*printenv bootarg.init.console_muted*`
+
++
+*printenv bootarg.init.console_level*`
+
+. 次のブートパラメータを設定して、コンソールメッセージを無効にします。
++
+`*setenv bootarg.init.console_muted "true"*`
+
++
+'*setenv bootarg.init.console_level -1" *
+
+. 7-Mode Transition Tool で、エクスポートおよび停止処理を再実行します。
+. 7-Mode ストレージシステムで、ブートパラメータを手順 2 で記録した元の値に設定します。
++
+|===
+| ブートパラメータの状態 | 入力するコマンド 
+
+
+ a| 
+値が設定されていない（未定義）
+ a| 
+'*unsetenv bootarg.init.console_muted*`
+
+'*unsetenv bootarg.init.console_level*`
+
+
+
+ a| 
+以前は値を使用して設定しました
+ a| 
+'*unsetenv bootarg.init.console_muted "_original_value_"*`
+
+'*unsetenv bootarg.init.console_level "_original_value_"*`
+
+|===
+

@@ -1,0 +1,35 @@
+---
+permalink: install-admin/task_enabling_login_for_users_not_part_of_administrator_group.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, enable, login, user, administrator, group 
+summary: デフォルトでは、ユーザは 7-Mode Transition Tool がインストールされている Windows システムの Administrators グループに属している必要があります。Administrators グループに属していないユーザおよびツールをインストールできず、ツールがインストールされている Windows システムの使用は許可されているユーザについては、いつでもログインを有効にすることができます。 
+---
+= Administrators グループに属していないユーザのログインの有効化
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+デフォルトでは、ユーザは 7-Mode Transition Tool がインストールされている Windows システムの Administrators グループに属している必要があります。Administrators グループに属していないユーザおよびツールをインストールできず、ツールがインストールされている Windows システムの使用は許可されているユーザについては、いつでもログインを有効にすることができます。
+
+.手順
+. admin 権限を持つユーザとして Windows ホストにログインします。
+. ツールの構成ファイルを変更して、 Administrators グループに属していないユーザがツールにログインできるようにします。
++
+.. インストール・ディレクトリから 'etc\conf\transition-tool.conf ファイルを開きます
+.. 「 transition-tool.conf 」ファイルの「 tool.login.non.admin.enabled` 」パラメータの値を true に設定します。
+.. ファイルを保存します。
+
+
+. 移行サービスを再起動します。
++
+.. [ * スタート * > * コントロールパネル * > * システムとサービス * > * 管理ツール * > * サービス * ] をクリックします。
+.. NetApp 7-Mode Transition Tool * サービスを右クリックし、 * Stop * をクリックします。
+.. NetApp 7-Mode Transition Tool * サービスを再度右クリックし、 * Start * をクリックします。
+
+
+
+
+* 関連情報 *
+
+xref:task_modifying_default_configuration_settings_of_7mtt.adoc[7-Mode Transition Tool の構成オプションの変更]

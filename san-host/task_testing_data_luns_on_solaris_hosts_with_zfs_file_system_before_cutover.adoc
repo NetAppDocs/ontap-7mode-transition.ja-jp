@@ -1,0 +1,148 @@
+---
+permalink: san-host/task_testing_data_luns_on_solaris_hosts_with_zfs_file_system_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, data, lun, solaris, zfs, cutover, copy, based 
+summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Solaris ホストの ZFS データ LUN を移行する場合は、カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、 MPIO デバイスがマウント可能であることを確認できます。 
+---
+= ZFS ファイルシステムを搭載した Solaris ホスト上のデータ LUN のテスト コピーベースの移行のカットオーバーフェーズ前
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Solaris ホストの ZFS データ LUN を移行する場合は、カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、 MPIO デバイスがマウント可能であることを確認できます。
+
+* ZFS データ LUN を搭載したソースホストは、テストフェーズの移行を開始する前にオフラインにする必要があります。
++
+詳細については、 _ Oracle Doc ID 1316472.1 LUN Copy Is Not Supported While ZFS Zpool Is Online_. を参照してください。
+
+* 新しい clustered Data ONTAP LUN をテスト用ホストにマッピングして、 LUN を移行できる状態にしておく必要があります。
+* 本番環境のホストで zpool をエクスポートすると、アプリケーションが停止します。 7-Mode LUN の前にすべての I/O 処理を停止する必要があります。
+
+
+テスト用ホストとソースホスト間のハードウェアパリティを維持し、テスト用ホストで以下の手順を実行する必要があります。
+
+clustered Data ONTAP LUN は、テスト時には読み取り / 書き込みモードになります。テストが完了してカットオーバーフェーズの準備を行う段階で、読み取り専用モードに切り替わります。
+
+. 本番環境の（ソース）ホストで、 zpool をエクスポートします。
++
+`*#zpool export_pool-name_*`
+
++
+[listing]
+----
+# zpool export n_pool
+
+# zpool import
+  pool: n_pool
+    id: 5049703405981005579
+ state: ONLINE
+action: The pool can be imported using its name or numeric identifier.
+config:
+
+        n_pool                                   ONLINE
+          c0t60A98000383035356C2447384D396550d0  ONLINE
+          c0t60A98000383035356C2447384D39654Ed0  ONLINE
+----
+. ベースラインデータコピーが完了したら、 7MTT ユーザインターフェイス（ UI ）で「 * Test Mode 」を選択します。
+. 7MTT UI で、 * 構成の適用 * をクリックします。
++
+
+NOTE: この手順のあと、アプリケーションをオンラインに戻して 7-Mode LUN への I/O 処理を開始できます。以降原因の手順でアプリケーションが停止することはありません。
+
+. 本番環境のホストで、 zpool をインポートします。
++
+'*#zpool import_pool-name_*
+
++
+[listing]
+----
+# zpool import n_pool
+----
+. テスト用ホストで、新しい clustered Data ONTAP LUN を再スキャンします。
++
+.. FC ホスト・ポート（ fc-fabric タイプ）を特定します +`*#cfgadm – l*`
+.. 最初の fc-fabric ポートの設定を解除します :+`*#cfgadm – c c1'unconfigure *`
+.. 1 番目の fc-fabric ポートを設定します :+`*#cfgadm – c 構成解除 C2*`
+.. 他の fc-fabric ポートについても上記の手順を繰り返します。
+.. ホスト・ポートおよび接続されているデバイスに関する情報を表示します +`*#cfgadm – al*`
+.. ドライバ +`*#devfsadm – CV*` を再ロードします
++
+`*#devfsadm – i iSCSI*`
+
+
+
+. clustered Data ONTAP LUN が存在することを確認します。
++
+「 * # sanlun lun show * 」のように表示されます
+
++
+[listing]
+----
+# sanlun lun show
+controller(7mode)/                    device                                            host                  lun
+vserver(Cmode)       lun-pathname     filename                                          adapter    protocol   size    mode
+--------------------------------------------------------------------------------------------------------------------------
+vs_5           /vol/zfs/zfs2    /dev/rdsk/c5t600A0980383030444D2B466542485935d0s2 scsi_vhci0 FCP        6g      C
+vs_5           /vol/zfs/zfs1    /dev/rdsk/c5t600A0980383030444D2B466542485934d0s2 scsi_vhci0 FCP        6g      C
+vs_5           /vol/ufs/ufs2    /dev/rdsk/c5t600A0980383030444D2B466542485937d0s2 scsi_vhci0 FCP        5g      C
+vs_5           /vol/ufs/ufs1    /dev/rdsk/c5t600A0980383030444D2B466542485936d0s2 scsi_vhci0 FCP        5g      C
+----
+. テスト対象の zpool がインポート可能であることを確認します。
++
+'*#zpool import*
+
++
+[listing]
+----
+# zpool import
+  pool: n_pool
+    id: 5049703405981005579
+ state: ONLINE
+action: The pool can be imported using its name or numeric identifier.
+config:
+
+        n_pool                                   ONLINE
+          c5t600A0980383030444D2B466542485935d0  ONLINE
+          c5t600A0980383030444D2B466542485934d0  ONLINE
+----
+. プール名またはプール ID を使用して zpool をインポートします。
++
+** '*#zpool import pool-name *
+** '*#zpool import pool-id *
+
+
++
+[listing]
+----
+#zpool import n_pool
+----
++
+[+]
+
++
+[listing]
+----
+#zpool import 5049703405981005579
+----
+. ZFS データセットがマウントされたことを確認します。
++
+** '*zfs list *
+** 「 * df -ah * 」と入力します
+
+
++
+[listing]
+----
+# zfs list
+NAME           USED  AVAIL  REFER  MOUNTPOINT
+n_pool        2.67G  9.08G   160K  /n_pool
+n_pool/pool1  1.50G  2.50G  1.50G  /n_pool/pool1
+n_pool/pool2  1.16G  2.84G  1.16G  /n_pool/pool2
+----
+. 必要に応じてテストを実行します。
+. テスト用ホストをシャットダウンします。
+. 7MTT UI で、 * テスト終了 * をクリックします。
+
+
+clustered Data ONTAP LUN をソースホストに再マッピングする場合は、ソースホストをカットオーバーフェーズ用に準備する必要があります。clustered Data ONTAP LUN をテスト用ホストにマッピングしたままにする場合、テスト用ホストでこれ以上の手順を実行する必要はありません。

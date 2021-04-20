@@ -1,0 +1,29 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_7_mode_snaplock_options.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, options, 7, mode 
+summary: 7-Mode Transition Tool では、 SnapLock ボリュームに関連するいくつかの 7-Mode のオプションがサポートされます。 
+---
+= 7-Mode の SnapLock オプションの移行に関する考慮事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool では、 SnapLock ボリュームに関連するいくつかの 7-Mode のオプションがサポートされます。
+
+Data ONTAP 7-Mode には、 SnapLock ボリュームに関連する次のオプションがあります。
+
+* 「 naplock.autocommit_period` 」をご覧ください
++
+このオプションは、 ONTAP ではボリュームレベルで、移行時に ONTAP に移行されます。
+
+* 「 naplock.compliance.write_verify` 」をご覧ください
++
+このオプションは ONTAP では使用できません。
+
+* 「 naplock.log.default_retention` 」をご覧ください
+* 'naplock.log.maximum_size
+
+
+「 naplock.log.default_retention` 」オプションと「 naplock.log.maximum_size 」オプションは ONTAP でサポートされますが、これらのオプションで設定された設定は 7-Mode Transition Tool では移行されません。移行が完了したら、監査ボリュームに対してこれらのオプションを手動で設定する必要があります。

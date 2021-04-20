@@ -1,0 +1,84 @@
+---
+permalink: san-host/task_reattaching_rdm_using_esxi_cli_console.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rdm, esxi, cli, console 
+summary: Data ONTAP 7-Mode から clustered Data ONTAP に移行したあとで、 raw デバイスマッピング（ RDM ）を再接続する必要があります。 
+---
+= ESXi CLI / コンソールを使用した RDM の再接続
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode から clustered Data ONTAP に移行したあとで、 Raw デバイスマッピング（ RDM ）を再接続する必要があります。
+
+* Inventory Assessment Workbook の Disk 列に表示された RDM ディスクファイルを取得する必要があります。
+* 新しい clustered Data ONTAP LUN NAA ID を 7MTT マッピングファイルから取得する必要があります。
+
+
+.手順
+. SSH を使用して ESXi コンソールにログインします。
+. mv コマンドを使用して、 RDM ディスクファイルおよび関連するデバイスファイルのバックアップを作成します。
++
+RDM ディスクファイルは、 _Inventory Assessment Workbook の Disk 列に表示されます。
+
++
+RDM ディスクファイルが「 /vmfs/volumes/53a3ac3d-df5aca03 -3a94-001ec9d631cb/vm2-win-bus -a /vm2-winbus-A.vmdk` 」の場合は、次のコマンドを問題します。
+
++
+*MV/VMFS/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/vm2-win-bus -A /vm2-winbus-A.vmdk/volumes/53a3ac3d-df5ac3a03-3a94-001ec9d62002-win*1-win-bus * バス
+
++
+** 物理互換 RDM （ PTRDM ）の場合： +`*MV_RDM_DISK_FILE_NAME__ -rdmp.vmk _RDM_DISK_FILE_NAME__ -rdmp.vmk _bak*`
++
+例：
+
++
+*MV/VMFS/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/vm2-win-bus -a -rdmp.vmdk /volumes/53a3ac3d-df5ac3ac3ac3d-df5ac3a94-001ac31-win9be-win9d1-rdbath*-dgas1-rdb-bus *
+
+** 仮想互換 RDM （ NPTRDM ）の場合： +`*MV_RDM_DISK_FILE_name__ -rdmp.vmk _RDM_DISK_FILE_NAME__ -rdmp.vdk_bak *`
++
+例：
+
++
+*MV/VMFS/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/vm2-win-bus -a -rdmp.vmdk /volumes/53a3ac3d-df5ac3ac3ac3d-df5ac3a94-001ac31-win9be-win9d1-rdbath*-dgas1-rdb-bus *
+
+
+
+. 新しい clustered Data ONTAP LUN NAA ID と RDM ディスクファイルを使用して、 RDM 構成ファイルとデバイスファイルを再作成します。
++
+** PTRDM の場合： +`*# vmkfstools – z/vmfs/devices/disks/__ new_cluster_new_cluster_naa_ID__.vmdk *
++
+例：
+
++
+*vmkfstools – z/VMFS/devices/disks/naa.600a098054314c6c442f79712313/vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/vm2-win-buse-a2-win-bus-1-win-db*.vmdk バス
+
+** NPTRDM の場合： +`*#vmkfstools – r/vmfs/devices/disks/____new_cluster_200a_— ONTAP_naa_ID__.vmdk *
++
+例：
+
++
+*vmkfstools – r/vmfs/devices/disks/naa.600a098054314c6c442f79712313/vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/vm2-win-bus-a-win-bus-1-win-db*.vmdk バス
+
+
+
+. 構成ファイルとポインタファイルが作成されたことを確認します。
++
+`*#ls /vmfs/volumes/__ データストア /vm_directory__ *`
+
++
+'*#ls /vmfs/volumes/53a3ac3d-df5aca03 -3a94-001ec9d631cb/VM2 -win-bus -a *
+
++
+新しい構成ファイルとポインタファイルは、 VM ディレクトリパスの下に表示されます。
+
+. RDM が接続されているすべての VM について、上記の手順を繰り返します。
+. ESXi ホストで hostd エージェントと vpxa エージェントを再起動します。
++
+`*/etc/init.d/hostd/restart*`
+
++
+*/etc/init.d/vpxa/restart *
+
+

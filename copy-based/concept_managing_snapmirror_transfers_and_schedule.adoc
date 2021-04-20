@@ -1,0 +1,21 @@
+---
+permalink: copy-based/concept_managing_snapmirror_transfers_and_schedule.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, manage, snapmirror, transfer, schedule 
+summary: データコピーフェーズでは、データコピースケジュールに基づいて clustered Data ONTAP ボリュームが 7-Mode ボリュームのデータで定期的に更新されます。SnapMirror のベースラインコピー処理、更新処理、および再同期処理に使用されるデータコピースケジュールの作成、編集、削除を行うことができます。 
+---
+= SnapMirror 転送およびスケジュールの管理
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+データコピーフェーズでは、データコピースケジュールに基づいて clustered Data ONTAP ボリュームが 7-Mode ボリュームのデータで定期的に更新されます。SnapMirror のベースラインコピー処理、更新処理、および再同期処理に使用されるデータコピースケジュールの作成、編集、削除を行うことができます。
+
+複数のデータコピースケジュールを指定して、移行対象として選択したすべてのボリュームのコピー処理を管理することができます。このスケジュールは、開始時刻、実行時間、更新頻度、スケジュール内で実行する SnapMirror の同時転送数、スロットル制限などの詳細情報で構成されます。
+
+平日、週末、営業時間、営業時間外など、さまざまな期間に複数の同時転送数とスロットル制限を指定できます。 DR スケジュールと DR 以外のスケジュール：
+
+* 関連情報 *
+
+xref:task_creating_a_transition_project.adoc[移行プロジェクトの作成]

@@ -1,0 +1,23 @@
+---
+permalink: copy-free/task_transitioning_a_snapmirror_relationship.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, snapmirror, relationship 
+summary: セカンダリ HA ペアを最初に移行し、 7-Mode プライマリボリュームと clustered Data ONTAP セカンダリボリュームの間に段階的な SnapMirror 関係を設定してから、プライマリ HA ペアを移行することができます。シナリオによっては、 7-Mode SnapMirror 関係のセカンダリとプライマリの HA ペアを並行して移行する必要があります。 
+---
+= SnapMirror 関係を移行する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+セカンダリ HA ペアを最初に移行し、 7-Mode プライマリボリュームと clustered Data ONTAP セカンダリボリュームの間に段階的な SnapMirror 関係を設定してから、プライマリ HA ペアを移行することができます。シナリオによっては、 7-Mode SnapMirror 関係のセカンダリとプライマリの HA ペアを並行して移行する必要があります。
+
+すべてのプライマリボリュームが一方の HA ペアに所属し、すべてのセカンダリボリュームがもう一方の HA ペアに所属する場合は、段階的な方法を使用して移行できます。
+
+いずれかの HA ペアでプライマリボリュームとセカンダリボリュームが混在している場合は、並行の方法を使用して移行する必要があります。
+
+プライマリとセカンダリの HA ペアを移行後に、 clustered Data ONTAP で Volume SnapMirror 関係を手動で設定する必要があります。再同期が成功するためには、 Data ONTAP 8.1 以降で作成された共通の Snapshot コピーが、 SnapMirror 関係のプライマリボリュームとセカンダリボリュームの間に少なくとも 1 つは存在している必要があります。
+
+* 関連情報 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["System Manager を使用したクラスタの管理"]

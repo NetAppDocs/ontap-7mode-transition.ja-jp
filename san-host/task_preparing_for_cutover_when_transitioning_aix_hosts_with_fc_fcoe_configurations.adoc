@@ -1,0 +1,24 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_aix_hosts_with_fc_fcoe_configurations.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, aix, host, fc, fcoe, configurations 
+summary: FC または FCoE 構成の AIX ホストのカットオーバーフェーズを開始する前に、特定の手順を実行する必要があります。 
+---
+= FC / FCoE 構成の AIX ホスト移行時のカットオーバーフェーズの準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC または FCoE 構成の AIX ホストのカットオーバーフェーズを開始する前に、特定の手順を実行する必要があります。
+
+clustered Data ONTAP ノードへのファブリック接続とゾーニングを確立しておく必要があります。
+
+コピーベースの移行の場合は、 7-Mode Transition Tool でストレージカットオーバー処理を完了したあとに以下の手順を実行します。AIX ホストでは、コピーフリーの移行はサポートされていません。
+
+.手順
+. ホストをシャットダウンします。
++
+'*shutdown-h*'
+
+

@@ -1,0 +1,297 @@
+---
+permalink: copy-free/reference_example_consolidating_nfs_export_rules_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, examples, nfs, export, rules, snapshot, schedules 
+summary: ONTAP で同様の 7-Mode エクスポートルールと 7-Mode Snapshot スケジュールを 1 つの NFS エクスポートポリシーおよび 1 つの Snapshot ポリシーに統合する例を確認できます。ターゲット SVM で一致する既存のポリシーを再利用するかどうかに関係なく、移行したボリュームまたは qtree に統合ポリシーがどのように割り当てられるかについて理解しておくこともできます。 
+---
+= の NFS エクスポートルールと Snapshot スケジュールの統合例 移行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP で同様の 7-Mode エクスポートルールと 7-Mode Snapshot スケジュールを 1 つの NFS エクスポートポリシーおよび 1 つの Snapshot ポリシーに統合する例を確認できます。ターゲット SVM で一致する既存のポリシーを再利用するかどうかに関係なく、移行したボリュームまたは qtree に統合ポリシーがどのように割り当てられるかについて理解しておくこともできます。
+
+
+
+== 移行のための NFS エクスポートルールを統合する例
+
+* 移行前の 7-Mode と ONTAP の NFS エクスポートルール *
+
+* 7-Mode エクスポートルール *
+
+[listing]
+----
+/vol/vol1       -sec=sys,rw,nosuid
+/vol/vol2       -sec=sys,rw,nosuid
+/vol/vol3       -sec=sys,rw,nosuid
+----
+* ONTAP * に存在するエクスポートポリシー
+
+[listing]
+----
+cluster-2::> vserver export-policy show -vserver vs1
+Vserver          Policy Name
+---------------  -------------------
+vs1              default
+vs1              export_policy_1
+----
+既存のエクスポートポリシー export_policy_1 には次のエクスポートルールがあります。
+
+[listing]
+----
+cluster-2::> vserver export-policy rule show -vserver vs1 -policyname export_policy_1
+             Policy          Rule    Access   Client                RO
+Vserver      Name            Index   Protocol Match                 Rule
+------------ --------------- ------  -------- --------------------- ---------
+vs1          export_policy_1 1       nfs      0.0.0.0/0             sys
+----
+* 移行後の ONTAP のエクスポートポリシー（統合あり、再利用なし） *
+
+7-Mode のボリューム vol1 、 vol2 、 vol3 には、同様のエクスポートルールがあります。そのため、移行後には、新しく統合されたエクスポートポリシーである transition_export_policy_1 がこれらのボリュームに割り当てられます。
+
+[listing]
+----
+cluster-2::> vserver export-policy show -vserver vs1
+Vserver          Policy Name
+---------------  -------------------
+vs1              default
+vs1              export_policy_1
+vs1              transition_export_policy_1
+3 entries were displayed.
+----
+[listing]
+----
+cluster-2::> vserver export-policy rule show -vserver vs1 -policyname transition_export_policy_1
+             Policy          Rule    Access   Client                RO
+Vserver      Name            Index   Protocol Match                 Rule
+------------ --------------- ------  -------- --------------------- ---------
+vs1          transition_export_policy_1
+                             1       nfs      0.0.0.0/0             sys
+----
+[listing]
+----
+cluster-2::> volume show -vserver vs1 -volume vol1,vol2,vol3 -fields policy
+vserver volume policy
+------- ------ --------------------------
+vs1     vol1   transition_export_policy_1
+vs1     vol2   transition_export_policy_1
+vs1     vol3   transition_export_policy_1
+3 entries were displayed.
+----
+* 移行後に ONTAP のエクスポートポリシーを統合および再利用 *
+
+7-Mode のボリューム vol1 、 vol2 、 vol3 には、同様のエクスポートルールがあります。そのため、移行後には、統合されたエクスポートポリシーがこれらのボリュームに割り当てられます。7-Mode エクスポートポリシーと一致するエクスポートポリシー export_policy_1 が SVM にすでに存在します。そのため、このポリシーがこれらのボリュームに適用されます。
+
+[listing]
+----
+cluster-2::> vserver export-policy show -vserver vs1
+Vserver          Policy Name
+---------------  -------------------
+vs1              default
+vs1              export_policy_1
+2 entries were displayed.
+----
+[listing]
+----
+cluster-2::> vserver export-policy rule show -vserver vs1 -policyname export_policy_1
+             Policy          Rule    Access   Client                RO
+Vserver      Name            Index   Protocol Match                 Rule
+------------ --------------- ------  -------- --------------------- ---------
+vs1          export_policy_1 1       nfs      0.0.0.0/0             sys
+----
+[listing]
+----
+cluster-2::> volume show -vserver vs1 -volume vol1,vol2,vol3 -fields policy
+vserver volume policy
+------- ------ --------------------------
+vs1     vol1   export_policy_1
+vs1     vol2   export_policy_1
+vs1     vol3   export_policy_1
+3 entries were displayed.
+----
+
+
+== 移行のための Snapshot ポリシーの統合例
+
+* 移行前の 7-Mode と ONTAP の Snapshot スケジュール *
+
+* 7-Mode スケジュール *
+
+|===
+| 7-Mode ボリューム | 7-Mode Snapshot スケジュール 
+
+
+ a| 
+vol1
+ a| 
+0 2 4@8 、 12 、 16 、 20 （週単位 Snapshot コピー： 0 、日単位 Snapshot コピー： 2 、時間単位 Snapshot コピー： 6 （ 2 、 4 、 8 、 12 、 16 ） 20 時間）
+
+
+
+ a| 
+vol2
+ a| 
+0 2 4@8 、 12 、 16 、 20
+
+
+
+ a| 
+（ 3 ） vol3
+ a| 
+0 2 4@8 、 12 、 16 、 20
+
+
+
+ a| 
+Vol4
+ a| 
+1 2 3@8 、 12 、 16 （週単位 Snapshot コピー： 1 、日単位 Snapshot コピー： 2 、時間単位 Snapshot コピー： 3 （ 8 、 12 、 16 時間））
+
+
+
+ a| 
+vol5
+ a| 
+2 2 3@8 、 12 、 16 （週単位 Snapshot コピー： 2 、日単位 Snapshot コピー： 2 、時間単位 Snapshot コピー： 3 （ 8 、 12 、 16 時間））
+
+|===
+* ONTAP * に存在する Snapshot ポリシー
+
+|===
+| Snapshot ポリシー名 | ポリシーの詳細 
+
+
+ a| 
+スケジュールの週次
+ a| 
+週単位、 count ： 1
+
+
+
+ a| 
+スケジュール DailyHourly4
+ a| 
+* スケジュールの詳細 *
+
+* Schedule1 ：日単位、 count1 ： 2
+* Schedule2 ：時間単位、 count2 ： 4 （ 8 、 12 、 16 、 20 時間ごと
+
+
+
+
+ a| 
+スケジュール時間 1
+ a| 
+毎時 8 、 12 、 16 、 20 時間、 count ： 4
+
+|===
+* 移行後の ONTAP の Snapshot ポリシー（統合あり、再利用なし） *
+
+|===
+| 7-Mode ボリューム | 7-Mode Snapshot スケジュール | ONTAP の Snapshot ポリシー 
+
+
+ a| 
+vol1
+ a| 
+0 2 4@8 、 12 、 16 、 20 （週単位 Snapshot コピー： 0 、日単位 Snapshot コピー： 2 、時間単位 Snapshot コピー： 4 （ 8 、 12 、 16 、 20 時間））
+ a| 
+* vol1 、 vol2 、 vol3 * の統合されたポリシー
+
+* 名前： transition_snapshot_policy_0
+* スケジュールの詳細
++
+** Schedule1 ：日単位、 count1 ： 2
+** Schedule2 ：時間単位、 count2 ： 4 （ 8 、 12 、 16 、 20 時間ごと
+
+
+
+
+
+
+ a| 
+vol2
+ a| 
+0 2 4@8 、 12 、 16 、 20
+ a| 
+（ 3 ） vol3
+
+
+
+ a| 
+0 2 4@8 、 12 、 16 、 20
+ a| 
+Vol4
+ a| 
+1 2 3@8 、 12 、 16 （週単位 Snapshot コピー： 1 、日単位 Snapshot コピー： 2 、時間単位 Snapshot コピー： 3 （ 8 、 12 、 16 時間））
+
+
+
+ a| 
+* 名前： transition_snapshot_policy_1
+* スケジュールの詳細
++
+** Schedule1 ：週単位、 count1 ： 1
+** Schedule2 ：日単位、 count2 ： 2
+** スケジュール 3 ：毎時、 count3 ： 3 個、 8 、 12 、 16 時間
+
+
+
+ a| 
+vol5
+ a| 
+2 2 3@8 、 12 、 16 （週単位 Snapshot コピー： 2 、日単位 Snapshot コピー： 2 、時間単位 Snapshot コピー： 3 （ 8 、 12 、 16 時間））
+
+|===
+* 移行後の ONTAP の Snapshot ポリシー。統合および再利用あり *
+
+|===
+| 7-Mode ボリューム | 7-Mode Snapshot スケジュール | ONTAP の Snapshot ポリシー 
+
+
+ a| 
+vol1
+ a| 
+0 2 4@8 、 12 、 16 、 20 （週単位 Snapshot コピー： 0 、日単位 Snapshot コピー： 2 、時間単位 Snapshot コピー： 4 （ 2 、 4 、 8 、 12 、 16 ） 20 時間）
+ a| 
+既存の ONTAP ポリシーが再利用される vol1 、 vol2 、 vol3 の統合されたポリシー
+
+名前： ScheduleDailyHourly4
+
+
+
+ a| 
+vol2
+ a| 
+0 2 4@8 、 12 、 16 、 20
+ a| 
+（ 3 ） vol3
+
+
+
+ a| 
+0 2 4@8 、 12 、 16 、 20
+ a| 
+Vol4
+ a| 
+1 2 3@8 、 12 、 16 （週単位 Snapshot コピー： 1 、日単位 Snapshot コピー： 2 、時間単位 Snapshot コピー： 3 （ 8 、 12 、 16 時間））
+
+
+
+ a| 
+* 名前： transition_snapshot_policy_1
+* スケジュールの詳細
++
+** Schedule1 ：週単位、 count1 ： 1
+** Schedule2 ：日単位、 count2 ： 2
+** スケジュール 3 ：毎時、 count3 ： 3 個、 8 、 12 、 16 時間
+
+
+
+ a| 
+vol5
+ a| 
+2 2 3@8 、 12 、 16 （週単位 Snapshot コピー： 2 、日単位 Snapshot コピー： 2 、時間単位 Snapshot コピー： 3 （ 8 、 12 、 16 時間））
+
+|===

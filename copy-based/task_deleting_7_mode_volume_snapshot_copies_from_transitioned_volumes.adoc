@@ -1,0 +1,24 @@
+---
+permalink: copy-based/task_deleting_7_mode_volume_snapshot_copies_from_transitioned_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, delete, volume, snapshot, copy 
+summary: 7-Mode ボリュームの Snapshot コピーは移行したボリュームから自動的に削除されないため、移行処理の完了後に手動で削除する必要があります。 
+---
+= 移行したボリュームから 7-Mode ボリュームの Snapshot コピーを削除する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode ボリュームの Snapshot コピーは移行したボリュームから自動的に削除されないため、移行処理の完了後に手動で削除する必要があります。
+
+7-Mode 環境と clustered Data ONTAP では、 Snapshot コピーの命名規則が異なるため、 7-Mode の Snapshot コピーを clustered Data ONTAP 環境の Snapshot コピーで自動的に上書きすることはできません。
+
+スペースを効率的に使用するには、不要な 7-Mode Snapshot コピーを削除します。 7-Mode と 7-Mode の SnapMirror 関係および 7-Mode と clustered Data ONTAP の SnapMirror 関係の Snapshot コピーも削除します。
+
+.手順
+. ストレージカットオーバー処理が完了したあとに、不要な 7-Mode Snapshot コピーを削除します。
++
+`* snap delete -vserver <svm_name> -volume <volume_name> -snapshot <snapshot_name> *`
+
+

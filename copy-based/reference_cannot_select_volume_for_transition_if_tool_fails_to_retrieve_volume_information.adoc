@@ -1,0 +1,19 @@
+---
+permalink: copy-based/reference_cannot_select_volume_for_transition_if_tool_fails_to_retrieve_volume_information.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, tool, fails, volume, information 
+summary: ボリュームを選択しようとすると、ボリューム選択ペインに「ボリューム情報を取得できませんでした」というエラーメッセージが表示されます。通常このエラーは、コントローラがビジーである場合に発生します。 
+---
+= ツールで障害が発生した場合、移行対象のボリュームを選択できません ボリューム情報を取得します
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ボリュームを選択しようとすると ' ボリューム選択ペインに ' ボリューム情報の取得に失敗しましたというエラーメッセージが表示されます通常このエラーは、コントローラがビジーである場合に発生します。
+
+
+
+== 回避策
+
+コントローラがビジーでなくなってから、もう一度ボリュームを選択します。

@@ -1,0 +1,15 @@
+---
+permalink: copy-based/concept_transitioning_volumes_using_7mtt_cli.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, cli, tool, columes 
+summary: 7-Mode Transition Tool では、コマンドを使用して 7-Mode ボリュームを移行できます。7-Mode Transition Tool を Linux システムにインストールした場合は、 CLI を使用して移行を実行する必要があります。 
+---
+= 7-Mode Transition Tool CLI を使用したボリュームの移行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool では、コマンドを使用して 7-Mode ボリュームを移行できます。7-Mode Transition Tool を Linux システムにインストールした場合は、 CLI を使用して移行を実行する必要があります。
+
+ツールによって、 7-Mode ストレージシステムのボリュームと IP アドレスの情報が収集され、 7-Mode 構成が検証され、クラスタとのやり取りを通じて SVM に構成が適用されます。

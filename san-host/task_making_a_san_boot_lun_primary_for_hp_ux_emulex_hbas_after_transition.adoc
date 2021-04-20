@@ -1,0 +1,73 @@
+---
+permalink: san-host/task_making_a_san_boot_lun_primary_for_hp_ux_emulex_hbas_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, san, boot, lun, primary, hp, ux, emulex, hba 
+summary: Data ONTAP 7-Mode の HP-UX ホストが SAN ブートであった場合は、 clustered Data ONTAP への移行後に SAN ブート LUN をプライマリブート LUN にする必要があります。 
+---
+= SAN ブート LUN を用のプライマリブート LUN にします 移行後に HP-UX Emulex HBA を使用します
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode の HP-UX ホストが SAN ブートであった場合は、 clustered Data ONTAP への移行後に SAN ブート LUN をプライマリブート LUN にする必要があります。
+
+データ移行が完了し、ブート LUN が clustered Data ONTAP ノードからホストにマッピングされている必要があります。
+
+コピーベースの移行の場合は、 7-Mode Transition Tool でストレージカットオーバー処理を完了したあとに以下の手順を実行します。HP-UX ホストでは、コピーフリーの移行はサポートされていません。
+
+.手順
+. シェルプロンプトで、 Emulex HBA を表示します。
++
+「 * ドライバ * 」
+
+. Emulex HBA を選択し、 Enter キーを押します。
+. 「セットアップユーティリティ」を選択します。
+. [ ブートパラメータの設定 *] を選択します。
+. [Configure Boot Devices] を選択します。
+. リストから任意のデバイスを選択し、 Enter キーを押します。
+. * Scan Targets * （スキャンターゲット）を選択します。
+. 必要なブートパスの LUN を選択し、 Enter キーを押します。
+. モードとして * Peripheral dev * を選択し、 Enter キーを押します。
+. [* Boot this device via WWN* ] を選択し、 Enter キーを押します。
++
+ブート LUN が表示されます。
+
+. シェルプロンプトに戻るまで * Esc * を押します。
+. LUN を表示して、ブートするパスを取得します。
++
+'*map-r *'
+
++
+LUN パスは、 Device 列の下に表示されます。ブート可能な SAN ディスクがマッピング・テーブル・カラムの下に表示され ' 出力文字列に WWN と Part 1 が表示されます
+
+. SAN ブート LUN の LUN パスを入力します。
++
+LUN パスの例は fs0 です。
+
+. EFI シェルを終了します。
++
+*cd efi *`
+
+. HPUX ディレクトリに移動します。
++
+「 * cd hpux * 」と入力します
+
+. 新しい clustered Data ONTAP の SAN ブート LUN をプライマリブート LUN にします。
++
+*bcfg boot add 1 hpux .efi "HP-UX - プライマリ・ブート "*`
+
+. SAN ブート LUN の EFI にエントリを作成して、 HBA BIOS を手動で更新します。
+. 代替ブートパスを作成します。
++
+*bcfg boot add 2 hpux .efi "HPUX alternate boot" *`
+
+. 3 つ目のブートパスを作成します。
++
+*bcfg boot add 2 hpux .efi "HPUX Third boot" *`
+
+. 4 つ目のブートパスを作成します。
++
+*bcfg boot add 2 hpux .efi "HPUX fourth boot"*`
+
+

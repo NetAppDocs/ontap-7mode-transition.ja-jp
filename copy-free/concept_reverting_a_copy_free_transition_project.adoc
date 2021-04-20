@@ -1,0 +1,17 @@
+---
+permalink: copy-free/concept_reverting_a_copy_free_transition_project.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, performing, rollback, 7, mode 
+summary: ロールバックとは、 ONTAP システムへの移行を中止して、 7-Mode システムにリバートする処理です。移行のロールバックは手動で行います。ただし、 7-Mode Transition Tool には、ロールバックで実行する必要のある手動タスクの一覧が表示されます。 
+---
+= 7-Mode への移行のロールバックの実行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ロールバックとは、 ONTAP システムへの移行を中止して、 7-Mode システムにリバートする処理です。移行のロールバックは手動で行います。ただし、 7-Mode Transition Tool には、ロールバックで実行する必要のある手動タスクの一覧が表示されます。
+
+SVM のプロビジョニング、エクスポート、ケーブル接続、インポート、テストの各フェーズで移行プロジェクトをロールバックできます。移行プロジェクトのコミット後は、ロールバックできません。
+
+移行したボリュームで LUN クローンや LUN クローンなどの新規に書き込まれたデータや変更されたデータは、ロールバック後に失われます。ボリュームは元の 7-Mode の状態にリバートされます。

@@ -1,0 +1,64 @@
+---
+permalink: san-host/task_mounting_hp_ux_host_luns_with_file_systems_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, hp, ux, host, lun, file, system 
+summary: ファイルシステムを搭載した HP-UX ホスト LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行した場合、移行後に LUN をマウントする必要があります。 
+---
+= 移行後のファイルシステムを搭載した HP-UX ホスト LUN のマウント
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ファイルシステムを搭載した HP-UX ホスト LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行した場合、移行後に LUN をマウントする必要があります。
+
+コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を完了したあとに以下の手順を実行します。HP-UX ホストでは、コピーフリーの移行はサポートされていません。
+
+.手順
+. 新しい clustered Data ONTAP LUN を検出します。
++
+「 * ioscan -fnC disk * 」を参照してください
+
+. clustered Data ONTAP LUN が検出されたことを確認します。
++
+「 * sanlun lun show * 」と表示されます
+
+. clustered Data ONTAP LUN の「 lun-pathname 」が、移行前の 7-Mode LUN の「 lun-pathname 」と同じであることを確認します。
+. mode カラムの出力が '7' から 'C' に変更されたことを確認します
+. 「 m apfile 」ファイルを使用してボリュームグループをインポートします。
++
+*vgimport -s -v-m/tmp/mapfile.vg01/dev/vg01" *`
+
+. 論理ボリュームをアクティブ化します。
++
+`*vgchange -a y_vg_name_*`
+
+. 従来の Device Special Filename （ DSF ；デバイススペシャルファイル名）を永続的な DSF に変換します。
++
+*vgdsf -c /dev/vg01 *`
+
+. VG のステータスが Available と表示されていることを確認します。
++
+'*vgdisplay*'
+
+. 各デバイスを手動でマウントします。
++
+*mount -F vxfs -o largefiles_device_name mount_point_*
+
+. プロンプトが表示されたら 'fsck コマンドを実行します
+. マウントポイントを確認します。
++
+「 *bdf *` 」
+
++
+次の例は、マウントポイントの表示方法を示しています。
+
++
+[listing]
+----
+bash-2.05# bdf
+Filesystem          kbytes     used     avail     used   Mounted on
+/dev/vg01/lvol1   23592960   1050952   22189796    5%   /mnt/qa/vg01
+/dev/vg01/lvol2   23592960    588480   22645044    3%   /mnt/qa/vg02
+----
+

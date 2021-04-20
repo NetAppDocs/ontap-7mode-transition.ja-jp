@@ -1,0 +1,79 @@
+---
+permalink: san-host/task_testing_dmmp_devices_with_file_systems_on_rhel_hosts_before_cutover_phase.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, dmmp, devices, rhel, hosts, cutover, phase 
+summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Red Hat Enterprise Linux \ （ RHEL \ ）ホストのコピーベースの移行を実行する場合は、 カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、 DMMP デバイスがマウント可能であることを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
+---
+= 前の RHEL ホスト上のファイルシステムを搭載した DMMP デバイスのテスト コピーベースの移行のカットオーバーフェーズ
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Red Hat Enterprise Linux （ RHEL ）ホストのコピーベースの移行を実行する場合は、 カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、 DMMP デバイスがマウント可能であることを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。
+
+新しい clustered Data ONTAP LUN をテスト用ホストにマッピングして、 LUN を移行できる状態にしておく必要があります。
+
+テスト用ホストとソースホスト間のハードウェアパリティを維持する必要があります。
+
+テスト用ホストで次の手順を実行します。
+
+. ベースラインデータコピーが完了したら、 7MTT ユーザインターフェイス（ UI ）で「 * Test Mode 」を選択します。
+. 7MTT UI で、 * 構成の適用 * をクリックします。
+. clustered Data ONTAP LUN の新しい SCSI デバイス名を取得します。
++
+「 * sanlun lun show * 」と表示されます
+
++
+次の例では '/dev/sdl' は 'lun_DMMP raw LUN の SCSI デバイス名 '/dev/sdk は 'lun_DMMP raw エイリアス LUN の SCSI デバイス名です
+
++
+[listing]
+----
+[root@ibmx3550-229-108 /]# sanlun lun show
+controller(7mode/E-Series)/
+vserver (cDOT/FlashRay) lun-pathname               filename
+-----------------------------------------------------------
+vs_brb  /vol/dmmp_raw_vol/lun_dmmp_raw              /dev/sdl
+vs_brb  /vol/dmmp_raw_alias_vol/lun_dmmp_raw_alias  /dev/sdk
+----
+. clustered Data ONTAP LUN 用に DMMP デバイスを設定します。
++
+「 * マルチパス * 」
+
+. clustered Data ONTAP LUN のデバイスハンドル ID を取得します。
++
+*multipath -ll *
+
++
+デバイスハンドル ID の例を次に示します。「 3600a09804d532d79565d47617679764d` 」
+
+. DMMP デバイスに設定されているファイルシステムを特定します。
++
+`*bkid|grep -i デバイス・ハンドル _ID_*`
+
+. ソース・ホストの /etc/fstab ファイルに ' 論理ボリュームのマウント・ポイント・エントリーが存在するかどうかを確認します
+. ソース・ホスト上の論理ボリュームのマウント・ポイント・エントリが存在する場合は ' テスト・ホスト上の /etc/fstab ファイルを手動で編集して ' マウント・ポイント・エントリを追加します
+. LUN をマウントします。
++
+*mount-a *`
+
+. DMMP デバイスがマウントされたことを確認します。
++
+'*mount*'
+
+. 必要に応じてテストを実行します。
+. テストが完了したら、テスト用ホストをシャットダウンします。
++
+*shutdown-h-t0 now *`
+
+. 7MTT UI で、 * テストの終了 * をクリックします。
+
+
+clustered Data ONTAP LUN をソースホストに再マッピングする場合は、ソースホストをカットオーバーフェーズ用に準備する必要があります。clustered Data ONTAP LUN をテスト用ホストにマッピングしたままにする場合、テスト用ホストでこれ以上の手順を実行する必要はありません。
+
+* 関連情報 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[Inventory Assessment Workbook からの移行前の情報収集]
+
+xref:task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.adoc[マウントを含む LUN 移行時のカットオーバーフェーズの準備 Linux ホストで DMMP デバイス名を使用するポイントです]

@@ -1,0 +1,51 @@
+---
+permalink: san-host/task_preparing_for_transition_of_esxi_hosts.html 
+sidebar: sidebar 
+keywords: transition, esxi, host 
+summary: 7-Mode Transition Tool （ 7MTT ）を使用して ESXi ホストを Data ONTAP 7-Mode から ONTAP に移行する前に、前提条件となるいくつかのタスクを実行する必要があります。 
+---
+= ESXi ホストの移行準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ）を使用して ESXi ホストを Data ONTAP 7-Mode から ONTAP に移行する前に、前提条件となるいくつかのタスクを実行する必要があります。
+
+.手順
+. の説明に従って、 clustered Data ONTAP を設定します link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-based/index.html["『 7-Mode Transition Tool Copy-Based Transition Guide 』"] または link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-free/index.html["『 7-Mode Transition Tool Copy-Free Transition Guide 』"] 実行する移行のタイプに基づいて判断します。
+. 移行する ESXi ホストに関する次の情報を収集します。
++
+** IP アドレス
+** ホスト名
+** 認証の詳細
+
+
+. FC / FCoE ホストと新しい clustered Data ONTAP ノード間のゾーニングを実行します。
++
+Collect and Assess 機能を使用してゾーニング計画を生成できます。
+
+. を使用します link:https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"] clustered Data ONTAP への移行対象として次の項目がサポートされていることを確認します。
++
+** Data ONTAP 7-Mode のバージョン
++
+場合によっては、 Data ONTAP 7-Mode を 7MTT SAN 対応のバージョンにアップグレードしなければならないことがあります。たとえば、 Data ONTAP 7.3.7 は、 7MTT を使用した移行には対応していません。このバージョンを実行している場合は、移行を開始する前にアップグレードが必要です。
+
+** ESXi ホストの構成
+** HBA ドライバとファームウェア
++
+iSCSI では、ソフトウェアイニシエータのみがサポートされます。FC および FCoE では、 QLogic イニシエータと Emulex イニシエータのみがサポートされます。使用している ESXi FC または FCoE イニシエータがサポートされていない場合は、 Interoperability Matrix の説明に従って、 clustered Data ONTAP でサポートされるバージョンにアップグレードする必要があります。
+
+
+
+. VMware High Availability （ HA ）と Distributed Resource Scheduler （ DRS ）が設定されている場合は、無効にします。
++
+VMware HA と DRS は移行時にサポートされません。
+
+
+
+* 関連情報 *
+
+http://kb.vmware.com/kb/2032893["で VMware DRS クラスタを無効にする際のリソースプールの保持 vSphere Web Client の場合"]
+
+http://kb.vmware.com/kb/1008025["VMware High Availability （ HA ；高可用性）の無効化"]

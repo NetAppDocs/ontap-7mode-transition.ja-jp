@@ -1,0 +1,15 @@
+---
+permalink: copy-based/concept_support_for_transitioning_snaplock_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, support, snaplock, volumes 
+summary: 7-Mode Transition Tool では、 9.6 を除く ONTAP 9.0 リリースを実行しているターゲットクラスタへの SnapLock ボリュームの移行がサポートされます。 
+---
+= SnapLock ボリュームの移行がサポートされます
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool では、 9.6 を除く ONTAP 9.0 リリースを実行しているターゲットクラスタへの SnapLock ボリュームの移行がサポートされます。
+
+SnapLock Enterprise ボリュームと SnapLock Compliance ボリュームは、 9.6 以外の ONTAP リリースを実行しているターゲットクラスタに移行することができます。ただし、ターゲットクラスタが MetroCluster 構成に含まれている場合、 SnapLock Compliance ボリュームの移行はサポートされません。

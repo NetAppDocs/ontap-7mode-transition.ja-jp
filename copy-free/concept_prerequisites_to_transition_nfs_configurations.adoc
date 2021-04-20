@@ -1,0 +1,40 @@
+---
+permalink: copy-free/concept_prerequisites_to_transition_nfs_configurations.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, prerequisites, nfs, configurations 
+summary: NFS 構成が 7-Mode Transition Tool で移行されるのは、 7-Mode システムおよびクラスタが一定の前提条件を満たしている場合のみです。条件が 1 つでも満たされていないと、構成は移行されません。 
+---
+= NFS 構成を移行するための前提条件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS 構成が 7-Mode Transition Tool で移行されるのは、 7-Mode システムおよびクラスタが一定の前提条件を満たしている場合のみです。条件が 1 つでも満たされていないと、構成は移行されません。
+
+
+
+== 7-Mode の前提条件
+
+* NFS のライセンスが有効になっていること。
+* MultiStore のライセンスがある場合は、すべての vFiler ユニットで NFS が有効になっている必要があります。
+* 移行時に 7-Mode システムで NFS サービスが実行されていること。
++
+クライアントアクセスの切断後、エクスポートフェーズを開始するための準備中であっても、 7-Mode システムでサービスが実行されている必要があります。
+
+* メモリ内のエクスポートルールを移行する場合は ' 移行前にそれらのルールを /etc/exports ファイルに追加する必要があります
++
+7-Mode Transition Tool で移行されるのは、「 /etc/exports 」ファイルに定義された永続的なエクスポートルールのみです。
+
+
+
+
+
+== クラスタの前提条件
+
+* NFS のライセンスが有効になっていること。
+
+
+* 関連情報 *
+
+http://docs.netapp.com/ontap-9/index.jsp["ネットアップのマニュアル： ONTAP 9"]

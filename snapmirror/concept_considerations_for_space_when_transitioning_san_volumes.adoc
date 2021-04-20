@@ -1,0 +1,25 @@
+---
+permalink: snapmirror/concept_considerations_for_space_when_transitioning_san_volumes.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, space, considerations, transition, san, volume 
+summary: 移行中にボリュームに十分なスペースを確保する必要があります。移行プロセスでは、データや Snapshot コピーの格納に必要なスペースに加えて、一部のファイルシステムメタデータの更新用に 1 つの LUN につき 1MB のスペースが必要です。 
+---
+= SAN ボリュームを移行する際のスペースに関する考慮事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行中にボリュームに十分なスペースを確保する必要があります。移行プロセスでは、データや Snapshot コピーの格納に必要なスペースに加えて、一部のファイルシステムメタデータの更新用に 1 つの LUN につき 1MB のスペースが必要です。
+
+カットオーバーの前に、 7-Mode ボリュームに対して「 d f -h 」コマンドを実行して、ボリューム内の各 LUN に 1MB の空きスペースがあるかどうかを確認できます。十分な空きスペースがない場合は、必要なスペースを 7-Mode ボリュームに追加する必要があります。
+
+デスティネーションボリュームのスペースが不足しているために LUN の移行が失敗した場合は、「 LUN.vol.proc.fail.no.space: ： Processing for LUNs in volume vol1 failed due to lack of space. 」という EMS メッセージが生成されます。
+
+この場合は ' デスティネーション・ボリュームで 'filesys-size-fixed 属性を false に設定し ' ボリュームに LUN 1 つあたり 1MB の空きスペースを追加する必要があります
+
+スペースリザーブ LUN を含むボリュームがある場合は、ボリュームのサイズを LUN 1 つあたり 1MB 増やしてもスペースが十分に確保されない可能性があります。この場合、ボリュームの Snapshot リザーブと同じサイズのスペースを追加する必要があります。デスティネーション・ボリュームにスペースを追加したら、「 lun transition start 」コマンドを使用して LUN を移行できます。
+
+* 関連情報 *
+
+http://docs.netapp.com/ontap-9/index.jsp["ネットアップのマニュアル： ONTAP 9"]

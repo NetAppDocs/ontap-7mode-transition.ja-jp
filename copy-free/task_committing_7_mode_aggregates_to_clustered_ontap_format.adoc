@@ -1,0 +1,24 @@
+---
+permalink: copy-free/task_committing_7_mode_aggregates_to_clustered_ontap_format.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, commit, project 
+summary: 移行の最後の手順は、 Copy-Free Transition プロジェクトのコミットです。アグリゲートをコミットしたあとで、 7-Mode へのロールバックを実行することはできません。 
+---
+= コピーフリーの移行プロジェクトのコミット
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行の最後の手順は、 Copy-Free Transition プロジェクトのコミットです。アグリゲートをコミットしたあとで、 7-Mode へのロールバックを実行することはできません。
+
+移行したデータと構成を手動で検証し、ワークロードとアプリケーションをテストしておく必要があります。
+
+エクスポートフェーズで作成されたアグリゲートレベルの Snapshot コピーがすべて削除されます。
+
+.手順
+. [* 確定 * （ Commit * ） ] をクリック
+. 表示される警告メッセージで、「 * はい * 」をクリックします。
+
+
+テストフェーズですべての制限を排除し、移行したボリュームで本番環境のデータを提供できるかどうかをテストフェーズでテストします。

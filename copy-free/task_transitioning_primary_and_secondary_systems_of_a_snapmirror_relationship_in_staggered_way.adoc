@@ -1,0 +1,84 @@
+---
+permalink: copy-free/task_transitioning_primary_and_secondary_systems_of_a_snapmirror_relationship_in_staggered_way.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, ha, pairs, snapmirror, relationship, staggered, configuration 
+summary: セカンダリ HA ペアを最初に移行し、 7-Mode プライマリボリュームと ONTAP セカンダリボリュームの間に段階的な SnapMirror 関係を設定してから、プライマリ HA ペアを移行することができます。 
+---
+= 段階的な SnapMirror 関係にある HA ペアの移行 設定
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+セカンダリ HA ペアを最初に移行し、 7-Mode プライマリボリュームと ONTAP セカンダリボリュームの間に段階的な SnapMirror 関係を設定してから、プライマリ HA ペアを移行することができます。
+
+ソースクラスタとデスティネーションクラスタで SnapMirror 関係を移行する準備をしておく必要があります。
+
+xref:task_preparing_cluster_for_transitioning_volume_snapmirror_relationships.adoc[クラスタで Volume SnapMirror 関係を移行する準備をしています]
+
+.手順
+. 7-Mode Transition Tool で、 7-Mode の Volume SnapMirror 関係のセカンダリボリュームを含む HA ペアに対して、コピーフリーの移行を実行します。
++
+セカンダリボリュームを含む 7-Mode HA ペアを移行する前に、 7-Mode の SnapMirror 関係に対する手動の操作は必要ありません。これにより、 7-Mode のセカンダリボリュームは、読み取り専用ボリュームとして ONTAP に移行されます。
+
++
+xref:task_performing_copy_free_transition_of_7_mode_aggregates.adoc[コピーフリーの移行を使用した 7-Mode アグリゲートの移行]
+
+. セカンダリ HA ペアのコミット前テストフェーズで、 7-Mode プライマリボリュームと ONTAP セカンダリボリュームの間にディザスタリカバリ関係を作成します。
++
+.. セカンダリデスティネーションクラスタから、「 vserver peer transition create 」コマンドを使用して、 7-Mode プライマリボリュームと ONTAP セカンダリボリュームの間に SVM ピア関係を作成します。
+.. 「 job schedule cron create 」コマンドを使用して、 7-Mode の SnapMirror 関係用に設定されているスケジュールと一致するジョブスケジュールを作成します。
+.. 「 snapmirror create 」コマンドを使用して、 7-Mode のプライマリボリュームと ONTAP のセカンダリボリュームの間に TDP タイプの SnapMirror 関係を作成します。
+.. 「 snapmirror resync 」コマンドを使用して、 ONTAP セカンダリ・ボリュームを再同期します。
++
+再同期が成功するためには、 7-Mode のプライマリボリュームと ONTAP のセカンダリボリュームに共通の 7-Mode Snapshot コピーが存在する必要があります。
+
+
+
+. 移行したアグリゲートとボリュームに対して必要なテストを実行します。
+. 7-Mode Transition Tool で、セカンダリ HA ペアのプロジェクトの移行をコミットします。
++
+xref:task_committing_7_mode_aggregates_to_clustered_ontap_format.adoc[コピーフリーの移行プロジェクトのコミット]
+
+. 7-Mode の Volume SnapMirror 関係のプライマリボリュームを含む HA ペアに対して、コピーフリーの移行を実行します。
++
+xref:task_performing_copy_free_transition_of_7_mode_aggregates.adoc[コピーフリーの移行を使用した 7-Mode アグリゲートの移行]
+
+. プライマリ HA ペアのコミット前テストフェーズで、移行したセカンダリボリュームとプライマリボリュームの間に SnapMirror 関係を作成します。
++
+.. デスティネーションクラスタから、移行したプライマリボリュームとセカンダリボリュームを含む SVM 間にクラスタ間 SVM ピア関係を作成します。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["システム管理"]
+
+.. TDP SnapMirror を削除するには、「 snapmirror delete 」コマンドを使用します 7-Mode プライマリボリュームと ONTAP セカンダリの関係 手順で作成したボリューム <<SUBSTEP_D528769DF8EC49058D1958565914CF47,#手順 _D528769DF8EC49058D1958565914CF47>>。
+.. 手順で作成した cron ジョブスケジュールを削除します <<SUBSTEP_EB470706425C45759EAAE8F0A87BA547,#手順 _EB470706425C45759EAAE8F0A87BA547>>:+`* job schedule cron delete *`
+.. 移行したプライマリボリュームとセカンダリボリュームの間に Volume SnapMirror 関係を作成します。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-cg/home.html["ボリュームディザスタリカバリの簡単な設定"]
+
+.. デスティネーション・ボリュームで、 SnapMirror 関係のソース・ボリュームとデスティネーション・ボリュームを再同期化します。 +`*snapmirror resync *`
++
+
+IMPORTANT: ソースボリュームとデスティネーションボリュームの間には、共通の Snapshot コピーが少なくとも 1 つ必要です。
+
++
+* トラブルシューティング：共通の Snapshot コピーが Data ONTAP 8.1 より前のリリースで作成された場合、 SnapMirror の再同期が失敗します。advanced 権限レベルで '-fs-version' パラメータを volume snapshot show コマンドとともに使用すると ' スナップショット・コピーが作成されたリリースを表示できますこの問題が発生した場合は、 SnapMirror 関係を解除してから再同期を実行します。
+
+.. SnapMirror データ転送のステータスを監視します。 +`*snapmirror show *`
++
+
+IMPORTANT: 再同期が完了するまでは、ソースボリュームとデスティネーションボリュームでボリューム移動や SnapMirror 解除などの処理を実行しないでください。再同期は中断せずに正常に完了するようにしてください。中断しないと、ボリュームが不整合状態になる可能性があります。
+
+
+
+. プライマリプロジェクトの移行をコミットします。
++
+xref:task_committing_7_mode_aggregates_to_clustered_ontap_format.adoc[コピーフリーの移行プロジェクトのコミット]
+
+
+
+* 関連情報 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mdt-sm/home.html["SnapMirror による 7-Mode データの移行"]
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 のコマンド"]

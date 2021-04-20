@@ -1,0 +1,25 @@
+---
+permalink: copy-based/concept_considerations_for_chain_of_custody_verification_for_7_mode_snaplock_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, chain, custody, verification, snaplock, volumes, considerations 
+summary: 7-Mode SnapLock ボリュームで CoC 検証を実施する場合の考慮事項を確認しておく必要があります。 
+---
+= 7-Mode SnapLock で CoC 検証を実施する場合の考慮事項 個のボリューム
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode SnapLock ボリュームで CoC 検証を実施する場合の考慮事項を確認しておく必要があります。
+
+* SnapLock の CoC 検証は、 SnapLock ボリュームの移行に際して必須の場合にのみ実行してください。
++
+CoC 検証は、プロジェクト内のすべてまたは一部の SnapLock ボリュームに対して実行できます。
+
+* SnapLock の CoC 検証は、 7-Mode SnapLock ボリュームのファイル数によってはかなりの時間がかかることがあります。
+* CoC 検証は読み書き可能でのみサポートされます 7-Mode SnapLock ボリューム
++
+読み取り専用ボリュームでは実行できません。
+
+* また、名前に非 ASCII 文字を含むファイルが格納されている SnapLock ボリュームでもサポートされません。
+

@@ -1,0 +1,110 @@
+---
+permalink: copy-free/concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, nfs, transition, supported, unsupported, required, manual, steps 
+summary: 一部の NFS 構成は ONTAP に移行されません。移行されないのは、 ONTAP でサポートされていない構成、 7-Mode とは機能が異なる構成、または手動で移行しなければならない構成です。事前確認のエラーおよび警告メッセージをすべて検証して、このような構成が移行に及ぼす影響を評価する必要があります。 
+---
+= NFS の移行：サポートされる構成とされない構成、必要な手動手順
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+一部の NFS 構成は ONTAP に移行されません。移行されないのは、 ONTAP でサポートされていない構成、 7-Mode とは機能が異なる構成、または手動で移行しなければならない構成です。事前確認のエラーおよび警告メッセージをすべて検証して、このような構成が移行に及ぼす影響を評価する必要があります。
+
+
+
+== 移行対象としてサポートされる構成
+
+以下の NFS 構成が 7-Mode Transition Tool で移行されます。
+
+* NFS オプション：
++
+** 「 nfs.udp.xfersize 」
+** 「 nfs.v4.id.domain 」
+** 'nfs.v4.acl.max.aces
+** 「 nfs.tcp.xfersize 」
+** 「 nfs.rpcsec.ctx.high 」のようになります
+** 「 nfs.rpcsec.ctx.idle. 」と入力します
+** 'nfs.response.trigg`
+** wafl.default_nt_user`
+** 「 nfs.mount_rootonly 」
+** 「 nfs.tcp.enable 」を参照してください
+** 「 nfs.udp.enable 」を参照してください
+** 「 nfs.response.trace
+** 'nfs.v4.read_delegation
+** 「 nfs.v4.write_delegation 」というようにします
+** 「 nfs.v4.acl.enable 」を参照してください
+** 「 nfs.vstorage.enable 」を参照してください
+** 'nfs.v3.enable`
+** 'nfs.v4.enable `
+
+
+* NFS エクスポートルール：
++
+actual オプションを使用してエクスポートルールが設定される場合、エクスポートパス（エイリアスパス）は無視され、実際のパスを使用してエクスポートルールが設定されます。
+
+* Kerberos セキュリティ krb5p を使用したエクスポートルール
+
+
+これらの NFS 構成の詳細については、事前確認の結果を参照してください。
+
+
+
+== ONTAP でサポートされない構成です
+
+次の NFS 構成は ONTAP でサポートされません。
+
+* サブボリュームの NFS エクスポートでは、 qtree レベルの NFS エクスポート以外がエクスポートされます
+* WebNFS の場合と
+* PC-NFS
+* NFSv2
+* 1 つ以上のファイルシステムからの NFS クライアントのフェンシング パス
+* 一部の NFS オプション
++
+サポート対象外のオプションの一覧については、事前確認の警告メッセージを参照してください。
+
+
+
+
+
+== 手動で移行する必要のある構成
+
+一部の NFS 構成は、 ONTAP でサポートされるものの、 7-Mode Transition Tool では移行されません。
+
+以下の NFS 構成では、事前確認処理の際に警告メッセージが生成されます。これらの構成は手動で SVM に適用する必要があります。
+
+* NFS 監査構成
+* NFS オプション：
++
+** 「 rpc.mps.tcp.port 」を参照してください
+** 「 rpc.mps.udp.port 」を参照してください
+** rpc.mountd.tcp.port
+** rpc.mountd.udpport
+** 「 nfs.export.neg.timeout 」のように設定されています
+** 「 nfs.export.pos.timeout 」のようになります
+** 'nfs.export.harvest.timeout 'vserver nfs modify コマンドを使用して 'NFS 対応の Storage Virtual Machine （ SVM ）の構成を変更します
+
+
+* Kerberos 設定
+
+
+
+
+== ONTAP で機能が異なる構成
+
+以下の NFS 構成は、 ONTAP では機能が異なります。
+
+* NFS エクスポートルール
+* NFS エクスポートアクセスキャッシュ
+* NFS 診断コマンド
+* 「 howmount 」コマンドのサポート
+* NFS Kerberos 暗号化
+* NLM バージョンのサポート
+
+
+* 関連情報 *
+
+xref:task_customizing_configurations_for_transition.adoc[7-Mode 構成の移行のカスタマイズ]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]

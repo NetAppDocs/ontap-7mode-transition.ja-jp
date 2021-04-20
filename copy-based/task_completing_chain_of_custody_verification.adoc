@@ -1,0 +1,34 @@
+---
+permalink: copy-based/task_completing_chain_of_custody_verification.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, complete, chain, custody, verification 
+summary: CoC 検証の対象として選択されている SnapLock ボリュームがある場合は、 CoC 処理を実行して CoC レポートを作成する必要があります。 
+---
+= CoC 検証の実行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CoC 検証の対象として選択されている SnapLock ボリュームがある場合は、 CoC 処理を実行して CoC レポートを作成する必要があります。
+
+プロジェクトの移行が完了している必要があります。
+
+SnapLock の CoC 処理は、名前に ASCII 文字のみを含むファイルが格納されているボリュームでサポートされます。
+
+. 移行ダッシュボードで、 * CoC * を開始します。
++
+CoC 検証の完了後に 7-Mode SnapLock ボリュームをオンラインのままにする場合は、 CoC 検証処理の完了後に CoC 検証の対象として選択されている * 7-Mode SnapLock ボリュームをオフラインにする * チェックボックスをオフにする必要があります。
+
+. [* Continue （続行） ] をクリックします
++
+CoC 検証処理が開始されます。SnapLock ボリュームのファイル数によっては、この処理にはかなりの時間がかかることがあります。[ バックグラウンドで実行（ Run in Background ） ] をクリックすると、バックグラウンドで処理を実行できます。
+
++
+CoC 検証処理の進捗状況は、 Migration Dashboard ウィンドウで SnapLock Chain of CoC タブをクリックすることで追跡できます。このタブには、 CoC 処理の進行状況がボリュームごとに表示されます。
+
+. CoC 処理が完了したら、 SnapLock CoC 検証レポートをダウンロードするために、 CoC タブの * Download Report * をクリックします。
++
+CoC 検証レポート SnapLock には、 CoC 検証の成否に関する詳細が記載されています。CoC 処理の対象として選択されている 7-Mode SnapLock ボリュームごとに、ファイルの総数と WORM 以外のファイルの数が示されます。また、フィンガープリントが一致するファイルと一致しないファイルの数も確認できます。さらに、 CoC 検証が失敗した WORM ファイルの数と、その理由も記載されます。
+
+

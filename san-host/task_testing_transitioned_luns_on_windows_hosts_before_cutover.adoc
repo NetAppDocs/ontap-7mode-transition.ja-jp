@@ -1,0 +1,61 @@
+---
+permalink: san-host/task_testing_transitioned_luns_on_windows_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, test, lun, windows, cutover, phase 
+summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Windows ホスト LUN を移行する場合は、 移行した clustered Data ONTAP LUN をテストして、カットオーバーフェーズの前にディスクをオンラインにできること、およびアプリケーションが想定どおりに動作することを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
+---
+= カットオーバーフェーズ前の Windows ホスト上の移行した LUN のテスト
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Windows ホスト LUN を移行する場合は、 移行した clustered Data ONTAP LUN をテストして、カットオーバーフェーズの前にディスクをオンラインにできること、およびアプリケーションが想定どおりに動作することを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。
+
+7-Mode LUN を移行できる状態にしておく必要があります。
+
+テスト用ホストとソースホスト間のハードウェアパリティを維持し、テスト用ホストで以下の手順を実行する必要があります。
+
+clustered Data ONTAP LUN は、テスト時には読み取り / 書き込みモードになります。テストが完了してカットオーバーフェーズの準備を行う段階で、読み取り専用モードに切り替わります。
+
+.手順
+. ベースラインデータコピーが完了したら、 7MTT ユーザインターフェイス（ UI ）で「 * Test Mode 」を選択します。
+. 7MTT UI で、 * 構成の適用 * をクリックします。
+. 7-Mode から clustered Data ONTAP への LUN マッピングファイルを生成します。
++
+** コピーベースの移行の場合は、 7MTT がインストールされているホストから次のコマンドを実行します。 +`* transition cbt export lunmap -p _project-name _-o file_path_*`
++
+例：
+
++
+*transition cbt export lunmap -p SanWorkLoad-o c:\Libraires/Documents/7-C-lun-mapping.csv *
+
+** コピーフリーの移行の場合は、 7MTT がインストールされているシステムから次のコマンドを実行します。 +`* transition cft export lunmap -p _project-name _s_s_s_s_SVM_name_o_output-file_`
++
+
+NOTE: このコマンドはそれぞれの Storage Virtual Machine （ SVM ）に対して実行する必要があります。
+
++
+例：
+
++
+*transition cft export lunmap -p SANWorkLoad -s svml -o c ： /Libraries/Documents/7-C-lun-mapping-svml.csv *
+
+
+
+. 移行したディスクとアプリケーションをオンラインにします。
++
+** 移行したディスクがクラスタフェイルオーバーの対象でない場合は、 Windows ディスクマネージャを使用してディスクをオンラインにします。
+** 移行したディスクがクラスタフェイルオーバーの対象である場合は、クラスタフェイルオーバーマネージャを使用してディスクをオンラインにします。
+
+
+. 必要に応じてテストを実行します。
+. テストが完了したら、アプリケーションとディスクをオフラインにします。
++
+** 移行したディスクがクラスタフェイルオーバーの対象でない場合は、 Windows ディスクマネージャを使用してディスクをオフラインにします。
+** 移行したディスクがクラスタフェイルオーバーの対象である場合は、クラスタフェイルオーバーマネージャを使用してディスクをオフラインにします。
+
+
+
+
+clustered Data ONTAP LUN をソースホストに再マッピングする場合は、ソースホストをカットオーバーフェーズ用に準備する必要があります。clustered Data ONTAP LUN をテスト用ホストにマッピングしたままにする場合、テスト用ホストでこれ以上の手順を実行する必要はありません。

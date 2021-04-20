@@ -1,0 +1,3448 @@
+---
+permalink: command-map/reference_how_7_mode_options_map_to_clustered_ontap_commands.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, commands, options 
+summary: Data ONTAP 7-Mode では、 options コマンドを実行して、ストレージシステムソフトウェアの設定可能なオプションを設定します。ONTAP では、コマンドパラメータを使用して、これらのオプションを設定します。以降の表を使用して、 7-Mode コマンドと ONTAP コマンドのマッピングを確認できます。 
+---
+= 7-Mode オプションと ONTAP コマンドのマッピング
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode では 'options コマンドを実行して ' 構成可能なストレージ・システム・ソフトウェア・オプションを設定しますONTAP では、コマンドパラメータを使用して、これらのオプションを設定します。以降の表を使用して、 7-Mode コマンドと ONTAP コマンドのマッピングを確認できます。
+
+「 7-Mode コマンド」列では、わかりやすくするために、基本オプションコマンドは省略しています。「 acp.domain 」と表示されている場合、実際のコマンドは options 「 acp.domain 」です。
+
+この章の表の構成については、「 7-Mode と clustered Data ONTAP のコマンドマッピングについて」を参照してください。
+
+xref:concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.adoc[7-Mode と clustered Data ONTAP のコマンドマップの概要]
+
+
+
+== A-E
+
+[role="lead"]
+* a *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+「 acp.domain 」のようになりました
+ a| 
+*system node run -node ｛ nodename |local ｝ options acp.domain *
+
+
+
+ a| 
+「 acp.enabled 」と入力します
+ a| 
+*system node run -node ｛ nodename |local ｝ options acp.enabled *
+
+
+
+ a| 
+acp.netmask`
+ a| 
+*system node run -node ｛ nodename |local ｝ options acp.netmask*`
+
+
+
+ a| 
+「 acp.port 」のように入力します
+ a| 
+*system node run -node ｛ nodename |local ｝ options acp.port *
+
+
+
+ a| 
+'auditlog.enable
+ a| 
+「セキュリティ監査」
+
+
+
+ a| 
+'auditlog.max_file_size
+ a| 
+サポート対象外
+
+
+
+ a| 
+'auditlog.readonly_api.enable
+ a| 
+「セキュリティ監査」
+
+
+
+ a| 
+autologout.console.enable
+ a| 
+*system timeout modify-timeout *
+
+
+
+ a| 
+autologout.console.timeout
+ a| 
+*system timeout modify-timeout *
+
+
+
+ a| 
+autologout.telnet.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+autologout.telnet.timeout
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 autosupport.cifs.cifs.verbose` 」を指定します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 autosupport.content 」を参照してください
+ a| 
+*system node AutoSupport modify -nodename_remove-private-data {true|false }*`
+
+
+
+ a| 
+「 autosupport.doit 」を使用します
+ a| 
+*system node AutoSupport invoke -node _nodename Type { all | test }*`
+
+
+
+ a| 
+「 autosupport.enable 」のように入力します
+ a| 
+*system node AutoSupport modify -node _nodename __ -state { enable | disable }*`
+
+
+
+ a| 
+autosupport.from`
+ a| 
+'*system node AutoSupport modify -node _nodename __ from *
+
+
+
+ a| 
+「 autosupport.local_collection 」のように指定します
+ a| 
+*system node AutoSupport modify -nodename_local-collection {true|false }*`
+
+
+
+ a| 
+「 autosupport.mailhost 」
+ a| 
+*system node AutoSupport modify -nodename_mail-hosts *
+
+
+
+ a| 
+「 autosupport.max_http_size 」のようになります
+ a| 
+*system node AutoSupport modify -node _nodename --max-http-size *`
+
+
+
+ a| 
+「 autosupport.max_smtp_size 」を参照してください
+ a| 
+*system node AutoSupport modify -nodename_max-smtp-size *
+
+
+
+ a| 
+「 autosupport.minimal.subject.id` 」と入力します
+ a| 
+*system node AutoSupport modify -nodename_-hostname-subj *`
+
+
+
+ a| 
+`autosupport.nht_data.enable (SMF ではありません )
+ a| 
+'*AutoSupport modify-nht *
+
+*system node AutoSupport modify -nht *
+
+
+
+ a| 
+autosupport.noteto`
+ a| 
+*system node AutoSupport modify -node _nodename_-noteto *`
+
+
+
+ a| 
+「 autosupport.partner.to 」
+ a| 
+*system node AutoSupport modify -nodename_-partner-address *
+
+
+
+ a| 
+「 autosupport.performance_data.autosupport.doit 」のように設定します
+ a| 
+*system node AutoSupport invoke -node nodename Type performance *
+
+
+
+ a| 
+「 autosupport.performance_data.enable 」というメッセージが表示されます
+ a| 
+*system node AutoSupport modify -nodename_perf {true|false}*`
+
+
+
+ a| 
+`autosupport.periodic.tx_window`
+ a| 
+「 * system node AutoSupport modify -node _nodename 」 -periodic-tx-window *
+
+
+
+ a| 
+「 autosupport.retry.count 」のように指定します
+ a| 
+*system node AutoSupport modify -node _nodename --retry-count *`
+
+
+
+ a| 
+autosupport.retry.interval`
+ a| 
+*system node AutoSupport modify -node _nodename --retry-interval *
+
+
+
+ a| 
+「 autosupport.support.enable 」を参照してください
+ a| 
+*system node AutoSupport modify -node _nodename __ -support { enable | disable }*`
+
+
+
+ a| 
+autosupport.support.proxy`
+ a| 
+*system node AutoSupport modify -nodename_-proxy-url *
+
+
+
+ a| 
+「 autosupport.support.reminder 」というメッセージが表示されます
+ a| 
+*system node AutoSupport show -node nodename __ -fields reminder *`
+
+
+
+ a| 
+「 autosupport.support.transport` 」と入力します
+ a| 
+'*system node AutoSupport modify -node _nodename_transport { http|http|http|smtp} *`
+
+
+
+ a| 
+「 autosupport.to 」のように入力します
+ a| 
+*system node AutoSupport modify -node _nodename __ to *
+
+
+
+ a| 
+「 autosupport.validate_digital_certificate 」というメッセージが表示されます
+ a| 
+*system node AutoSupport modify -node nodename -validate-digital-certificate { true | false }*`
+
+|===
+[role="lead"]
+*B*
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+「 backup.log.enable 」を参照してください
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* C *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+cdcdpd を有効にします
+ a| 
+*system node run -node ｛ nodename |local ｝ options cdpd.enable *
+
+
+
+ a| 
+cdpd .holdtime
+ a| 
+*system node run -node ｛ nodename |local ｝ options cdpd.holdtime *
+
+
+
+ a| 
+cdpd.interval`
+ a| 
+*system node run -node ｛ nodename |local ｝ options cdpd.interval*`
+
+
+
+ a| 
+cf.giveback.auto.after.panic.takeover`
+ a| 
+「 * storage failover modify -auto-giveback -after-panic * 」のように入力します
+
+
+
+ a| 
+cf.giveback.auto.cancel.on_network_failure`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cf.giveback.auto.delay.seconds`
+ a| 
+'*storage failover modify-delay-seconds*
+
+
+
+ a| 
+cf.giveback.auto.enable`
+ a| 
+'*storage failover modify -auto-giveback*
+
+
+
+ a| 
+「 cf.hw_assist.enable 」を参照してください
+ a| 
+'*storage failover modify -hwassist *
+
+
+
+ a| 
+「 cf.hw_assist.partner.address 」のように入力します
+ a| 
+*storage failover modify hwassist -partner-ip *
+
+
+
+ a| 
+「 cf.hw_assist.partner.port 」のように入力します
+ a| 
+*storage failover modify hwassist -partner-port *
+
+
+
+ a| 
+「 cf.mode 」のようになります
+ a| 
+'*storage failover modify-mode *
+
+
+
+ a| 
+「 cf.remote_syncmirror.enable 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 cf.sfoaggr_maxtime 」のようになります
+ a| 
+*storage failover modify -aggregate migration-timeout *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+cf.takeover.change_fsid`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cf.takeover.detection.seconds`
+ a| 
+*storage failover modify -detection -time *
+
+
+
+ a| 
+「 cf.takeover.on_disk_shelf_miscompare 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 cf.takeover.on_failure 」
+ a| 
+*storage failover modify -onfailure*
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 cf.takeover.on_network_interface_failure
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 cf.takeover.on_network_interface_failure.policy all_nics 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 cf.takeover.on_panic 」
+ a| 
+*storage failover modify -onpanic *
+
+
+
+ a| 
+「 cf.takeover.on_reboot 」
+ a| 
+*storage failover modify -onreboot*
+
+
+
+ a| 
+「 cf.takeover.on_short_uptime 」
+ a| 
+*storage failover modify -onshort-uptime*
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+cifs.LMCompatibilitylevel
+ a| 
+'*vserver cifs security modify -lm-compatibility-level *
+
+
+
+ a| 
+cifs.audit.autosave.file.extension`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.audit.autosave.file.limit`
+ a| 
+'*vserver audit modify -rotate-limit *
+
+
+
+ a| 
+cifs.audit.autosave.onsize.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.audit.autosave.onsize.threshold`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.audit.autosave.ontime.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.audit.autosave.ontime.interval`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.audit.enable`
+ a| 
+'*vserver audit *'
+
+
+
+ a| 
+cifs.audit.file_access_events.enable`
+ a| 
+'*vserver audit modify-events *'
+
+
+
+ a| 
+cifs.audit.nfs.filter.filename`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.audit.logon_events.enable`
+ a| 
+'*vserver audit modify -events cifs-logon-logoff*
+
+
+
+ a| 
+cifs.audit.logsize`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.audit.nfs.enable`
+ a| 
+'*vserver audit modify -events file-ops *
+
+
+
+ a| 
+cifs.audit.nfs.filter.filename`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.audit.saveas`
+ a| 
+'*vserver audit modify -destination *
+
+
+
+ a| 
+'cifs.bypass_traverse_checking '
+ a| 
+'*vserver cifs users-and-groups privilege *
+
+
+
+ a| 
+cifs.comment`
+ a| 
+「 * vserver cifs create -comment * 」のように入力します
+
+
+
+ a| 
+cifs.enable_share_browsing 」のように指定します
+ a| 
+「 vserver cifs share 」のようになります
+
+
+
+ a| 
+'cifs.gpo.enable
+ a| 
+「 * vserver cifs group-policy * 」という文字を使用しています
+
+
+
+ a| 
+'cifs.gpo.trace.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.grant_implicit_exe_perms`
+ a| 
+'*vserver cifs options modify -read-grant-exec*
+
+
+
+ a| 
+'cifs.guest_account'
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 cifs.home_dir_namestyle 」
+ a| 
+「 * vserver cifs share create * 」のように指定します
+
+
+
+ a| 
+'cifs.home_dirs_public'
+ a| 
+'*vserver cifs home-directory modify -is-home-dirs-access-for-public-enabled ｛ true|false ｝ *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'cifs.home_dirs_public_for_admin
+ a| 
+'*vserver cifs home-directory modify -is-home-dirs-access-for-public-enabled ｛ true|false ｝ *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'cifs.idle_timeout'
+ a| 
+'*vserver cifs options modify -client-session-timeout *
+
+
+
+ a| 
+'cifs.ipv6.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+'cifs.max_mpx'
+ a| 
+「 * vserver cifs options modify -max-mpx * 」と入力します
+
+
+
+ a| 
+'cifs.ms_snapshot_mode'
+ a| 
+サポート対象外
+
+
+
+ a| 
+'cifs.mapped_null_user_extra_group'
+ a| 
+`_vserver cifs options modify -win-name-for-null-user_`
+
+
+
+ a| 
+cifs.netbios_over_tcp.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+'cifs.nfs_root_ignore_acl'
+ a| 
+「 * vserver nfs modify -ignore-nt-acl-for-root * 」のように指定します
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'cifs.ntfs_ignore_unix_security_ops
+ a| 
+*vserver nfs modify -ntfs-unix-security-ops *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'cifs.oplocks.enable を使用します
+ a| 
+vserver cifs share properties add-share-properties
+
+
+
+ a| 
+'cifs.oplocks.opendelta *'
+ a| 
+サポート対象外
+
+
+
+ a| 
+'cifs.perm_check_ro_del_ok
+ a| 
+'*vserver cifs options modify -is-read-only-delete-enabled *
+
+
+
+ a| 
+'cifs.perm_check_use_gid
+ a| 
+サポート対象外
+
+
+
+ a| 
+'cifs.restrict_anonymous'
+ a| 
+*vserver cifs options modify -restrict-anonymous *
+
+
+
+ a| 
+'cifs.save_case
+ a| 
+サポート対象外
+
+
+
+ a| 
+'cifs.scopeid'
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.search_domains`
+ a| 
+「 * vserver cifs domain name-mapping-search * 」のように指定します
+
+
+
+ a| 
+'cifs.show_dotfiles'
+ a| 
+「 is-shide-dotfiles -enabled 」を設定します
+
+
+
+ a| 
+'cifs.show_snapshot'
+ a| 
+'*vserver cifs share properties add-share-properties *
+
+
+
+ a| 
+'cifs.shutdown_msg_level'
+ a| 
+サポート対象外
+
+
+
+ a| 
+'cifs.signing.enable
+ a| 
+'*vserver cifs security modify -is-signing-required*
+
+
+
+ a| 
+cifs.smb2.client.enable を使用します
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.smb2.durable_handle.enable を使用します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 cifs.smb2.durable_handle.timeout 」のように設定します
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.smb2.enable
+ a| 
+「 * vserver cifs options modify -smb2-enabled * 」と入力します
+
+
+
+ a| 
+「 cifs.smb2.signing.required 」
+ a| 
+'*vserver cifs security modify -is-signing-required*
+
+
+
+ a| 
+cifs.smb2_1.branch_cache.enable`
+ a| 
+'*vserver cifs share properties *
+
+
+
+ a| 
+cifs.smb2_1.branch_cache.hash_time_out`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.snapshot_file_sfolding.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.symlinks.cyclogard`
+ a| 
+サポート対象外
+
+
+
+ a| 
+cifs.symlinks.enable を有効にします
+ a| 
+「 * vserver cifs share modify -symlink-properties * 」のようになります
+
+
+
+ a| 
+'cifs.universal_nested_groups.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 cifs.cifs.W2K_password_change 」を選択します
+ a| 
+「 * vserver cifs domain password change * 」のように入力します
+
+
+
+ a| 
+'cifs.W2K_password_change_interval' のように設定します
+ a| 
+「 * vserver cifs domain password change schedule * 」のように入力します
+
+
+
+ a| 
+'cifs.W2K_password_change_within `
+ a| 
+「 * vserver cifs domain password change schedule * 」のように入力します
+
+
+
+ a| 
+'cifs.widelink .ttl'
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 console.encoding 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 coredump.dump.attempts 」
+ a| 
+*system node coredump config modify -coredump-attempts *
+
+
+
+ a| 
+'coredump.metadata_only'
+ a| 
+*system node coredump config modify -sparsecore -enabled true *
+
+|===
+[role="lead"]
+*D*
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+「ディスク .asup_on_mp_loss 」
+ a| 
+*system node AutoSupport は 'dsk .redun.fault *' をトリガーします
+
+
+
+ a| 
+「 isk.auto_assign` 」と入力します
+ a| 
+「 * storage disk option modify -autoassign * 」のようになります
+
+
+
+ a| 
+「 isk.auto_assign_shelf` 」と入力します
+ a| 
+「 * storage disk option modify -autoassign-shelf * 」のように入力します
+
+
+
+ a| 
+「 Disk .maint_center.allowed_entries 」のようになります
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 Disk .maint_center.enable 」を参照してください
+ a| 
+*system node run -node ｛ nodename |local ｝ options disk.maint_center.enable *
+
+
+
+ a| 
+「 Disk .maint_center.max_disks 」のようになります
+ a| 
+*system node run -node ｛ nodename |local ｝ options disk.maint_center.max_disks *
+
+
+
+ a| 
+「 Disk .maint_centre.rec_allowed_entries 」のようになります
+ a| 
+*system node run -node ｛ nodename |local ｝ options disk.maint_center.rec_allowed_entries *`
+
+
+
+ a| 
+「 Disk .maint_center.spares_check 」
+ a| 
+*system node run -node ｛ nodename |local ｝ options disk.maint_center.spares_check *
+
+
+
+ a| 
+「ディスク . パワーサイクル . イネーブル」
+ a| 
+*system node run -node ｛ nodename |local ｝ options disk.powercycle.enable *
+
+
+
+ a| 
+「 Disk .recovery_needed.count 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 Disk .target_port.cmd_queue_depth 」というメッセージが表示されます
+ a| 
+'*storage array modify -name_array_name_-max-queue-depth *
+
+
+
+ a| 
+「 ns.cache.enable` 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「ドメイン名」
+ a| 
+「 * vserver services name-service dns modify -domains * 」
+
+
+
+ a| 
+「 dns.enable 」
+ a| 
+*vserver services name-service dns modify-state *
+
+
+
+ a| 
+「 D ns.update.enable 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 dns.update.ttl 」のようになります
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* E *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+ems.autosuppress.enable`
+ a| 
+`*event config modify -suppression {_on | off_}*`
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+|===
+
+
+== F-K
+
+[role="lead"]
+* F *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+'FCP.enable （ FCP 有効化
+ a| 
+「 * fcp start * 」のように入力します
+
+
+
+ a| 
+「 flexcache.access 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+flexcache.deleg.high_water`
+ a| 
+サポート対象外
+
+
+
+ a| 
+flexcache.deleg.low_water`
+ a| 
+サポート対象外
+
+
+
+ a| 
+'flexcache.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+'flexcache_per_client_stats'
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 flexscale.enable 」を参照してください
+ a| 
+*system node run -node node_name _|local } options flexscale.enable *`
+
+
+
+ a| 
+「 flexscale.lopri_blocks 」
+ a| 
+「 * system node run -node node_name _|local ｝ options flexscale.lopri_blocks * 」の形式で指定します
+
+
+
+ a| 
+flexscale.normal_data_blocks`
+ a| 
+'*system node run -node node_name _|local } options flexscale.normal_data_blocks*`
+
+
+
+ a| 
+'flexscale.pcs_high_res
+ a| 
+*system node run -node node_name _|local } options flexscale.pcs_high_res *`
+
+
+
+ a| 
+「 flexscale.pcs_size 」
+ a| 
+*system node run -node node_name _|local } options flexscale.pcs_size *
+
+
+
+ a| 
+「 flexscale .rewarm 」と入力します
+ a| 
+*system node run -node node_name _|local } options flexscale.remwarm *`
+
+
+
+ a| 
+「 fpolicy.enable 」を参照してください
+ a| 
+「 * vserver fpolicy enable * 」のように指定します
+
+
+
+ a| 
+「 fpolicy.no_i2p ems_interval 」というメッセージが表示されます
+ a| 
+サポート対象外
+
+
+
+ a| 
+'fpolicy.multiple_pipes
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.3way 」を有効にします
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftpd.anonymous.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftpd.anonymous.home_dir' のように指定します
+ a| 
+サポート対象外
+
+
+
+ a| 
+ftpd.anonymous.name
+ a| 
+サポート対象外
+
+
+
+ a| 
+ftpd.auth_style`
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.bypass_traverse_checking 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.dir.override` 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.dir.restriction 」のようになりました
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.explicit.allow_secure_data_conn 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.explicit.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftpd.idle_timeout
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.explicit.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.ipv6.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.locking 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.log.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpftpd.log.filesize 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpftpd.log.nfiles 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.max_connections 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftpd.max_connections_threshold 」を使用します
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftpd.tcp_window_size
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* H *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+「 httpd.access 」
+ a| 
+「サポートされていません」
+
+
+
+ a| 
+「 httpd.admin.access 」のように指定します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 httpd.admin.enable 」を参照してください
+ a| 
+`*vserver services web modify -enabled {true|false}*`
+
+
+
+ a| 
+「 httpd. admin.hostsequiv.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 httpd. admin.max_connections 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 httpd. admin.ssl.enable 」を参照してください
+ a| 
+「 * security ssl * 」と入力します
+
+
+
+ a| 
+httpd.admin.top-page.authentication`
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 httpd.bypass_traverse_checking 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 httpd.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 httpd.ipv6.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 httpd.log.format 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 httpd.method.trace.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 httpd.rootdir 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 httpd.timeout 」のように指定します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 httpd.timewait 」を有効にします
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* i *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+'ifgrp.failover.link_degraded
+ a| 
+サポート対象外
+
+
+
+ a| 
+'interface.blocked.CIFS'
+ a| 
+*network interface create -data-protocol *
+
+
+
+ a| 
+'interface.blocked.iscsi' と入力します
+ a| 
+*network interface create -data-protocol *
+
+
+
+ a| 
+'interface_blocked.mgmt_data_traffic
+ a| 
+「 * network interface create -role * 」のようになります
+
+
+
+ a| 
+'interface.blocked.ndmp'
+ a| 
+*system services firewall policy modify -policy_policy_name_-service ndmp *
+
+
+
+ a| 
+'interface.blocked.nfs'
+ a| 
+*network interface create -data-protocol *
+
+
+
+ a| 
+'interface.blocked.snapmirror
+ a| 
+「 * network interface create -role * 」のようになります
+
+
+
+ a| 
+ip.fastpath.enable
+ a| 
+*system node run -node node_name _|local } options ip.fastpath.enable *`
+
+
+NOTE: ONTAP 9.2 以降では、 fastpath がサポートされなくなりました。
+
+
+
+ a| 
+ip.ipsec.enable を使用します
+ a| 
+サポート対象外
+
+
+
+ a| 
+ip.match_any_ifaddr
+ a| 
+サポート対象外
+
+
+
+ a| 
+ip.path_mtu_discovery.enable
+ a| 
+'*system node run -node __ node_name __ | local ｝ options ip.path_mtu_discovery.enable *
+
+
+
+ a| 
+ip.ping_throttle.alarm_interval
+ a| 
+*system node run -node __ node_name __ | local ｝ options ip.ping_throttle.alarm ____node_name __ interval *
+
+
+
+ a| 
+ip.ping_throttle.drop_level
+ a| 
+*system node run -node | local } options ip.ping_throttle.drop_level*
+
+
+
+ a| 
+'ip.tcp.abc.enable`
+ a| 
+`* system node run -node __ node_name __ | local ｝ options ip.tcp.abc.enable *`
+
+
+
+ a| 
+'ip.tcp.abc.l_limit
+ a| 
+'*system node run -node __ node_name __ | local } options ip.tcp.abc.l_limit *
+
+
+
+ a| 
+iptcp.batching .enable を有効にします
+ a| 
+*system node run -node __ node_name __ | local ｝ options ip.tcp.batching .enable *`
+
+
+
+ a| 
+iptcp.newreno.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+ip.tcp.rfc3390.enable`
+ a| 
+`* system node run -node __ node_name __ | local ｝ options ip.tcp.rfc3390.enable *`
+
+
+
+ a| 
+iptcp.sack.enable
+ a| 
+*system node run -node __ node_name __ | local ｝ options ip.sack.enable *`
+
+
+
+ a| 
+「 ip.v6.enable 」を選択します
+ a| 
+「 * network options ipv6 modify * 」を入力します
+
+
+
+ a| 
+「 ip.v6.ra_enable 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+iscsi.auth.radius.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 iscsi.enable 」を参照してください
+ a| 
+「 * iscsi start * 」と入力します
+
+
+
+ a| 
+「 iscsi.max_connections_per_session 」を使用します
+ a| 
+*iscsi modify -max-conn-per-session*
+
+
+
+ a| 
+'iscsi.max_error_recovery_level
+ a| 
+*iscsi modify -max-error-recovery-level *
+
+|===
+[role="lead"]
+* K *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+'kerberos.file_keytab.principal
+ a| 
+サポート対象外
+
+
+
+ a| 
+'kerberos.file_keytab.realmipal'
+ a| 
+サポート対象外
+
+|===
+
+
+== 出力 Q
+
+[role="lead"]
+*L *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+「 ldap.ADdomain 」
+ a| 
+「 * vserver services name-service ldap client modify -ad-domain * 」を参照してください
+
+
+
+ a| 
+「 ldap.base 」
+ a| 
+*vserver services name-service ldap client modify -base-dn *
+
+
+
+ a| 
+ldap.base.group`
+ a| 
+*ldap client modify -group-dn LDAP DN -group-scope *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+ldap.base.netgroup`
+ a| 
+*ldap client modify -netgroup-dn LDAP DN -netgroup-scope *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.bas.passwd`. 」を入力します
+ a| 
+「 * vserver services ldap client modify -user-dn * 」のようになります
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.enable 」を参照してください
+ a| 
+「 * vserver services name-service ldap modify * 」を参照してください
+
+
+
+ a| 
+'ldap.minimum_bind_level'
+ a| 
+*vserver services name-service ldap client modify -min-bind-level *
+
+
+
+ a| 
+ldap.name
+ a| 
+「 * vserver services name-service ldap client modify -bind-dn * 」を使用します
+
+
+
+ a| 
+"ldap.nssmap.attribute.gecos"
+ a| 
+*ldap client schema modify -gecos-attribute *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.nssmap.attribute.gidNumber 」
+ a| 
+*ldap client schema modify -gid -number -attribute *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+ldap.nssmap.attribute.groupname`
+ a| 
+*ldap client schema modify -cn -group-attribute*
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.nssmap.attribute.homeDirectory 」を参照してください
+ a| 
+*ldap client schema modify -home-directory-attribute*
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.nssmap.attribute.loginShell 」
+ a| 
+*ldap client schema modify -login-sshell-attribute *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.nssmap.attribute.memberNisNetgroup 」のように表示されます
+ a| 
+*ldap client schema modify -member-nis-netgroup-attribute *`
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.nssmap.attribute.memberUid` 」
+ a| 
+*ldap client schema modify -member-uid-attribute *`
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+ldap.nssmap.attribute.netgroupname`
+ a| 
+*ldap client schema modify -cn -netgroup-attribute *`
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.nssmap.attribute.nisNetgroupTriple 」を入力します
+ a| 
+LDAP クライアントスキーマ modify -nis-netgroupトリプル 属性
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.nssmap.attribute.uid 」
+ a| 
+*ldap client schema modify -uid-attribute *`
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.nssmap.attribute.uidNumber 」
+ a| 
+*ldap client schema modify -uid-number-attribute*
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+ldap.nssmap.attribute.userPassword`
+ a| 
+*ldap client schema modify -user-password-attribute *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.nssmap.objectClass.nisNetgroup 」を入力します
+ a| 
+*ldap client schema modify -nis-netgroup-object class *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.nssmap.objectClass.posixAccount 」のように入力します
+ a| 
+*ldap client schema modify -posix -account-object-class *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.nssmap.objectClass.posixGroup 」を参照してください
+ a| 
+*ldap client schema modify -posix -group-object-class *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ldap.passwd 」
+ a| 
+*vserver services name-service ldap client modify-bind-password *
+
+
+
+ a| 
+「 ldap.port 」のように入力します
+ a| 
+*vserver services name-service ldap client modify -port *
+
+
+
+ a| 
+ldap.servers`
+ a| 
+*vserver services name-service ldap client modify -servers *
+
+
+
+ a| 
+ldap.servers.preferred`
+ a| 
+*vserver services name-service ldap client modify-preferred-ad-servers *
+
+
+
+ a| 
+「 ldap.ssl.enable 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ldap.timeout'
+ a| 
+*vserver services name-service ldap client modify-query-timeout *
+
+
+
+ a| 
+ldap.usermap.attribute.windowsaccount`
+ a| 
+*ldap client schema modify -windows-account-attribute *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+ldap.usermap.base`
+ a| 
+*ldap client modify -user-dnldap dnldap DN -user-scope *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+ldap.usermap.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+'licensed_feature.fcp.enable です
+ a| 
+サポート対象外
+
+
+
+ a| 
+'licensed_feature.flex_clone.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 licensed_feature.flexcache_nfs.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+'licensed_feature.iscsi.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+'licensed_feature.multistor.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+'licensed_feature.nearstore_option.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+'licensed_feature.vld.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+locking.grace_lease_seconds`
+ a| 
+*vserver nfs modify -v4-grace-seconds *
+
+
+
+ a| 
+「 lun.clone_restore 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 lun.partner_unreachable.linux_asc 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 lun.partner_unreachable.linux_ascq` 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+lun.partner_unreachable.linux.behavior`
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 lun.partner_unreachable.linux_hold_time` 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 lun.partner_unreachable.linux_scsi_status 」というメッセージが表示されます
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 lun.partner_unreachable.linux.SKEY 」というメッセージが表示されます
+ a| 
+サポート対象外
+
+
+
+ a| 
+lun.partner_unreachable.vmware.behavior`
+ a| 
+サポート対象外
+
+
+
+ a| 
+'lun.partner_unreachable.vmware.hold_time
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* N *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+'ndmpd.abort_on_disk_error
+ a| 
+'*options ndmpd.abort_on_disk_error *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 ndmpd.access 」
+ a| 
+*system services firewall policy modify -policy *-service ndmp -allow-list *
+
+
+
+ a| 
+ndmpd.authtype`
+ a| 
+*system services ndmpd modify -clear-text *
+
+
+
+ a| 
+'ndmpd.connectlog.enabled
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ndmpd.data_port_range'
+ a| 
+「サポートされていません」
+
+
+
+ a| 
+'ndmpd.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ndmpd.ignore_ctim.enabled
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ndmpd.maxversion
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ndmpd.offset_map.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ndmpd.password-length'
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ndmpd.preferred_interface'
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ndmpd.tcpnodelay.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ndmpd.tcpwinsize'
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 nfs.ASSIST QUEUE .LIMIT 」というメッセージが表示されます
+ a| 
+サポート対象外
+
+
+
+ a| 
+nfs.authsys.extended_groups_ns.enable`
+ a| 
+`_vserver nfs modify -auth-sys-extended-groups_`
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 nfs.export.allow_provise_access 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+nfs.export.auto-update`
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 nfs.export.exportfs _comment_on_delete 」を削除します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 nfs.export.harvest.timeout 」のように設定されています
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 nfs.export.neg.timeout 」のように設定されています
+ a| 
+サポート対象外
+
+
+
+ a| 
+'nfs.kerberos.enable
+ a| 
+「 * vserver nfs kerberos realm create * 」
+
+
+
+ a| 
+'nfs.kerberos.file_keytab.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 nfs.kerberos.file_keytab.principal 」という名前です
+ a| 
+「 * vserver nfs kerberos realm create * 」
+
+
+
+ a| 
+「 nfs.kerberos.file_keytab.realm 」
+ a| 
+「 * vserver nfs kerberos realm create * 」
+
+
+
+ a| 
+'nfs.max_num_aux_groups'
+ a| 
+'*vserver nfs\{show|modify\}-extended-groups-limit *'
+
+
+
+ a| 
+「 nfs.mount_rootonly 」
+ a| 
+*vserver nfs modify -mount-rootonly *
+
+
+
+ a| 
+nfs.netgroup.strict`
+ a| 
+サポート対象外
+
+
+
+ a| 
+nfs.nfs_rootonly
+ a| 
+*vserver nfs modify -nfs-rootonly *
+
+
+
+ a| 
+'nfs.per_client_stats.enable
+ a| 
+統計設定はクライアント統計情報 *' を変更します
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+nfs.require_valid_mapped_uid
+ a| 
+「 * vserver name-mapping create *
+
+
+
+ a| 
+「 nfs.response.trace
+ a| 
+「 * vserver nfs modify -trace-enabled * 」のように入力します
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'nfs.response.trigg`
+ a| 
+「 * vserver nfs modify -trigger * 」と入力します
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 nfs.rpcsec.ctx.high 」のようになります
+ a| 
+「 * nfs modify -RPCSEC_GSS -high * 」のように指定します
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 nfs.rpcsec.ctx.idle. 」と入力します
+ a| 
+「 * nfs modify -RPCSEC_GSS -idle * 」を参照してください
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 nfs.tcp.enable 」を参照してください
+ a| 
+「 * vserver nfs modify -tcp * 」を参照してください
+
+
+
+ a| 
+「 nfs.thie_prov.ejuke 」と入力します
+ a| 
+「 * vserver nfs modify -enable-ejukebox * 」を参照してください
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 nfs.udp.enable 」を参照してください
+ a| 
+「 * vserver nfs modify -udp * 」を使用します
+
+
+
+ a| 
+「 nfs.udp.xfersize 」
+ a| 
+*vserver nfs modify -udp-max-xfer-size *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'nfs.v2.df_2GB_lim
+ a| 
+サポートされていません
+
+
+
+ a| 
+「 nfs.v2.enable 」と入力します
+ a| 
+サポートされていません
+
+
+
+ a| 
+'nfs.v3.enable`
+ a| 
+「 * vserver nfs modify -v3* 」のようになります
+
+
+
+ a| 
+「 nfs.v4.acl.enable 」を参照してください
+ a| 
+「 * vserver nfs modify -v4.0-ac * l 」のようになります
+
+
+
+ a| 
+'nfs.v4.enable `
+ a| 
+「 * vserver nfs modify -v4.0-*` 」のようになります
+
+
+
+ a| 
+「 nfs.v4.id.allow_numerics 」
+ a| 
+*vserver nfs modify -v4-numeric-ids *
+
+
+
+ a| 
+「 nfs.v4.id.domain 」
+ a| 
+「 * vserver nfs modify -v4-id-domain * 」のように指定します
+
+
+
+ a| 
+'nfs.v4.read_delegation
+ a| 
+「 * vserver nfs modify -v4.0-read-delegation * 」のようになります
+
+
+
+ a| 
+「 nfs.v4.write_delegation 」というようにします
+ a| 
+「 * vserver nfs modify -v4.0-write-delegation * 」を参照してください
+
+
+
+ a| 
+「 nfs.vstorage.enable 」を参照してください
+ a| 
+「 * vserver nfs modify -vstorage * 」のように入力します
+
+
+
+ a| 
+「 nfs.webnfs.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 nfs.webnfs.rootdir 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+nfs.webnfs.rootdir.set`
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 nis.domainname 」
+ a| 
+「 * vserver services name-service nis-domain modify -domain * 」を参照してください
+
+
+
+ a| 
+「 nis.enable 」と入力します
+ a| 
+*vserver services name-service nis-domain mode-active *
+
+
+
+ a| 
+nis.group_update.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+nis.group_update_schedule`
+ a| 
+サポート対象外
+
+
+
+ a| 
+nis.netgroup.domain_search.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+nis.servers`
+ a| 
+「 * vserver services name-service nis-domain modify -servers * 」のように指定します
+
+
+
+ a| 
+「 nis.slave.enable 」のようになります
+ a| 
+サポート対象外
+
+
+
+ a| 
+'nlm .cleanup.timeout
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* P *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+'pcnfsd.enable`
+ a| 
+サポート対象外
+
+
+
+ a| 
+pcnfsd.umask
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* Q *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+'qos.classify.count_all_matchs'
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* R *
+
+
+NOTE: すべての RAID オプションに、「 option_option_name_` 」形式の 7-Mode 互換ノードシェルショートカットがあります。
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+「 raid 」
+ a| 
+「 * storage raid-options \ ｛ modify | show \ ｝ * 」のようになります
+
+
+
+ a| 
+raid.background_disk_fw_update.enable
+ a| 
+'*storage disk option modify -bkg-firware-update *
+
+
+
+ a| 
+raid.disk.copy.auto.enable`
+ a| 
+「 * storage raid-options modify -raid.disk.copy.auto.enable*` 」を参照してください
+
+
+
+ a| 
+raid. disk. timeout.enable を使用します
+ a| 
+*system node run -node {_node_name _|local} options raid.disk.timeout.enable *`
+
+
+
+ a| 
+「 raid.disktype.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 raid.disktype.enable 」を参照してください
+ a| 
+*raid-options modify raid.lost_write.enable *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 raid. lost_write_enable 」を使用します
+ a| 
+「 * storage raid-options \ ｛ modify | show \ ｝ -name raid.media_scrub.enable * 」のようになります
+
+
+
+ a| 
+raid.media_scrub.rate
+ a| 
+「 * storage raid-options \ ｛ modify | show \ ｝ -name raid.media_scrub.rate * 」
+
+
+
+ a| 
+'raid.min_spare_count
+ a| 
+'*storage raid-options \{ modify | show\} -name raid.min_spare_count *
+
+
+
+ a| 
+raid.mix.hdd.disktype.capacity`
+ a| 
+「 * storage raid-options \ ｛ modify | show \ ｝ -name raid.mix.hdd.disktype.capacity*` 」を参照してください
+
+
+
+ a| 
+「 raid.mix.hdd.disktype.performance 」という形式を使用します
+ a| 
+「 * storage raid-options \ ｛ modify | show \ ｝ -name raid.mix.hdd.disktype.performance *
+
+
+
+ a| 
+raid.mix.hdd.rpm.capacity`
+ a| 
+「 * storage raid-options \ ｛ modify | show \ ｝ -name raid.mix.hdd.rpm.capacity*` 」を参照してください
+
+
+
+ a| 
+「 raid.mix.hdd.rpm.performance
+ a| 
+「 * storage raid-options \ ｛ modify | show \ ｝ -name raid.mix.hdd.rpm.performance *
+
+
+
+ a| 
+「 raid.mirror_read_plex_pref 」
+ a| 
+`* storage raid-options \ ｛ modify | show \ ｝ -name raid.mirror_read_plex _pref * '
+
+
+
+ a| 
+「 raid.reconstruct.perf_impact 」という形式を使用します
+ a| 
+*storage raid-options \{ modify | show \} -name raid.reconstruct.perf_impact *`
+
+
+
+ a| 
+「 raid.resync.perf_impact 」という形式を使用します
+ a| 
+'*storage raid-options \{ modify | show\} -name raid.resync.perf_impact *' を指定します
+
+
+
+ a| 
+「 raid.rpm.atata 」を有効にします
+ a| 
+サポート対象外
+
+
+
+ a| 
+'raid.rpm.fcal.enable '
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 raid. scrub.duration 」
+ a| 
+「 * storage raid-options \ ｛ modify | show \ ｝ -name raid.scrub.schedule * 」のようになります
+
+
+
+ a| 
+「 raid.scrub.perf_impact 」のようになります
+ a| 
+'*storage raid-options \{ modify | show\} -name raid.scrub.schedule .perf_impact *
+
+
+
+ a| 
+「 raid.scrub.schedule 」
+ a| 
+「 * storage raid-options \ ｛ modify | show \ ｝ -name raid.scrub.schedule * 」のようになります
+
+
+
+ a| 
+「 raid. timeout 」
+ a| 
+'*storage raid-options \{ modify | show\} -name raid.timeout *
+
+
+
+ a| 
+「 raid.verify.perf_impact 」という形式を使用します
+ a| 
+'*storage raid-options \{ modify | show\} -name raid.verify.perf_impact *'
+
+
+
+ a| 
+「 plication .logical.reserved_transfers 」の略
+ a| 
+*snapmirror set-options -xdmp-source-xfer-reserve-pct *
+
+
+
+ a| 
+「乗算・スロットル・イネーブル」
+ a| 
+「 * snapmirror modify -throttle * 」
+
+
+
+ a| 
+「 plication .volume_reserved_transfers 」のようになりました
+ a| 
+*snapmirror set-options -dp-source-xfer-reserve-pct *
+
+
+
+ a| 
+「 plication.volume.use_auto_resync` 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+rpc.mountd.tcp.port
+ a| 
+「 * vserver nfs modify -mountd -port * 」のように指定します
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+rpc.mountd.udpport
+ a| 
+「 * vserver nfs modify -mountd -port * 」のように指定します
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+rpc.nlm.tcp.port`
+ a| 
+「 * vserver nfs modify -nlm -port * 」のようになります
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+rpc.nlm.udp.port`
+ a| 
+「 * vserver nfs modify -nlm -port * 」のようになります
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 rpc.mps.tcp.port 」を参照してください
+ a| 
+「 * vserver nfs modify -sm -port * 」のように入力します
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 rpc.mps.udp.port 」を参照してください
+ a| 
+「 * vserver nfs modify -sm -port * 」のように入力します
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+rpc.pcnfsd.tcp.port
+ a| 
+サポート対象外
+
+
+
+ a| 
+rpc.pcnfsd.udp.port
+ a| 
+サポート対象外
+
+
+
+ a| 
+rpc.rquotad.udp.port
+ a| 
+*vserver nfs modify -rquotad-port *`
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+rquotad.enable
+ a| 
+'*vserver nfs modify -rquota *
+
+
+
+ a| 
+「 rsh.access 」
+ a| 
+*system services firewall policy create -policy mgmt -service rsh -allow-list *
+
+
+
+ a| 
+「 rsh.enable 」
+ a| 
+*system services firewall policy create -policy mgmt -service rsh -allow-list *
+
+|===
+
+
+== S-Z
+
+[role="lead"]
+* S *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+「 ecurity.admin.authentication` 」をご覧ください
+ a| 
+「 * security login modify * 」と入力します
+
+
+
+ a| 
+「 security.admin.nsswitchgroup 」を参照してください
+ a| 
+「 * vserver modify * 」
+
+
+
+ a| 
+「 security.passwd.firstlogin.enable 」を参照してください
+ a| 
+「 * security login role config modify * 」と入力します
+
+
+
+ a| 
+「 security.passwd.lockout.numtries 」を参照してください
+ a| 
+「 * security login role config modify * 」と入力します
+
+
+
+ a| 
+「 security.passwd.rootaccess.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ecurity.passwd.rules.enable` 」をご覧ください
+ a| 
+「 * security login role config modify * 」と入力します
+
+
+
+ a| 
+「 ecurity.passwd.rules.everyone` 」をご覧ください
+ a| 
+「 * security login role config modify * 」と入力します
+
+
+
+ a| 
+「 ecurity.passwd.rules.history` 」をご覧ください
+ a| 
+「 * security login role config modify * 」と入力します
+
+
+
+ a| 
+「 ecurity.passwd.rules.maximum` 」をご覧ください
+ a| 
+「 * security login role config modify * 」と入力します
+
+
+
+ a| 
+「 ecurity.passwd.rules.minimum` 」をご覧ください
+ a| 
+「 * security login role config modify * 」と入力します
+
+
+
+ a| 
+「 ecurity.passwd.rules.minimum.alphabetic` 」をご覧ください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ecurity.passwd.rules.minimum.digit` 」をご覧ください
+ a| 
+「 * security login role config modify * 」と入力します
+
+
+
+ a| 
+「 ecurity.passwd.rules.minimum.symbol` 」をご覧ください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftp.auth_style` 」をご覧ください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftp.dir _override` 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftp.dir restriction 」のようになります
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 ftp.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftp.idle_timeout
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftp.locking
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftp.log_enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftp.log_filesize`
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftp.log_nfiles
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftp.max_connections
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftp.max_connections_threshold
+ a| 
+サポート対象外
+
+
+
+ a| 
+'ftp.override_client_permissions
+ a| 
+サポート対象外
+
+
+
+ a| 
+'is.max_vfiler_active_ops
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 naplock.autocommit_period` 」をご覧ください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 naplock.compliance.write_verify` 」をご覧ください
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 naplock.log.default_retention` 」をご覧ください
+ a| 
+サポート対象外
+
+
+
+ a| 
+'naplock.log.maximum_size
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 SnapMirro .access 」を参照してください
+ a| 
+「 * snapmirror create * 」
+
+
+
+ a| 
+「 napmirror.checkip.enable` 」をご覧ください
+ a| 
+サポート対象外
+
+
+
+ a| 
+'napmirror.cmode.suspend
+ a| 
+'*snapmirror quiesce *
+
+
+
+ a| 
+「 napmirror.delayed_acks.enable` 」をご覧ください
+ a| 
+サポート対象外
+
+
+
+ a| 
+'SnapMirro .vsm .volread.smtape の有効化
+ a| 
+サポート対象外
+
+
+
+ a| 
+'napvalidator.version
+ a| 
+サポート対象外
+
+
+
+ a| 
+'napvault.access
+ a| 
+「 * vserver peer * 」と入力します
+
+
+
+ a| 
+'napvault.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+'napvault.lockvault_log_volume
+ a| 
+サポート対象外
+
+
+
+ a| 
+'napvault.preservesnap`
+ a| 
+「 Snapmirror policy 」と入力します
+
+
+
+ a| 
+'napvault.snapshot_for_ddr_backup
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 nmp.access 」
+ a| 
+*system services firewall policy modify -policy _policy_name_--service snmp-allow-list *
+
+
+
+ a| 
+「 nmp.enable 」を参照してください
+ a| 
+サポート対象外
+
+
+
+ a| 
+'sh.access`
+ a| 
+*system services firewall policy modify -policy _policy_name_-service ssh -allow-list *
+
+
+
+ a| 
+'sh.enable`
+ a| 
+*system services firewall policy modify -policy _policy_name_--service ssh-allow-list *
+
+
+
+ a| 
+'sh.idle.timeout （ sh.idle.timeout
+ a| 
+サポート対象外
+
+
+
+ a| 
+'sh.passwd_auth.enable
+ a| 
+'*security login\{show|create|delete\}-user-or -group-name_user_name___ -application ssh -authmethod publickey - role_role_name - vserver_vserver_name _*`
+
+
+
+ a| 
+'sh.pubkey_auth.enable`
+ a| 
+「 * security login modify -authmethod publickey publickey * 」と入力します
+
+
+
+ a| 
+'sh1.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+'sh2.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+ssl.enable が有効になりました
+ a| 
+'*security ssl modify -server -enabled *
+
+
+
+ a| 
+'sl.v2.enable`
+ a| 
+*system services web modify -sslv2-enabled *
+
+
+
+ a| 
+ssl.v3.enable`
+ a| 
+*system services web modify -sslv3-enabled *
+
+
+
+ a| 
+「 tats.archive.frequency_config` 」をご覧ください
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* T *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+「 tape.reservations 」と入力します
+ a| 
+`*options tape.reservations *`
+
+
+
+ a| 
+「 telnet.access 」
+ a| 
+*system services firewall policy create -policy mgmt -service telnet -allow-list *
+
+
+
+ a| 
+「 telnet.DISTINCT 」イネーブル
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 telnet.enable 」です
+ a| 
+*system services firewall policy create -policy mgmt -service telnet -allow-list *
+
+
+
+ a| 
+tftpd.enable
+ a| 
+サポート対象外
+
+
+
+ a| 
+tftpdlogging`
+ a| 
+サポート対象外
+
+
+
+ a| 
+tftpd.max_connections
+ a| 
+サポート対象外
+
+
+
+ a| 
+tftpd.rootdir
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 timed.enable 」
+ a| 
+*system services ntp config modify -enabled *
+
+
+
+ a| 
+「 timed.log 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+timed.max_skew
+ a| 
+サポート対象外
+
+
+
+ a| 
+timed.min_skew
+ a| 
+サポート対象外
+
+
+
+ a| 
+timed.proto`
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 timed.sched 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+timed.servers`
+ a| 
+`_cluster time-service ntp server_`
+
+
+
+ a| 
+「 timed.window 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 trusted.hosts 」
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* v *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+vol.move.cutover-cpu.busy .limit
+ a| 
+サポート対象外
+
+
+
+ a| 
+vol.move.cutover-disk.busy .limit
+ a| 
+サポート対象外
+
+
+
+ a| 
+vsm.smtape.concurrent.cascade.support`
+ a| 
+サポート対象外
+
+
+
+ a| 
+ a| 
+
+|===
+[role="lead"]
+* W *
+
+|===
+| 7-Mode のオプション | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+wafl.default_nt_user`
+ a| 
+*vserver nfs modify -default-win-user*
+
+
+
+ a| 
+wafl.default_unix_user`
+ a| 
+'*vserver cifs options modify -default-unix-user *
+
+
+
+ a| 
+wafl.inconsistent.asup_frequency.blks`
+ a| 
+`* system node run -node ｛ _node_name _ | local ｝ options wafl.inconsistent.asup_frequency.blks*`
+
+
+
+ a| 
+wafl.inconsistent.asup_frequency.time`
+ a| 
+`* system node run -node ｛ _node_name _ | local ｝ options wafl.inconsistent.asup_frequency.time*`
+
+
+
+ a| 
+wafl.inconsistent.ems_suppress`
+ a| 
+`* system node run -node ｛ _node_name _ | local ｝ options wafl.inconsistent.ems_suppress*`
+
+
+
+ a| 
+「 wafl.maxdirsize 」を入力します
+ a| 
+`*vol create -maxdir-size *`
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 wafl.nt_admin_priv_map_to_root 」
+ a| 
+「 * vserver name-mapping create *
+
+
+
+ a| 
+'wafl.root_only_chown
+ a| 
+'*vserver nfs modify -chown-mode *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'wafl.wcc_minutes_valid
+ a| 
+サポート対象外
+
+
+
+ a| 
+webdav.enable
+ a| 
+サポート対象外
+
+|===

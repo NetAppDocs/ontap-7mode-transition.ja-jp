@@ -1,0 +1,25 @@
+---
+permalink: copy-free/concept_collecting_and_assessing_inventory_information.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, collecting, assessing, inventory, information 
+summary: コントローラ、ホスト、および FC スイッチからインベントリ情報を収集できます。その後、収集したシステムの機能を評価し、移行先として選択した ONTAP バージョンでそれらの機能がどのように動作するかを確認できます。 
+---
+= インベントリ情報を収集して評価する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+コントローラ、ホスト、および FC スイッチからインベントリ情報を収集できます。その後、収集したシステムの機能を評価し、移行先として選択した ONTAP バージョンでそれらの機能がどのように動作するかを確認できます。
+
+インベントリ情報は、次の 2 つの方法で収集できます。
+
+* 環境のセキュリティ上問題がなければ、 7-Mode Transition Tool をインストールしてインベントリ情報を収集します。
+* Inventory Collect Tool で作成されたインベントリ XML レポートをインポートし、評価を実行できます。
+
+
+どちらの場合も、 Inventory Collect Tool 3.3 を使用してインベントリを収集する必要があります。
+
+コピーフリーの移行のためにインベントリ情報を評価するには、ソース 7-Mode の HA ペアの両方のノードを選択する必要があります。評価はノード単位で行われますが、移行の条件を満たしていないノードが 1 つでもあると、 HA ペア全体が移行できません。
+
+image::../media/delete_me_cbt_assessment_workflow.gif[ME CBT 評価ワークフローを削除します]

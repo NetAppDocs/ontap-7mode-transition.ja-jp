@@ -1,0 +1,210 @@
+---
+section: copy-free
+title: コピーフリーの移行
+url: "/copy-free/index.html"
+entries:
+- title: 移行の概要
+  url: "/copy-free/concept_transition_overview.html"
+  entries:
+  - title: 7-Mode Transition Tool を使用したコピーフリーの移行
+    url: "/copy-free/concept_copy_free_transition_using_7mtt.html"
+  - title: 移行に関する用語
+    url: "/copy-free/concept_transition_terminology.html"
+- title: インベントリ情報を収集して評価する
+  url: "/copy-free/concept_collecting_and_assessing_inventory_information.html"
+  entries:
+  - title: 移行のための環境評価でのストレージ、ホスト、 FC スイッチのバージョン要件
+    url: "/copy-free/concept_storage_and_host_version_requirements.html"
+  - title: 移行のための環境評価を実行する 7-Mode システムとホストの準備
+    url: "/copy-free/task_preparing_7_mode_systems_for_inventory_collection.html"
+  - title: コントローラとホストの評価
+    url: "/copy-free/task_assessing_controllers_and_hosts.html"
+    entries:
+    - title: 7-Mode にシステムを追加することによる評価レポートの作成 移行ツール
+      url: "/copy-free/task_generating_an_assessment_report_by_adding_systems_to_7mtt.html"
+    - title: インベントリレポート XML をインポートして評価レポートを作成する
+      url: "/copy-free/task_generating_an_assessment_report_by_importing_inventory_report_xml.html"
+  - title: FC ゾーン計画の生成
+    url: "/copy-free/task_generating_fc_zone_plan.html"
+    entries:
+    - title: FC ゾーン計画の生成でサポートされる構成
+      url: "/copy-free/concept_supported_configurations_for_generating_an_fc_zone_plan.html"
+  - title: 評価のエグゼクティブサマリーを移行に使用する方法 評価
+    url: "/copy-free/concept_how_you_can_use_assessment_executive_summary_for_transition_assessment.html"
+- title: Copy-Free Transition ワークフロー
+  url: "/copy-free/task_copy_free_transition_workflow.html"
+  entries:
+  - title: コピーフリーの移行のフェーズ
+    url: "/copy-free/concept_phases_of_copy_free_transition.html"
+- title: Copy-Free Transition を準備しています
+  url: "/copy-free/concept_preparing_for_migration.html"
+  entries:
+  - title: Copy-Free Transition の要件
+    url: "/copy-free/concept_requirements_for_copy_free_transition.html"
+  - title: Copy-Free Transition に必要なツールとドキュメント
+    url: "/copy-free/reference_required_tools_and_documentation.html"
+  - title: 7-Mode Transition Tool と通信するためのポート要件
+    url: "/copy-free/concept_port_requirements_for_communicating_with_7mtt.html"
+  - title: 7-Mode HA ペアでの移行の準備
+    url: "/copy-free/task_preparing_7_mode_system_for_transition.html"
+  - title: 7-Mode システムで SP または RLM をセットアップする コピーフリーの移行の場合
+    url: "/copy-free/task_setting_up_sp_or_rlm_for_transition.html"
+  - title: ネットワークでの移行の準備
+    url: "/copy-free/task_preparing_your_network_for_transition.html"
+    entries:
+    - title: 7-Mode IP アドレスの移行に関する考慮事項
+      url: "/copy-free/concept_considerations_for_transitioning_7_mode_ip_addresses.html"
+  - title: クラスタで移行準備をします
+    url: "/copy-free/task_preparing_cluster_for_transition.html"
+  - title: 移行のためのケーブル接続情報の収集
+    url: "/copy-free/task_gathering_cabling_information_for_transition.html"
+    entries:
+    - title: コピーフリーの移行ケーブル接続ワークシート
+      url: "/copy-free/reference_copy_free_transition_cabling_worksheet.html"
+  - title: 7-Mode のアグリゲートとボリュームで移行準備をします
+    url: "/copy-free/task_preparing_7_mode_volumes_and_aggregates_for_transition.html"
+    entries:
+    - title: 7-Mode のアグリゲートとボリュームを移行する場合の制限事項
+      url: "/copy-free/concept_restrictions_for_copy_free_transition.html"
+    - title: 32 ビットアグリゲートを使用する 7-Mode システムの移行準備
+      url: "/copy-free/task_transitioning_to_clustered_ontap_8_3_from_a_7_mode_version_with_32_bit_data.html"
+      entries:
+      - title: アグリゲートの 64 ビット形式への拡張
+        url: "/copy-free/task_expanding_an_aggregate_to_64_bit_format_without_adding_storage.html"
+      - title: 32 ビットボリュームと Snapshot コピーの検出と削除
+        url: "/copy-free/task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.html"
+    - title: 移行でのアグリゲートスペースの要件
+      url: "/copy-free/concept_aggregate_space_considerations_during_transition.html"
+  - title: ネームサービスの移行準備をしています
+    url: "/copy-free/concept_preparing_for_name_services_transition.html"
+    entries:
+    - title: ネームサービスの移行：サポートされる構成とされない構成、必要な手動手順
+      url: "/copy-free/concept_supported_and_unsupported_name_services_configurations.html"
+    - title: DNS 、 NIS 、 LDAP の構成の移行に関する考慮事項
+      url: "/copy-free/concept_considerations_for_transitioning_dns_and_ldap_configurations.html"
+    - title: ネットグループと UNIX ユーザおよびグループの移行に関する考慮事項
+      url: "/copy-free/concept_considerations_for_transitioning_unix_users_and_groups.html"
+  - title: NFS の移行を準備しています
+    url: "/copy-free/concept_preparing_for_nfs_transition.html"
+    entries:
+    - title: NFS 構成を移行するための前提条件
+      url: "/copy-free/concept_prerequisites_to_transition_nfs_configurations.html"
+    - title: NFS の移行：サポートされる構成とされない構成、必要な手動手順
+      url: "/copy-free/concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html"
+    - title: NFS エクスポートが移行される仕組み
+      url: "/copy-free/concept_how_nfs_exports_are_transitioned.html"
+  - title: SMB / CIFS の移行の準備
+    url: "/copy-free/concept_preparing_for_cifs_transition.html"
+    entries:
+    - title: CIFS 構成を移行するための前提条件
+      url: "/copy-free/concept_prerequisites_for_transitioning_cifs_configurations.html"
+    - title: ONTAP への移行対象としてサポートされる CIFS 構成とされない CIFS 構成
+      url: "/copy-free/concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html"
+    - title: CIFS ローカルユーザおよびローカルグループの移行に関する考慮事項
+      url: "/copy-free/concept_considerations_for_local_users_and_groups_transition.html"
+  - title: SAN の移行準備をしています
+    url: "/copy-free/task_preparing_for_san_transition.html"
+    entries:
+    - title: 移行前に SAN LIF を作成
+      url: "/copy-free/task_creating_san_lifs_before_transition.html"
+    - title: FC ゾーン計画を使用したゾーンの設定
+      url: "/copy-free/task_configuring_zones_by_using_fc_zone_plan.html"
+    - title: SAN ホストでの移行準備
+      url: "/copy-free/task_preparing_san_hosts_for_transition.html"
+    - title: SAN の移行：サポートされる構成とされない構成、必要な手動手順
+      url: "/copy-free/concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.html"
+    - title: SAN ボリュームを移行する際のスペースに関する考慮事項
+      url: "/copy-free/concept_considerations_for_space_when_transitioning_san_volumes.html"
+  - title: データ保護機能の移行準備をしています
+    url: "/copy-free/concept_preparing_data_protection_features_for_transition.html"
+    entries:
+    - title: クラスタで Volume SnapMirror 関係を移行する準備をしています
+      url: "/copy-free/task_preparing_cluster_for_transitioning_volume_snapmirror_relationships.html"
+    - title: データ保護の移行：サポートされる構成とされない構成
+      url: "/copy-free/concept_supported_and_unsupported_data_protection_relationships.html"
+- title: コピーフリーの移行を使用した 7-Mode アグリゲートの移行
+  url: "/copy-free/task_performing_copy_free_transition_of_7_mode_aggregates.html"
+  entries:
+  - title: コピーフリーの移行プロジェクトの計画
+    url: "/copy-free/task_planning_a_copy_free_transition_project.html"
+    entries:
+    - title: コピーフリーの移行プロジェクトの計画ワークシート
+      url: "/copy-free/reference_copy_free_transition_project_planning_worksheet.html"
+    - title: コントローラとクラスタを追加する
+      url: "/copy-free/task_adding_controllers_and_clusters.html"
+    - title: コピーフリーの移行プロジェクトを作成する
+      url: "/copy-free/task_selecting_source_7_mode_systems_for_transition.html"
+    - title: 移行先のターゲットクラスタノードの選択
+      url: "/copy-free/task_selecting_target_cluster_for_transition.html"
+    - title: SVM とボリュームのマッピング
+      url: "/copy-free/task_svm_and_volume_mapping.html"
+    - title: 移行する LIF を選択しています
+      url: "/copy-free/task_selecting_lifs_to_transition.html"
+    - title: 7-Mode 構成の移行のカスタマイズ
+      url: "/copy-free/task_customizing_configurations_for_transition.html"
+      entries:
+      - title: の NFS エクスポートルールと Snapshot スケジュールの統合例 移行
+        url: "/copy-free/reference_example_consolidating_nfs_export_rules_for_transition.html"
+    - title: 事前確認を実行
+      url: "/copy-free/task_running_prechecks.html"
+      entries:
+      - title: 事前確認メッセージの重大度レベル
+        url: "/copy-free/concept_severity_levels_for_precheck_messages.html"
+  - title: SVM 構成を適用しています
+    url: "/copy-free/task_applying_svm_configurations.html"
+  - title: 7-Mode システムのカットオーバーの準備状況の検証
+    url: "/copy-free/task_verifying_readiness_for_cutover.html"
+  - title: ストレージ構成をエクスポートして 7-Mode システムを停止します
+    url: "/copy-free/task_exporting_7_mode_system_and_hardware_information.html"
+  - title: ディスクシェルフを 7-Mode システムから切断して接続 クラスタノード
+    url: "/copy-free/task_removing_disk_shelves_from_7_mode_and_connecting_to_cluster_nodes.html"
+  - title: ONTAP への 7-Mode データのインポート
+    url: "/copy-free/task_importing_7_mode_data_to_clustered_ontap.html"
+- title: 移行を完了します
+  url: "/copy-free/task_completing_post_transition_tasks_for_a_copy_free_transition.html"
+  entries:
+  - title: テスト時の制限事項
+    url: "/copy-free/concept_restrictions_during_preproduction_testing.html"
+  - title: 移行したボリュームを別の SVM にリホストする
+    url: "/copy-free/task_rehosting_volumes_from_different_svms_to_a_single_svm.html"
+  - title: 移行した構成の検証
+    url: "/copy-free/task_verifying_transition_configurations.html"
+  - title: 移行後に手動で設定タスクを実行
+    url: "/copy-free/task_performing_manual_configuration_tasks.html"
+  - title: ワークロードとアプリケーションのテスト
+    url: "/copy-free/task_testing_workloads_and_applications.html"
+  - title: コピーフリーの移行プロジェクトのコミット
+    url: "/copy-free/task_committing_7_mode_aggregates_to_clustered_ontap_format.html"
+- title: SnapMirror 関係を移行する
+  url: "/copy-free/task_transitioning_a_snapmirror_relationship.html"
+  entries:
+  - title: 段階的な SnapMirror 関係にある HA ペアの移行 設定
+    url: "/copy-free/task_transitioning_primary_and_secondary_systems_of_a_snapmirror_relationship_in_staggered_way.html"
+  - title: SnapMirror 関係のプライマリシステムとセカンダリシステムを移行する 平行（ Parallel ）
+    url: "/copy-free/task_transitioning_primary_and_secondary_systems_of_a_snapmirror_relationship_in_parallel.html"
+- title: 移行に関する問題のトラブルシューティング
+  url: "/copy-free/concept_troubleshooting_transition_issues.html"
+  entries:
+  - title: 無視できるエラーが発生した場合の移行の続行
+    url: "/copy-free/task_acknowledging_errors_to_continue_with_transition.html"
+    entries:
+    - title: 移行時に無視できるエラーです
+      url: "/copy-free/reference_ignorable_errors_during_transition.html"
+  - title: 移行ログファイルをダウンロードしています
+    url: "/copy-free/task_collecting_tool_logs.html"
+  - title: 7-Mode Transition Tool のログファイル
+    url: "/copy-free/concept_log_files_for_7mtt.html"
+  - title: LUN 移行が失敗した場合のリカバリ
+    url: "/copy-free/task_recovering_from_a_failed_lun_transition.html"
+  - title: メンテナンスモードで 7-Mode コントローラをブートできませんでした
+    url: "/copy-free/reference_failed_to_boot_7_mode_controller_in_maintenance_mode.html"
+- title: 7-Mode への移行のロールバックの実行
+  url: "/copy-free/concept_reverting_a_copy_free_transition_project.html"
+  entries:
+  - title: 移行のロールバックのタイミングとコールのタイミング テクニカルサポート
+    url: "/copy-free/concept_when_to_revert_and_when_to_call_technical_support_transition.html"
+  - title: コピーフリーの移行プロジェクトをロールバックしています
+    url: "/copy-free/task_performing_a_transition_rollback.html"
+    entries:
+    - title: 手動による移行のロールバック
+      url: "/copy-free/task_running_manual_steps_for_rolling_back_transition.html"

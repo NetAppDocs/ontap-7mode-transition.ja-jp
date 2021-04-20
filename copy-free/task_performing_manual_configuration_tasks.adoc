@@ -1,0 +1,32 @@
+---
+permalink: copy-free/task_performing_manual_configuration_tasks.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, performing, manual, configuration 
+summary: 移行したボリュームにアクセスするワークロードとアプリケーションで必要ないくつかの設定タスクを手動で実行する必要があります。事前確認の結果から手動タスクのリストを取得できます。 
+---
+= 移行後に手動で設定タスクを実行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行したボリュームにアクセスするワークロードとアプリケーションで必要ないくつかの設定タスクを手動で実行する必要があります。事前確認の結果から手動タスクのリストを取得できます。
+
+.手順
+. 事前確認の結果にリストされたタスクを実行し、ツールで移行されなかった機能または環境に合わせたカスタマイズが必要な機能を設定します。
++
+xref:concept_supported_and_unsupported_name_services_configurations.adoc[ネームサービスの移行：サポートされる構成とされない構成、必要な手動手順]
+
++
+xref:concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[NFS の移行：サポートされる構成とされない構成、必要な手動手順]
+
++
+xref:concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[ONTAP への移行対象としてサポートされる CIFS 構成とされない CIFS 構成]
+
++
+xref:concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.adoc[SAN の移行：サポートされる構成とされない構成、必要な手動手順]
+
++
+xref:task_transitioning_a_snapmirror_relationship.adoc[SnapMirror 関係を移行する]
+
+

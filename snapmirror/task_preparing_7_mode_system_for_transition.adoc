@@ -1,0 +1,53 @@
+---
+permalink: snapmirror/task_preparing_7_mode_system_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, prepare, system, snapmirror 
+summary: 移行を開始する前に、 SnapMirror ライセンスを追加する、 7-Mode システムがターゲットクラスタと通信できるようにするなど、 7-Mode システムで一定の作業を完了しておく必要があります。 
+---
+= 7-Mode システムでの移行の準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行を開始する前に、 SnapMirror ライセンスを追加する、 7-Mode システムがターゲットクラスタと通信できるようにするなど、 7-Mode システムで一定の作業を完了しておく必要があります。
+
+移行する 7-Mode ボリュームがすべてオンラインになっている必要があります。
+
+.手順
+. 7-Mode システムで、 SnapMirror ライセンスを追加して有効にします。
++
+.. 7-Mode システムに SnapMirror ライセンスを追加します。
++
+'*license add_license_code_*
+
++
+`_license_code_ は購入したライセンス・コードです
+
+.. SnapMirror 機能を有効にします。
++
+'*options snapmirror.enable on *
+
+
+
+. 次のいずれかのオプションを実行して、 7-Mode システムとターゲットクラスタが相互に通信できるように設定します。
++
+** 「 SnapMirro .access 」オプションを「 all 」に設定します。
+** 「 snapvault.access 」オプションの値をクラスタのすべての LIF の IP アドレスに設定します。
+** 「 snapmirror.access 」オプションが「 legacy 」で、「 napmirror.checkip.enable` 」オプションが「 off 」の場合は、 SVM 名を「 /etc/snapmirror.allow 」ファイルに追加します。
+** 「 napmirror.access 」オプションが「 legacy 」で「 napmirror.checkip.enable` 」オプションが「 on 」である場合は、 LIF の IP アドレスを「 /etc/snapmirror.allow 」ファイルに追加します。
+
+
+. 7-Mode システムの Data ONTAP のバージョンに応じて、次の手順を実行します。
++
+.. すべてのインターフェイスで SnapMirror トラフィックを許可します。
++
+*options interface.blocked.snapmirror"" *
+
+.. Data ONTAP バージョン 7.3.7 、 8.0.3 、 8.1 のいずれかを実行していて、 7-Mode Transition Tool 用の管理 IP アドレスとして e0M インターフェイスの IP アドレスを使用している場合は、 e0M インターフェイス上のデータトラフィックを許可します。
++
+'*options interface.blocked.mgmt_data_traffic off*
+
+
+
+

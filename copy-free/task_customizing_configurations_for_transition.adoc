@@ -1,0 +1,42 @@
+---
+permalink: copy-free/task_customizing_configurations_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, customize, 7, mode 
+summary: 7-Mode から ONTAP への構成の移行は、計画時に 2 つの方法でカスタマイズできます。1 つ以上の構成の移行は無視するかスキップできます。7-Mode NFS エクスポートルールを統合し、既存の NFS エクスポートポリシーと Snapshot ポリシーをターゲット SVM で再利用できます。 
+---
+= 7-Mode 構成の移行のカスタマイズ
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode から ONTAP への構成の移行は、計画時に 2 つの方法でカスタマイズできます。1 つ以上の構成の移行は無視するかスキップできます。7-Mode NFS エクスポートルールを統合し、既存の NFS エクスポートポリシーと Snapshot ポリシーをターゲット SVM で再利用できます。
+
+7-Mode Transition Tool では、除外した構成の事前確認は実行されません。
+
+デフォルトでは、すべての 7-Mode 構成が移行対象として選択されます。
+
+最初にすべての構成の事前確認を実行してから、以降の事前確認の実行の際に 1 つ以上の構成を除外することを推奨します。これにより、移行対象から除外される構成とスキップされる事前確認を把握できます。
+
+.手順
+. Plan Configuration （計画の設定）ページで、 * SVM Configuration * （ SVM の設定）ペインから次のオプションを選択します。
++
+** 構成を移行対象から除外するには、該当する構成のチェックボックスを選択解除します。
+** 同様の 7-Mode NFS エクスポートルールを ONTAP の単一のエクスポートポリシーに統合して、移行したボリュームまたは qtree に適用できるようにするには、 * Consolidate NFS Export Policies on 7-Mode * チェックボックスを選択します。
+** ツールによって作成されるエクスポートポリシーに一致する、 SVM 上の既存の NFS エクスポートポリシーを再利用して、移行したボリュームまたは qtree に適用できるようにするには、 * Reuse Export Policies of SVM * チェックボックスを選択します。
+** 同様の 7-Mode Snapshot スケジュールを ONTAP で 1 つの Snapshot ポリシーに統合して、そのポリシーを移行後のボリュームに適用する場合は、「 * Consolidate 7-Mode Snapshot Policies * 」チェックボックスを選択します。
+** ツールによって作成される Snapshot ポリシーに一致する、 SVM 上の既存の Snapshot ポリシーを再利用して、移行後のボリュームに適用するには、 * Reuse Snapshot Policies of SVM * チェックボックスを選択します。
+
+
+. [ 保存 ] をクリックし、 [ ダッシュボード ] に移動します。 *
+
+
+* 関連情報 *
+
+xref:concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[NFS の移行：サポートされる構成とされない構成、必要な手動手順]
+
+xref:concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[ONTAP への移行対象としてサポートされる CIFS 構成とされない CIFS 構成]
+
+xref:concept_supported_and_unsupported_data_protection_relationships.adoc[データ保護の移行：サポートされる構成とされない構成]
+
+xref:concept_supported_and_unsupported_name_services_configurations.adoc[ネームサービスの移行：サポートされる構成とされない構成、必要な手動手順]

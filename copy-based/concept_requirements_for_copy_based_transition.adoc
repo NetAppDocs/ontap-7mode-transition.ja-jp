@@ -1,0 +1,83 @@
+---
+permalink: copy-based/concept_requirements_for_copy_based_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, requirements 
+summary: Copy-Based Transition の対象となる ONTAP のリリース要件、ライセンス要件、 7-Mode Transition Tool の要件を理解しておく必要があります。 
+---
+= Copy-Based Transition の要件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Copy-Based Transition の対象となる ONTAP のリリース要件、ライセンス要件、 7-Mode Transition Tool の要件を理解しておく必要があります。
+
+* * Data ONTAP 7-Mode ソースシステム *
++
+7-Mode Transition Tool によるマイグレーションでサポートされる 7-Mode のリリースのリストについては、を参照してください https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]。
+
+* * ONTAP ターゲット・システム *
++
+これらの ONTAP ターゲットリリースでは、コピーベースの移行がサポートされています。
+
++
+|===
+| 移行ターゲットの実行中のバージョン | 使用する 7-Mode Transition Tool のバージョン 
+
+
+ a| 
+ONTAP 9.8 以前のサポートされているリリース
+ a| 
+3.3.3
+
+
+
+ a| 
+ONTAP 9.7P2 以降 9.7 P リリース
+
+
+NOTE: それよりも前の 9.7 のリリースはサポートされません。
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.6P7 以降 9.6 P リリース
+
+
+NOTE: 9.6 よりも前のリリースはサポートされません。
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.5 以前の ONTAP 9 リリース
+ a| 
+3.3.2 または 3.3.1
+
+
+
+ a| 
+clustered Data ONTAP 8.1.4P4 以降の 8.x リリース
+ a| 
+3.3.2 または 3.3.1
+
+|===
+* * ライセンス要件 *
++
+7-Mode ストレージシステムで SnapMirror のライセンスが有効になっていること。7-Mode システムに SnapMirror のライセンスがない場合は、移行用の一時的なライセンスを営業担当者から入手できます。
+
++
+CoC 検証を実行する必要がある場合は、デスティネーションクラスタで SnapLock のライセンスが有効になっている必要があります。
+
+* * 7-Mode Transition Tool サービス *
++
+データコピースケジュールを実施するには、 7-Mode Transition Tool がインストールされている Windows または Linux システムで、このツールサービスが常に稼働している必要があります。ただし、スケジュールを有効にするために Web インターフェイスをアクティブにしたり開いたりする必要はありません。Web インターフェイスを閉じて、必要に応じて再ログインできます。
+
+* * 移行のための環境評価に必要なストレージ、ホスト、 FC スイッチのバージョン
++
+7-Mode Transition Tool による環境評価でサポートされる 7-Mode システム、ホスト、および FC スイッチのバージョンについては、を参照してください https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]。
+
+

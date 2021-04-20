@@ -1,0 +1,102 @@
+---
+permalink: copy-free/task_gathering_cabling_information_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, gather, cabling, information 
+summary: コピーフリーの移行を開始する前に、 7-Mode コントローラのアダプタ、ポート、ディスクシェルフ、およびストレージ接続に関する情報を収集し、 7-Mode ディスクシェルフをターゲットクラスタノードに接続する方法を計画する必要があります。 
+---
+= 移行のためのケーブル接続情報の収集
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+コピーフリーの移行を開始する前に、 7-Mode コントローラのアダプタ、ポート、ディスクシェルフ、およびストレージ接続に関する情報を収集し、 7-Mode ディスクシェルフをターゲットクラスタノードに接続する方法を計画する必要があります。
+
+Copy-Free Transition ケーブル接続ワークシートを印刷しておく必要があります。
+
+xref:reference_copy_free_transition_cabling_worksheet.adoc[コピーフリーの移行ケーブル接続ワークシート]
+
+. Config Advisor を使用して、 7-Mode ストレージとケーブル接続に関する健常性チェックを実行し、ケーブル接続データを収集します。
++
+「 Data ONTAP 7 and 8 (7-Mode )` 」実行プロファイルの「 7-Mode Install Checks 」オプションを使用する必要があります。
+
+. 次のコマンドを使用して、各 7-Mode コントローラに関する必要な情報を収集します。
++
+'*sysconfig _slot_number_*
+
++
+このコマンドの出力から、ディスクシェルフの接続に使用されているポートを特定できます。
+
++
+[listing]
+----
+host1> sysconfig 3
+        slot 3: SAS Host Adapter 3a
+                24 Disks:            13440.0GB
+                1 shelf with IOM3
+        slot 3: SAS Host Adapter 3b
+                24 Disks:            13440.0GB
+                1 shelf with IOM3
+        slot 3: SAS Host Adapter 3c
+                24 Disks:            13440.0GB
+                1 shelf with IOM3
+        slot 3: SAS Host Adapter 3d
+                24 Disks:            13440.0GB
+                1 shelf with IOM3
+----
+. クラスタから、次のノードシェルコマンドを各ノードに対して実行します。
++
+*system node run -node _node_name -- コマンド sysconfig -a *`
+
++
+このコマンドの出力を使用して、使用可能なポートと拡張カードスロットに関する情報を取得できます。
+
+. ターゲットクラスタノードで、 7-Mode ディスクシェルフの接続に使用するポートを計画します。
++
+.. 使用可能な（開いている）ポートを確認します。
+.. 拡張カードスロットを確認します。
+.. 拡張カードの構成を計画します。
++
+7-Mode システムの拡張カードがデスティネーションのプラットフォームと ONTAP バージョンでもサポートされている場合は、拡張カードの移動を計画できます。必要に応じて、 PAM カードについても計画できます。
+
++
+https://hwu.netapp.com["NetApp Hardware Universe の略"]
+
+.. ディスクシェルフのケーブル接続に使用するデスティネーションポートを計画します。
++
+デスティネーションポートの選択は、次のいくつかの要因に左右されます。
+
++
+*** ディスクシェルフスタックは別か、または既存か
+*** ポートの可用性
+*** SAS 接続か FC 接続か
+*** オンボードポートまたは拡張カードの有無
+
+
+
+
+. データセンターに行き、 7-Mode コントローラとターゲットクラスタノードのポート接続をケーブル接続ワークシートに記入します。
++
+.. 7-Mode コントローラで使用されているポートをケーブル接続ワークシートに記録します。
+.. ターゲットクラスタノードで使用されているポートをケーブル接続ワークシートに記録します。
+.. 手順で計画した、 7-Mode ディスクシェルフの接続に使用するデスティネーションポートを記入します <<STEP_D0CFE719A0384F7FA5D9E73C8EA6C2E7,#step_D0CFE719A0384F7FA5D9E73C8EA6C2E7>>。
+.. ディスクシェルフの接続に適したケーブルがあることを確認します。
++
+新しいディスクシェルフスタックの場所に基づいて、ケーブル接続に問題がないかを確認します。
+
+.. ラダーラックまたはデータセンターの要件に応じて、より長いケーブル長を計画します。
+.. 7-Mode コントローラの各ディスクシェルフスタックとケーブルにラベルを付けます。
++
+移行をロールバックして、ディスクシェルフを 7-Mode コントローラに再接続しなければならなくなった場合に備えて、 7-Mode ディスクシェルフスタックにラベルを付けておくことを推奨します。
+
+
+
+
+
+* 関連情報 *
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["『 SAS Disk Shelves Installation and Service Guide for DS4243 、 DS2246 、 DS4486 、 and DS4246 』を参照してください"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280273["DiskShelf14mk2 AT ハードウェアサービスガイド"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC および DS14mk4 FC ハードウェアサービスガイド"]

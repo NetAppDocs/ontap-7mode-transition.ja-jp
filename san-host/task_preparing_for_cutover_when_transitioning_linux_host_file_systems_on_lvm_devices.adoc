@@ -1,0 +1,67 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_linux_host_file_systems_on_lvm_devices.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, host, lvm, device 
+summary: 論理ボリュームマネージャ \ （ LVM \ ）デバイス上の Linux ホストファイルシステムを移行する場合は、カットオーバーフェーズの前にいくつかの手順を実行する必要があります。 
+---
+= Linux ホストファイルシステム移行時のカットオーバーフェーズの準備 LVM デバイス
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+論理ボリュームマネージャ（ LVM ）デバイス上の Linux ホストファイルシステムを移行する場合は、カットオーバーフェーズの前にいくつかの手順を実行する必要があります。
+
+* FC 構成の場合は、 clustered Data ONTAP コントローラへのファブリック接続とゾーニングが必要です。
+* iSCSI 構成の場合は、 iSCSI セッションを検出し、 clustered Data ONTAP コントローラにログインする必要があります。
+* 次の移行前の情報を _ Inventory Assessment Workbook から収集しておく必要があります。
++
+** LVM で使用されている DMMP デバイス名
+** ボリュームグループの名前
+** 論理ボリューム名
+** 論理ボリュームデバイスに設定されているファイルシステム
+** 論理ボリュームがマウントされているディレクトリ
+
+
+* コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode のエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+
+.手順
+. LV マウントポイントへの I/O を停止します。
+. アプリケーションベンダーの推奨事項に従って、 LUN にアクセスしているアプリケーションをシャットダウンします。
+. LV マウントポイントをアンマウントします。
++
+'*umount_dir_name_*
+
+. 論理ボリュームを無効にします。
++
+'*vgchange-an _vg_name_*'
+
+. 論理ボリュームのステータスを確認します。
++
+`*lvdisplay_dir_name_*`
+
++
+ステータスが「利用不可」と表示されるはずです。
+
+. ボリュームグループをエクスポートします。
++
+'*vgexport_vg_name_*
+
+. VG のステータスを確認します。
++
+*vgdisplay_vg_name_*`
+
++
+VG のステータスには「 exported 」と表示されます。
+
+. 7-Mode の DMMP デバイス ID をフラッシュします。
++
+'*multipath-f_device_name _*
+
+
+
+* 関連情報 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[Inventory Assessment Workbook からの移行前の情報収集]

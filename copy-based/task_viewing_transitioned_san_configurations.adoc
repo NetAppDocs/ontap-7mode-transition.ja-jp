@@ -1,0 +1,51 @@
+---
+permalink: copy-based/task_viewing_transitioned_san_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, view, san, configurations 
+summary: SAN ボリュームの LUN シリアル番号と LUN ID は、移行後に変更されます。移行された SAN 構成を表示するには、 7-Mode Transition Tool CLI を使用して以前の LUN から移行後の LUN へのマッピングを生成し、その情報を .csv ファイルにエクスポートします。 
+---
+= 移行された SAN 構成を表示する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN ボリュームの LUN シリアル番号と LUN ID は、移行後に変更されます。移行された SAN 構成を表示するには、 7-Mode Transition Tool CLI を使用して以前の LUN から移行後の LUN へのマッピングを生成し、その情報を「 .csv 」ファイルにエクスポートします。
+
+ストレージカットオーバーが正常に完了している必要があります。
+
+.手順
+. LUN マッピング情報を生成するには、 CLI から次のコマンドを実行します。
++
+*transition cbt export lunmap -p _project_name -o file_path_*`
+
++
+[listing]
+----
+C:\Program Files\NetApp\7-Mode Transition Tool>transition cbt export lunmap -s SanWorkLoad -o c:/Libraires/Documents/7-to-C-LUN-MAPPING.csv
+Successfully exported 7 to C LUN mapping for 'SanWorkLoad'
+----
++
+次に、 LUN マッピングファイルの例を示します。
+
++
+[listing]
+----
+7-Mode Storage System,192.168.43.49,
+vfiler,finance,
+
+cDOT Storage System,192.168.32.97,
+SVM,finance,
+
+LUN#,Source LUN Path,7-Mode Serial Number,Source Igroups,Source mapping LUN ID,Destination LUN Path,Serial Number,Destination Igroup,Destination mapping LUN ID
+LUN#1,/vol/vol_SANdataset_sm_0/lun-inventory,dtY5B4tFAaAF,WinGrp,0,/vol/vol_SANdataset_sm_0/lun-inventory,7SQ8p$DQ12rX,WinGrp,0
+LUN#1,/vol/vol_SANdataset_sm_0/lun-inventory,dtY5B4tFAaAF,WinGrp2,3,/vol/vol_SANdataset_sm_0/lun-inventory,7SQ8p$DQ12rX,WinGrp2,3
+LUN#1,/vol/vol_SANdataset_sm_0/lun-inventory,dtY5B4tFAaAF,WinGrp3,4,/vol/vol_SANdataset_sm_0/lun-inventory,7SQ8p$DQ12rX,WinGrp3,4
+LUN#2,/vol/vol_SANdataset_sm_0/lun-payroll,dtY5B4tFAaAC,LnxGrp1,2,/vol/vol_SANdataset_sm_0/lun-payroll,7SQ8p$DQ12rT,LnxGrp1,4
+LUN#2,/vol/vol_SANdataset_sm_0/lun-payroll,dtY5B4tFAaAC,LnxGrp2,2,/vol/vol_SANdataset_sm_0/lun-payroll,7SQ8p$DQ12rT,LnxGrp2,4
+----
+
+
+移行した ONTAP ボリュームへのアクセスをリストアする前に、必要な移行後のタスクをホスト上で実行する必要があります。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN ホストの移行および修復"]

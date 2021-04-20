@@ -1,0 +1,43 @@
+---
+permalink: copy-free/concept_considerations_for_transitioning_dns_and_ldap_configurations.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, dns, nis, ldap, configurations 
+summary: Data ONTAP 7-Mode での DNS 、 NIS 、 LDAP の構成が、 ONTAP にどのように移行および適用されるかを理解しておく必要があります。 
+---
+= DNS 、 NIS 、 LDAP の構成の移行に関する考慮事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode での DNS 、 NIS 、 LDAP の構成が、 ONTAP にどのように移行および適用されるかを理解しておく必要があります。
+
+
+
+== DNS の移行に関する考慮事項
+
+ONTAP 構成では、 SVM あたり最大 6 つのドメイン名と 3 つのネームサーバがサポートされます。7-Mode システムとターゲット SVM 全体でドメイン名またはネームサーバの数がサポートされている制限を超えている場合は、 7-Mode Transition Tool でエラーが報告され、処理が中断します。移行を続行するには、 DNS 構成の移行を無視する必要があります。
+
+
+NOTE: DNS 構成の移行を無視する場合は、ターゲット SVM で DNS を手動で設定する必要があります。
+
+
+
+== NIS の移行に関する考慮事項
+
+* 7-Mode システムでは、 NIS ドメイン名を 64 文字以内にする必要があります。
+* ONTAP 9.1 以前を実行しているターゲットクラスタバージョンに移行する場合は、 7-Mode システムの「 nis.servers` 」オプションが FQDN （完全修飾ドメイン名）ではなく IP アドレスのみで設定されている必要があります。
++
+ONTAP 9.1 以前を実行しているクラスタに移行する場合は、移行の前に 7-Mode システムの「 nis.servers` 」オプションを IP アドレスで設定する必要があります。7-Mode システムの「 nis.servers` 」オプションを FQDN で設定した場合は、移行先のクラスタが 9.2 から 9.5 の間で任意のバージョンの ONTAP を実行している状態であれば移行がサポートされます。
+
+
+
+
+
+== LDAP の移行に関する考慮事項
+
+* 7-Mode システムでユーザマッピング（「 ldap.usermap.base` 」）ルックアップとユーザパスワード（「 ldap.base.passwd 」）ルックアップに別々のベース値と範囲値が指定されている場合は、ユーザパスワードのベース値と範囲値のみが移行されます。
++
+ベース値と範囲値は、原因のユーザマッピングルックアップとユーザパスワードルックアップで使用されます。これにより、 ONTAP のセキュリティ上の問題が発生する可能性があります。必要に応じて、移行後に ONTAP でユーザの Distinguished Name （ DN ；識別名）オプションにユーザマッピングのベース値と範囲値を手動で追加してください。
+
+

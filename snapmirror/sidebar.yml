@@ -1,0 +1,69 @@
+---
+section: snap-mirror
+title: SnapMirror による 7-Mode データの移行
+url: "/snapmirror/index.html"
+entries:
+- title: SnapMirror を使用して 7-Mode ボリュームを移行する
+  url: "/snapmirror/task_transitioning_7_mode_volumes_using_snapmirror.html"
+  entries:
+  - title: 移行の計画
+    url: "/snapmirror/concept_planning_for_transition.html"
+    entries:
+    - title: 移行では、機能とボリュームはサポートされていません
+      url: "/snapmirror/concept_features_and_volumes_not_supported_for_transition.html"
+      entries:
+      - title: SAN の移行でサポートされない機能
+        url: "/snapmirror/concept_unsupported_7_mode_san_functions.html"
+    - title: 移行での 7-Mode のバージョン要件
+      url: "/snapmirror/reference_7_mode_ontap_version_requirements_for_transitioning_volumes_using_snapmirror.html"
+    - title: SnapMirror を使用した移行に関する考慮事項
+      url: "/snapmirror/concept_considerations_for_using_snapmirror_for_transition.html"
+    - title: SAN ボリュームを移行する際のスペースに関する考慮事項
+      url: "/snapmirror/concept_considerations_for_space_when_transitioning_san_volumes.html"
+    - title: SnapLock ボリュームの移行に関するガイドライン
+      url: "/snapmirror/concept_guidelines_for_transitioning_snaplock_volumes.html"
+  - title: 移行を準備しています
+    url: "/snapmirror/task_preparing_for_transition.html"
+    entries:
+    - title: 移行のライセンス要件
+      url: "/snapmirror/concept_licensing_requirements_for_transition.html"
+    - title: 7-Mode システムでの移行の準備
+      url: "/snapmirror/task_preparing_7_mode_system_for_transition.html"
+    - title: クラスタで移行準備をします
+      url: "/snapmirror/task_preparing_cluster_for_transition.html"
+    - title: 移行ピア関係を作成
+      url: "/snapmirror/task_creating_a_transition_peering_relationship.html"
+    - title: SnapMirror 関係の TCP ウィンドウサイズの設定
+      url: "/snapmirror/task_configuring_a_tcp_window_size_for_snapmirror_relationships.html"
+  - title: ボリュームを移行する
+    url: "/snapmirror/task_transitioning_volumes.html"
+    entries:
+    - title: スタンドアロンボリュームの移行
+      url: "/snapmirror/task_transitioning_a_stand_alone_volume.html"
+    - title: 段階的構成での Volume SnapMirror 関係の移行
+      url: "/snapmirror/task_transitioning_a_data_protection_relationship.html"
+      entries:
+      - title: セカンダリボリュームを移行する
+        url: "/snapmirror/task_transitioning_secondary_volume.html"
+      - title: プライマリボリュームを移行する
+        url: "/snapmirror/task_transitioning_a_primary_volume.html"
+    - title: Volume SnapMirror 関係を並行して移行する
+      url: "/snapmirror/task_transitioning_a_volume_snapmirror_relationship_in_parallel.html"
+- title: vFiler ユニット間でディザスタリカバリ関係を移行する
+  url: "/snapmirror/task_transitioning_disaster_recovery_relationship.html"
+- title: 移行中の 7-Mode サイトでの災害からの復旧
+  url: "/snapmirror/task_recovering_from_a_disaster_at_7_mode_site_during_transition.html"
+  entries:
+  - title: 完了後に clustered Data ONTAP セカンダリボリュームにクライアントをリダイレクトします 災害が発生した場合
+    url: "/snapmirror/task_redirecting_clients_to_clustered_ontap_secondary_volume.html"
+  - title: 7-Mode プライマリをスタンドアロンボリュームとして移行する
+    url: "/snapmirror/task_transitioning_7_mode_primary_as_a_standalone_volume.html"
+  - title: clustered Data ONTAP プライマリボリュームへのクライアントのリダイレクト
+    url: "/snapmirror/task_redirecting_clients_to_clustered_ontap_primary_volume_after_disaster.html"
+- title: SnapMirror 使用時の移行問題のトラブルシューティング
+  url: "/snapmirror/reference_troubleshooting.html"
+  entries:
+  - title: 失敗した SnapMirror ベースライン転送を再開します
+    url: "/snapmirror/task_resuming_a_failed_snapmirror_transfer_transition.html"
+  - title: LUN 移行が失敗した場合のリカバリ
+    url: "/snapmirror/task_recovering_from_a_failed_lun_transition.html"

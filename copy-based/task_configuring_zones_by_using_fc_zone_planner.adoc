@@ -1,0 +1,42 @@
+---
+permalink: copy-based/task_configuring_zones_by_using_fc_zone_planner.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, configure, zone, fc, plan 
+summary: 移行が完了したら、 FC ゾーン計画を使用してゾーンを設定し、イニシエータホストとターゲットをグループ化してクラスタからのデータアクセスを提供する必要があります。 
+---
+= FC ゾーン計画を使用したゾーンの設定
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行が完了したら、 FC ゾーン計画を使用してゾーンを設定し、イニシエータホストとターゲットをグループ化してクラスタからのデータアクセスを提供する必要があります。
+
+* クラスタとイニシエータホストがスイッチに接続されている必要があります。
+* FC ゾーンのスクリプトファイルにアクセスできる必要があります。
+
+
+.手順
+. スイッチの CLI にログインします。
+. 必要なゾーンコマンドを 1 つずつコピーして実行します。
++
+次の例では、スイッチに対して zone コマンドを実行します。
+
++
+[listing]
+----
+switch1:admin>config terminal
+# Enable NPIV feature
+feature npiv
+zone name auto_transition_igroup_d31_194bf3 vsan 10
+member pwwn 21:00:00:c0:dd:19:4b:f3
+member pwwn 20:07:00:a0:98:32:99:07
+member pwwn 20:09:00:a0:98:32:99:07
+.......
+.......
+.......
+copy running-config startup-config
+----
+
+
+イニシエータホストがクラスタのデータにアクセスできます。

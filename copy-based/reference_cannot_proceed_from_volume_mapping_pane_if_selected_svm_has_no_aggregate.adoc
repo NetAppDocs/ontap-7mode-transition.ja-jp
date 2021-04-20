@@ -1,0 +1,19 @@
+---
+permalink: copy-based/reference_cannot_proceed_from_volume_mapping_pane_if_selected_svm_has_no_aggregate.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, volume, mapping, pane, svm, aggregate, cannot, error 
+summary: ツールにエラーメッセージが表示されます。 SVM にアグリゲートが割り当てられていません。選択した SVM にルートノードアグリゲート以外のアグリゲートがない場合は、一部のアグリゲートを SVM に割り当て、更新ボタンをクリックして、ボリュームマッピングペインで確認してください。 
+---
+= 選択した場合、ボリュームマッピングペインから続行できません SVM にアグリゲートがありません
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+「 VM にアグリゲートが割り当てられていません。」というエラーメッセージが表示されます。選択した SVM にルートノードアグリゲート以外のアグリゲートがない場合は、一部のアグリゲートを SVM に割り当て、「 * ボリュームマッピング * 」ペインで更新ボタンをクリックしてください。
+
+
+
+== 回避策
+
+clustered Data ONTAP の SVM にアグリゲートを追加します。

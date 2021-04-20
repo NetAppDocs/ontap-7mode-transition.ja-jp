@@ -1,0 +1,32 @@
+---
+permalink: copy-free/task_transitioning_to_clustered_ontap_8_3_from_a_7_mode_version_with_32_bit_data.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, prepare, 32, aggregates 
+summary: ONTAP 8.3 以降では、 32 ビットのアグリゲート、ボリューム、および Snapshot コピーがサポートされません。そのため、 32 ビットのアグリゲートを 64 ビットに拡張してから、 32 ビットのボリュームおよび Snapshot コピーを見つけて 7-Mode システムから削除したうえで、移行を実行する必要があります。 
+---
+= 32 ビットアグリゲートを使用する 7-Mode システムの移行準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 8.3 以降では、 32 ビットのアグリゲート、ボリューム、および Snapshot コピーがサポートされません。そのため、 32 ビットのアグリゲートを 64 ビットに拡張してから、 32 ビットのボリュームおよび Snapshot コピーを見つけて 7-Mode システムから削除したうえで、移行を実行する必要があります。
+
+* * 32 ビットアグリゲート *
++
+.. xref:task_expanding_an_aggregate_to_64_bit_format_without_adding_storage.adoc[アグリゲートの 64 ビット形式への拡張]
+.. xref:task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.adoc[32 ビットボリュームと Snapshot コピーの検出と削除]
+
+
+* * 32 ビット・ボリュームまたは Snapshot コピー *
++
+64 ビットのアグリゲートとボリュームしかない場合でも、 32 ビット形式または混在形式の FlexVol ボリュームや Snapshot コピーが残っている可能性があります。移行の前に、これらのボリュームと Snapshot コピーを削除する必要があります。
+
++
+xref:task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.adoc[32 ビットボリュームと Snapshot コピーの検出と削除]
+
+
+
+* 関連情報 *
+
+http://www.netapp.com/us/media/tr-3978.pdf["ネットアップテクニカルレポート 3978 ：『 In-Place Expansion of 32-Bit Aggregates to 64-Bit Overview and Best Practices 』"]

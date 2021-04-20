@@ -1,0 +1,39 @@
+---
+permalink: san-host/task_determining_whether_vmfs_volumes_need_to_be_remounted_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, vmfs, volumes, remounted 
+summary: Data ONTAP 7-Mode から clustered Data ONTAP に移行したあと、 VMFS データストアと VM を移行前の状態に戻すために VMFS ボリュームの再マウントが必要になる場合があります。 
+---
+= 移行後に VMFS ボリュームの再マウントが必要かどうかを判断します
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode から clustered Data ONTAP に移行したあと、 VMFS データストアと VM を移行前の状態に戻すために VMFS ボリュームの再マウントが必要になる場合があります。
+
+* コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode システムのエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+
+.手順
+. Inventory Collect Tool （ ICT ）で生成された Inventory Assessment Workbook を開きます。
+. [* SAN Host Filesystems] タブをクリックします。
+. 移行前にホストにマウントされているファイルシステムとデータストアについて、「ドライブ / マウント / データストア名 * 」列を確認します。
+. データストアの「 * SCSI Device ID / Device Name * 」列にある対応する LUN NAA ID をメモします。
+. 移行後に生成された 7MTT マッピングファイルに、メモしたデータストアの NAA ID が記載されているかどうかを確認します。
++
+** 7MTT マッピングファイルに NAA ID がない場合、データストアおよびその基盤となる LUN は 7MTT の移行に含まれておらず、修復は必要ありません。
+** 7MTT マッピングファイルに一部の NAA ID だけが含まれている場合、移行は完了しておらず、続行することはできません。
+** すべての NAA ID が含まれている場合、 VMFS ボリュームを再マウントする必要があります。
+
+
+
+
+* 関連情報 *
+
+xref:task_remounting_vmfs_volumes_after_transition_using_vsphere_client.adoc[vSphere Client を使用した移行後の VMFS ボリュームの再マウント]
+
+xref:task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.adoc[ESXi CLI を使用した移行後の VMFS ボリュームの再マウント]
+
+xref:concept_what_the_inventory_collect_tool_is.adoc[Inventory Collect Tool の概要]

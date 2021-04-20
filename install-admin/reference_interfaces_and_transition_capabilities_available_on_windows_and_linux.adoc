@@ -1,0 +1,77 @@
+---
+permalink: install-admin/reference_interfaces_and_transition_capabilities_available_on_windows_and_linux.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, interfaces, transition, capabilities, windows, linux 
+summary: 7-Mode Transition Tool は、 Windows と Linux のどちらにもインストールできます。7-Mode Transition Tool をインストールする前に、サポートされる機能とユーザインターフェイスを理解しておく必要があります。 
+---
+= Windows および Linux で使用できるインターフェイスと移行機能
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool は、 Windows と Linux のどちらにもインストールできます。7-Mode Transition Tool をインストールする前に、サポートされる機能とユーザインターフェイスを理解しておく必要があります。
+
+|===
+| マイグレーション方式 | フィーチャー（ Feature ） | Windows でサポートされます | Linux でサポートされます 
+
+
+ a| 
+* コピーフリーの移行 *
+ a| 
+グラフィカルユーザインターフェイス（ GUI ）
+ a| 
+はい。
+ a| 
+いいえ
+
+
+
+ a| 
+コマンドラインインターフェイス（ CLI ）
+ a| 
+いいえ
+
+CLI を使用してプロジェクトを作成および管理することはできませんが、 Windows CLI からの移行時に、エラーを無視するコマンドなどの特定のコマンドを実行する必要があります。
+ a| 
+いいえ
+
+
+
+ a| 
+収集と評価
+ a| 
+はい。
+ a| 
+いいえ
+
+
+
+ a| 
+* コピーベースの移行 *
+ a| 
+GUI
+ a| 
+はい。
+ a| 
+いいえ
+
+
+
+ a| 
+CLI の使用
+ a| 
+はい。
+ a| 
+はい。
+
+
+
+ a| 
+収集と評価
+ a| 
+はい。
+ a| 
+いいえ
+
+|===

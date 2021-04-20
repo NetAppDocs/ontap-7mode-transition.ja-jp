@@ -1,0 +1,45 @@
+---
+permalink: copy-based/concept_prerequisites_to_transition_nfs_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prerequisites, nfs, configurations 
+summary: NFS 構成が 7-Mode Transition Tool で移行されるのは、 7-Mode システムおよびクラスタが一定の前提条件を満たしている場合のみです。条件が 1 つでも満たされていないと、構成は移行されません。 
+---
+= NFS 構成を移行するための前提条件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS 構成が 7-Mode Transition Tool で移行されるのは、 7-Mode システムおよびクラスタが一定の前提条件を満たしている場合のみです。条件が 1 つでも満たされていないと、構成は移行されません。
+
+
+
+== 7-Mode の前提条件
+
+* NFS のライセンスが有効になっていること。
+* MultiStore のライセンスがある場合は、移行対象のボリュームが属する vFiler ユニットで NFS が有効になっている必要があります。
+* Microsoft Active Directory （ AD ）ベースの Kerberos サーバを新しい SVM に移行する場合は、 AD ドメインの DNS エントリが存在していること。
++
+
+NOTE: Kerberos 構成を移行する場合は、少なくとも 1 つの LIF をプロジェクトの一部として移行する必要があり、かつその LIF がホスト名に解決できることが必要です。
+
+* メモリ内のエクスポートルールを移行する場合は ' 移行前にそれらのルールを /etc/exports ファイルに追加する必要があります
++
+7-Mode Transition Tool で移行されるのは、「 /etc/exports 」ファイルに定義された永続的なエクスポートルールのみです。
+
+
+
+
+
+== クラスタの前提条件
+
+* NFS のライセンスが有効になっていること。
+* Microsoft AD ベースの Kerberos サーバを、 DNS が設定された既存の SVM に移行する場合は、 AD ドメインの DNS エントリが存在していること。
+* Kerberos Key Distribution Center （ KDC ；キー配布センター）と ONTAP システムの間のクロックスキューが 5 分以下であること。
+
+
+* 関連情報 *
+
+xref:concept_how_nfs_exports_are_transitioned.adoc[NFS エクスポートが移行される仕組み]
+
+http://docs.netapp.com/ontap-9/index.jsp["ネットアップのマニュアル： ONTAP 9"]

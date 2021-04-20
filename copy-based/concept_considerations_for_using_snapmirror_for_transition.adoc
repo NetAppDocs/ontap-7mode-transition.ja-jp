@@ -1,0 +1,58 @@
+---
+permalink: copy-based/concept_considerations_for_using_snapmirror_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snapmirror 
+summary: データコピースケジュールを作成し、既存の 7-Mode から 7-Mode への SnapMirror 処理や SnapVault 処理に影響を与えずに、移行処理用に SnapMirror データ転送をカスタマイズすることができます。 
+---
+= SnapMirror を使用した移行に関する考慮事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+データコピースケジュールを作成し、既存の 7-Mode から 7-Mode への SnapMirror 処理や SnapVault 処理に影響を与えずに、移行処理用に SnapMirror データ転送をカスタマイズすることができます。
+
+
+
+== SnapMirror 同時転送の最大数
+
+移行時に、 7-Mode システムおよび ONTAP システムでサポートされる同時に実行可能な SnapMirror 転送の最大数は、使用中のストレージシステムモデルでサポートされる Volume SnapMirror レプリケーション処理数によって決まります。
+
+ご使用のシステムモデルで同時に実行可能な Volume SnapMirror 転送の最大数については、を参照してください link:https://library.netapp.com/ecm/ecm_get_file/ECMP1635994["『 Data ONTAP データ保護：オンラインバックアップおよびリカバリガイド』を参照してください 7-Mode"]。
+
+
+
+== データコピースケジュール
+
+* ツールでの SnapMirror 処理で同時に実行される SnapMirror 転送（ベースライン、更新、再同期）の数は、プロジェクト作成時に設定するスケジュールによって決まります。
+* 複数のプロジェクトで同じ 7-Mode コントローラからボリュームを移行する場合は、データコピースケジュールがプロジェクト間で重複しないようにする必要があります。
+* 既存のバックアップ処理とディザスタリカバリ（ DR ）処理が 7-Mode Transition Tool の移行処理の影響を受けないようにする方法は以下のとおりです。
++
+** プロジェクトの SnapMirror データコピースケジュールを、既存の 7-Mode SnapMirror または SnapVault のスケジュールと重複しないように作成します。
+** 既存の 7-Mode SnapMirror または SnapVault スケジュールが失敗しないように、同時に実行される SnapMirror 転送数を設定する必要があります。
++
+アクティブなスケジュールを編集し、同時に実行可能な Volume SnapMirror 転送の最大数をゼロに変更することによって、一部の転送を解除することもできます。
+
+
+
+* 同時に実行される SnapMirror 転送数と、各処理（カットオーバー前、カットオーバー、オンデマンド更新）に設定されたスロットルを、処理の全期間にわたって 7-Mode ストレージシステムで確保する必要があります。
++
+プロジェクトのいずれかのボリュームで最後の差分更新処理が失敗すると、カットオーバー処理は失敗します。
+
+* セカンダリプロジェクトの場合、カットオーバー後の、 7-Mode のプライマリボリュームと ONTAP のセカンダリボリュームの間の SnapMirror 関係に対する SnapMirror 差分更新は、 7-Mode と 7-Mode の SnapMirror 関係のスケジュールに基づきます。
++
+7-Mode プライマリコントローラで、これらの更新に対応できる十分な数の SnapMirror 同時転送数が設定されていることを確認する必要があります。
+
+
+
+
+
+== 複数のパスを移行に使用する
+
+データコピー IP アドレスとマルチパス IP アドレスを使用して、移行用に 2 つのパスを指定できます。ただし、どちらのパスも負荷分散には使用できますが、フェイルオーバーには使用できません。
+
+* 関連情報 *
+
+xref:concept_guidelines_for_creating_a_data_copy_schedule.adoc[データコピースケジュールの作成に関する考慮事項]
+
+xref:task_creating_schedule_for_snapmirror_transfers.adoc[SnapMirror 転送のデータコピースケジュールを作成します]

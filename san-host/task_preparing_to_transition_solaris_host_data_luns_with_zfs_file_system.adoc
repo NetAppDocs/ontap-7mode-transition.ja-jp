@@ -1,0 +1,91 @@
+---
+permalink: san-host/task_preparing_to_transition_solaris_host_data_luns_with_zfs_file_system.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, solaris, host, data, lun, zfs 
+summary: ZFS ファイルシステムを搭載した Solaris ホスト LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する前に、移行プロセスに必要な情報を収集する必要があります。 
+---
+= ZFS ファイルを搭載した Solaris ホストデータ LUN の移行準備をしています システム
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ZFS ファイルシステムを搭載した Solaris ホスト LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する前に、移行プロセスに必要な情報を収集する必要があります。
+
+この環境コピーベースの移行とコピーフリーの移行の 2 つです。
+
+.手順
+. 7-Mode コントローラで、移行する LUN の名前を特定します。
++
+「 * lun show * 」と入力します
+
++
+[listing]
+----
+ fas8040-shu01> lun show
+        /vol/ufs/ufs1                  5g (5368709120)    (r/w, online, mapped)
+        /vol/ufs/ufs2                  5g (5368709120)    (r/w, online, mapped)
+        /vol/zfs/zfs1                  6g (6442450944)    (r/w, online, mapped)
+        /vol/zfs/zfs2                  6g (6442450944)    (r/w, online, mapped)
+----
+. ホストで、 LUN の SCSI デバイスファイル名を確認します。
++
+「 * sanlun lun show * 」と表示されます
+
++
+SCSI デバイスファイル名は、「デバイスファイル名」列にあります。
+
++
+[listing]
+----
+# sanlun lun show
+controller(7mode)/                    device                                            host                  lun
+vserver(Cmode)       lun-pathname     filename                                          adapter    protocol   size    mode
+--------------------------------------------------------------------------------------------------------------------------
+fas8040-shu01        /vol/zfs/zfs2    /dev/rdsk/c0t60A98000383035356C2447384D396550d0s2 scsi_vhci0 FCP        6g      7
+fas8040-shu01        /vol/zfs/zfs1    /dev/rdsk/c0t60A98000383035356C2447384D39654Ed0s2 scsi_vhci0 FCP        6g      7
+fas8040-shu01        /vol/ufs/ufs2    /dev/rdsk/c0t60A98000383035356C2447384D39654Ad0s2 scsi_vhci0 FCP        5g      7
+fas8040-shu01        /vol/ufs/ufs1    /dev/rdsk/c0t60A98000383035356C2447384D396548d0s2 scsi_vhci0 FCP        5g      7
+----
+. zpool を表示します。
++
+'*zpool list*
+
+. zpool を記録して、 zpool に関連付けられているディスクを取得します。
++
+'*zpool status_pool-name_*
+
++
+[listing]
+----
+# zpool list
+NAME     SIZE  ALLOC   FREE  CAP  HEALTH  ALTROOT
+n_pool  11.9G  2.67G  9.27G  22%  ONLINE  -
+
+# zpool status
+  pool: n_pool
+ state: ONLINE
+ scan: none requested
+config:
+
+        NAME                                     STATE     READ WRITE CKSUM
+        n_pool                                   ONLINE       0     0     0
+          c0t60A98000383035356C2447384D396550d0  ONLINE       0     0     0
+          c0t60A98000383035356C2447384D39654Ed0  ONLINE       0     0     0
+
+errors: No known data errors
+----
+. ZFS ストレージプール内の ZFS データセットを表示して記録します。
++
+'*zfs list *
+
++
+[listing]
+----
+# zfs list
+NAME           USED  AVAIL  REFER  MOUNTPOINT
+n_pool        2.67G  9.08G   160K  /n_pool
+n_pool/pool1  1.50G  2.50G  1.50G  /n_pool/pool1
+n_pool/pool2  1.16G  2.84G  1.16G  /n_pool/pool2
+----
+

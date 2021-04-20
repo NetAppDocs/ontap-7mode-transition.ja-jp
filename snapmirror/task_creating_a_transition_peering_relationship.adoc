@@ -1,0 +1,66 @@
+---
+permalink: snapmirror/task_creating_a_transition_peering_relationship.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, create, peer, relationship, snapmirror 
+summary: 7-Mode システムとクラスタの間の移行のための SnapMirror 関係を設定する前に、移行ピア関係を作成する必要があります。クラスタ管理者は、 vserver peer transition create コマンドを使用することにより、 SVM と 7-Mode システムの間の移行ピア関係を作成できます。 
+---
+= 移行ピア関係を作成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode システムとクラスタの間の移行のための SnapMirror 関係を設定する前に、移行ピア関係を作成する必要があります。クラスタ管理者は、「 vserver peer transition create 」コマンドを使用することにより、 SVM と 7-Mode システムの間に移行ピア関係を作成できます。
+
+* ソースの 7-Mode システムの名前がローカルの SVM や、すでにピア関係が設定された SVM と重複していないことを確認しておく必要があります。
+* 7-Mode データの移行先となる、タイプが DP の clustered Data ONTAP ボリュームを作成しておく必要があります。
++
+clustered Data ONTAP ボリュームは、 7-Mode ボリューム以上のサイズである必要があります。
+
+* SVM の名前にピリオドが含まれていないことを確認しておく必要があります。
+* ローカルの LIF を使用する場合は、次のことを確認しておく必要があります。
++
+** デフォルトの IPspace にローカルの LIF が作成されます
+** ローカル LIF は、が配置されているノードに設定されます ボリュームが配置されます
+** LIF の移行ポリシーはボリュームノードと同じで、両方を同じデスティネーションノードに移行できます
+
+
+
+
+移行ピア関係を作成するときは、データ転送を負荷分散するために、マルチパス FQDN または IP アドレスを指定することもできます。
+
+.手順
+. 移行ピア関係を作成するには 'vserver peer transition create コマンドを使用します
+. 「 vserver peer transition show 」を使用して、移行ピア関係が正常に作成されたことを確認します。
+
+
+
+
+== 移行ピア関係を作成および表示する例
+
+次のコマンドは、 SVM vs1 と 7-Mode システム src1 間の移行ピア関係を、マルチパスアドレス src1-e0d 、ローカルの LIF lif1 および lif2 を使用して作成します。
+
+[listing]
+----
+cluster1::> vserver peer transition create -local-vserver vs1 -src-filer-name src1 -multi-path-address src1-e0d -local-lifs lif1,lif2
+----
+次の例は、単一の SVM （ vs1 ）と複数の 7-Mode システムの間の移行ピア関係を示しています。
+
+[listing]
+----
+cluster1::> vserver peer transition create -local-vserver vs1 -src-filer-name src3
+Transition peering created
+
+cluster1::> vserver peer transition create -local-vserver vs1 -src-filer-name src2
+Transition peering created
+----
+次の出力は、 SVM vs1 の移行ピア関係を示しています。
+
+[listing]
+----
+cluster1::> vserver peer transition show
+Vserver  Source Filer  Multi Path Address   Local LIFs
+-------  ------------  -----------------    ---------
+vs1      src2	         	-				    	-
+vs1      src3	        	-				     	-
+----

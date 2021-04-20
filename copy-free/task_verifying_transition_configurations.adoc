@@ -1,0 +1,18 @@
+---
+permalink: copy-free/task_verifying_transition_configurations.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, verify, configurations 
+summary: 7-Mode のボリュームと構成のインポートが完了したら、移行したアグリゲート、ボリューム、 LUN 、および構成を手動で検証する必要があります。 
+---
+= 移行した構成の検証
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode のボリュームと構成のインポートが完了したら、移行したアグリゲート、ボリューム、 LUN 、および構成を手動で検証する必要があります。
+
+.手順
+. 7-Mode のアグリゲート、ボリューム、 LUN 、および CIFS 共有、 NFS エクスポート、 LUN マッピングが移行されたことを確認します。
+. 7-Mode 構成がすべて保持されていることを確認します。
+

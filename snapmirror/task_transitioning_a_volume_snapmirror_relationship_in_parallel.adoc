@@ -1,0 +1,59 @@
+---
+permalink: snapmirror/task_transitioning_a_volume_snapmirror_relationship_in_parallel.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, snapmirror, volume, relationship, parallel 
+summary: 7-Mode SnapMirror 関係のプライマリボリュームとセカンダリボリュームを、同じカットオーバー期間内に並行して移行することができます。移行後に、 ONTAP クラスタで Volume SnapMirror 関係を手動で設定する必要があります。SnapLock Compliance ボリュームを移行する場合は、この方法を使用する必要があります。 
+---
+= Volume SnapMirror 関係を並行して移行する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode SnapMirror 関係のプライマリボリュームとセカンダリボリュームを、同じカットオーバー期間内に並行して移行することができます。移行後に、 ONTAP クラスタで Volume SnapMirror 関係を手動で設定する必要があります。SnapLock Compliance ボリュームを移行する場合は、この方法を使用する必要があります。
+
+* プライマリクラスタとセカンダリクラスタ、および SVM をセットアップしておく必要があります。
+* Volume SnapMirror 関係を移行するときに SVM ピア関係を確立するには、次の条件が満たされている必要があります。
++
+** セカンダリクラスタに、プライマリ SVM と同じ名前の SVM が存在しない。
+** プライマリクラスタに、セカンダリ SVM と同じ名前の SVM が存在しない。
+** 移行準備に関する情報を確認しておく必要があります。
++
+xref:task_preparing_for_transition.adoc[移行を準備しています]
+
+
+
+
+
+SnapLock Compliance ボリュームとの移行データ保護（ TDP ）関係では SnapMirror 再同期がサポートされないため、 SnapLock Compliance ボリューム間の 7-Mode SnapMirror 関係は並行して移行する必要があります。そのため、 SnapLock Compliance ボリュームを含む 7-Mode プライマリボリュームと ONTAP セカンダリボリュームの間には、 SnapMirror ディザスタリカバリ（ DR ）関係を確立できません。
+
+. スタンドアロンボリュームの移行手順に従って、 SnapMirror 関係のセカンダリボリュームとプライマリボリュームを移行します。
++
+7-Mode のセカンダリボリュームを移行する前に、 7-Mode の SnapMirror 関係に対する手動の操作は必要ありません。これにより、 7-Mode のセカンダリボリュームは、読み取り専用ボリュームとして ONTAP に移行されます。
+
++
+xref:task_transitioning_a_stand_alone_volume.adoc[スタンドアロンボリュームの移行]
+
+. 移行したプライマリボリュームとセカンダリボリュームを含む SVM 間にクラスタ間 SVM ピア関係を作成します。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["システム管理"]
+
+. 移行したプライマリボリュームとセカンダリボリュームの間に Volume SnapMirror 関係を作成します。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-cg/home.html["ボリュームディザスタリカバリの簡単な設定"]
+
+. デスティネーションボリュームで、 SnapMirror 関係のソースボリュームとデスティネーションボリュームを再同期します。
++
+
+IMPORTANT: ソースボリュームとデスティネーションボリュームの間には、共通の Snapshot コピーが少なくとも 1 つ必要です。
+
+. SnapMirror データ転送のステータスを監視します。
++
+
+IMPORTANT: 再同期が完了するまでは、ソースボリュームとデスティネーションボリュームでボリューム移動や SnapMirror 解除などの処理を実行しないでください。再同期は途中で中断することなく完了させる必要があります。中断した場合、ボリュームが不整合状態になる可能性があります。
+
+
+
+* 関連情報 *
+
+xref:concept_guidelines_for_transitioning_snaplock_volumes.adoc[SnapLock ボリュームの移行に関するガイドライン]

@@ -1,0 +1,43 @@
+---
+permalink: copy-based/task_completing_transition_process.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, complete 
+summary: 完了処理はシステムの停止を伴うため、実行するタイミングを検討する必要があります。SnapMirror 関係にあるボリュームを移行する際には、プライマリプロジェクトの移行を実行する前にセカンダリプロジェクトが完了している必要があります。 
+---
+= 移行を完了します
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+完了処理はシステムの停止を伴うため、実行するタイミングを検討する必要があります。SnapMirror 関係にあるボリュームを移行する際には、プライマリプロジェクトの移行を実行する前にセカンダリプロジェクトが完了している必要があります。
+
+.手順
+. 7-Mode ボリュームから ONTAP ボリュームへのデータコピーを実行します。
++
+`*transition cbt update -p _project_name --t_available-transfers-percentage -c _snapmirror-throttlemax-cap-concurrent-transfers _-x -r interactive *`
+
++
+これにより、ストレージカットオーバー時のダウンタイムを削減できます。
+
+. 手動：クライアントアクセスを切断します。
+. 移行プロセスを完了します。
++
+`*transition cbt cutover -p _project_name --t_available-transfers-percentage -c _max-cap-concurrent-transfers __ x _snapmirror-throttle__ -r interactive -o [true | false] *
+
++
+デフォルトでは 7-Mode ボリュームがオフラインになります。7-Mode ボリュームをオンラインのままにするには、「 -o 」オプションを「 false 」に設定します。
+
++
+
+NOTE: 一部の理由でカットオーバーが失敗した場合（ 7-Mode システムまたはクラスタに到達できない場合など）は、問題を解決して「 transition cutover 」コマンドを再度実行する必要があります。
+
++
+コマンドの詳細については、マニュアルページを参照してください。
+
++
+移行セッションがカットオーバー状態になります。カットオーバーが成功すると、セッションは完了状態になります。
+
+
+
+移行後のタスクを実行し、クライアントを ONTAP ボリュームに再接続する必要があります。

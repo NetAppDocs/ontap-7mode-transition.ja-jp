@@ -1,0 +1,68 @@
+---
+permalink: copy-free/concept_supported_and_unsupported_name_services_configurations.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, name, services, required, manual, steps 
+summary: 7-Mode Transition Tool で移行されるネームサービス構成を理解しておく必要があります。ONTAP でサポートされていないか、または手動で移行しなければならない一部のネームサービス構成は、 ONTAP に移行されません。 
+---
+= ネームサービスの移行：サポートされる構成とされない構成、必要な手動手順
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool で移行されるネームサービス構成を理解しておく必要があります。ONTAP でサポートされていないか、または手動で移行しなければならない一部のネームサービス構成は、 ONTAP に移行されません。
+
+事前確認のエラーおよび警告メッセージをすべて検証して、このような構成が移行に及ぼす影響を評価する必要があります。
+
+
+
+== 移行される構成
+
+以下のネームサービス構成が 7-Mode Transition Tool で移行されます。
+
+* DNS 構成 (/etc/resolv.conf )
+* LDAP の設定
+* NIS の設定
+* ネーム・サービス・スイッチ構成 (/etc/nsswitch.conf' および /etc/resolv.conf )
+* ホストの構成（ /etc/hosts ）
+* UNIX ユーザおよびグループ (`/etc/passwd および `/etc/group')
+* ネットグループの構成 (/etc/netgroup')
+
+
+これらのネームサービス構成の詳細については、事前確認の結果を参照してください。
+
+
+
+== ONTAP でサポートされない構成です
+
+* NIS スレーブ
+* NIS ブロードキャスト
+* NIS グループキャッシング
+* 動的 DNS
+* DNS キャッシュ
+* シャドウデータベース
+* ファイルまたは DNS 以外のホストデータベースソース
++
+ONTAP では、ホスト検索でサポートされるのはファイルと DNS のみです。その他のデータベースソースはサポートされません。/etc/nsswitch.conf のホスト検索順序は移行時に無視されます
+
+
+
+
+
+== 手動で設定する必要がある構成
+
+SVM で次の LDAP オプションを手動で設定する必要があります。
+
+* ldap.usermap.attribute.unixaccount`
+* 「 ldap.password 」を入力します
+* ldap.usermap.base`
+* 「 ldap.ssl.enable 」
+
+
+* 関連情報 *
+
+xref:task_customizing_configurations_for_transition.adoc[7-Mode 構成の移行のカスタマイズ]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["ネットワークと LIF の管理"]

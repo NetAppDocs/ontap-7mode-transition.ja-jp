@@ -1,0 +1,72 @@
+---
+permalink: copy-based/concept_port_requirements_for_communicating_with_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, port, requirements, communicating, tool 
+summary: 7-Mode Transition Tool は、特定のポートを介して 7-Mode システムおよびクラスタと通信します。7-Mode システムおよびクラスタで以下のポートが開いていて 7-Mode Transition Tool と通信できるようになっていることを確認する必要があります。 
+---
+= 7-Mode Transition Tool と通信するためのポート要件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool は、特定のポートを介して 7-Mode システムおよびクラスタと通信します。7-Mode システムおよびクラスタで以下のポートが開いていて 7-Mode Transition Tool と通信できるようになっていることを確認する必要があります。
+
+
+
+== 7-Mode システムで開いている必要のあるポート
+
+7-Mode Transition Tool は、ポート 443 で HTTPS を使用して 7-Mode システムと通信します。
+
+以下のポートは、クラスタが 7-Mode システムと通信して SnapMirror レプリケーションを実行するために必要です。
+
+* 10565/TCP
+* 10566 / TCP
+* 10567 / TCP
+* 10568 / TCP
+* 10569 / TCP
+* 10670/TCP
+
+
+
+
+== クラスタで開いている必要のあるポート
+
+7-Mode Transition Tool は、ポート 443 で HTTPS を使用してクラスタと通信します。
+
+以下のポートは、 7-Mode システムがクラスタと通信して SnapMirror レプリケーションを実行するために必要です。
+
+* 10565/TCP
+* 10566 / TCP
+* 10567 / TCP
+* 10568 / TCP
+* 10569 / TCP
+* 10670/TCP
+* 11105/TCP
+
+
+さらに、 7-Mode Transition Tool は、インタークラスタ LIF から 7-Mode システムのデータコピー IP アドレスへ ping を実行し、接続状況を確認します。
+
+
+
+== 7-Mode Transition Tool で開いている必要のあるポート
+
+7-Mode Transition Tool のポート 8444 が Web インターフェイス用に開いている必要があります。
+
+ネットグループと CIFS ローカルユーザおよびローカルグループを移行するには、次の要件を満たしている必要があります。
+
+* 7-Mode Transition Tool のポート 8088 が使用可能であることが必要です。
++
+8088 以外のポートを使用する場合は、 7-Mode Transition Tool のインストールディレクトリにある「 transition-tool.conf 」ファイルで、「 tool.http.port 」パラメータに指定されているポートを変更する必要があります。
+
++
+
+NOTE: 構成ファイルでポートを変更したら、 7-Mode Transition Tool サービスを再起動する必要があります。
+
+* クラスタ内の各ノードに、ターゲット SVM 用のデータ LIF が少なくとも 1 つ設定されている必要があります。
+* すべての SVM データ LIF が、 7-Mode Transition Tool のポート 8088 、または「 transition-tool.conf 」ファイルの「 tool.http.port 」パラメータに指定されているポートと通信できる必要があります。
++
+
+NOTE: このトラフィックがファイアウォールでブロックされていないことを確認してください。
+
+

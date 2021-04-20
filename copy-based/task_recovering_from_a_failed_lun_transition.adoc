@@ -1,0 +1,55 @@
+---
+permalink: copy-based/task_recovering_from_a_failed_lun_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, recover, failed, lun 
+summary: LUN を含むボリュームの移行が失敗した場合は、 lun transition 7-mode show コマンドを使用して、 ONTAP に移行されなかった LUN を確認してから、対処方法を特定できます。 
+---
+= LUN 移行が失敗した場合のリカバリ
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LUN を含むボリュームの移行が失敗した場合は、 lun transition 7-mode show コマンドを使用して、 ONTAP に移行されなかった LUN を確認してから、対処方法を特定できます。
+
+.手順
+. advanced 権限レベルに切り替えます。
++
+「 * set -privilege advanced * 」のように指定します
+
+. 失敗した LUN を確認します。
++
+'*lun transition 7-mode show*
+
+. EMS ログを確認して、必要な対処方法を特定します。
+. EMS メッセージに表示されている必要な手順を実行して、エラーを修正します。
+. サポートされている LUN の移行に失敗した場合は、移行を完了します。
++
+「 * lun transition start * 」のように入力します
+
+. ボリュームの移行ステータスを確認します。
++
+「 * lun transition show * 」を参照してください
+
++
+移行ステータスは、次のいずれかの値になります。
+
++
+** アクティブ：ボリュームはアクティブな SnapMirror 移行関係にあり、まだ移行されていません。
+** complete ：このボリュームのサポートされているすべての LUN が移行されます
+** failed ：ボリュームの LUN 移行に失敗しました
+** 'none` ： 7-Mode システムから移行する LUN がボリュームに含まれていませんでした。
+
+
++
+[listing]
+----
+cluster1::*> lun transition show
+Vserver              Volume             Transition Status
+-------------------- ------------------ -----------------
+vs1                  vol0               none
+                     vol1               complete
+                     vol2               failed
+                     vol3               active
+----
+

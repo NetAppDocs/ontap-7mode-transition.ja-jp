@@ -1,0 +1,32 @@
+---
+permalink: snapmirror/task_redirecting_clients_to_clustered_ontap_secondary_volume.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, snapmirror, redirect, clients, disaster, clustered, secondary, volume 
+summary: 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間に SnapMirror ディザスタリカバリ（ DR ）関係を確立している場合、 7-Mode のプライマリサイトで災害が発生したら、クライアントアクセスを clustered Data ONTAP のセカンダリボリュームにリダイレクトする必要があります。 
+---
+= 完了後に clustered Data ONTAP セカンダリボリュームにクライアントをリダイレクトします 災害が発生した場合
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間に SnapMirror ディザスタリカバリ（ DR ）関係を確立している場合、 7-Mode のプライマリサイトで災害が発生したら、クライアントアクセスを clustered Data ONTAP のセカンダリボリュームにリダイレクトする必要があります。
+
+.手順
+. セカンダリクラスタから「 snapmirror break 」コマンドを使用して、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間の SnapMirror 関係を解除します。
++
+[listing]
+----
+sec_cluster::> snapmirror break -destination-path dst_vserver:dst_c_vol
+----
+. セカンダリクラスタからは、「 snapmirror delete 」コマンドを使用して、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間の SnapMirror 関係を削除します。
++
+[listing]
+----
+sec_cluster::> snapmirror delete -destination-path dst_vserver:dst_c_vol
+----
+. クライアントアクセスを clustered Data ONTAP のセカンダリボリュームにリダイレクトします。
++
+clustered Data ONTAP でのクライアントアクセス設定の詳細については、を参照してください link:https://library.netapp.com/ecm/ecm_get_file/ECMP1401220["『 clustered Data ONTAP ファイルアクセスおよびプロトコル管理ガイド』"]。
+
+

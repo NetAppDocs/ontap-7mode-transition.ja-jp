@@ -1,0 +1,21 @@
+---
+permalink: san-host/concept_types_of_san_boot_luns_supported_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, san, boot, lun, supported 
+summary: Data ONTAP 7-Mode から clustered Data ONTAP への移行対象としてサポートされるのは、特定のタイプの SAN ブート LUN のみです。 
+---
+= 移行対象としてサポートされる SAN ブート LUN のタイプ
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode から clustered Data ONTAP への移行対象としてサポートされるのは、特定のタイプの SAN ブート LUN のみです。
+
+移行対象としてサポートされる SAN ブート LUN は次のとおりです。
+
+* FC または FCoE SAN ブート LUN
+* Red Hat Enterprise Linux （ RHEL ）用の iSCSI SAN ブート LUN 6.
+
+
+RHEL 5.x の iSCSI SAN ブート LUN の移行はサポートされていません。

@@ -1,0 +1,59 @@
+---
+permalink: copy-based/concept_limitations_with_snapshot_copies_and_luns_managed_by_snap_products.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, limitations, snapshot, lun, snapdrive, snapmanager 
+summary: clustered Data ONTAP 8.3 に移行すると、移行した 7-Mode Snapshot コピーに対する SnapDrive と SnapManager のバックアップ検証処理とリストア処理が失敗します。clustered Data ONTAP 8.3.1 に移行すると、移行した 7-Mode Snapshot コピーに対する SnapManager for Microsoft Exchange Server\（ SME \ ）のバックアップ検証処理と SnapManager for Hyper-V \ （ SMHV \ ）のリストア処理が失敗します。 
+---
+= SnapDrive で管理される LUN の 7-Mode Snapshot コピーに関する制限事項 および SnapManager への移行後の対応を示します
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+clustered Data ONTAP 8.3 に移行すると、移行した 7-Mode Snapshot コピーに対する SnapDrive と SnapManager のバックアップ検証処理とリストア処理が失敗します。clustered Data ONTAP 8.3.1 に移行すると、移行した 7-Mode Snapshot コピーに対する SnapManager for Microsoft Exchange Server （ SME ）のバックアップ検証処理と SnapManager for Hyper-V （ SMHV ）のリストア処理が失敗します。
+
+7-Mode システムに接続されているホストで使用している SnapDrive または SnapManager 、およびクラスタで実行している Data ONTAP のバージョンに応じて、事前確認時にこの制限に関する警告メッセージが表示されます。
+
+
+NOTE: clustered Data ONTAP で新たに作成した Snapshot コピーに対しては、 SnapDrive と SnapManager のバックアップ検証処理とリストア処理がすべてサポートされます。
+
+
+
+== 回避策： SnapDrive と SnapManager を使用したバックアップとリストアの処理 clustered Data ONTAP 8.3 でサポートされています
+
+次のいずれかを実行します。
+
+* 7-Mode Snapshot コピーの有効期限が切れるまで 7-Mode システムを維持します。
++
+必要に応じて、 7-Mode システムを使用して 7-Mode Snapshot コピーの LUN からファイルをリストアし、そのファイルを clustered Data ONTAP に移行することができます。
+
+* ONTAP の単一ファイルの SnapRestore を使用して 7-Mode Snapshot コピーからアクティブなファイルシステムに LUN をリストアし、リストアした LUN を単一ファイルリストアの対象としてマウントします。
+
+
+
+
+== 回避策： SME と SMHV を使用したバックアップとリストアの処理に使用します ONTAP 8.3.1 以降ではサポートされるリリース
+
+次のいずれかを実行します。
+
+* ONTAP へのストレージカットオーバーを実行する前に、 7-Mode で作成した SnapManager バックアップが有効であることを確認します。
+* 移行した 7-Mode Snapshot コピーから ONTAP でボリュームのクローンを作成し、そのクローンボリュームに LUN をマウントしてバックアップ検証処理とリストア処理を実行します。
+
+
+7-Mode Snapshot コピーの有効期限が切れるまで 7-Mode システムを維持することを推奨します。
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30034["ネットアップのマニュアル： SnapManager for Microsoft Exchange Server"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30055["ネットアップのマニュアル： SnapManager for Hyper-V"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30037["ネットアップのマニュアル： SnapManager for SAP"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30040["ネットアップのマニュアル： SnapManager for Oracle"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30050["ネットアップのマニュアル： SnapDrive for UNIX"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30049["ネットアップのマニュアル： SnapDrive for Windows （現在のリリース）"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30041["ネットアップのマニュアル： SnapManager for Microsoft SQL Server"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30036["ネットアップのマニュアル： SnapManager for Microsoft SharePoint"]

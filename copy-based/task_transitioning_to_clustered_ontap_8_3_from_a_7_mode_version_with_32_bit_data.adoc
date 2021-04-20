@@ -1,0 +1,24 @@
+---
+permalink: copy-based/task_transitioning_to_clustered_ontap_8_3_from_a_7_mode_version_with_32_bit_data.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, supported, released, 8.3 
+summary: ONTAP 8.3 以降では、 32 ビットのアグリゲート、ボリューム、および Snapshot コピーがサポートされません。そのため、 32 ビットのアグリゲートを 64 ビットに拡張してから、 32 ビットのボリュームおよび Snapshot コピーを見つけて 7-Mode システムから削除したうえで、移行を実行する必要があります。7-Mode のすべてのバージョンが 32 ビットアグリゲートの拡張と 32 ビットのボリュームおよび Snapshot コピーの削除をサポートしているわけではないため、移行の前に 7-Mode システムのアップグレードが必要になる場合があります。 
+---
+= ONTAP 8.3 以降のサポートされるリリースに移行する準備をしています
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 8.3 以降では、 32 ビットのアグリゲート、ボリューム、および Snapshot コピーがサポートされません。そのため、 32 ビットのアグリゲートを 64 ビットに拡張してから、 32 ビットのボリュームおよび Snapshot コピーを見つけて 7-Mode システムから削除したうえで、移行を実行する必要があります。7-Mode のすべてのバージョンが 32 ビットアグリゲートの拡張と 32 ビットのボリュームおよび Snapshot コピーの削除をサポートしているわけではないため、移行の前に 7-Mode システムのアップグレードが必要になる場合があります。
+
+
+NOTE: clustered Data ONTAP 8.2.x では、 32 ビットのアグリゲート、ボリューム、および Snapshot コピーがサポートされます。したがって、 Data ONTAP 8.2.x を実行するターゲットクラスタには、 7-Mode システムから 32 ビットデータを移行できますただし、移行後にターゲットクラスタを ONTAP 8.3 以降のバージョンにアップグレードする必要が生じた場合は、ターゲットクラスタの既存の 32 ビットデータをすべて 64 ビット形式にアップグレードしてから、ターゲットクラスタの ONTAP バージョンをアップグレードする必要があります。
+
+次のワークフローを使用して、移行前にアップグレードが必要かどうかを判断してください。
+
+image::../media/32bit_upgrade_path_updated.gif[32 ビットアップグレードパスが更新されました]
+
+* 関連情報 *
+
+http://www.netapp.com/us/media/tr-3978.pdf["ネットアップテクニカルレポート 3978 ：『 In-Place Expansion of 32-Bit Aggregates to 64-Bit Overview and Best Practices 』"]

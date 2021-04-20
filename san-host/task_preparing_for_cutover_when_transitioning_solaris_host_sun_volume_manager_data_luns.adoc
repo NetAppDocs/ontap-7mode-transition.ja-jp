@@ -1,0 +1,52 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_solaris_host_sun_volume_manager_data_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, solaris, host, sun, volume, manager 
+summary: Sun Volume Manager を搭載した Solaris ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、カットオーバーフェーズを開始する前に特定の手順を実行する必要があります。 
+---
+= Solaris ホストの Sun Volume 移行時のカットオーバーフェーズの準備 Manager データ LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sun Volume Manager を搭載した Solaris ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、カットオーバーフェーズを開始する前に特定の手順を実行する必要があります。
+
+FC 構成を使用している場合は、 clustered Data ONTAP ノードへのファブリック接続とゾーニングを確立する必要があります。
+
+iSCSI 構成を使用している場合は、 clustered Data ONTAP ノードへの iSCSI セッションを検出して、ログインする必要があります。
+
+コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+
+コピーフリーの移行の場合は、 7MTT で 7-Mode のエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+. すべてのマウントポイントで I/O を停止します。
+. アプリケーションベンダーの推奨事項に従って、 LUN にアクセスしている各アプリケーションをシャットダウンします。
+. すべてのマウントポイントをアンマウントします。
++
+'*umount_mount_point_*
+
++
+[listing]
+----
+#umount /d1
+#umount /d2
+----
+. メタセットに対して次の処理を実行します。
++
+*metaset – s_set-name_– 無効 *
+
++
+「 metaset – s_set-name_– r 」
+
++
+'*metaset – s_set-name_– P*
+
++
+[listing]
+----
+metaset -s n_vg -A disable
+metaset -s n_vg -r
+metaset -s n_vg -P
+----
+

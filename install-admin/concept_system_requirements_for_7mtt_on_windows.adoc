@@ -1,0 +1,136 @@
+---
+permalink: install-admin/concept_system_requirements_for_7mtt_on_windows.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, system, requirements, windows, transition, tool 
+summary: 7-Mode Transition Tool をインストールして実行するには、 Windows ホストが構成要件を満たしている必要があります。 
+---
+= Windows に 7-Mode Transition Tool をインストールするためのシステム要件 システム
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool をインストールして実行するには、 Windows ホストが構成要件を満たしている必要があります。
+
+必ず最新の 7-Mode Transition Tool を参照してください link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["リリースノート"] サポートされているホストおよび既知の問題に関する最新情報。
+
+
+
+== ハードウェア要件
+
+* デュアルコア x64 プロセッサ、 1.0GHz 以上
+* 8GB の RAM
+* 40GB の空きディスク容量
+
+
+
+
+== ソフトウェア要件
+
+* 64 ビットの Windows システムで次のいずれかのバージョンのオペレーティングシステムが実行されている必要があります。
++
+** Windows 7 Enterprise の場合
+** Windows 7 Enterprise SP1
+** Windows Server 2008 Standard の略
+** Windows Server 2008 R2 Standard の略
+** Windows Server 2008 R2 Enterprise SP1
+** Windows Server 2012 Standard の略
+** Windows Server 2012 R2 Standard の略
+** Windows 8.1 Enterprise の場合
+** Windows Server 2012 R2 Datacenter エディション
+** 7-Mode Transition Tool バージョン 3.3.2P1 では、次のいずれかのバージョンのオペレーティングシステムを使用することもできます。
++
+*** Windows 10 Enterprise
+*** Windows Server 2016 Standard の略
+*** Windows Server 2016 Datacenter
+*** Windows Server 2019 Standard の略
+*** Windows Server 2019 データセンター
+
+
+** 7-Mode Transition Tool バージョン 3.3 では、次のいずれかのバージョンのオペレーティングシステムを使用することもできます。
++
+*** Windows 10 Professional
++
+
+NOTE: 上記のソフトウェア要件とハードウェア要件を満たしている Windows 仮想マシンにも、 7-Mode Transition Tool をインストールできます。
+
+
+
+
+
+* 64 ビット Oracle Java Runtime Environment （ JRE ） 1.8 Update 144
++
+
+NOTE: Windows ホストに JRE がインストールされていない場合、または 32 ビット JRE がインストールされている場合は、 7-Mode Transition Tool インストーラによって自動的に 64 ビット JRE 1.8 Update 144 がインストールされます。これより前のバージョンの 64 ビット JRE がインストールされている場合は、自動的にそのバージョンが JRE 1.8 Update 144 に更新されます。
+
++
+JRE が自動的に更新されると、以前のバージョンの JRE を必要とする他のアプリケーションが影響を受ける可能性があります。
+
++
+
+NOTE: JRE 1.8 Update 46 以降（ JRE 1.8 Update 144 を含む）では、 7-Mode Transition Tool が Data ONTAP 7-Mode システムおよび ONTAP システムと通信するためには、 ONTAP 7-Mode システムおよび Data ONTAP システムでの SSL キーの長さが 1024 文字以上である必要があります。
+
++
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT%3A_How_to_resolve_TLS_or_SSL_communication_issue["7MTT ： TLS または SSL 通信の問題を解決する方法"]
+
+
+
+
+
+== サーバ構成の要件
+
+Web インターフェイスにアクセスするには、ツールがインストールされている Windows システムを次のように設定する必要があります。
+
+* 7-Mode Transition Tool サーバのポート 8443 が使用可能である必要があります。
++
+ポート 8443 を使用できない場合、または別のポートを使用する場合は、 $INSTALL_DIR\etc\conf\transition-tool.conf ファイルの「 tool.https.port 」パラメータに指定されているポートを変更する必要があります。
+
++
+Web インターフェイスへのアクセスには HTTPS を使用することを推奨します。Web インターフェイスへのアクセスに HTTP を使用する場合は、ポート 8088 が使用可能であることが必要です。8088 以外のポートを使用する場合は、「 transition-tool.conf 」ファイルの「 tool.http.port 」パラメータに指定されているポートを変更する必要があります。
+
++
+
+NOTE: 構成ファイルでポートを変更したら、 7-Mode Transition Tool サービスを再起動する必要があります。
+
+* ファイアウォールは、オフにするか、ツールへのアクセスに使用されるポート上のトラフィックを許可するように設定する必要があります。
+
+
+ネットグループと CIFS ローカルユーザおよびローカルグループを移行するには、次の要件を満たしている必要があります。
+
+* 7-Mode Transition Tool のポート 8088 が使用可能であることが必要です。
++
+8088 以外のポートを使用する場合は、「 transition-tool.conf 」ファイルの「 tool.http.port 」パラメータに指定されているポートを変更し、 7-Mode Transition Tool サービスを再起動する必要があります。
+
+* クラスタ内の各ノードに、ターゲット SVM 用のデータ LIF が少なくとも 1 つ設定されている必要があります。
+* すべての SVM データ LIF が、 7-Mode Transition Tool のポート 8088 、または「 transition-tool.conf 」ファイルの「 tool.http.port 」パラメータに指定されているポートと通信できる必要があります。
++
+
+NOTE: このトラフィックがファイアウォールでブロックされていないことを確認してください。
+
+
+
+
+
+== クライアント（ Web インターフェイス）要件
+
+Web インターフェイスにアクセスするシステムは次の条件を満たしている必要があります。
+
+* 次のいずれかの Web ブラウザ：
++
+** Microsoft Internet Explorer 9 、 10 、または 11
+** Google Chrome 27 以降
+** Mozilla Firefox 20 以降では、すべてのブラウザで TLS が有効になっている必要があります。
+
+
++
+
+NOTE: Microsoft Internet Explorer を Web ブラウザとして使用している場合は、 SSLv2 を無効にする必要があります。
+
+* 1280 × 1024 以上の画面解像度
+
+
+ツールの新しいバージョンをインストールするたびに、 Ctrl+F5 キーを押してブラウザキャッシュをクリアする必要があります。
+
+* 関連情報 *
+
+https://mysupport.netapp.com/NOW/products/interoperability["ネットアップの相互運用性"]

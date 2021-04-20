@@ -1,0 +1,46 @@
+---
+permalink: copy-based/task_preparing_network_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, network 
+summary: 論理ポート（ VLAN およびインターフェイスグループ）を作成して、クラスタのデータネットワークで移行準備をする必要があります。 
+---
+= ネットワークでの移行の準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+論理ポート（ VLAN とインターフェイスグループ）を作成して、クラスタのデータネットワークで移行準備をする必要があります。
+
+NTP サーバが設定され、 7-Mode システムとクラスタの間で時刻が同期されている必要があります。
+
+.手順
+. 必要に応じて、ターゲットクラスタノードに VLAN またはインターフェイスグループを作成します。
++
+「 * network port vlan create * 」のように指定します
+
++
+または
+
++
+「 * network port ifgrp create * 」のようになります
+
++
+移行後にネットワーク接続を提供するには、 7-Mode IP アドレスを ONTAP 内の同様のネットワークトポロジに移行する必要があります。たとえば、 7-Mode IP アドレスが物理ポート上に設定されている場合は、それらの IP アドレスを ONTAP 内の適切な物理ポートに移行する必要があります。同様に、 VLAN ポートまたはインターフェイスグループ上に設定された IP アドレスは、 ONTAP 内の適切な VLAN ポートまたはインターフェイスグループに移行する必要があります。
+
+. デフォルト以外の IPspace に SVM を配置する場合は、必要な IPspace を作成します。
++
+「 * network ipspace create * 」
+
++
+移行対象として選択した 7-Mode IP アドレスまたは新しい LIF がマッピングされた SVM の IPspace に作成されます。
+
++
+
+NOTE: IPv6 アドレスは移行できないため、移行後に手動で設定する必要があります。
+
+
+
+* 関連情報 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["ネットワークと LIF の管理"]

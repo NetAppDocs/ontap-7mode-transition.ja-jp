@@ -1,0 +1,244 @@
+---
+permalink: copy-free/reference_ignorable_errors_during_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, ignorable, errors 
+summary: 移行時に発生するエラーの一部は無視できます。このようなエラーは、 Copy-Free Transition プロジェクトの事前確認、ケーブル接続、インポート、またはコミットの処理で発生します。移行を続行する前に、これらのエラーを承認する必要があります。 
+---
+= 移行時に無視できるエラーです
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行時に発生するエラーの一部は無視できます。このようなエラーは、 Copy-Free Transition プロジェクトの事前確認、ケーブル接続、インポート、またはコミットの処理で発生します。移行を続行する前に、これらのエラーを承認する必要があります。
+
+7-Mode Transition Tool CLI を使用して、 Copy-Free Transition プロジェクトに無視できるエラーカテゴリを追加する場合は、エラーの影響を把握しておく必要があります。エラーを無視したあとで、移行処理を再実行する必要があります。この時点で、エラーは警告メッセージに変わり、エラーは「 acknowledged 」と表示されます。警告が表示されても移行は続行できます。
+
+
+
+== 事前確認処理：無視できるエラーカテゴリ
+
+|===
+| カテゴリ | エラーが表示される場合 
+
+
+ a| 
+「 ignore-source-not-multipath 」
+ a| 
+7-Mode ディスクシェルフがマルチパス構成に含まれていない。
+
+
+
+ a| 
+「 ignore-target-not-multipath 」
+ a| 
+ターゲットクラスタノードのディスクシェルフがマルチパス構成に含まれていない。
+
+
+
+ a| 
+「 ignore-source-storage-fault 」
+ a| 
+7-Mode ディスクシェルフに障害がある（「 storage show fault 」コマンドの出力に表示）。
+
+
+
+ a| 
+「 ignore-target-storage-fault 」
+ a| 
+ターゲットクラスタノードのディスクシェルフに障害がある（「 system node run -node node_name _ command storage show fault 」コマンドの出力に表示）。
+
+
+
+ a| 
+ignore-target-port-frequirement
+ a| 
+7-Mode ディスクシェルフを接続するための十分な数のポートがターゲットクラスタノードにない。
+
+
+
+ a| 
+「 ignore-aggr-sspace-less than -5 パーセント」
+ a| 
+7-Mode アグリゲートのスペースが不足している： 7-Mode アグリゲートの空きスペースが物理スペースの 5% 未満である。
+
+
+
+ a| 
+「 ignore-aggr-logical-space--more-than -97-percent 」
+ a| 
+7-Mode アグリゲートのスペースが不足している：アグリゲートの論理スペースが 97% 以上使用されている。
+
+
+
+ a| 
+「 ignore-aggr-snapshot-fills-more-than -4-percent 」を指定します
+ a| 
+7-Mode アグリゲートのスペースが不足している： Snapshot コピーが Snapshot コピーリザーブよりも多くのスペースを占有している。
+
+
+
+ a| 
+「 ignore-aggr-sphysical-space--more-89-percent-and-snapshot-fills` 」
+ a| 
+7-Mode のアグリゲートのスペースが不足している：使用済み物理スペースの合計が 89% 以上であり、 Snapshot コピーが Snapshot コピーリザーブよりも多くのスペースを占有している。
+
+
+
+ a| 
+「 ignore-volumes with -file-gurantee 」
+ a| 
+7-Mode ボリュームのスペースギャランティは「 file 」に設定されていますが、これは ONTAP ではサポートされていません。
+
+
+
+ a| 
+「 ignore-volumes with -disabled-gurantees 」
+ a| 
+ボリュームのスペースが不足しているため、ボリュームのスペースギャランティが現在無効になっている。
+
+
+
+ a| 
+「 nfs-qtrees -exported 」と表示されます
+ a| 
+qtree エクスポートルールが 7-Mode システムに存在する。
+
+このエラーを承認する場合は、 Data ONTAP 7-Mode と ONTAP の qtree エクスポートルールの違いを把握しておく必要があります。7-Mode Transition Tool によって NFS エクスポートルールが適用されたあとで、いくつかの手順を手動で実行しなければならない場合があります。
+
+https://kb.netapp.com/support/index?page=content&id=8010371["ネットアップの技術情報アーティクル 8010371 ：「 7MTT Precheck 10111 - Transitioning 7-Mode volumes qtree レベルのエクスポートがある"]
+
+
+
+ a| 
+「 ignore-configurion-limits-check 」
+ a| 
+移行するオブジェクトと構成は一定の制限を超えます。ストレージカットオーバーに時間がかかる可能性があり、ダウンタイムに備えておく必要があります。
+
+https://kb.netapp.com/support/index?page=content&id=3014882["ネットアップの技術情報アーティクル 3014882 ：「 Considerations for reducing the storage cutover time during Copy-Free Transition"]
+
+
+
+ a| 
+「 ignore-cifs-ad-domain-mismatch 」
+ a| 
+7-Mode システムの CIFS Active Directory ドメインがターゲット SVM の CIFS Active Directory ドメインと異なる場合であっても、 7-Mode Transition Tool で CIFS 構成の移行が続行される。
+
+7-Mode システムとターゲット SVM の CIFS Active Directory ドメインが信頼できるドメインであることを確認する必要があります。信頼できない場合、ターゲット SVM への CIFS 構成の移行は失敗します。
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_transition_CIFS_configurations_when_Active_Directory_Domain_of_CIFS_server_on_7-Mode_and_target_SVM_are_different["Active Directory ドメインがの場合の CIFS 構成の移行方法 7-Mode とターゲット SVM で CIFS サーバが異なります"]
+
+|===
+
+
+== ケーブル接続の検証処理：無視できるエラーカテゴリです
+
+|===
+| カテゴリ | エラーが表示される場合 
+
+
+ a| 
+「 ignore-missing-spare -disk」 というエラーが表示されます
+ a| 
+ターゲットクラスタノードで検出されない 7-Mode のスペアディスクがある。
+
+
+
+ a| 
+「 ignore-missing-degraded -faggr-mdisks 」
+ a| 
+ターゲットクラスタノードで、 7-Mode のいずれかの RAID-DP RAID グループのディスクを最大 2 本検出できない。または、 7-Mode のいずれかの RAID-4 RAID グループのディスクを 1 本検出できない。
+
+移行を続行すると、アグリゲートは移行後にデグレードされます。
+
+|===
+
+
+== インポート処理：無視できるエラーカテゴリです
+
+インポート処理中 Data ONTAP に Copy-Free Transition プロジェクトに無視できるエラーカテゴリを追加すると、エラーが警告に変更されるだけでなく、アグリゲートやボリュームに対していくつかの対処策が実施されます。
+
+|===
+| カテゴリ | エラーが表示される場合 | エラーが承認され、インポート処理が実行された場合の対処策 が再実行されます 
+
+
+ a| 
+「 ignore-aggregates -with -32bit-snapshot-for-import 」を指定します
+ a| 
+7-Mode アグリゲートで 32 ビット Snapshot コピーが検出された。
+ a| 
+このプロジェクトに含まれているすべての 7-Mode アグリゲートから 32 ビット Snapshot コピーが削除されます。
+
+
+
+ a| 
+「 transition-ddirty-aggregates - during -import 」を実行します
+ a| 
+移行するアグリゲートの 1 つが 7-Mode ストレージシステムで正常にシャットダウンされていない。
+ a| 
+正常にシャットダウンされなかったすべての 7-Mode アグリゲートが移行されます。これにより、移行後にデータが失われる可能性があります。
+
+
+
+ a| 
+「 ignore-aggregates -not-being one-for-import' 」を指定します
+ a| 
+7-Mode ストレージシステムを停止したときにアグリゲートがオフラインだった。
+ a| 
+すべてのオフラインアグリゲートがオンラインになります。
+
+
+
+ a| 
+「 ignore-volumes with -32bit-snapshot-for-import 」を指定します
+ a| 
+7-Mode ボリュームで 32 ビット Snapshot コピーが検出された。
+ a| 
+このプロジェクトに含まれているすべての 7-Mode ボリュームから 32 ビット Snapshot コピーが削除されます。
+
+
+
+ a| 
+「 ignore-volumes with -ddirty -file-system-for-import 」を指定します
+ a| 
+移行するボリュームの 1 つが 7-Mode ストレージシステムで正常にシャットダウンされていない。
+ a| 
+正常にシャットダウンされなかったすべての 7-Mode ボリュームが移行されます。その結果、移行後にデータが失われる可能性があります。
+
+
+
+ a| 
+「 transition-offline-volumes -dime-import 」を使用します
+ a| 
+7-Mode ストレージシステムを停止したときにボリュームがオフラインだった。
+ a| 
+すべてのオフラインボリュームがオンラインになります。
+
+
+
+ a| 
+「 transition-pRESTRICTED - VOLUMES - ime-import 」を選択します
+ a| 
+7-Mode ストレージシステムを停止したときにボリュームが制限状態だった。
+ a| 
+制限状態のすべてのボリュームがオンラインになります。
+
+|===
+
+
+== コミット処理：無視できるエラーカテゴリ
+
+コミット処理中 ONTAP に Copy-Free Transition プロジェクトに無視できるエラーカテゴリを追加すると、エラーが警告に変更されるだけでなく、アグリゲートやボリュームに対していくつかの対処策が実施されます。
+
+|===
+| カテゴリ | エラーが表示される場合 | エラーが承認されて処理がコミットされている場合の対処策 が再実行されます 
+
+
+ a| 
+「 ignore-commit-offline-aggregates 」というエラーが表示されます
+ a| 
+移行したアグリゲートの一部がオフラインです。
+ a| 
+すべてのオフラインアグリゲートがオンラインになります。
+
+|===

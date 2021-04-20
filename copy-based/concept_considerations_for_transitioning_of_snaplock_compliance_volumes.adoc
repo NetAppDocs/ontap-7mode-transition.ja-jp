@@ -1,0 +1,25 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_snaplock_compliance_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, compliance, volumes 
+summary: 7-Mode Transition Tool では、スタンドアロンの SnapLock Compliance ボリュームおよび SnapMirror 関係にある SnapLock Compliance ボリュームの移行がサポートされます。 
+---
+= SnapLock Compliance ボリュームの移行に関する考慮事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool では、スタンドアロンの SnapLock Compliance ボリュームおよび SnapMirror 関係にある SnapLock Compliance ボリュームの移行がサポートされます。
+
+スタンドアロンの SnapLock Compliance ボリュームを移行するワークフローは、 FlexVol ボリュームを移行する場合と同じです。
+
+SnapLock Compliance ボリュームの SnapMirror 関係は、 7-Mode Transition Tool で移行することはできません。プライマリとセカンダリの SnapLock Compliance ボリュームをスタンドアロンボリュームとして移行し、手動で関係を再同期する必要があります。
+
+スタンドアロン、プライマリ、およびセカンダリのプロジェクトに SnapLock Compliance ボリューム（スタンドアロンボリュームと SnapMirror 関係にあるボリュームの両方）をスタンドアロンボリュームとして含めることができます。
+
+SnapLock Compliance ボリュームが含まれているプロジェクトでは、カットオーバー前読み取り / 書き込みモードはサポートされません。SnapLock Compliance ボリュームと非 SnapLock Compliance ボリュームで別々のプロジェクトを作成することを推奨します。これは、 SnapLock Compliance ボリュームがプロジェクトに含まれている場合、カットオーバー前読み取り / 書き込みモードがサポートされないためです。
+
+選択したボリュームが SnapLock Compliance ボリュームで、かつ SnapMirror 関係のデスティネーションである場合、カットオーバー処理の実行中に、 7-Mode ボリュームと ONTAP ボリュームの間の SnapMirror 関係は解除されることなく削除されます。これにより、セカンダリ ONTAP SnapLock Compliance ボリュームは読み取り専用モードのままとなります。プライマリとセカンダリの SnapLock Compliance ボリューム間の再同期処理が成功するためには、セカンダリ ONTAP SnapLock Compliance ボリュームが読み取り専用モードになっている必要があります。
+
+を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_transition_the_7-Mode_SnapLock_Compliance_volumes_with_SnapMirror_relationship_to_clustered_Data_ONTAP["SnapMirror を使用した 7-Mode SnapLock Compliance ボリュームの移行方法 clustered Data ONTAP との関係"]

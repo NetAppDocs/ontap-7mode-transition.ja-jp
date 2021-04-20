@@ -1,0 +1,26 @@
+---
+permalink: inventory-collect/concept_collecting_host_and_storage_inventory_information_for_transition_assessment.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, collect, storage, host, inventory, information 
+summary: Inventory Collect Tool は、 clustered Data ONTAP と 7-Mode のシステム、スイッチ、ホスト、およびそれらのホストで実行されているアプリケーションに関する情報を収集してインベントリレポートを作成するツールです。作成したインベントリレポートは、 7-Mode Transition Tool にインポートして移行のための環境評価に使用できます。 
+---
+= ストレージとホストのインベントリ情報を収集
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Inventory Collect Tool は、 clustered Data ONTAP と 7-Mode のシステム、スイッチ、ホスト、およびそれらのホストで実行されているアプリケーションに関する情報を収集してインベントリレポートを作成するツールです。作成したインベントリレポートは、 7-Mode Transition Tool にインポートして移行のための環境評価に使用できます。
+
+このツールを使用すると、ストレージシステムとホストシステムの構成の詳細が格納されたインベントリレポートワークブックとインベントリレポート XML ファイルが生成されます。
+
+Inventory Collect Tool は、 7-Mode ストレージシステムとの通信に TLS または SSL プロトコルを使用し、ホストとの通信に SSH または WMI を使用します。ストレージシステムで TLS が有効になっている場合は、 TLS プロトコルを使用してストレージシステムと通信します。ストレージシステムで TLS が無効になっていて SSLv3 が有効になっている場合は、 SSLv3 を使用してストレージシステムと通信します。
+
+
+NOTE: SSLv3 のセキュリティ上の脆弱性（ CVE-2014-3566 ）を回避するために、ストレージシステムでは TLS を有効にして SSLv3 を無効にすることを推奨します。
+
+セキュリティ上の理由で 7-Mode Transition Tool を環境にインストールできない場合は、 Inventory Collect Tool で生成されたインベントリレポート XML ファイルを 7-Mode Transition Tool （データセンターの外部にインストールされたもの）にインポートして評価レポートを作成することができます。この評価レポートを使用してシステムの機能を評価し、移行先として選択した clustered Data ONTAP バージョンでそれらの機能がどのように動作するかを確認できます。
+
+Inventory Collect Tool は、インストール不要のスタンドアロンユーティリティです。
+
+必ず最新の 7-Mode Transition Tool を参照してください link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["リリースノート"] サポートされるターゲットリリースと既知の問題に関する最新情報については、を参照してください。

@@ -1,0 +1,22 @@
+---
+permalink: copy-based/task_transitioning_a_metrocluster_configuration_if_a_switchover_or_switchback_event_occurs.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, metrocluster, configuration, failed, switchover, switchback 
+summary: 移行の準備、開始、一時停止、再開、完了などの移行処理 MetroCluster スイッチオーバー中または MetroCluster スイッチバック後に失敗した場合移行を再開するには、 SnapMirror 関係を手動で再確立する必要があります。 
+---
+= スイッチオーバーまたはスイッチオーバーが原因で失敗した MetroCluster 構成を移行する スイッチバック
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行の準備、開始、一時停止、再開、完了などの移行処理 MetroCluster スイッチオーバー中または MetroCluster スイッチバック後に失敗した場合移行を再開するには、 SnapMirror 関係を手動で再確立する必要があります。
+
+.手順
+. スイッチバックが完了するまで待ちます。
+. クラスタ CLI で「 snapmirror create 」コマンドを使用して、移行に含まれていた 7-Mode ボリュームと clustered Data ONTAP ボリュームの間の SnapMirror 関係を再確立します。
+. 7-Mode Transition Tool から移行処理を再実行します。
++
+次のスケジュールがアクティブになると、データコピー処理が開始されます。
+
+

@@ -1,0 +1,404 @@
+---
+permalink: copy-based/reference_transition_preparation_checklist.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, preparation, checklist 
+summary: 移行を開始する前に、移行の前提条件をすべて満たしていることを確認する必要があります。 
+---
+= 移行準備チェックリスト
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行を開始する前に、移行の前提条件をすべて満たしていることを確認する必要があります。
+
+
+
+== ONTAP のバージョンの要件
+
+|===
+| 項目 | はい。 
+
+
+ a| 
+サポートされる 7-Mode バージョン https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]
+ a| 
+
+
+
+ a| 
+クラスタで次のいずれかのバージョンの Data ONTAP が実行されている必要があります。
+
+* Data ONTAP 8.2.x の場合
+* Data ONTAP 8.3.x
+
+ a| 
+
+
+
+ a| 
+次のいずれかの ONTAP リリースに移行する必要があります。
+
+* 7-Mode Transition Tool 3.3 の使用：
++
+** ONTAP 9.8 以前のサポートされているリリース
+
+
+* 7-Mode Transition Tool 3.3.2 の使用：
++
+** ONTAP 9.7P2 以降 9.7 P リリース （以前の 9.7 リリースはサポートされません）
+** ONTAP 9.6P7 以降 9.6 P リリース （ 9.6 より前のリリースはサポートされません）
+** ONTAP 9.5 以前の ONTAP 9 リリース
+** clustered Data ONTAP 8.1.4P4 以降の 8.x リリース
+
+
+* 7-Mode Transition Tool 3.3 の使用：
++
+** ONTAP 9.5 以前の ONTAP 9 リリース
+** clustered Data ONTAP 8.1.4P4 以降の 8.x リリース
+
+
+
+ a| 
+
+|===
+
+
+== ライセンス要件
+
+|===
+| 項目 | はい。 
+
+
+ a| 
+7-Mode システムで SnapMirror のライセンスが有効になっている
+ a| 
+
+
+
+ a| 
+プライマリクラスタとセカンダリクラスタで SnapMirror ライセンスが有効になっている Volume SnapMirror 関係を移行する場合
+ a| 
+
+
+
+ a| 
+7-Mode システムで CIFS ライセンスが有効になっていれば、クラスタで CIFS ライセンスが有効になっています
+ a| 
+
+
+
+ a| 
+7-Mode システムで NFS ライセンスが有効になっていれば、クラスタで NFS ライセンスが有効になっています
+ a| 
+
+
+
+ a| 
+7-Mode システムで iSCSI ライセンスが有効になっていれば、クラスタで iSCSI ライセンスが有効になります
+ a| 
+
+
+
+ a| 
+7-Mode システムで FC ライセンスが有効になっていれば、クラスタで FC ライセンスが有効になっています
+ a| 
+
+
+
+ a| 
+7-Mode システムで使用可能なその他の機能のライセンスがクラスタに追加されている
+ a| 
+
+|===
+
+
+== 7-Mode システムでの SnapMirror の要件
+
+|===
+| 項目 | はい。 
+
+
+ a| 
+SnapMirror ライセンス
+ a| 
+
+
+
+ a| 
+options snapmirror.enable on `
+ a| 
+
+
+
+ a| 
+options interface.snapmirror.blocked""
+ a| 
+
+
+
+ a| 
+次のいずれかに該当することを確認します。
+
+* 「 napmirror.access 」オプションは「 all 」に設定されています
+* 「 napmirror.access 」オプションはの IP アドレスに設定されています クラスタのすべてのクラスタ間 LIF
+* 「 napmirror.access 」オプションが「 legacy 」に設定され、「 napmirror.checkip.enable` 」オプションが「 off 」の場合、 SVM 名は「 /etc/snapmirror.allow 」ファイルに追加されます
+* 「 snapmirror.access 」オプションが legacy に設定され、「 napmirror.checkip.enable` 」オプションが「 on 」である場合は、クラスタ間 LIF の IP アドレスが「 /etc/snapmirror.allow 」ファイルに追加されます
+
+ a| 
+
+|===
+
+
+== 7-Mode システムでのボリューム設定
+
+|===
+| 項目 | はい。 
+
+
+ a| 
+ボリュームはオンラインです
+ a| 
+
+
+
+ a| 
+ボリュームが制限されていません
+ a| 
+
+
+
+ a| 
+次のボリュームオプションが無効になっています。
+
+* no_i2p を実行しています
+* 「 read_realloc 」のように表示されます
+* 「 nvfail`
+
+ a| 
+
+|===
+
+
+== クラスタへのアクセスの管理
+
+|===
+| 項目 | はい。 
+
+
+ a| 
+SSL が有効になります
+
+「 system services web show 」をご覧ください
+ a| 
+
+
+
+ a| 
+クラスタ管理 LIF で HTTPS が許可されている
+
+「 system services firewall policy show 」を参照してください
+ a| 
+
+|===
+
+
+== 7-Mode システムへのアクセスの管理
+
+|===
+| 項目 | はい。 
+
+
+ a| 
+HTTPS が有効になっている
+
+options httpd.admin.ssl.enable on `
+ a| 
+
+
+
+ a| 
+SSL が有効になります
+
+'ecureadmin setup ssl
+
+オプション ssl.enable on
+ a| 
+
+
+
+ a| 
+SSLv2 と SSLv3 が無効になっている
+
+「 options ssl.v2.enable off 」を参照してください
+
+「 options ssl.v3.enable off 」を参照してください
+ a| 
+
+|===
+
+
+== ネットワーク要件
+
+|===
+| 項目 | はい。 
+
+
+ a| 
+クラスタ管理 LIF を使用してクラスタに到達できる
+ a| 
+
+
+
+ a| 
+マルチパスを使用するために、クラスタの各ノードで 1 つ以上のクラスタ間 LIF がセットアップされています。各ノードには 2 つのクラスタ間 LIF が必要です
+ a| 
+
+
+
+ a| 
+クラスタ間 LIF 用に静的ルートが作成されている
+ a| 
+
+
+
+ a| 
+Windows システムから 7-Mode システムおよびクラスタに到達できる 7-Mode Transition Tool がインストールされているシステム
+ a| 
+
+
+
+ a| 
+NTP サーバが設定され、 7-Mode システムの時間がになっている必要があります クラスタ時間と同期されています
+ a| 
+
+|===
+
+
+== ポート要件
+
+|===
+| 項目 | はい。 
+
+
+ a| 
+7-Mode システム
+
+* 10565/TCP
+* 10566 / TCP
+* 10567 / TCP
+* 10568 / TCP
+* 10569 / TCP
+* 10670/TCP
+* 80 TCP
+* 443 tcp
+
+ a| 
+
+
+
+ a| 
+クラスタ
+
+* 10565/TCP
+* 10566 / TCP
+* 10567 / TCP
+* 10568 / TCP
+* 10569 / TCP
+* 10670/TCP
+* 11105/TCP
+* 80 TCP
+* 443 tcp
+
+ a| 
+
+|===
+
+
+== NFS の要件
+
+|===
+| 項目 | はい。 
+
+
+ a| 
+NFS のライセンスがクラスタに追加されている
+ a| 
+
+
+
+ a| 
+で AD ドメイン用に DNS エントリが設定されている必要があります SVM
+ a| 
+
+
+
+ a| 
+で許可されるプロトコルの一覧に NFS が追加されていることを確認します SVM
+ a| 
+
+
+
+ a| 
+KDC とクラスタの間のクロックスキューがより小さくなっています 5 分以上
+ a| 
+
+|===
+
+
+== CIFS の要件
+
+|===
+| 項目 | はい。 
+
+
+ a| 
+CIFS のライセンスがクラスタに追加されている
+ a| 
+
+
+
+ a| 
+MultiStore ライセンスが有効になっている場合は、移行対象のボリュームが属する vFiler ユニットで許可されるプロトコルの一覧に CIFS が追加されていること
+ a| 
+
+
+
+ a| 
+7-Mode システムで CIFS がセットアップされて実行されていること
+ a| 
+
+
+
+ a| 
+7-Mode での CIFS の認証タイプが Active Directory （ AD ）である またはワークグループ
+ a| 
+
+
+
+ a| 
+CIFS は、許可されるプロトコルの一覧に追加されています SVM
+ a| 
+
+
+
+ a| 
+SVM 用に DNS が設定されている
+ a| 
+
+
+
+ a| 
+SVM 用に CIFS サーバが設定されている
+ a| 
+
+
+
+ a| 
+SVM で CIFS が実行されている
+ a| 
+
+|===
+* 関連情報 *
+
+xref:concept_preparing_for_copy_based_transition.adoc[Copy-Based Transition の準備をしています]

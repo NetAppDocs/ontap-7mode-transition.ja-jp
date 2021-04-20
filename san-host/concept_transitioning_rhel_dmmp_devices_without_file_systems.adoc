@@ -1,0 +1,25 @@
+---
+permalink: san-host/concept_transitioning_rhel_dmmp_devices_without_file_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rhel, dmmp, device, file, system 
+summary: ファイルシステムのない Red Hat Enterprise Linux \ （ RHEL \ ） DMMP デバイスを移行する前に、 DMMP デバイスにファイルシステムがないことを確認する必要があります。また、カットオーバーフェーズに備えて特定の手順を実行し、移行後に WWID を置き換える必要があります。 
+---
+= ファイルシステムのない RHEL DMMP デバイスの移行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ファイルシステムのない Red Hat Enterprise Linux （ RHEL ） DMMP デバイスを移行する前に、 DMMP デバイスにファイルシステムがないことを確認する必要があります。また、カットオーバーフェーズに備えて特定の手順を実行し、移行後に WWID を置き換える必要があります。
+
+* 関連情報 *
+
+xref:task_verifying_that_rhel_luns_are_ready_for_transition_using_inventory_assessment_workbook.adoc[を使用した RHEL LUN の移行準備状況の確認 Inventory Assessment Workbook の作成]
+
+xref:task_verifying_rhel_5_luns_are_ready_for_transition_using_cli.adoc[を使用した RHEL 5 LUN の移行準備状況の確認 CLI を使用します]
+
+xref:task_verifying_rhel_6_ddmp_devices_are_ready_for_transition_using_cli.adoc[RHEL 6 DMMP デバイスの移行準備状況の確認 CLI を使用]
+
+xref:task_preparing_for_cutover_when_transitioning_linux_host_dmmp_device_without_file_system.adoc[Linux ホストの DMMP デバイス移行時のカットオーバーの準備 ファイルシステムを使用しない場合]
+
+xref:task_replacing_7_mode_wwids_on_linux_host_after_transition_of_luns.adoc[移行後の Linux ホストにおける 7-Mode LUN WWID の置き換え LUN]

@@ -1,0 +1,36 @@
+---
+permalink: copy-free/task_creating_san_lifs_before_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, san, lifs, create 
+summary: FC LIF と iSCSI LIF は 7-Mode Transition Tool では移行されないため、移行前に SVM 上でこれらの LIF を作成する必要があります。SAN LIF は、 LUN を所有するノードとノードの HA パートナーの両方に設定する必要があります。 
+---
+= 移行前に SAN LIF を作成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC LIF と iSCSI LIF は 7-Mode Transition Tool では移行されないため、移行前に SVM 上でこれらの LIF を作成する必要があります。SAN LIF は LUN を所有するノードとその HA パートナーの両方に設定する必要があります。
+
+必要な SAN （ FC または iSCSI ）ライセンスをクラスタに追加する必要があります。
+
+冗長性を確保するために、 LUN をホストするノードとその HA パートナーの両方に SAN LIF を作成する必要があります。
+
+.手順
+. LUN の移行先となるターゲットノードに、使用するプロトコルに応じて FC LIF または iSCSI LIF を作成します。
++
+「 * network interface create * 」
+
++
+7-Mode IP アドレスを iSCSI LIF に再利用する場合は、管理状態を down にして LIF を作成する必要があります。これらの LIF の管理状態は、カットオーバー処理のあとに up にすることができます。
+
+. ノードの HA パートナーに LIF を作成します。
+. LIF が正しく設定されたことを確認します。
++
+「 * network interface show * 」と表示されます
+
+
+
+* 関連情報 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 管理"]

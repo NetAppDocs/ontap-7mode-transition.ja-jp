@@ -1,0 +1,105 @@
+---
+permalink: command-map/concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, clustered, commands, options, configuration, file, maps, interpret 
+summary: Data ONTAP 7-Mode から clustered Data ONTAP に移行する際には、 clustered Data ONTAP と 7-Mode のコマンド、オプション、構成ファイルの対応が記載されたコマンドマップを参照すると便利です。 
+---
+= 7-Mode 管理者用の clustered Data ONTAP のコマンド、オプション、構成ファイルの対応マップ
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode から clustered Data ONTAP に移行する際には、 clustered Data ONTAP と 7-Mode のコマンド、オプション、構成ファイルの対応が記載されたコマンドマップを参照すると便利です。
+
+
+
+== どのようなマッピング情報が含まれているか
+
+7-Mode 管理者向けのコマンドマップには、 7-Mode のコマンド、オプション、構成ファイルと、対応する clustered Data ONTAP へのマッピングが含まれています。
+
+* xref:reference_how_7_mode_commands_map_to_clustered_ontap_commands.adoc[7-Mode のコマンドと clustered Data ONTAP のコマンドのマッピング]
+* xref:reference_how_7_mode_options_map_to_clustered_ontap_commands.adoc[7-Mode のオプションと clustered Data ONTAP のコマンドのマッピング]
+* xref:reference_how_7_mode_configuration_files_map_to_clustered_ontap_commands.adoc[7-Mode 構成ファイルと clustered Data ONTAP コマンドのマッピング]
+
+
+
+
+== 7-Mode と互換性のあるショートカットコマンドについて説明します
+
+Data ONTAP のコマンドラインインターフェイス（ CLI ）はクラスタ処理用に大幅に再編されていますが、多くのコマンドには 7-Mode と互換性のあるショートカット版が存在し、スクリプトやその他の自動化タスクを変更する必要はありません。これらのショートカットは、表の先頭に * 太字 * で記載されています。次に 7-Mode と互換性のないショートカット、続いて完全な長い形式のコマンドが記載されています。
+
+|===
+| 7-Mode コマンド | clustered Data ONTAP のコマンドです 
+
+
+ a| 
+「 aggr add 」
+ a| 
+「 * aggr add * 」
+
+「 aggr add disks 」を入力します
+
+「 storage aggregate add-disks 」を参照してください
+
+|===
+太字の * ショートカットが記載されていない場合は、 7-Mode と互換性のあるバージョンはありません。この表には、すべての形式のコマンドが記載されているわけではありません。CLI は非常に柔軟性が高く、複数の省略形を使用できます。
+
+
+
+== clustered Data ONTAP の CLI コマンド用シェルの種類を理解する
+
+1 つのクラスタに、 3 つの異なる CLI コマンド用シェルがあります。
+
+* クラスタにログインすると、 _clustershell _ は自動的に開始されるネイティブシェルです。
++
+クラスタの設定と管理に必要なすべてのコマンドが含まれています。
+
+* _nodeshell は、 7-Mode コマンドのサブセットを実行できる特別なシェルです。
++
+これらのコマンドは、ノードレベルでのみ有効です。クラスタシェルからノードシェルセッションに切り替えてノードシェルコマンドを対話的に実行できるほか、クラスタシェルから単一のノードシェルコマンドを実行することもできます。ノードシェルコマンドは、「 system node run -node ｛ _nodename _|local ｝ commandname 」の形式（長い）になっています。
+
+* _systemshell _ は、診断とトラブルシューティングの目的に限って使用する低レベルのシェルです。
++
+一般的な管理目的で使用するものではありません。システムシェルには、必ずテクニカルサポートの指示に従ってアクセスしてください。
+
+
+
+
+
+== ノードシェルに切り替えます
+
+7-Mode と互換性のあるショートカットがあるノードシェルコマンドは、ノードシェルから実行することを前提にしています。ノードシェルに切り替えるには、次のように入力します。
+
+*system node run -node {_nodename_|local}*`
+
+他の形式の「 nodeshell 」コマンドは、クラスタシェルから実行する必要があります。
+
+
+
+== 詳細については、こちらを参照してください
+
+|===
+| 状況 | を参照してください。 
+
+
+ a| 
+クラスタシェルコマンドを使用する
+ a| 
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 のコマンド"]
+
+
+
+ a| 
+ノードシェルコマンドを使用する
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMP1511537["Data ONTAP 8.2 コマンド：マニュアルページリファレンス Vol.1 』を参照してください"]
+
+
+
+ a| 
+CLI コマンドの実行、 CLI コマンドのディレクトリの移動、 CLI での値の設定、クエリ、パターン、ワイルドカードの使用を行います
+ a| 
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["システム管理"]
+
+|===

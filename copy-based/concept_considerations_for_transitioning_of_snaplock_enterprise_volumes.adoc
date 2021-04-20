@@ -1,0 +1,20 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_snaplock_enterprise_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, enterprise, volumes 
+summary: 7-Mode Transition Tool では、スタンドアロンの SnapLock Enterprise ボリュームおよび SnapMirror 関係にある SnapLock Enterprise ボリュームの移行がサポートされます。 
+---
+= SnapLock Enterprise ボリュームの移行に関する考慮事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool では、スタンドアロンの SnapLock Enterprise ボリュームおよび SnapMirror 関係にある SnapLock Enterprise ボリュームの移行がサポートされます。
+
+SnapLock Enterprise ボリュームを移行するワークフローは、 FlexVol の場合と同じです。
+
+SnapMirror 関係は移行中も維持されます。
+
+
+NOTE: 7-Mode Transition Tool では、 SnapLock Enterprise ボリュームの SnapMirror 関係は同じタイプでのみ移行できます。つまり、ソースボリュームとデスティネーションボリュームの両方が SnapLock Enterprise ボリュームである必要があります。

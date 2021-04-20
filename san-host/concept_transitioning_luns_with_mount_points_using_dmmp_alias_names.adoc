@@ -1,0 +1,19 @@
+---
+permalink: san-host/concept_transitioning_luns_with_mount_points_using_dmmp_alias_names.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, mount, points, dmmp, alias, names 
+summary: エイリアス名を使用するマウントポイントを含む LUN を移行する場合は、カットオーバーフェーズに備えて特定の手順を実行し、移行後に LUN を再マウントする必要があります。 
+---
+= DMMP エイリアス名を使用するマウントポイントを含む LUN の移行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+エイリアス名を使用するマウントポイントを含む LUN を移行する場合は、カットオーバーフェーズに備えて特定の手順を実行し、移行後に LUN を再マウントする必要があります。
+
+* 関連情報 *
+
+xref:task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.adoc[マウントを含む LUN 移行時のカットオーバーフェーズの準備 Linux ホストで DMMP デバイス名を使用するポイントです]
+
+xref:task_remounting_luns_with_mount_point_using_dmmp_alias_name_on_linux_hosts_after_transition.adoc[DMMP エイリアス名を使用するマウントポイントを含む LUN をに再マウントしています 移行後の Linux ホスト]

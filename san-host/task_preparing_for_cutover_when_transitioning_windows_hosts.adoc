@@ -1,0 +1,35 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_windows_hosts.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, windows, hosts 
+summary: Windows ホストを Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、移行の開始後、カットオーバーフェーズを開始する前にいくつかの手順を実行する必要があります。 
+---
+= Windows ホスト移行時のカットオーバーフェーズの準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Windows ホストを Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、移行の開始後、カットオーバーフェーズを開始する前にいくつかの手順を実行する必要があります。
+
+Data ONTAP DSM を実行している場合は、サーバにインストールされている Data ONTAP DSM のバージョンが、ターゲットの clustered Data ONTAP ノードで実行されている Data ONTAP のバージョンでサポートされている必要があります。
+
+MSDSM を実行している場合は、サーバにインストールされている Windows Host Utilities のバージョンが、ターゲットの clustered Data ONTAP ノードで実行されている Data ONTAP のバージョンでサポートされている必要があります。
+
+* コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode のエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+
+.手順
+. ディスクマネージャを使用して、移行するディスクをオフラインにします。
+. ホストが SAN からブートされ、ブート LUN を移行中の場合は、ブートホストをシャットダウンします。
+. ホストがクラスタ構成の場合は、フェイルオーバークラスタマネージャを使用して、クォーラムディスクを含むクラスタディスクをオフラインにします。
+. ホストが Windows Server 2003 を実行していて、クォーラムデバイスを移行する必要がある場合は、すべてのクラスタノードでクラスタサービスを停止します。
+. Hyper-V が有効になっているサーバの LUN を移行する場合は、ゲストオペレーティングシステムに適した移行手順をホスト側で実行します。
+. Hyper-V が有効になっているサーバで LUN を移行していて、移行対象の Data ONTAP LUN にゲスト OS のブートデバイスがある場合は、次の手順を実行します。
++
+.. ゲスト OS をシャットダウンします。
+.. 親システムで対応するディスクをオフラインにします。
+
+
+

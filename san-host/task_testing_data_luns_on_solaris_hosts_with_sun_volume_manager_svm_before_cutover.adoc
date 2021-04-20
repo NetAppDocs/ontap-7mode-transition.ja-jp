@@ -1,0 +1,149 @@
+---
+permalink: san-host/task_testing_data_luns_on_solaris_hosts_with_sun_volume_manager_svm_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, testing, data, solaris, sun, volume, manager, cutover, copy, based 
+summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Solaris ホストの ZFS データ LUN を移行する場合は、カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、 MPIO デバイスがマウント可能であることを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
+---
+= Sun Volume Manager を搭載した Solaris ホスト上のデータ LUN のテスト コピーベースの移行のカットオーバーフェーズ前
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Solaris ホストの ZFS データ LUN を移行する場合は、カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、 MPIO デバイスがマウント可能であることを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。
+
+Sun Volume Manager データ LUN を搭載したソースホストは、テストフェーズの移行を開始する前にオフラインにする必要があります。
+
+新しい clustered Data ONTAP LUN をにマッピングする必要があります テスト用ホストと LUN を準備しておく必要があります 移行
+
+テスト用ホストとソースホスト間のハードウェアパリティを維持し、テスト用ホストで以下の手順を実行する必要があります。
+
+clustered Data ONTAP LUN は、テスト時には読み取り / 書き込みモードになります。テストが完了してカットオーバーフェーズの準備を行う段階で、読み取り専用モードに切り替わります。
+
+.手順
+. 本番用ホストで、ディスクセットを無効にします。
++
+'*metaset-s SVM-t *
+
++
+'*metaset-s SVM-adisable*
+
++
+'*metaset-s SVM-r
+
++
+'*metaset-s SVM-P *
+
++
+「 * metaset * 」
+
+. ベースラインデータコピーが完了したら、 7MTT ユーザインターフェイス（ UI ）で「 * Test Mode 」を選択します。
+. 7MTT UI で、 * 構成の適用 * をクリックします。
+. 本番環境のホストで、ディスクセットをインポートします。
++
+'*metaimport – s_set-name_*
+
++
+[listing]
+----
+# metaimport -s svm
+Drives in regular diskset including disk c0t60A98000383035356C2447384D39654Ad0:
+  c0t60A98000383035356C2447384D39654Ad0
+  c0t60A98000383035356C2447384D396548d0
+More info:
+  metaimport -r -v c0t60A98000383035356C2447384D39654Ad0
+
+
+[22] 04:51:29 (root@sunx2-shu04) /
+# metastat -s svm
+svm/d2: Concat/Stripe
+    Size: 10452992 blocks (5.0 GB)
+    Stripe 0:
+        Device                                             Start Block  Dbase   Reloc
+        /dev/dsk/c0t60A98000383035356C2447384D396548d0s0          0     No      Yes
+
+svm/d1: Concat/Stripe
+    Size: 10452992 blocks (5.0 GB)
+    Stripe 0:
+        Device                                             Start Block  Dbase   Reloc
+        /dev/dsk/c0t60A98000383035356C2447384D39654Ad0s0          0     No      Yes
+
+Device Relocation Information:
+Device                                           Reloc  Device ID
+/dev/dsk/c0t60A98000383035356C2447384D396548d0   Yes    id1,sd@n60a98000383035356c2447384d396548
+/dev/dsk/c0t60A98000383035356C2447384D39654Ad0   Yes    id1,sd@n60a98000383035356c2447384d39654a
+----
+. テスト用ホストで、新しい clustered Data ONTAP LUN を再スキャンします。
++
+.. FC ホスト・ポート（ fc-fabric タイプ）を特定します +`*#cfgadm – l*`
+.. 最初の fc-fabric ポートの設定を解除します :+`*#cfgadm – c c1'unconfigure *`
+.. 最初の fc-fabric ポートを設定します :+`*#cfgadm – c 構成解除 C2*`
+.. 他の fc-fabric ポートについても上記の手順を繰り返します。
+.. ホスト・ポートおよび接続されているデバイスに関する情報を表示します +`*#cfgadm – al*`
+.. ドライバ +`*#devfsadm – CV*` を再ロードします
++
+`*#devfsadm – i iSCSI*`
+
+
+
+. clustered Data ONTAP LUN が存在することを確認します。
++
+「 * sanlun lun show * 」と表示されます
+
++
+[listing]
+----
+# sanlun lun show
+controller(7mode)/                    device                                            host                  lun
+vserver(Cmode)       lun-pathname     filename                                          adapter    protocol   size    mode
+--------------------------------------------------------------------------------------------------------------------------
+vs_5           /vol/zfs/zfs2    /dev/rdsk/c5t600A0980383030444D2B466542485935d0s2 scsi_vhci0 FCP        6g      C
+vs_5           /vol/zfs/zfs1    /dev/rdsk/c5t600A0980383030444D2B466542485934d0s2 scsi_vhci0 FCP        6g      C
+vs_5           /vol/ufs/ufs2    /dev/rdsk/c5t600A0980383030444D2B466542485937d0s2 scsi_vhci0 FCP        5g      C
+vs_5           /vol/ufs/ufs1    /dev/rdsk/c5t600A0980383030444D2B466542485936d0s2 scsi_vhci0 FCP        5g      C
+----
+. テスト対象の Sun Volume Manager がインポート可能であることを確認します。
++
+'*metaimport – r – v *
+
++
+[listing]
+----
+# metaimport -r -v
+Import: metaimport -s <newsetname> c5t600A0980383030444D2B466542485937d0
+Device                                      offset       length replica flags
+c5t600A0980383030444D2B466542485937d0           16         8192      a m     luo
+c5t600A0980383030444D2B466542485936d0           16         8192      a       luo
+----
+. 新しい名前のメタセットをインポートします。
++
+'*metaimport – s_set-name disk-id_*
+
++
+disk-id は、「 metaimport --r -v 」コマンドから取得されます。
+
++
+[listing]
+----
+# metaimport -s svm c5t600A0980383030444D2B466542485937d0
+Drives in regular diskset including disk c5t600A0980383030444D2B466542485937d0:
+  c5t600A0980383030444D2B466542485937d0
+  c5t600A0980383030444D2B466542485936d0
+More info:
+  metaimport -r -v c5t600A0980383030444D2B466542485937d0
+----
+. メタセットが使用可能かどうかを確認します。
++
+「 * metaset * 」
+
+. ファイルシステムのチェックを実行します。
++
+'*fsck -F ufs/dev/md/SVM/rdsk/d1*
+
+. マウントコマンドを使用して手動でマウントします。
+. 必要に応じてテストを実行します。
+. テスト用ホストをシャットダウンします。
+. 7MTT UI で、 * テスト終了 * をクリックします。
+
+
+clustered Data ONTAP LUN をソースホストに再マッピングする場合は、ソースホストをカットオーバーフェーズ用に準備する必要があります。clustered Data ONTAP LUN をテスト用ホストにマッピングしたままにする場合、テスト用ホストでこれ以上の手順を実行する必要はありません。

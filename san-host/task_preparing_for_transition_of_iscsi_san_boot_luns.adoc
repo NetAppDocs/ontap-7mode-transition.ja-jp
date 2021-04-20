@@ -1,0 +1,98 @@
+---
+permalink: san-host/task_preparing_for_transition_of_iscsi_san_boot_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, iscsi, san, boot, lun 
+summary: iSCSI SAN ブート LUN を移行する前に、ホストで特定の手順を実行する必要があります。Red Hat Enterprise Linux \ （ RHEL \ ） 5.x の移行はサポートされていません。RHEL 6 の移行はサポートされています。 
+---
+= iSCSI SAN ブート LUN の移行準備をしています
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+iSCSI SAN ブート LUN を移行する前に、ホストで特定の手順を実行する必要があります。Red Hat Enterprise Linux （ RHEL ） 5.x の移行はサポートされていません。RHEL 6 の移行はサポートされています。
+
+次の情報を Inventory Assessment Workbook から収集しておく必要があります。
+
+* RHEL 6 がインストールされている LUN の名前
+* 移行する LUN の DMMP デバイス名
+* 論理ボリューム（ LV ）名
+* ボリュームグループ（ VG ）名
+* 物理ボリューム（ PV ）デバイス
+* Logical Volume Manager （ LVM ；論理ボリュームマネージャ）名およびが格納されているマウントディレクトリ RHEL 6 / ブートパーティションとルート（ / ）パーティションがインストールされている
+* DMMP に設定されているファイルシステム
+* 7-Mode コントローラの iSCSI セッション
+* GRUB 情報
+* が配置されている Storage Virtual Machine （ SVM ）の IQN 番号 iSCSI SAN ブート LUN が作成されます
+* clustered Data ONTAP SVM の LIF の IP アドレス iSCSI SAN ブート LUN が作成されます
+
+
+この手順環境コピーベースの移行とコピーフリーの移行の 2 つです。
+
+.手順
+. DMMP デバイスが /dev/mapper ディレクトリにあることを確認します。
++
+「 *ls /dev/mapper/__ DMMP _DEVICE_NAME__ * 」
+
++
+DMMP デバイスが表示されない場合、デバイスにエイリアスまたはフレンドリ名が使用されている可能性があります。
+
+. DMMP デバイスが LVM の一部であるかどうかを確認します。
++
+*bldk*`
+
++
+DMMP デバイスの「 type 」値が「 lvm2_member 」の場合、 DMMP は LVM の一部です。
+
+. /etc/fstab ファイルから '/' パーティションと '/boot パーティションのマウント・ポイントの詳細を取得します
++
+** 「 /boot 」パーティションが DMMP デバイスにインストールされている場合は、ブート時に「 /etc/fstab 」ファイルでマウント用にどのように参照されているかを確認します。
+** 「 bldk' 」コマンドの出力で取得したファイルシステム UUID を使用して '/boot パーティションがマウントされている場合は、移行前の変更は必要ありません。
+
+
+. /boot パーティションが /etc/fstab ファイルで DMMP デバイス名によって参照されている場合は、 DMMP デバイス名をファイルシステム UUID 名に置き換えます。
+. iSCSI SAN ブート・ホストの場合は '/boot/grub/grub.conf ファイルを編集して ' clustered Data ONTAP コントローラの IQN 番号と iSCSI セッション情報を含む新しいカーネル・コマンド・ライン・エントリを作成します
++
+この例は ' 編集前の '/boot/grub/grub.conf ファイルを示していますkernel のコマンド行には、 7-Mode コントローラの IQN 番号と iSCSI セッション情報が含まれています。
+
++
+[listing]
+----
+title Red Hat Enterprise Linux Server (2.6.32-431.el6.x86_64)
+    	root (hd0,0)
+	kernel /vmlinuz-2.6.32-431.el6.x86_64 ro root=/dev/mapper/vg_ibmx3550m3229-LogVol00 ifname=eth0:5c:f3:fc:ba:46:d8 rd_NO_LUKS netroot=iscsi:@10.226.228.241::3260::iqn.1992-08.com.netapp:sn.1574168453 LANG=en_US.UTF-8 rd_LVM_LV=vg_ibmx3550m3229/LogVol01 rd_LVM_LV=vg_ibmx3550m3229/LogVol00 rd_NO_MD netroot=iscsi:@10.226.228.155::3260::iqn.1992-08.com.netapp:sn.1574168453 iscsi_initiator= iqn.1994-08.com.redhat:229.167 crashkernel=auto ip=eth0:dhcp
+	initrd /initramfs-2.6.32-431.el6.x86_64.img
+----
++
+次の例は、接尾辞 cDOT で新しいタイトルを追加したあとの「 /boot/grub/grub.conf 」ファイルと、 clustered Data ONTAP コントローラの IQN 番号と iSCSI セッション情報を含む新しいカーネルコマンドラインを示しています。
+
++
+[listing]
+----
+title Red Hat Enterprise Linux Server (2.6.32-431.el6.x86_64) - cDOT
+    	root (hd0,0)
+	kernel /vmlinuz-2.6.32-431.el6.x86_64 ro root=/dev/mapper/vg_ibmx3550m3229-LogVol00 ifname=eth0:5c:f3:fc:ba:46:d8 rd_NO_LUKS netroot=iscsi:@10.226.228.99::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 LANG=en_US.UTF-8 rd_LVM_LV=vg_ibmx3550m3229/LogVol01 rd_LVM_LV=vg_ibmx3550m3229/LogVol00 rd_NO_MD netroot=iscsi:@10.226.228.98::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 netroot=iscsi:@10.226.228.97::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 netroot=iscsi:@10.226.228.96::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 iscsi_initiator= iqn.1994-08.com.redhat:229.167 crashkernel=auto ip=eth0:dhcp
+	initrd /initramfs-2.6.32-431.el6.x86_64.img
+----
+. 既存の initramfs ファイルをバックアップします
++
+[listing]
+----
+# cd /boot
+# cp initramfs-2.6.32-71.el6.x86_64.img initramfs-2.6.32-
+71.el6.x86_64.img.img_bak
+----
+. /boot/grub/grub.conf ファイル内の 7-Mode カーネル行を、バックアップ「 initrd`image name 」で更新します。
++
+RHEL 6.4 以降の場合は、「 /boot/grub/grub.conf 」ファイルで、 clustered Data ONTAP カーネル行に「 rdloaddriver=scsi_dh_alua 」が追加されていることを確認します。
+
+. /boot/grub/grub.conf ファイルが更新されている場合は ' カーネルの初期 RAM ディスク (initramfs`) を更新します
++
+ホストがブート時に clustered Data ONTAP コントローラとの iSCSI 接続を確立するように 'initramfs ファイルを再作成して ' 新しい Data ONTAP IQN 番号と iSCSI セッションが参照されるようにする必要があります
+
+. 「 d racut -force --add multipath --verbose` コマンドを使用して、「 initrd 」イメージを再作成します。
+
+
+* 関連情報 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[Inventory Assessment Workbook からの移行前の情報収集]

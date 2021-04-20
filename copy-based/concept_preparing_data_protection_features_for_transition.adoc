@@ -1,0 +1,13 @@
+---
+permalink: copy-based/concept_preparing_data_protection_features_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, data, protection, features 
+summary: 7-Mode の SnapMirror 関係を移行するには、いくつかの手順を手動で実行する必要があります。また、データ保護関係のうち、移行対象としてサポートされるものとサポートされないものを把握しておく必要があります。 
+---
+= データ保護機能の移行準備をしています
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode の SnapMirror 関係を移行するには、いくつかの手順を手動で実行する必要があります。また、データ保護関係のうち、移行対象としてサポートされるものとサポートされないものを把握しておく必要があります。

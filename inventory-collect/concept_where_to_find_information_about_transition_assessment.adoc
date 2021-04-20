@@ -1,0 +1,13 @@
+---
+permalink: inventory-collect/concept_where_to_find_information_about_transition_assessment.html 
+sidebar: sidebar 
+keywords: 7, mode, ontap, transition, assessment, information 
+summary: ストレージシステム、ホスト、およびホストアプリケーションを評価して移行の準備ができているかどうかを確認する作業については、 7-Mode Transition Tool コピーベースの移行ガイドで説明しています。このガイドでは、コントローラとホストについて作成したインベントリレポートをインポートする方法と、それらのコントローラとホストを評価して移行の準備ができているかどうかを確認する方法を詳しく説明しています。 
+---
+= 移行のための環境評価に関する情報の参照先
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ストレージシステム、ホスト、およびホストアプリケーションを評価して移行の準備ができているかどうかを確認する作業については、で説明しています link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-based/index.html["『 7-Mode Transition Tool Copy-Based Transition Guide 』"]。このガイドでは、コントローラとホストについて作成したインベントリレポートをインポートする方法と、それらのコントローラとホストを評価して移行の準備ができているかどうかを確認する方法を詳しく説明しています。

@@ -1,0 +1,48 @@
+---
+permalink: san-host/task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, esxi, cli, vmfs, volumes 
+summary: 移行後、 ESXi CLI を使用してボリュームを再マウントし、データストアと VM を移行前の状態に戻すことができます。 
+---
+= ESXi CLI を使用した移行後の VMFS ボリュームの再マウント
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行後、 ESXi CLI を使用してボリュームを再マウントし、データストアと VM を移行前の状態に戻すことができます。
+
+元の 7-Mode LUN がマッピングされていないか、オフラインの必要があります。
+
+以下の手順は、ボリュームとスパンボリュームに該当します。
+
+.手順
+. SSH を使用して ESXi コンソールにログインします。
+. 新しく追加された LUN と既存の VMFS 署名および VMFS ラベルを表示します。
++
+「 * #esxcfg-volume -l * 」のようになります
+
++
+次の例は、 LUN と VMFS 署名および VMFS ラベルを示しています。
+
++
+[listing]
+----
+# esxcfg-volume -l
+VMFS UUID/label: 53578567-5b5c363e-21bb-001ec9d631cb/datastore1
+Can mount: Yes
+Can resignature: Yes
+Extent name: naa.600a098054314c6c445d446f79716475:1 range: 0 - 409599
+(MB)
+----
+. 同じ署名を使用して VMFS ボリュームを永続的に再マウントします。
++
+** 通常のボリュームの場合： +`*esxcfg-volume-m|--persistent-mount_vmfs UUID|label_*`
+** スパンボリュームの場合： +`*#esxcfg-volume -M VMFS-span-ds*`
+
+
+
+
+* 関連情報 *
+
+http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1011387["VMware KB ： vSphere により、 Snapshot LUN として検出された LUN の処理"]

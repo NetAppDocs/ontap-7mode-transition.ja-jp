@@ -1,0 +1,36 @@
+---
+permalink: san-host/task_remounting_vmfs_volumes_after_transition_using_vsphere_client.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, remount, vmfs, volumes, vshpere, client 
+summary: 移行後、 VMFS ボリュームを再マウントして、データストアと仮想マシン（ VM ）を移行前の状態に戻す必要があります。ESXi CLI を使い慣れていない場合や、 vSphere Client を使用する方が便利な環境では、 vSphere Client を使用してボリュームを再マウントできます。 
+---
+= vSphere Client を使用した移行後の VMFS ボリュームの再マウント
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行後、 VMFS ボリュームを再マウントして、データストアと仮想マシン（ VM ）を移行前の状態に戻す必要があります。ESXi CLI を使い慣れていない場合や、 vSphere Client を使用する方が便利な環境では、 vSphere Client を使用してボリュームを再マウントできます。
+
+以下の手順は、ボリュームとスパンボリュームに該当します。
+
+.手順
+. ESXi ホストまたは ESXi ホストを管理する vCenter Server にログインします。
+. [* Hosts and Clusters* （ホストとクラスタ） ] で、 ESXi ホストを選択します。
+. 「 * Configuration * > * Hardware * > * Storage * 」に移動します。
+. 右上隅の * Add storage * （ストレージの追加）をクリックします。
+. 「 * Disk/LUN 」を選択します。
+. 「 * 次へ * 」をクリックします。
+. LUN のリストで、データストアの名前を表示する * vmfs_label * 列を探します。
+. LUN を選択して、再マウント処理を実行します。
++
+スパン VMFS ボリュームを再マウントする場合は ' スパン内の最初の LUN が "head" とマークされます再マウント操作を完了するには 'head LUN を選択する必要があります
+
+. 「 * 次へ * 」をクリックします。
+. Select VMFS Mount Options （ VMFS マウントオプションの選択）ウィンドウで、 * Keep the existing signature * （既存の署名を保持する）を選択します
+. ウィザードの手順を実行します。
+. VMFS_label 列にデータストア名が表示されているすべての LUN について、上記の手順を繰り返します。
++
+データストアが再マウントされて、 VM がアクティブになります。
+
+

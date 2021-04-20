@@ -1,0 +1,90 @@
+---
+permalink: snapmirror/task_redirecting_clients_to_clustered_ontap_primary_volume_after_disaster.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, redirect, clients, clustered, data, primary, volume, snapmirror 
+summary: 7-Mode のプライマリボリュームがオンラインに復帰したら、 7-Mode のプライマリボリュームを移行し、 clustered Data ONTAP のセカンダリボリュームとの SnapMirror 関係を確立して、クライアントアクセスを clustered Data ONTAP のプライマリボリュームにリダイレクトできます。 
+---
+= clustered Data ONTAP プライマリボリュームへのクライアントのリダイレクト
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode のプライマリボリュームがオンラインに復帰したら、 7-Mode のプライマリボリュームを移行し、 clustered Data ONTAP のセカンダリボリュームとの SnapMirror 関係を確立して、クライアントアクセスを clustered Data ONTAP のプライマリボリュームにリダイレクトできます。
+
+.手順
+. プライマリとセカンダリの SVM 間に SVM ピア関係を作成します。
++
+.. cluster peer create コマンドを使用して、クラスタピア関係を作成します。
++
+[listing]
+----
+pri_cluster::> cluster peer create -peer-addrs cluster2-d2, 10.98.234.246 -timeout 60
+
+Notice: Choose a passphrase of 8 or more characters. To ensure the authenticity of the peering relationship, use a phrase or sequence of characters that would be hard to guess.
+
+Enter the passphrase: ********
+Confirm the passphrase: ********
+----
+.. ソースクラスタから vserver peer create コマンドを実行して、 clustered Data ONTAP のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間に SVM ピア関係を作成します。
++
+[listing]
+----
+pri_cluster::> vserver peer create -vserver src_vserver -peervserver src_c_vserver -applications snapmirror -peer-cluster sec_cluster
+----
+.. デスティネーションクラスタから「 vserver peer accept 」コマンドを使用して SVM ピア要求を承認し、 SVM ピア関係を確立します。
++
+[listing]
+----
+sec_cluster::> vserver peer accept -vserver dst_vserver -peervserver src_vserver
+----
+
+
+. 「 snapmirror create 」コマンドを使用して、 clustered Data ONTAP のセカンダリボリュームをソースとし、 clustered Data ONTAP のプライマリボリュームをデスティネーションとする SnapMirror 関係を作成します。
++
+[listing]
+----
+pri_cluster::> snapmirror create -source-path dst_vserver:dst_c_vol -destination-path src_vserver:src_c_vol
+----
+. プライマリ・クラスタから「 snapmirror resync 」コマンドを使用して、 clustered Data ONTAP のセカンダリ・ボリュームを再同期します。
++
+[listing]
+----
+pri_cluster::> snapmirror resync -source-path dst_vserver:dst_c_vol -destination-path src_vserver:src_c_vol
+----
++
+再同期が完了するまで待つ必要があります。再同期が完了すると、 SnapMirror の状態が「 SnapManager にはミラー」に変わります。
+
+. clustered Data ONTAP のプライマリボリュームに切り替える準備ができたら、 clustered Data ONTAP のセカンダリボリュームからクライアントアクセスを切断します。
+. プライマリ・クラスタから 'napmirror update コマンドを使用して ' プライマリ・ボリュームを更新します
++
+[listing]
+----
+pri_cluster::> snapmirror update -destination-path src_vserver:src_c_vol
+----
+. プライマリクラスタから「 snapmirror break 」コマンドを使用して、 clustered Data ONTAP のプライマリボリュームとセカンダリボリュームの間の SnapMirror 関係を解除します。
++
+[listing]
+----
+pri_cluster::> snapmirror break -destination-path src_vserver:src_c_vol
+----
+. clustered Data ONTAP のプライマリボリュームへのクライアントアクセスを有効にします。
+. プライマリクラスタから「 snapmirror delete 」コマンドを実行し、 clustered Data ONTAP のプライマリボリュームとセカンダリボリュームの間の SnapMirror 関係を削除します。
++
+[listing]
+----
+pri_cluster::> snapmirror delete -destination-path src_vserver:src_c_vol
+----
+. セカンダリクラスタからは、「 snapmirror create 」コマンドを使用して、 clustered Data ONTAP のプライマリボリュームをソースとし、 clustered Data ONTAP のセカンダリボリュームをデスティネーションとする SnapMirror 関係を作成します。 7-Mode プライマリボリュームと clustered Data ONTAP セカンダリボリュームの間の前回のスケジュールと同様のスケジュールが設定されている。
++
+[listing]
+----
+sec_cluster::> snapmirror create -source-path src_vserver:src_c_vol -destination-path dst_vserver:dst_c_vol -schedule 15_minute_sched
+----
+. セカンダリ・クラスタから 'snapmirror resync コマンドを使用して ' clustered Data ONTAP のプライマリ・ボリュームを再同期します
++
+[listing]
+----
+sec_cluster::> snapmirror resync -source-path src_vserver:src_c_vol -destination-path dst_vserver:dst_c_vol
+----
+

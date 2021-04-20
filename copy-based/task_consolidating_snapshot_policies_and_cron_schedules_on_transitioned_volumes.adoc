@@ -1,0 +1,17 @@
+---
+permalink: copy-based/task_consolidating_snapshot_policies_and_cron_schedules_on_transitioned_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, consolidate, cron, schedules, transitioned, volumes 
+summary: 7-Mode Transition Tool は、移行したボリュームごとに固有のスケジュールを生成します。そのため、移行後に大量の cron スケジュールが生成される可能性があるため、移行後の cron スケジュールの統合方法を把握しておく必要があります。 
+---
+= ボリューム移行後の cron スケジュールの統合
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool は、移行したボリュームごとに固有のスケジュールを生成します。そのため、移行後に大量の cron スケジュールが生成される可能性があるため、移行後の cron スケジュールの統合方法を把握しておく必要があります。
+
+.手順
+. job schedule cron コマンドを使用して ' 移行後に cron スケジュールを統合します
+

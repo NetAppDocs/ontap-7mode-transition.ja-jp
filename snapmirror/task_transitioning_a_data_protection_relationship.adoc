@@ -1,0 +1,30 @@
+---
+permalink: snapmirror/task_transitioning_a_data_protection_relationship.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, snapmirror, staggered, configuration, volumes 
+summary: プライマリボリュームを移行する前にセカンダリボリュームを移行することにより、 7-Mode の Volume SnapMirror 関係を移行し、データ保護関係を保持することができます。この方法では、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間に段階的な SnapMirror DR 関係を設定します。 
+---
+= 段階的構成での Volume SnapMirror 関係の移行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+プライマリボリュームを移行する前にセカンダリボリュームを移行することにより、 7-Mode の Volume SnapMirror 関係を移行し、データ保護関係を保持することができます。この方法では、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間に段階的な SnapMirror DR 関係を設定します。
+
+* プライマリクラスタとセカンダリクラスタ、および SVM のセットアップが完了している必要があります。
+* Volume SnapMirror 関係を移行するときに SVM ピア関係を確立するには、次の条件が満たされている必要があります。
++
+** セカンダリクラスタに、プライマリ SVM と同じ名前の SVM が存在しない。
+** プライマリクラスタに、セカンダリ SVM と同じ名前の SVM が存在しない。
+** 移行準備に関する情報を確認しておく必要があります。
++
+xref:task_preparing_for_transition.adoc[移行を準備しています]
+
+
+
+
+
+* 関連情報 *
+
+xref:task_resuming_a_failed_snapmirror_transfer_transition.adoc[失敗した SnapMirror ベースライン転送を再開します]

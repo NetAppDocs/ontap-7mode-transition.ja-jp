@@ -1,0 +1,23 @@
+---
+permalink: copy-based/reference_cannot_select_a_secondary_volume_from_volume_selection_pane.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, select, secondary, volume, pan, selection 
+summary: ボリュームがオンラインでない場合や SnapMirror 関係が解除されている場合は、ボリューム選択ペインでセカンダリボリュームを選択して、 Volume SnapMirror 関係として移行することはできません。 
+---
+= Volume selection （ボリューム選択）ペインでセカンダリボリュームを選択できない
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ボリュームがオンラインでない場合や SnapMirror 関係が解除されている場合は、ボリューム選択ペインでセカンダリボリュームを選択して、 Volume SnapMirror 関係として移行することはできません。
+
+
+
+== 回避策
+
+ONTAP コマンドラインを使用して、次のいずれかの対処方法を実行します。
+
+* セカンダリボリュームがオフラインになっている場合はオンラインにします。
+* SnapMirror 関係が解除されている場合は修正します。
+

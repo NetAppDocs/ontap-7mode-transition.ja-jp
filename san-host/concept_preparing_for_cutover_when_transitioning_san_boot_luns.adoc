@@ -1,0 +1,19 @@
+---
+permalink: san-host/concept_preparing_for_cutover_when_transitioning_san_boot_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, san, boot, lun 
+summary: SAN ブート LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、カットオーバーフェーズを開始する前にいくつかの前提条件を確認しておく必要があります。 
+---
+= SAN ブート LUN 移行時のカットオーバーフェーズの準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN ブート LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、カットオーバーフェーズを開始する前にいくつかの前提条件を確認しておく必要があります。
+
+FC 構成の場合は、 clustered Data ONTAP コントローラへのファブリック接続とゾーニングが必要です。iSCSI 構成の場合は、 iSCSI セッションを検出し、 clustered Data ONTAP コントローラにログインする必要があります。また、ホストをシャットダウンする必要があります。
+
+* コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を開始する前にホストをシャットダウンする必要があります。HP-UX ホストでは、コピーフリーの移行はサポートされていません。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode のエクスポートおよび停止処理を開始する前にホストをシャットダウンする必要があります。
+

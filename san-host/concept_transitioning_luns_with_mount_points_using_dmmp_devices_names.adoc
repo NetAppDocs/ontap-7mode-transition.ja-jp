@@ -1,0 +1,23 @@
+---
+permalink: san-host/concept_transitioning_luns_with_mount_points_using_dmmp_devices_names.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, mount, points, dmmp, device, name 
+summary: DMMP デバイス名を使用するマウントポイントを含む LUN を移行する前に、 DMMP デバイス名を対応するファイルシステム UUID 番号に置き換える必要があります。カットオーバーフェーズに備えて特定の手順を実行し、移行後にホストで DMMP デバイスを再マウントする必要があります。Red Hat Enterprise Linux \ （ RHEL \ ） 5 および RHEL 6 についても同じ手順を実行します。 
+---
+= DMMP デバイス名を使用するマウントポイントを含む LUN の移行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+DMMP デバイス名を使用するマウントポイントを含む LUN を移行する前に、 DMMP デバイス名を対応するファイルシステム UUID 番号に置き換える必要があります。カットオーバーフェーズに備えて特定の手順を実行し、移行後にホストで DMMP デバイスを再マウントする必要があります。Red Hat Enterprise Linux （ RHEL ） 5 と RHEL 6 についても同じ手順を実行します。
+
+* 関連情報 *
+
+xref:task_preparing_rhel_luns_transition_using_inventory_assessment_workbook.adoc[DMMP デバイス名を使用するマウントポイントを含む RHEL LUN を準備しています Inventory Assessment Workbook を使用した移行]
+
+xref:task_preparing_rhel_luns_for_transition_using_the_cli.adoc[DMMP エイリアス名を使用するマウントポイントを含む RHEL LUN を準備しています CLI を使用した移行の場合]
+
+xref:task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.adoc[マウントを含む LUN 移行時のカットオーバーフェーズの準備 Linux ホストで DMMP デバイス名を使用するポイントです]
+
+xref:task_remounting_dmmp_devices_on_linux_hosts_after_transition.adoc[移行後の Linux ホストへの DMMP デバイスの再マウント]

@@ -1,0 +1,33 @@
+---
+permalink: snapmirror/concept_considerations_for_using_snapmirror_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, transition, mode, snapmirror, operations, snapvault, considerations 
+summary: SnapMirror または SnapVault 処理と同時に 7-Mode システムで実行する場合は、 SnapMirror の同時転送数、データコピースケジュール、複数のパスを使用した移行など、一定の考慮事項に注意する必要があります。 
+---
+= SnapMirror を使用した移行に関する考慮事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror または SnapVault 処理と同時に 7-Mode システムで実行する場合は、 SnapMirror の同時転送数、データコピースケジュール、複数のパスを使用した移行など、一定の考慮事項に注意する必要があります。
+
+
+
+== SnapMirror 同時転送の最大数
+
+移行時に、 7-Mode システムおよび ONTAP システムでサポートされる同時に実行可能な SnapMirror 転送の最大数は、使用中のストレージシステムモデルでサポートされる Volume SnapMirror レプリケーション処理数によって決まります。
+
+ご使用のシステムモデルで同時に実行可能な Volume SnapMirror 転送の最大数については、を参照してください link:https://library.netapp.com/ecm/ecm_get_file/ECMP1635994["『 Data ONTAP データ保護：オンラインバックアップおよびリカバリガイド』を参照してください 7-Mode"]。
+
+
+
+== データコピースケジュール
+
+移行処理のデータコピースケジュールが、 7-Mode システムで実行されている SnapMirror 処理または SnapVault 処理の既存スケジュールと重複しないようにしてください。
+
+
+
+== 複数のパスを移行に使用する
+
+データコピー IP アドレスとマルチパス IP アドレスを使用して、移行用に 2 つのパスを指定できます。ただし、どちらのパスも負荷分散には使用できますが、フェイルオーバーには使用できません。

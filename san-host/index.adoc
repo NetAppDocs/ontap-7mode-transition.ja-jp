@@ -1,0 +1,23 @@
+---
+permalink: san-host/index.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, index 
+summary: 7-Mode Transition Tool を使用して ONTAP にデータと構成を移行する場合に、 VMware ESXi 、 Red Hat Linux 、 Windows の各ホストで実行する移行前の手順と移行後の手順について説明します。 
+---
+= 『 SAN ホストの移行および修復ガイド』
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ） 2.2 以降を使用して、 Data ONTAP 7-Mode から clustered Data ONTAP 8.3 以降にデータと構成を移行する場合は、移行の前後に SAN ホストの修復手順を実行する必要があります。
+
+7-Mode Transition Tool SAN ホストの移行および修復ガイド _ には、 VMware ESXi 、 Windows 、 Red Hat Enterprise Linux （ RHEL ）、 HP-UX 、 AIX の各ホストで必要な移行前および移行後の手順が記載されています。
+
+* 関連情報 *
+
+xref:../copy-based/index.html[コピーベースの移行]
+
+xref:../copy-free/index.html[コピーフリーの移行]
+
+xref:../install-admin/index.html[7-Mode Transition Tool のインストールと管理]

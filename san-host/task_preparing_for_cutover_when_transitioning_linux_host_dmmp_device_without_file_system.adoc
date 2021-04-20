@@ -1,0 +1,33 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_linux_host_dmmp_device_without_file_system.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, linux, dmmp, device, host 
+summary: ファイルシステムのない DMMP デバイスを Linux ホストから移行する場合は、カットオーバーフェーズを開始する前にいくつかの手順を実行する必要があります。 
+---
+= Linux ホストの DMMP デバイス移行時のカットオーバーの準備 ファイルシステムを使用しない場合
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ファイルシステムのない DMMP デバイスを Linux ホストから移行する場合は、カットオーバーフェーズを開始する前にいくつかの手順を実行する必要があります。
+
+FC 構成の場合は、 clustered Data ONTAP コントローラへのファブリック接続とゾーニングが必要です。
+
+iSCSI 構成の場合は、 iSCSI セッションを検出し、 clustered Data ONTAP コントローラにログインする必要があります。
+
+* コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode のエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+
+.手順
+. マウントポイントへの I/O を停止します。
+. アプリケーションベンダーの推奨事項に従って、 LUN にアクセスしているアプリケーションをシャットダウンします。
+. 7-Mode LUN の DMMP デバイスまたはエイリアスをフラッシュします。
++
+'*multipath-f_device_name _*
+
++
+必要に応じて、 _Inventory Assessment Workbook の SAN Host LUNs タブにある * OS Device ID * 列から DMMP デバイス名を取得できます。
+
+

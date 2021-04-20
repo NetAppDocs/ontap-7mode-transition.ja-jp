@@ -1,0 +1,34 @@
+---
+permalink: san-host/task_preparing_to_transition_aix_data_host_luns_with_file_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, transition, aix, host, data, lun, file, system 
+summary: ファイルシステムを搭載した AIX ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する前に、移行プロセスに必要な情報を収集する必要があります。 
+---
+= ファイルシステムを搭載した AIX ホストデータ LUN の移行準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ファイルシステムを搭載した AIX ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する前に、移行プロセスに必要な情報を収集する必要があります。
+
+. 7-Mode コントローラで、移行する LUN の名前を特定します。
++
+「 * lun show * 」と入力します
+
+. ホストで、 LUN の SCSI デバイス名を確認します。
++
+「 * sanlun lun show * 」と表示されます
+
++
+SCSI デバイス名は、 device filename 列に記載されています。
+
+. 移行するデータ LUN に設定されているボリュームグループが使用する物理ボリュームを表示して記録します。
++
+'*lsvg -p_vg_name_*
+
+. ボリュームグループが使用する論理ボリュームを表示して記録します。
++
+'*lsvg -l _vg_name_*
+
+

@@ -1,0 +1,49 @@
+---
+permalink: install-admin/task_uninstalling_7_mode_transition_tool_on_linux.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, uninstall, transition, tool, linux 
+summary: Linux では、コマンドラインインターフェイスを使用して 7-Mode Transition Tool をアンインストールできます。 
+---
+= Linux での 7-Mode Transition Tool のアンインストール
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Linux では、コマンドラインインターフェイスを使用して 7-Mode Transition Tool をアンインストールできます。
+
+* 実行中の移行をすべて完了しておく必要があります。
++
+
+IMPORTANT: ツールの新しいバージョンをインストールしたり、同じバージョンを再インストールしたりすると、アンインストールしたインスタンスで開始された移行処理にアクセスできなくなります。
+
+* 7-Mode Transition Tool が実行中の場合は、停止する必要があります。
+
+
+アンインストールによって JRE が削除されることはありません。
+
+.手順
+. 7-Mode Transition Tool を解凍した場所で次のコマンドを実行して、 7-Mode Transition Tool をアンインストールします。
++
+*./unconfigure *`
+
+. 7-Mode Transition Tool ディレクトリを削除します。
++
+.. 「 * cd .. * 」と入力します
+.. 「 * rm -rf NetApp_7ModeTransitionTool * 」と入力します
+
+
+
+
+
+
+== 例
+
+[listing]
+----
+
+bash-4.2# cd /root/Downloads/extracted_folder/NetApp_7ModeTransitionTool
+bash-4.2# ./unconfigure
+bash-4.2# cd ..
+bash-4.2# rm -rf NetApp_7ModeTransitionTool
+----

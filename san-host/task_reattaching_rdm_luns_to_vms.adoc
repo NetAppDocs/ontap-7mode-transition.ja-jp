@@ -1,0 +1,37 @@
+---
+permalink: san-host/task_reattaching_rdm_luns_to_vms.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rdm, lun, vm 
+summary: Raw デバイスマッピング（ RDM ） LUN に接続されている VM が移行後に機能するようにするには、 LUN をホストする RDM ディスクを VM から削除する必要があります。その後、 7-Mode Transition Tool \ （ 7MTT \ ）から提供された LUN シリアル番号に基づいて、 RDM ディスクを VM に再接続します。 
+---
+= RDM LUN を VM に再接続
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Raw デバイスマッピング（ RDM ） LUN に接続されている VM が移行後に機能するためには、 LUN をホストする RDM ディスクを VM から削除する必要があります。その後、 7-Mode Transition Tool （ 7MTT ）から提供された LUN シリアル番号に基づいて、 RDM ディスクを VM に再接続します。
+
+* コピーベースの移行の場合は、 7MTT でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode システムのエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+
+.手順
+. Inventory Assessment Workbook で、 * Host VM Disk Details * タブに移動します。
+. 「 * タイプ」列で、 PTRDM または NPTRDM を使用する ESXi ホスト VM を特定します。
+. VM 名、「 * Disk * 」列に表示されたディスクパスの詳細、および「 * Device Mapped * 」列に表示されている NAA ID をメモします。
+. 移行後に生成された 7MTT マッピングファイルにその NAA ID が記載されていることを確認します。
+. マッピングファイルの * LUN WWID * 列に対応する新しい NAA ID が NAA ID になっていることを確認します。
++
+これが新しい clustered Data ONTAP LUN NAA ID です。
+
+. clustered Data ONTAP LUN NAA ID を * lun WWID * 列に記載し、ディスクパスの詳細を使用して clustered Data ONTAP LUN を VM に再接続します。
+
+
+* 関連情報 *
+
+xref:task_removing_stale_rdm_using_vsphere_client.adoc[vSphere Client を使用して古い RDM を削除する]
+
+xref:task_reattaching_rdm_to_vms_using_vsphere_client.adoc[vSphere Client を使用した RDM の VM への再接続]
+
+xref:task_reattaching_rdm_using_esxi_cli_console.adoc[ESXi CLI / コンソールを使用した RDM の再接続]

@@ -1,0 +1,34 @@
+---
+permalink: san-host/task_verifying_rhel_5_luns_are_ready_for_transition_using_cli.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rhel, 5, lun, cli 
+summary: Red Hat Enterprise Linux \ （ RHEL \ ） 5 LUN に Device Mapper Multipath \ （ DMMP \ ）が設定されている場合、 Data ONTAP 7-Mode から clustered Data ONTAP に LUN を移行する前に、ファイルシステムが設定されていないことを確認する必要があります。 
+---
+= を使用した RHEL 5 LUN の移行準備状況の確認 CLI を使用します
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Red Hat Enterprise Linux （ RHEL ） 5 LUN に Device Mapper Multipath （ DMMP ）が設定されている場合、 Data ONTAP 7-Mode から clustered Data ONTAP に LUN を移行する前に、ファイルシステムが設定されていないことを確認する必要があります。
+
+.手順
+. 移行する LUN の SCSI デバイス名を確認します。
++
+「 * sanlun lunshow * 」のように表示されます
+
+. LUN の DMMP デバイス名を特定します。
++
+*multipath -11*`
+
++
+DMMP デバイス名は、デバイスハンドル ID （ WWID ：「 360a980003753456258244538554b4b53` 」など）または「 'mmp_raw_lun' 」などのエイリアスです。
+
+. LUN にファイルシステムがないことを確認します。
++
+`* dumppe2fs /dev/mapper/__ DMMP デバイス名 __ *
+
++
+LUN にファイルシステムがない場合、有効なファイルシステムスーパーブロックが出力に表示されます。
+
+

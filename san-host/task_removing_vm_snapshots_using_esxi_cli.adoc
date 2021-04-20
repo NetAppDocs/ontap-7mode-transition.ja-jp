@@ -1,0 +1,25 @@
+---
+permalink: san-host/task_removing_vm_snapshots_using_esxi_cli.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, remove, vm, snapshots, esxi, cli 
+summary: Host Remediation Tool （ HRT ）を使用している場合、または CLI で柔軟な処理を実行したい場合は、 ESXi CLI を使用して Snapshot を削除できます。 
+---
+= ESXi CLI を使用して VM Snapshot を削除している
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Host Remediation Tool （ HRT ）を使用している場合、または CLI で柔軟な処理を実行したい場合は、 ESXi CLI を使用して Snapshot を削除できます。
+
+7-Mode Transition Tool （ 7MTT ）によって生成された Inventory Assessment Workbook の Host VMS タブで、 VMID を確認しておく必要があります。
+
+.手順
+. SSH を使用して ESXi コンソールにログインします。
+. 該当する VMID の VM の Snapshot をすべて削除します。
++
+`*#vim-cmd vmsvc/snapshot.removeAll_VMID_*`
+
+
+
+Snapshot を削除したら、 _Inventory Assessment Workbook を再生成して、 Data ONTAP 7-Mode と ESXi ホストに関連する情報を収集する必要があります。

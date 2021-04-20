@@ -1,0 +1,4355 @@
+---
+permalink: command-map/reference_how_7_mode_commands_map_to_clustered_ontap_commands.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, commands, map, commands 
+summary: この章では、 7-Mode コマンドに対応する ONTAP コマンドを表にまとめています。ただし、 options コマンドは含まれていません。 
+---
+= 7-Mode コマンドと ONTAP コマンドのマッピング
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+この章では、 7-Mode コマンドに対応する ONTAP コマンドを表にまとめています。ただし、 options コマンドは含まれていません。
+
+次の表に、 7-Mode の options コマンドと ONTAP コマンドの対応表を示します。これらの表の理解に関する情報も提供されています。
+
+xref:concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.adoc[7-Mode と clustered Data ONTAP のコマンドマップの概要]
+
+
+
+== A-E
+
+[role="lead"]
+* a *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+「 acpadmin configure 」
+ a| 
+*system node run -node {_nodename_|local} acpadmin configure *`
+
+
+
+ a| 
+「 acpadmin list_all 」
+ a| 
+`* system node run -node ｛ _nodename _|local ｝ acpadmin list_all *
+
+
+
+ a| 
+「 acpadmin stats 」
+ a| 
+*system node run -node {_nodename_|local} acpadmin stats *`
+
+
+
+ a| 
+「 aggr add 」
+ a| 
+「 * aggr add * 」
+
+「 aggr add disks 」を入力します
+
+「 storage aggregate add-disks 」を参照してください
+
+
+
+ a| 
+「 aggr create 」のように指定します
+ a| 
+「 * aggr create * 」を入力します
+
+「 storage aggregate create 」
+
+
+
+ a| 
+「 aggr destroy 」
+ a| 
+「 * aggr delete * 」と入力します
+
+「 storage aggregate delete 」をクリックします
+
+
+
+ a| 
+「 aggr media_scrub 」を指定します
+ a| 
+'* system node run -node ｛ _nodename _|local ｝ aggr media_scrub *
+
+
+
+ a| 
+「 aggr offline 」のように指定します
+ a| 
+「 * aggr offline * 」のように指定します
+
+「ストレージアグリゲートはオフライン」です
+
+
+
+ a| 
+「 aggr online 」と入力します
+ a| 
+「 * aggr online * 」と入力します
+
+「ストレージアグリゲートはオンライン」
+
+
+
+ a| 
+「 aggr options 」のように指定します
+ a| 
+「 * aggr modify * 」
+
+「 storage aggregate ｛ show | modify ｝ 」
+
+
+
+ a| 
+「 aggr rename 」のように指定します
+ a| 
+「 * aggr rename * 」を入力します
+
+「 storage aggregate rename 」をクリックします
+
+
+
+ a| 
+「 aggr restrict 」
+ a| 
+「 * aggr restrict * 」と入力します
+
+「ストレージアグリゲートの制限」を参照してください
+
+
+
+ a| 
+「 aggr scrub 」
+ a| 
+「 * aggr scrub * 」
+
+「 storage aggregate scrub 」
+
+
+
+ a| 
+「 aggr show_space 」と入力します
+ a| 
+「 * aggr show-sspace * 」と入力します
+
+「 storage aggregate show-space 」を参照してください
+
+
+
+ a| 
+「 aggr status 」を入力します
+ a| 
+「 aggr show 」と入力します
+
+「 storage aggregate show
+
+
+
+ a| 
+「 aggr verify 」のように指定します
+ a| 
+*system node run -node {_nodename_|local} aggr verify *`
+
+
+
+ a| 
+「 AutoSupport デスティネーション」
+ a| 
+「 * AutoSupport destinations * 」
+
+「システム・ノード AutoSupport 宛先」
+
+
+
+ a| 
+「 AutoSupport history 」の略
+ a| 
+「 * AutoSupport history * 」と入力します
+
+「システムノードの AutoSupport 履歴」
+
+
+
+ a| 
+「 AutoSupport マニフェスト」
+ a| 
+「 * AutoSupport manifest* 」
+
+「システムノード AutoSupport マニフェスト」
+
+
+
+ a| 
+「 AutoSupport trigger 」の略
+ a| 
+「 * AutoSupport trigger * 」と入力します
+
+「システム・ノード AutoSupport トリガー」
+
+|===
+[role="lead"]
+*B*
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+バックアップ・ステータス
+ a| 
+*system node run -node {_nodename_-command backup status*`
+
+
+
+ a| 
+バックアップは終了します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 bmc 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 bmc REBOOT 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 bmc status 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 bmc test 」
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* C *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+cdpd show-neighbors
+ a| 
+*system node run -node {_nodename_|local} コマンド network device-discovery show *`
+
+
+
+ a| 
+cdpd show-stats
+ a| 
+*system node run -node {_nodename_|local} -command cdpd show-stats *`
+
+
+
+ a| 
+cdpd ゼロ stats
+ a| 
+*system node run -node {_nodename_|local} -command cdpd zero-stats *`
+
+
+
+ a| 
+「 cf disable 」のように指定します
+ a| 
+「 cf disable 」のように指定します
+
+
+
+ a| 
+「 cf enable 」
+ a| 
+「 cf enable 」
+
+
+
+ a| 
+「 cf forcegiveback 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 cf forcetakeover 」
+ a| 
+「 cf forcetakeover 」
+
+
+
+ a| 
+「 cf giveback 」を参照してください
+ a| 
+「 * cf giveback * 」を参照してください
+
+「 storage failover giveback 」を参照してください
+
+
+
+ a| 
+「 cf hw_assist` 」
+ a| 
+*cf hwassist status *
+
+「 storage failover hwassist show 」を実行します
+
+
+
+ a| 
+「 cf monitor all 」のように表示されます
+ a| 
+「 * cf monitor all * 」のように表示されます
+
+「 storage failover show -instance 」をクリックします
+
+
+
+ a| 
+「 cf partner 」と入力します
+ a| 
+「 * cf partner * 」と入力します
+
+「 storage failover show -fields partner-name 」です
+
+
+
+ a| 
+「 cf rsrctbl 」と入力します
+ a| 
+"*cf rsrctbl*
+
+「 storage failover progress-table show
+
+
+
+ a| 
+「 f status 」と入力します
+ a| 
+「 * cf status * 」と入力します
+
+「 storage failover show 」をクリックします
+
+
+
+ a| 
+「 cf takeover 」のようになります
+ a| 
+'*cf takeover *
+
+「 storage failover takeover 」のように表示されます
+
+
+
+ a| 
+「 charmap 」
+ a| 
+「 vserver cifs character-mapping 」のようになります
+
+
+
+ a| 
+CIFS アクセス
+ a| 
+'*cifs access *
+
+「 vserver cifs access 」
+
+
+
+ a| 
+「 cifs branchcache 」
+ a| 
+'*cifs branchcache *
+
+「 vserver cifs branchcache 」
+
+
+
+ a| 
+cifs changefilerpwd
+ a| 
+*cifs changefilerpwd *
+
+「 vserver cifs changefilerpwd 」と入力します
+
+
+
+ a| 
+cifs domaininfo
+ a| 
+vserver cifs ｛ show instance | domain discovered-servers show -instance ｝
+
+
+
+ a| 
+「 cifs gpresult 」と表示されます
+ a| 
+「 vserver cifs group-policy show-applied 」のように表示されています
+
+
+
+ a| 
+cifs gpupdate
+ a| 
+「 vserver cifs group-policy update 」
+
+
+
+ a| 
+cifs homedir
+ a| 
+「 vserver cifs home-directory 」
+
+
+
+ a| 
+CIFS nbalias
+ a| 
+vserver cifs ｛ add-netbios-aliases | remove-netbios-aliases | show -display-netbios-aliases ｝
+
+
+
+ a| 
+cifs prefdc
+ a| 
+vserver cifs domain preferred-dc
+
+
+
+ a| 
+CIFS が再起動される
+ a| 
+vserver cifs start
+
+
+
+ a| 
+CIFS セッション数
+ a| 
+vserver cifs sessions show を参照します
+
+
+
+ a| 
+CIFS セットアップ
+ a| 
+vserver cifs create
+
+
+
+ a| 
+CIFS 共有
+ a| 
+* CIFS 共有 * vserver cifs 共有
+
+
+
+ a| 
+CIFS 統計
+ a| 
+statistics show -object cifs のコマンドです
+
+
+
+ a| 
+CIFS セッションを終了します
+ a| 
+SVM CIFS が停止します
+
+
+
+ a| 
+CIFS テスト DC
+ a| 
+vserver cifs domain discovered-servers
+
+
+
+ a| 
+CIFS リセット dc
+ a| 
+* cifs resetdc * vserver cifs domain discovered-servers reset-servers
+
+
+
+ a| 
+クローンをクリアします
+ a| 
+サポート対象外
+
+
+
+ a| 
+クローンの開始
+ a| 
+volume file clone create を実行します
+
+
+
+ a| 
+クローンが停止します
+ a| 
+サポート対象外
+
+
+
+ a| 
+クローンのステータス
+ a| 
+volume file clone show を実行します
+
+
+
+ a| 
+config clone
+ a| 
+サポート対象外
+
+
+
+ a| 
+コンフィギュレーション相違
+ a| 
+サポート対象外
+
+
+
+ a| 
+構成ダンプ
+ a| 
+サポート対象外
+
+
+
+ a| 
+設定のリストア
+ a| 
+サポート対象外
+
+
+
+ a| 
+コアダンプ
+ a| 
+システムノードコアダンプ
+
+|===
+[role="lead"]
+*D*
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+日付
+ a| 
+* date * ｛ system | cluster ｝ date ｛ show | 修正 }
+
+
+
+ a| 
+DCB 優先度
+ a| 
+system node run -node nodename __ command DCB priority
+
+
+
+ a| 
+dcb priority show
+ a| 
+system node run -node nodename _command dcb priority show の各コマンドを使用できます
+
+
+
+ a| 
+dcb show
+ a| 
+system node run -node nodename _command dcb show のようになりました
+
+
+
+ a| 
+DF
+ a| 
+* df *
+
+
+
+ a| 
+df [ アグリゲート名 ]
+ a| 
+df -aggregate_aggregate-name _
+
+
+
+ a| 
+df [ パス名 ]
+ a| 
+df -filesys-size-path-name_
+
+
+
+ a| 
+df -A
+ a| 
+* df -A *
+
+
+
+ a| 
+df -g
+ a| 
+* df -g * df - ギガバイト
+
+
+
+ a| 
+df -h
+ a| 
+* df -h * df -autosize です
+
+
+
+ a| 
+df -i
+ a| 
+* df -i *
+
+
+
+ a| 
+df -k
+ a| 
+* df -k * df - キロバイト
+
+
+
+ a| 
+DF-L が表示されます
+ a| 
+* df -L * df - FlexCache
+
+
+
+ a| 
+df -m
+ a| 
+* df -m * df - メガバイト
+
+
+
+ a| 
+df -r です
+ a| 
+* df -r *
+
+
+
+ a| 
+df -s
+ a| 
+* df -s *
+
+
+
+ a| 
+df -S
+ a| 
+* df -S *
+
+
+
+ a| 
+df -t
+ a| 
+* df -t * df - テラバイト
+
+
+
+ a| 
+df -v
+ a| 
+* df -v * df -volume
+
+
+
+ a| 
+df -x
+ a| 
+* df -x * df -skip-snapshot-lines
+
+
+
+ a| 
+ディスクの割り当て
+ a| 
+* ディスク割り当て * ストレージ・ディスクの割り当て
+
+
+
+ a| 
+ディスク暗号化
+ a| 
+system node run -node run _nodename __ command disk encrypt
+
+
+
+ a| 
+ディスク障害です
+ a| 
+* ディスク障害 * ストレージ・ディスク障害
+
+
+
+ a| 
+ディスク保守
+ a| 
+* disk maint ｛ start | abort | status | list ｝ * system node run -node ｛ _nodename _|local ｝ command disk maint ｛ start | 中止 | ステータス | リスト }
+
+
+
+ a| 
+ディスクの取り外し
+ a| 
+* disk remove * storage disk remove
+
+
+
+ a| 
+ディスク交換
+ a| 
+* ディスク交換 * ストレージディスク交換
+
+
+
+ a| 
+ディスク完全消去
+ a| 
+system node run -node nodename _command disk sanitize コマンド
+
+
+
+ a| 
+ディスクスクラビング
+ a| 
+ストレージアグリゲートスクラビング
+
+
+
+ a| 
+disk show のコマンドを実行し
+ a| 
+storage disk show のコマンドを入力します
+
+
+
+ a| 
+ディスクシムプル
+ a| 
+system node run -node nodename _command disk simpull コマンドを使用します
+
+
+
+ a| 
+ディスクを同時に押し込みます
+ a| 
+system node run -node nodename __ command disk simpush
+
+
+
+ a| 
+ディスクゼロスペア
+ a| 
+ストレージディスクゼロスペア
+
+
+
+ a| 
+disk_fw_update の場合
+ a| 
+システムノードイメージが変更されました
+
+
+
+ a| 
+DNS 情報
+ a| 
+dns show のコマンドです
+
+
+
+ a| 
+ダウンロード
+ a| 
+システムノードイメージの更新
+
+
+
+ a| 
+du [ パス名 ]
+ a| 
+du -vservername_-path _path _path_pathname_volume file show -disk -usage -vserver vserver_name _path _ パス名 _
+
+
+
+ a| 
+デュー H
+ a| 
+du -vservername_-path_path_pathname_-hvolume file show -disk -usage -vserver vserver_name _ -path_pathname_-h
+
+
+
+ a| 
+DU - K
+ a| 
+du -vservername_-path_path_pathname_-kvolume file show -disk -usage -vserver vserver_name _ -path_pathname_-k
+
+
+
+ a| 
+du -m の値を指定します
+ a| 
+du -vservername_-path_path_pathname_-mvolume file show -disk -usage -vserver vserver_name _ -path path_pathname_-m のように指定します
+
+
+
+ a| 
+du -r の場合
+ a| 
+du -vservername_-path_path_pathname_-rvolume file show -disk -usage -vserver vserver_name _ -path path_pathname_-r のように指定します
+
+
+
+ a| 
+du -u のようになります
+ a| 
+du -vservername_-path_path_pathname_-uvolume file show -disk -usage -vserver vserver_name _ -path path_pathname __ u
+
+
+
+ a| 
+ダンプ
+ a| 
+サポートされないテープバックアップのマニュアルの説明に従って 'NDMP を使用してバックアップを開始する必要がありますdump-to-null 機能の場合は、 NDMP 環境変数 DUMP_TO_NULL を設定する必要があります。
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["テープバックアップによるデータ保護"]
+
+|===
+[role="lead"]
+* E *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+エコー
+ a| 
+* echo *
+
+
+
+ a| 
+EMS イベントのステータス
+ a| 
+* EMS イベントのステータス * event status show
+
+
+
+ a| 
+EMS ログダンプ
+ a| 
+イベントログの表示時刻 >__ time -interval_
+
+
+
+ a| 
+EMS ログダンプの値
+ a| 
+イベントログが表示されます
+
+
+
+ a| 
+環境シャーシ
+ a| 
+system node run -node ｛ _nodename _|local ｝ command environment chassis というメッセージが表示されます
+
+
+
+ a| 
+環境ステータス
+ a| 
+system node run -node _nodename __ command environment status
+
+
+
+ a| 
+環境シェルフ
+ a| 
+サポート対象外
+
+「 storage shelf 」コマンドセットを使用する必要があります。
+
+
+
+ a| 
+environment shelf_log 」のようになります
+ a| 
+* environment shelf_log * system node run -node ｛ _nodename _|local ｝ -command environment shelf_log
+
+
+
+ a| 
+environment shelf_stats の値を指定します
+ a| 
+system node run -node ｛ _nodename _|local ｝ command environment shelf_stats になります
+
+
+
+ a| 
+環境シェルフ電源ステータス
+ a| 
+サポートされていません。「 storage shelf 」コマンドセットを使用する必要があります。
+
+
+
+ a| 
+環境シャーシ
+ a| 
+system node run -node ｛ _nodename _|local ｝ command environment chassis というメッセージが表示されます
+
+
+
+ a| 
+環境シャーシリストセンサー
+ a| 
+system node run -node ｛ _nodename _|local ｝ environment sensors show というコマンドを使用します
+
+
+
+ a| 
+exportfs
+ a| 
+vserver export policy [rule]
+
+
+
+ a| 
+exportfs -f
+ a| 
+vserver export-policy cache flush
+
+
+
+ a| 
+exportfs -o を指定します
+ a| 
+vserver export-policy rule
+
+
+
+ a| 
+exportfs -p のように指定します
+ a| 
+SVM エクスポートポリシールール
+
+
+
+ a| 
+exportfs -q のように入力します
+ a| 
+vserver export policy [rule]
+
+|===
+
+
+== F-J
+
+[role="lead"]
+* F *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+fcadmin config を使用します
+ a| 
+system node run -node ｛ _nodename _|local ｝ -command fcadmin config
+
+
+
+ a| 
+fcadmin link_stats の場合
+ a| 
+system node run -node ｛ _nodename _|local ｝ -command fcadmin link_stats
+
+
+
+ a| 
+fcadmin fcal_stats です
+ a| 
+system node run -node ｛ _nodename _|local ｝ -command fcadmin fcal_stats
+
+
+
+ a| 
+fcadmin device_map というメッセージが表示されます
+ a| 
+system node run -node ｛ _nodename _|local ｝ -command fcadmin device_map
+
+
+
+ a| 
+fic
+ a| 
+サポート対象外
+
+
+
+ a| 
+FCP の設定
+ a| 
+network fcp adapter modify コマンドを実行します
+
+
+
+ a| 
+FCP ネームサーバ
+ a| 
+* fcp nameserver show * vserver fcp nameserver show
+
+
+
+ a| 
+FCP ノード名
+ a| 
+SVM FCP ノード名
+
+
+
+ a| 
+FCP ping の実行
+ a| 
+* fcp ping-igroup show または fcp ping-initiator show * を入力します
+
+vserver fcp ping-igroup show または vserver fcp ping-initiator show のいずれかです
+
+
+
+ a| 
+FCP ポート名
+ a| 
+* fcp portname show * vserver fcp portname show
+
+
+
+ a| 
+fcp show のコマンドです
+ a| 
+vserver fcp show のコマンドです
+
+
+
+ a| 
+FCP が起動します
+ a| 
+* fcp start * vserver fcp start
+
+
+
+ a| 
+FCP 統計
+ a| 
+* fcp stats * fcp adapter stats
+
+
+
+ a| 
+FCP ステータス
+ a| 
+SVM の FCP ステータス
+
+
+
+ a| 
+FCP が停止します
+ a| 
+* fcp stop * vserver fcp stop
+
+
+
+ a| 
+FCP トポロジ
+ a| 
+network fcp topology show または vserver fcp topology show のいずれかです
+
+
+
+ a| 
+FCP WWPN エイリアス
+ a| 
+* fcp wwpn-alias * vserver fcp wwpn-alias
+
+
+
+ a| 
+FCP ゾーン
+ a| 
+* fcp zone show * のコマンドを入力します
+
+network fcp zone show のコマンドを入力します
+
+
+
+ a| 
+FCP ダンプ
+ a| 
+* FCP アダプタ・ダンプ * network fcp adapter dump
+
+
+
+ a| 
+FCP がリセットされました
+ a| 
+* FCP アダプタリセット * network fcp adapter reset
+
+
+
+ a| 
+fcstat link_stats の接続
+ a| 
+system node run -node ｛ _nodename _|local ｝ command fcstat link_stats になりました
+
+
+
+ a| 
+fcstat fcal_stats を追加してください
+ a| 
+system node run -node ｛ _nodename _|local ｝ command fcstat fcal_stats になりました
+
+
+
+ a| 
+fcstat device_map を指定します
+ a| 
+system node run -node ｛ _nodename _|local ｝ command fcstat device_map
+
+
+
+ a| 
+ファイルリザベーション
+ a| 
+ボリュームのファイルリザベーション
+
+
+
+ a| 
+filestats
+ a| 
+サポート対象外
+
+
+
+ a| 
+FlexCache
+ a| 
+Volume FlexCache の略
+
+
+
+ a| 
+FPolicy の
+ a| 
+* fpolicy * vserver fpolicy
+
+
+
+ a| 
+fsecurity show の実行
+ a| 
+vserver security file-directory show
+
+
+
+ a| 
+fsecurity が適用されます
+ a| 
+SVM のセキュリティファイルとディレクトリが適用されます
+
+
+
+ a| 
+fsecurity status を実行します
+ a| 
+vserver security file-directory job-show
+
+
+
+ a| 
+fsecurity cancel
+ a| 
+vserver security file-directory job-stop
+
+
+
+ a| 
+fsecurity remove-guard を設定します
+ a| 
+vserver security file-directory remove-slag を設定します
+
+
+
+ a| 
+FTP
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* H *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+停止
+ a| 
+system node halt -node _nodename _
+
+
+
+ a| 
+halt -f
+ a| 
+system node halt inhibit-takeover true を選択します
+
+
+
+ a| 
+halt -d を使用します
+ a| 
+system node halt -dump true
+
+
+
+ a| 
+ヘルプ
+ a| 
+？
+
+
+NOTE: 疑問符（ ? ）を入力する必要があります。 ONTAP でこのコマンドを実行する場合に使用します。
+
+
+
+ a| 
+ホスト名
+ a| 
+* hostname * system hostname
+
+
+
+ a| 
+httpstat です
+ a| 
+サポートされていません統計コマンドを使用する必要があります
+
+|===
+[role="lead"]
+* i *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+if_addr_filter_info
+ a| 
+system node run -note_nodename_command if_addr_filter_info
+
+
+
+ a| 
+ifconfig
+ a| 
+ネットワークインターフェイスネットワーク ｛ interface | port ｝
+
+
+
+ a| 
+ifconfig -a
+ a| 
+network interface show network ｛ interface | port ｝ show の略
+
+
+
+ a| 
+ifconfig エイリアス
+ a| 
+ネットワークインターフェイスの作成
+
+
+
+ a| 
+ifconfig down （ ifconfig ダウン）
+ a| 
+network interface modify -status-admin down を実行中です
+
+
+
+ a| 
+ifconfig flowcontrol
+ a| 
+network port modify -flowcontrol-admin
+
+
+
+ a| 
+ifconfig mediatype
+ a| 
+network port modify ｛ -duplex-admin | -speed-admin ｝
+
+
+
+ a| 
+ifconfig mtusize
+ a| 
+network port modify -mtu
+
+
+
+ a| 
+ifconfig ネットマスク
+ a| 
+network interface modify - ネットマスク
+
+
+
+ a| 
+ifconfig up
+ a| 
+network interface modify -status-admin up
+
+
+
+ a| 
+ifgrp create の設定
+ a| 
+ネットワークポート ifgrp create
+
+
+
+ a| 
+ifgrp add
+ a| 
+ネットワークポート ifgrp add-port
+
+
+
+ a| 
+ifgrp delete
+ a| 
+ネットワークポート ifgrp remove-port
+
+
+
+ a| 
+ifgrp の破棄
+ a| 
+ネットワークポート ifgrp delete
+
+
+
+ a| 
+ifgrp favor の設定
+ a| 
+ONTAP 9 のリリースでは、 network interface failover-groups create コマンドを使用して、 2 つのポートのフェイルオーバーグループを作成します。そのあと、 network interface modify コマンドを使用して、優先ホームポートに -home-port オプションを使用して設定し、 -autorevert オプションを true に設定します。
+
+
+NOTE: フェイルオーバーグループにポートを追加する前に、 ifgrp からポートを削除します。異なる NIC のポートを使用することを推奨します。また、冗長性の不足に関する EMS 警告も防止できます。
+
+
+
+ a| 
+ifgrp の優先度がありません
+ a| 
+ONTAP 9 のリリースでは、同じ手順をフェイルオーバーグループに使用します。
+
+
+
+ a| 
+ifgrp のステータス
+ a| 
+system node run -node ｛ _nodename _|local ｝ command ifgrp status
+
+
+
+ a| 
+ifgrp stat の指定
+ a| 
+system node run -node ｛ _nodename _|local ｝ command ifstat _ifgrp -port_
+
+
+
+ a| 
+ifgrp show の詳細
+ a| 
+network port ifgrp show の設定
+
+
+
+ a| 
+ifinfo
+ a| 
+system node run -node ｛ _nodename _|local ｝ command ifinfo
+
+
+
+ a| 
+ifstat を入力します
+ a| 
+ifstat コマンド： system node run -node ｛ _nodename _|local ｝ -command
+
+
+
+ a| 
+igroup add
+ a| 
+* igroup add * lun igroup add
+
+
+
+ a| 
+igroup ALUA
+ a| 
+lun igroup modify -alua
+
+
+
+ a| 
+igroup のバインド
+ a| 
+* igroup bind * lun igroup bind
+
+
+
+ a| 
+igroup の削除
+ a| 
+* igroup delete * lun igroup delete
+
+
+
+ a| 
+igroup create を実行します
+ a| 
+* igroup create * lun igroup create
+
+
+
+ a| 
+igroup remove
+ a| 
+* igroup remove * lun igroup remove
+
+
+
+ a| 
+igroup の名前変更
+ a| 
+* igroup rename * lun igroup rename
+
+
+
+ a| 
+igroup set のコマンドです
+ a| 
+igroupun igroup セット
+
+
+
+ a| 
+igroup show のコマンドです
+ a| 
+* igroup show * lun igroup show
+
+
+
+ a| 
+igroup set ostype
+ a| 
+igroup modify -ostype
+
+
+
+ a| 
+igroup のバインド解除
+ a| 
+* igroup unbind * LUN igroup のバインド解除
+
+
+
+ a| 
+IPSec
+ a| 
+サポート対象外
+
+
+
+ a| 
+iSCSI エイリアス
+ a| 
+iscsi createvserver iscsi create もしくは
+
+iSCSI の変更
+
+Vserver iscsi modify の値
+
+
+
+ a| 
+iSCSI 接続
+ a| 
+* iSCSI 接続 * SVM iSCSI 接続
+
+
+
+ a| 
+iSCSI イニシエータ
+ a| 
+* iscsi initiator * vserver iscsi initiator
+
+
+
+ a| 
+iSCSI インターフェイス
+ a| 
+* iscsi interface * vserver iscsi interface
+
+
+
+ a| 
+iSCSI iSNS
+ a| 
+* iSCSI iSNS * vserver iscsi isns
+
+
+
+ a| 
+iSCSI ポータルにアクセスします
+ a| 
+* iSCSI ポータル * vserver iscsi portal
+
+
+
+ a| 
+iSCSI セキュリティ
+ a| 
+* iSCSI セキュリティ * vserver iscsi security
+
+
+
+ a| 
+iSCSI セッション
+ a| 
+* iscsi session * vserver iscsi session
+
+
+
+ a| 
+iscsi show のコマンドです
+ a| 
+* iscsi show * vserver iscsi show
+
+
+
+ a| 
+iSCSI が開始されます
+ a| 
+* iscsi start * vserver iscsi start
+
+
+
+ a| 
+iSCSI 統計
+ a| 
+統計 ｛ start | stop | show ｝ -object_object_
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+iSCSI が停止します
+ a| 
+* iscsi stop * vserver iscsi stop
+
+|===
+
+
+== K - O
+
+[role="lead"]
+* K *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+key_manager （キー管理ツール
+ a| 
+system node run -node ｛ _nodename _|local ｝ -command key_manager
+
+
+
+ a| 
+keymgr （設定）
+ a| 
+system node run -node ｛ _nodename _|local ｝ -command keymgr for management interface keys 、「 security certificates 」コマンドを使用する必要があります。
+
+|===
+[role="lead"]
+*L *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+'*license*'
+ a| 
+'*license show *
+
+「 * system license show * 」と表示されます
+
+
+
+ a| 
+*license add *`
+ a| 
+*license add *`
+
+*system license add -license-code_V2_license_code_*
+
+
+
+ a| 
+'*license delete *'
+ a| 
+'*license delete *'
+
+*system license delete -package_package_name_*`
+
+
+
+ a| 
+*lock break *`
+ a| 
+'*vserver locks break *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+*lock break -h host *
+ a| 
+*vserver は break-client-address_client-address_*' をロックします
+
+
+
+ a| 
+*lock break -net network *
+ a| 
+*vserver は break-client-address-type _ip address type_*' をロックします
+
+
+
+ a| 
+'*lock break -o owner *
+ a| 
+*vserver は break-owner-id_owner-id_*' をロックします
+
+
+
+ a| 
+*lock break -p protocol *
+ a| 
+*vserver は break-protocol_protocol_*' をロックします
+
+
+
+ a| 
+*lock status *`
+ a| 
+「 * vserver locks show * 」と表示されます
+
+
+
+ a| 
+*lock status -h host *
+ a| 
+*vserver locks show -client-address_client-address_*`
+
+
+
+ a| 
+'*lock status -o owner *
+ a| 
+*vserver locks show -owner id_owner id_*`
+
+
+
+ a| 
+'*lock status -p protocol*
+ a| 
+*vserver locks show-protocol_protocol_*`
+
+
+
+ a| 
+'*logger *'
+ a| 
+'*logger *'
+
+*system node run -node ｛ nodename |local ｝ -command logger *
+
+
+
+ a| 
+*logout*`
+ a| 
+「 * exit *
+
+
+
+ a| 
+「 * lun clone * 」と入力します
+ a| 
+'*volume file clone create *
+
+
+
+ a| 
+「 * lun comment * 」のように入力します
+ a| 
+「 * lun comment * 」のように入力します
+
+
+
+ a| 
+'*lun config_check*
+ a| 
+サポート対象外
+
+
+
+ a| 
+'*lun create *
+ a| 
+「 lun create – vserver_vserver_name _ * 」のようになります
+
+
+
+ a| 
+'*lun destroy *
+ a| 
+'*lun delete *
+
+
+
+ a| 
+「 * lun map * 」と入力します
+ a| 
+「 * lun map – vserver_vserver_name _ * 」のようになります
+
+
+
+ a| 
+「 * lun maxsize * 」のようになります
+ a| 
+「 * lun maxsize * 」のようになります
+
+
+
+ a| 
+「 * lun move * 」のように指定します
+ a| 
+「 * lun move * 」のように指定します
+
+
+
+ a| 
+'*lun offline *
+ a| 
+*lun modify -state offline*
+
+
+
+ a| 
+「 * lun online * 」と入力します
+ a| 
+*lun modify -state online *
+
+
+
+ a| 
+「 * lun resize * 」のようになります
+ a| 
+「 * lun resize * 」のようになります
+
+
+
+ a| 
+「 * lun set * 」のように指定します
+ a| 
+「 * lun set * 」のように指定します
+
+
+
+ a| 
+「 * lun setup * 」と入力します
+ a| 
+'*lun create *
+
+
+
+ a| 
+'*lun share *
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 * lun show * 」と入力します
+ a| 
+「 * lun show * 」と入力します
+
+
+
+ a| 
+「 * lun snap * 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+'*lun stats *
+ a| 
+'*statistics show -object LUN *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+「 * lun unmap * 」
+ a| 
+「 * lun unmap * 」
+
+|===
+[role="lead"]
+* M *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+人
+ a| 
+* man *
+
+
+
+ a| 
+maxfiles
+ a| 
+vol modify -max-of-files_or vol-fields ファイル
+
+
+
+ a| 
+マウント
+ a| 
+サポート対象外
+
+storage tape コマンドセットを使用する必要があります。
+
+|===
+[role="lead"]
+* N *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+nbtstat
+ a| 
+SVM CIFS nbtstat
+
+
+
+ a| 
+ndmpd
+ a| 
+｛ system | server ｝ は NDMP サービスを提供します
+
+
+
+ a| 
+ndmpcopy
+ a| 
+system node run -node ｛ _nodename _|local ｝ ndmpcopy
+
+
+
+ a| 
+ndmpd on を設定します
+ a| 
+* ndmpd on * システムサービス ndmpd on
+
+
+
+ a| 
+ndmpd off を設定します
+ a| 
+* ndmpd off * システム・サービス ndmpd off
+
+
+
+ a| 
+ndmpd のステータス
+ a| 
+｛ system | vserver ｝ サービスの NDMP ステータス
+
+
+
+ a| 
+ndmpd プローブ
+ a| 
+｛ system | vserver ｝ では NDMP プローブを使用します
+
+
+
+ a| 
+ndmpd kill
+ a| 
+｛ system | vserver ｝ services ndmp kill 」で実行されました
+
+
+
+ a| 
+ndmpd killall
+ a| 
+｛ system | vserver ｝ サービス ndmp kill-all
+
+
+
+ a| 
+ndmpd パスワード
+ a| 
+｛ system | vserver ｝ サービス NDMP パスワード
+
+
+
+ a| 
+ndmpd バージョン
+ a| 
+｛ system | vserver ｝ は NDMP バージョンを提供します
+
+
+
+ a| 
+NDP
+ a| 
+system node run -node ｛ _nodename _|local ｝ keymgr
+
+
+
+ a| 
+netdiag
+ a| 
+サポートされていません network interface コマンドまたは netstat コマンドを使用する必要があります
+
+
+
+ a| 
+ネットサット
+ a| 
+system node run nodename_command netstat コマンド
+
+
+
+ a| 
+ネットワークインターフェイスのフェイルオーバー
+ a| 
+network interface show -failover の略
+
+
+
+ a| 
+ネットワークポートの VLAN が変更された
+ a| 
+サポート対象外
+
+
+
+ a| 
+NFS オフ
+ a| 
+* nfs off * vserver nfs off
+
+
+
+ a| 
+NFS オン
+ a| 
+* vserver nfs on * vserver nfs on
+
+
+
+ a| 
+NFS セットアップ
+ a| 
+vserver nfs create または vserver setup のいずれかです
+
+
+
+ a| 
+NFS 統計
+ a| 
+統計 ｛ start | stop | show ｝ -object NFS *
+
+
+
+ a| 
+NFS のステータス
+ a| 
+SVM の NFS ステータス
+
+
+
+ a| 
+NFS vStorage
+ a| 
+vserver nfs modify -vStorage
+
+
+
+ a| 
+アクセスの情報を確認
+ a| 
+statistics show -object nfs *
+
+|===
+[role="lead"]
+* O *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+OROUTED
+ a| 
+サポート対象外
+
+|===
+
+
+== P-T
+
+[role="lead"]
+* P *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+パートナー
+ a| 
+サポート対象外
+
+
+
+ a| 
+パスワード
+ a| 
+セキュリティログインパスワード
+
+
+
+ a| 
+パフォーマンスレポート -t
+ a| 
+統計 ｛ start | stop | show ｝ -object perf
+
+
+
+ a| 
+Ping \ ｛ host ｝
+ a| 
+ネットワーク ping ｛ -node nodename _|-lif LIF_name ｝ -destination
+
+
+
+ a| 
+Ping \ ｛ count ｝
+ a| 
+ネットワーク ping ｛ -node nodename _|-lif LIF_name ｝ -count
+
+
+
+ a| 
+ping -l インターフェイス
+ a| 
+ネットワーク ping - LIF_LIF - 名前 _
+
+
+
+ a| 
+Ping - V
+ a| 
+ネットワーク ping -node ｛ _nodename _|-lif lif -name_｝ -verbose
+
+
+
+ a| 
+ping - s
+ a| 
+ネットワーク ping -node ｛ _nodename _|-lif lif -name_｝ -show-detail
+
+
+
+ a| 
+Ping - R
+ a| 
+ネットワーク ping -node ｛ _nodename _|-lif lif -name_｝ -record-route
+
+
+
+ a| 
+pktt 削除
+ a| 
+system node run -node ｛ _nodename _|local ｝ pktt delete
+
+
+
+ a| 
+pktt ダンプ
+ a| 
+system node run -node ｛ _nodename _|local ｝ pktt ダンプ
+
+
+
+ a| 
+pktt リスト
+ a| 
+system node run -node ｛ _nodename _|local ｝ pktt list
+
+
+
+ a| 
+pktt 一時停止
+ a| 
+system node run -node ｛ _nodename _|local ｝ pktt pause 」というように入力します
+
+
+
+ a| 
+pktt スタート
+ a| 
+system node run -node ｛ _nodename _|local ｝ pktt start
+
+
+
+ a| 
+pktt ステータス
+ a| 
+system node run -node ｛ _nodename _|local ｝ pktt ステータス
+
+
+
+ a| 
+pktt 停止
+ a| 
+system node run -node ｛ _nodename _|local ｝ pktt stop
+
+
+
+ a| 
+ポートセットを追加します
+ a| 
+* portset add * LUN portset add
+
+
+
+ a| 
+ポートセットの作成
+ a| 
+* portset create * LUN portset create
+
+
+
+ a| 
+ポートセットを削除します
+ a| 
+* portset delete * LUN portset delete
+
+
+
+ a| 
+ポートセットが削除されまし
+ a| 
+* portset remove * LUN portset remove
+
+
+
+ a| 
+portset show の使用状況
+ a| 
+* portset show * lun portset show
+
+
+
+ a| 
+優先度ハイブリッドキャッシュのデフォルト
+ a| 
+サポート対象外
+
+
+
+ a| 
+優先度がハイブリッドキャッシュに設定されました
+ a| 
+volume modify -volume_name_-vserver_name_-caching-policy policy_name _
+
+
+
+ a| 
+priority hybrid-cache show の使用を優先します
+ a| 
+volume show -volume volume_name _ -vserver vserver_name _ -fields caching-policy
+
+
+
+ a| 
+priv set （ priv set ）
+ a| 
+set -privilege
+
+|===
+[role="lead"]
+* Q *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+qtree の作成
+ a| 
+* qtree create * volume qtree create
+
+
+
+ a| 
+qtree oplock
+ a| 
+* qtree oplocks * ボリューム qtree oplock
+
+
+
+ a| 
+qtree セキュリティ
+ a| 
+* qtree セキュリティ * ボリューム qtree セキュリティ
+
+
+
+ a| 
+qtree のステータス
+ a| 
+qtree show volume qtree show の略
+
+
+
+ a| 
+qtree の統計
+ a| 
+qtree の統計ボリューム qtree の統計
+
+
+
+ a| 
+クォータの許可
+ a| 
+quota modify -state volume quota modify -state on と入力します
+
+
+
+ a| 
+クォータの禁止
+ a| 
+quota modify -statevolume quota modify -state off と指定します
+
+
+
+ a| 
+クォータオフ
+ a| 
+* クォータ・オフ * ボリューム・クォータ・オフ
+
+
+
+ a| 
+クォータオンです
+ a| 
+* クォータ・オン * ボリューム・クォータ・オン
+
+
+
+ a| 
+クォータレポート
+ a| 
+* クォータレポート * ボリュームクォータレポート
+
+
+
+ a| 
+クォータのサイズ変更
+ a| 
+* クォータのサイズ変更 * ボリューム・クォータのサイズ変更
+
+
+
+ a| 
+クォータステータス
+ a| 
+quota show volume quota show
+
+
+
+ a| 
+クォータログメッセージ
+ a| 
+volume quota show -fields logging 、 logging-interval
+
+|===
+[role="lead"]
+* R *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+半径（ Radius ）
+ a| 
+サポート対象外
+
+
+
+ a| 
+rdate
+ a| 
+サポート対象外
+
+
+
+ a| 
+RDFile を使用します
+ a| 
+サポート対象外
+
+
+
+ a| 
+割り当てを無効にします
+ a| 
+* 再割り当てを無効にします *
+
+
+
+ a| 
+再割り当ての測定
+ a| 
+* 再割り当ての測定 *
+
+
+
+ a| 
+を再割り当てします
+ a| 
+* 再割り当て *
+
+
+
+ a| 
+reallocate quiesce
+ a| 
+* reallocate quiesce *
+
+
+
+ a| 
+再割り当てを再開します
+ a| 
+* reallocate restart *
+
+
+
+ a| 
+スケジュールを再割り当てします
+ a| 
+* 再割り当てスケジュール *
+
+
+
+ a| 
+再割り当てを開始します
+ a| 
+* reallocate start *
+
+
+
+ a| 
+ステータスを再割り当てします
+ a| 
+reallocate show
+
+
+
+ a| 
+reallocate stop
+ a| 
+* reallocate stop *
+
+
+
+ a| 
+リブートします
+ a| 
+* 再起動 *
+
+system node reboot -node _nodename _
+
+
+
+ a| 
+reboot -d を入力します
+ a| 
+* reboot -d *
+
+system node reboot -dump true -node _nodename _
+
+
+
+ a| 
+reboot -f を入力します
+ a| 
+* reboot -f *
+
+reboot-inhibit-takeover true -node nodename _
+
+
+
+ a| 
+リストア
+ a| 
+サポート対象外
+
+テープバックアップのマニュアルに従って、 NDMP を使用してリストアを開始する必要があります。
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["テープバックアップによるデータ保護"]
+
+
+
+ a| 
+restore-backup をリストアします
+ a| 
+システムノード restore-backup
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+revert_to を実行します
+ a| 
+system node revert-to -node nodename _-version
+
+
+
+ a| 
+RLM
+ a| 
+サポート対象外
+
+
+
+ a| 
+ルートが追加されます
+ a| 
+* route add *
+
+ネットワークルートが作成されます
+
+
+
+ a| 
+ルートの削除
+ a| 
+* ルート削除 *
+
+ネットワークルートが削除されました
+
+
+
+ a| 
+ルート - 秒
+ a| 
+* ルート表示 *
+
+network route show のコマンドを使用します
+
+
+NOTE: network routing-groups コマンドファミリーは ONTAP 9 で廃止され、 9.4 以降はサポートされなくなりました。
+
+|===
+[role="lead"]
+* S *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+「 * sasadmin adapter_state * 」
+ a| 
+「 * system node run -node ｛ nodename |local ｝ command sasadmin adapter_state * 」のように表示されます
+
+
+
+ a| 
+「 * sasadmin channels * 」を入力します
+ a| 
+*system node run -node ｛ nodename |local ｝ command sasadmin channels *
+
+
+
+ a| 
+「 * sasadmin dev_stats * 」
+ a| 
+「 * system node run -node ｛ nodename |local ｝ command sasadmin dev_stats * 」のように表示されます
+
+
+
+ a| 
+「 * sasadmin expander * 」のように表示されます
+ a| 
+「 * system node run -node ｛ nodename | local ｝ command sasadmin expander * 」のようになります
+
+
+
+ a| 
+'*sasadmin expander_map*
+ a| 
+*system node run -node ｛ nodename |local ｝ command sasadmin expander_map *
+
+
+
+ a| 
+'*sasadmin expander_phy_state *
+ a| 
+*system node run -node ｛ nodename |local ｝ command sasadmin expander_phy_state *
+
+
+
+ a| 
+「 * sasadmin shelf * 」
+ a| 
+「 * storage shelf * 」のようになります
+
+
+
+ a| 
+「 * sasadmin shelf_short * 」のようになります
+ a| 
+「 * storage shelf * 」のようになります
+
+
+
+ a| 
+*sasstat dev_stats *`
+ a| 
+*system node run -node ｛ nodename |local ｝ command sasstat dev_stats *
+
+
+
+ a| 
+*sasstat adapter_state *
+ a| 
+*system node run -node ｛ nodename |local ｝ command sasstat adapter_state *`
+
+
+
+ a| 
+*sasstat expander-*'
+ a| 
+*system shelf show -port *
+
+
+
+ a| 
+sasstat expander_map * を使用しています
+ a| 
+「 * storage shelf showmodule* 」
+
+
+
+ a| 
+*sasstat expander_phy_state *`
+ a| 
+*system node run -node ｛ nodename |local ｝ sasstat expander_phy_state *
+
+
+
+ a| 
+*sasstat shelf *'
+ a| 
+「 * storage shelf * 」のようになります
+
+
+
+ a| 
+*savecore *`
+ a| 
+*system node coredump save-all *
+
+
+
+ a| 
+*savecore -i *
+ a| 
+*system node coredump config show -i *
+
+
+
+ a| 
+*savecore -l *
+ a| 
+*system node coredump show *
+
+
+
+ a| 
+*savecore -s *
+ a| 
+*system node coredump status *
+
+
+
+ a| 
+*savecore - *w
+ a| 
+サポート対象外
+
+
+
+ a| 
+*savecore -k *
+ a| 
+*system node coredump delete-all unsaved -kernel*
+
+
+
+ a| 
+「 * sectrace add * 」
+ a| 
+「 * vserver security trace create * 」
+
+
+
+ a| 
+'*sectrace delete *'
+ a| 
+「 * vserver security trace delete * 」
+
+
+
+ a| 
+「 * sectrace show * 」のように表示されます
+ a| 
+「 * vserver security trace filter show * 」のように表示されます
+
+
+
+ a| 
+「 * sectrace print-status * 」
+ a| 
+「 * vserver security trace trace-result show * 」のように表示されます
+
+
+
+ a| 
+*secureadmin addcert*`
+ a| 
+「 * security certificate install * 」
+
+
+
+ a| 
+*secureadmin disable ssh *`
+ a| 
+「 * security login modify * 」と入力します
+
+
+
+ a| 
+*secureadmin disable ssl *`
+ a| 
+「 * security ssl modify * 」のように入力します
+
+
+
+ a| 
+*secureadmin enable ssl *`
+ a| 
+「 * security ssl modify * 」のように入力します
+
+
+
+ a| 
+*secureadmin setup *`
+ a| 
+「 * security * 」と入力します
+
+
+
+ a| 
+`*secureadmin setup ssh *`
+ a| 
+`* security ssh { add | modify }*`
+
+
+
+ a| 
+*secureadmin setup ssl *`
+ a| 
+'*security ssl {add|modify}*'
+
+
+
+ a| 
+`*secureadmin enable ssh*`
+ a| 
+「 * security login modify * 」と入力します
+
+
+
+ a| 
+`*secureadmin status ssh *`
+ a| 
+「 * security login show * 」と表示されます
+
+
+
+ a| 
+*secureadmin status ssl *`
+ a| 
+「 * security ssl show * 」と入力します
+
+
+
+ a| 
+'*setup*'
+ a| 
+サポート対象外
+
+
+
+ a| 
+'*shelchk*'
+ a| 
+`* security ssh { add | modify }*`
+
+
+
+ a| 
+「 * showfh * 」
+ a| 
+'*security ssl {add|modify}*'
+
+
+
+ a| 
+*sis config *`
+ a| 
+「 * security login modify * 」と入力します
+
+
+
+ a| 
+「 * sis off * 」を選択します
+ a| 
+「 * security login show * 」と表示されます
+
+
+
+ a| 
+「 * sis on * 」を入力します
+ a| 
+「 * security ssl show * 」と入力します
+
+
+
+ a| 
+`*sis revert_to *`
+ a| 
+サポート対象外
+
+
+
+ a| 
+*sis start *`
+ a| 
+「 * showfh * 」
+
+'*volume file show-filehandle *'
+
+
+
+ a| 
+「 * sis stop * 」をクリックします
+ a| 
+「 * sis off * 」を選択します
+
+「 * volume efficiency off * 」を選択します
+
+
+
+ a| 
+'*smtape *
+ a| 
+「 * sis on * 」を入力します
+
+「 * 」でのボリューム効率
+
+
+
+ a| 
+'*snap autodelete *
+ a| 
+「 * sis policy * 」を入力します
+
+
+
+ a| 
+'*snap create *
+ a| 
+`*sis revert_to *`
+
+「 * volume efficiency revert-to * 」を指定します
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'*snap delete *
+ a| 
+'*snap delete *
+
+'*volume snapshot delete *
+
+
+
+ a| 
+'*snap delta *
+ a| 
+サポート対象外
+
+
+
+ a| 
+'*snap list *
+ a| 
+'*snap show*'
+
+'*volume snapshot show *
+
+
+
+ a| 
+'*snap reclaimable *
+ a| 
+'*volume snapshot compute-reclaimable *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'*snap rename *
+ a| 
+'*snap rename *
+
+'*volume snapshot rename *
+
+
+
+ a| 
+'*snap reserve *'
+ a| 
+volume {modify|show} -- fields percent-snapshot-space -- volume `_volume-name_`
+
+storage aggregate {modify|show} -- fields percent-snapshot-space -- aggregate `_aggregate-name _`
+
+
+
+ a| 
+'*snap restore *
+ a| 
+'*snap restore *
+
+'*volume snapshot restore *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'*snap sched *
+ a| 
+'*volume snapshot policy *
+
+
+
+ a| 
+'*snap reclaimable *
+ a| 
+'*volume snapshot compute-reclaimable *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+`*snapmirror abort *`
+ a| 
+`*snapmirror abort *`
+
+
+
+ a| 
+'*snapmirror break *
+ a| 
+'*snapmirror break *
+
+
+
+ a| 
+「 * snapmirror destinations * 」のようになります
+ a| 
+「 * snapmirror list-destinations * 」
+
+
+
+ a| 
+'*snapmirror initialize*
+ a| 
+'*snapmirror initialize*
+
+
+
+ a| 
+'*snapmirror migrate*
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 * snapmirror off * 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 * snapmirror on * 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+'*snapmirror quiesce *
+ a| 
+'*snapmirror quiesce *
+
+
+
+ a| 
+'*snapmirror release *
+ a| 
+'*snapmirror release *
+
+
+
+ a| 
+'*snapmirror resume*
+ a| 
+'*snapmirror resume*
+
+
+
+ a| 
+*snapmirror resync *
+ a| 
+*snapmirror resync *
+
+
+
+ a| 
+'*snapmirror status *
+ a| 
+「 * snapmirror show * 」
+
+
+
+ a| 
+「 * snapmirror throttle * 」
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 * snapmirror update * 」
+ a| 
+「 * snapmirror update * 」
+
+
+
+ a| 
+'*snmp authtrap*
+ a| 
+'*snmp authtrap*
+
+
+
+ a| 
+'*snmp コミュニティ *'
+ a| 
+'*snmp コミュニティ *'
+
+
+
+ a| 
+'*snmp contact *'
+ a| 
+'*snmp contact *'
+
+
+
+ a| 
+*snmp init *
+ a| 
+*snmp init *
+
+
+
+ a| 
+「 * snmp location * 」と入力します
+ a| 
+「 * snmp location * 」と入力します
+
+
+
+ a| 
+'*snmp traphost *
+ a| 
+'*snmp traphost *
+
+
+
+ a| 
+'*snmp トラップ *
+ a| 
+'*event route show -snmp-support true*
+
+
+
+ a| 
+'*software delete *'
+ a| 
+*system node image package delete *
+
+
+
+ a| 
+「 * software get * 」のようになります
+ a| 
+*system node image get *
+
+
+
+ a| 
+「 * software install * 」
+ a| 
+「 * system node image update * 」を参照してください
+
+
+
+ a| 
+「 * software list * 」
+ a| 
+*system node image package show *
+
+
+
+ a| 
+「 * software update * 」
+ a| 
+「 * system node image update * 」を参照してください
+
+
+
+ a| 
+「 * source * 」と入力します
+ a| 
+サポート対象外
+
+
+
+ a| 
+*SP 再起動 *
+ a| 
+*system service-processor reboot-sp *
+
+
+
+ a| 
+*sp setup *
+ a| 
+*system service-processor network modify *
+
+
+
+ a| 
+*SP ステータス *
+ a| 
+「 * system service-processor show * 」を参照してください
+
+
+
+ a| 
+*sp status -d *
+ a| 
+*system node AutoSupport invoke-splog *
+
+
+
+ a| 
+*sp status -v *
+ a| 
+*system node AutoSupport invoke-splog *
+
+
+
+ a| 
+*sp update *'
+ a| 
+「 * system service-processor image update * 」を参照してください
+
+
+
+ a| 
+'*sp update-status*'
+ a| 
+*system service-processor image update-progress *
+
+
+
+ a| 
+「 * statit * 」
+ a| 
+`*statistics {start|stop|show} - プリセット statit *`
+
+
+
+ a| 
+`*stats*`
+ a| 
+`*statistics {start|stop|show} – object object*`
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'*storage aggregate copy*
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 * storage aggregate media_scrub * 」
+ a| 
+「 * system node run -node nodename 」 command aggr media_scrub *
+
+
+
+ a| 
+'*storage aggregate snapshot*
+ a| 
+サポート対象外
+
+
+
+ a| 
+'*storage aggregate split *
+ a| 
+サポート対象外
+
+
+
+ a| 
+*storage aggregate undestroy *
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 * storage alias * 」
+ a| 
+'*storage tape alias set *
+
+
+
+ a| 
+「 * storage array * 」
+ a| 
+「 * storage array * 」
+
+
+
+ a| 
+'*storage array modify*'
+ a| 
+'*storage array modify*'
+
+
+
+ a| 
+'*storage array remove *
+ a| 
+'*storage array remove *
+
+
+
+ a| 
+'*storage array remove-port *
+ a| 
+'*storage array port remove *
+
+
+
+ a| 
+「 * storage array show * 」
+ a| 
+「 * storage array show * 」
+
+
+
+ a| 
+「 * storage array show -config * 」と表示されます
+ a| 
+'*storage array config show *
+
+
+
+ a| 
+「 * storage array show LUNs * 」のように表示されます
+ a| 
+サポート対象外
+
+
+
+ a| 
+「 * storage array show -ports * 」と入力します
+ a| 
+「 * storage array port show * 」のように表示されます
+
+
+
+ a| 
+'*storage disable adapter*
+ a| 
+*system node run -node ｛ nodename |local ｝ -command storage disable adapter *
+
+
+
+ a| 
+'*storage download acp*
+ a| 
+「 * ストレージ・シェルフの ACP ファームウェア・アップデート * 」を参照してください
+
+
+
+ a| 
+「 * storage download shelf * 」
+ a| 
+'*storage firmware download *
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+'*storage enable adapter*
+ a| 
+*system node run -node ｛ nodename |local ｝ -command storage enable adapter *
+
+
+
+ a| 
+*storage load balance *
+ a| 
+*storage load balance *
+
+
+
+ a| 
+'*storage load show *
+ a| 
+'*storage load show *
+
+
+
+ a| 
+「 * storage show acp * 」を利用できます
+ a| 
+「 * system node run -node ｛ nodename |local ｝ command storage show acp * 」を利用できます
+
+
+
+ a| 
+'*storage show adapter *
+ a| 
+*system node run -node ｛ nodename |local ｝ command storage show adapter *`
+
+
+
+ a| 
+'*storage show bridge '*
+ a| 
+「 * storage bridge show * 」
+
+
+
+ a| 
+'*storage show disk *
+ a| 
+'*storage show disk *
+
+「 * storage disk show * 」と入力します
+
+
+
+ a| 
+「 * storage show expander * 」を使用します
+ a| 
+「 * storage shelf * 」のようになります
+
+
+
+ a| 
+'*storage show fabric *
+ a| 
+*system node run -node ｛ nodename |local ｝ command storage show fabric *
+
+
+
+ a| 
+'*storage show fault*
+ a| 
+*system node run -node nodename __ command storage show fault *`
+
+
+
+ a| 
+「 * storage show hub * 」
+ a| 
+*system node run -node ｛ nodename |local ｝ command storage show hub *
+
+
+
+ a| 
+「 * storage show initiators * 」と表示されます
+ a| 
+*system node run -node ｛ nodename |local ｝ command storage show initiators *
+
+
+
+ a| 
+「 * storage show mc * 」と入力します
+ a| 
+「 * storage tape show-media-changer * 」と表示されます
+
+
+
+ a| 
+「 * storage show port * 」と入力します
+ a| 
+「 * storage switch * 」と入力します
+
+
+
+ a| 
+'*storage show shelf *
+ a| 
+「 * storage shelf * 」のようになります
+
+
+
+ a| 
+'*storage show switch *
+ a| 
+「 * storage switch show * 」と表示されます
+
+
+
+ a| 
+'*storage show tape *
+ a| 
+「 * storage tape show -tape-drive *' 」と入力します
+
+
+
+ a| 
+'*storage stats tape *
+ a| 
+'*statistics show -object tape *
+
+
+
+ a| 
+'*storage stats tape zero*
+ a| 
+`*statistics {start|stop|show} -object tape *`
+
+
+
+ a| 
+'*storage unalias *'
+ a| 
+'*storage tape alias clear *
+
+
+
+ a| 
+*sysconfig *
+ a| 
+サポート対象外
+
+
+
+ a| 
+*sysconfig -a *
+ a| 
+*system node run -node ｛ nodename |local ｝ -command sysconfig -a *
+
+
+
+ a| 
+*sysconfig -a *
+ a| 
+*system node run -node ｛ nodename |local ｝ -command sysconfig -a *
+
+
+
+ a| 
+「 *sysconfig -ac*` 」
+ a| 
+*system controller config show -errors -verbose *
+
+
+
+ a| 
+「 *sysconfig -c *` 」
+ a| 
+*system controllers config-errors show *
+
+
+
+ a| 
+「 *sysconfig -d *` 」
+ a| 
+*system node run -node ｛ nodename |local ｝ -command sysconfig -d *
+
+
+
+ a| 
+「 *sysconfig -D * 」を使用します
+ a| 
+*system controller config pci show-add-on devices *
+
+
+
+ a| 
+'*sysconfig -h *
+ a| 
+*system node run -node ｛ nodename |local ｝ -command sysconfig -h *
+
+
+
+ a| 
+「 *sysconfig -m *` 」
+ a| 
+「 * storage tape show-media-changer * 」と表示されます
+
+
+
+ a| 
+'*syconfig-M*'
+ a| 
+*system node run -node ｛ nodename |local ｝ -command sysconfig -M *
+
+
+
+ a| 
+'*sysconfig -p *`
+ a| 
+サポート対象外
+
+代わりに次のコマンドを使用する必要があります。
+
+* ハイパーバイザー情報： system node virtual-machine hypervisor show
+* システムディスクのバックアップストア： system node virtual-machine instance show-system-disks
+* 仮想ディスクのバックアップ情報： storage disk show -virtual-machine-disk-info
+
+
+
+
+ a| 
+「 *sysconfig -P *` 」
+ a| 
+*system controller config pci show-hierarchy *
+
+
+
+ a| 
+'*sysconfig -r *
+ a| 
+サポート対象外
+
+ディスク情報を表示するには、次のコマンドを使用する必要があります。
+
+* ファイルシステムディスク： storage aggregate showstatus
+* スペアディスク： storage aggregate show-sparedisks
+* 破損ディスク： storage disk show -broken
+* Maintenance Center 内のディスク： storage disk show -maintenance
+
+
+
+
+ a| 
+*sysconfig -t *`
+ a| 
+「 * storage tape show 」をクリックします
+
+
+
+ a| 
+「 *sysconfig -v 」を使用します
+ a| 
+*system node run -node nodename __ command sysconfig -v *
+
+
+
+ a| 
+「 *sysconfig -v 」を使用します
+ a| 
+*system node run -node ｛ nodename |local ｝ -command sysconfig -v *
+
+
+
+ a| 
+*sysstat *
+ a| 
+`*statistics {start|stop|show} - プリセット systat *`
+
+
+NOTE: advanced 権限レベルで使用できます。
+
+
+
+ a| 
+*system health alert*
+ a| 
+*system health alert*
+
+
+
+ a| 
+「 * system health AutoSupport * 」
+ a| 
+「 * system health AutoSupport * 」
+
+
+
+ a| 
+「 * system health config * 」
+ a| 
+「 * system health config * 」
+
+
+
+ a| 
+「 * system health node-connectivity * 」のように指定します
+ a| 
+「 * system health node-connectivity * 」のように指定します
+
+
+
+ a| 
+「 * システム正常性ポリシー * 」
+ a| 
+「 * システム正常性ポリシー * 」
+
+
+
+ a| 
+*system health status*
+ a| 
+*system health status*
+
+
+
+ a| 
+「 * system health subsystem show * 」と表示されます
+ a| 
+「 * system health subsystem show * 」と表示されます
+
+|===
+[role="lead"]
+* T *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+タイムゾーン
+ a| 
+* タイムゾーン *
+
+
+
+ a| 
+traceroute -m の実行
+ a| 
+* traceroute -m * を実行します
+
+ネットワーク traceroute ｛ -nodename_|-lif_lif-name_｝ -maxttl _ 整数 _
+
+
+
+ a| 
+traceroute -n
+ a| 
+* traceroute -n *
+
+ネットワーク traceroute -node ｛ _nodename _|-lif lif -name_｝ - numeric true
+
+
+
+ a| 
+traceroute -p の実行
+ a| 
+* traceroute -p *
+
+ネットワーク traceroute ｛ -nodename_|-lif_lif-name_｝ -port_integer_
+
+
+
+ a| 
+traceroute -q を実行します
+ a| 
+* traceroute -q * を実行します
+
+ネットワーク traceroute ｛ -node nodename _|-lif LIF_name ｝ -ntクエリー _ 整数 _
+
+
+
+ a| 
+traceroute -s
+ a| 
+サポート対象外
+
+
+
+ a| 
+traceroute -v の実行
+ a| 
+* traceroute -v *
+
+ネットワーク traceroute ｛ -node nodename _|-lif lif -name_｝ -verbose [ 真 ]
+
+
+
+ a| 
+traceroute -w の実行
+ a| 
+* traceroute -w *
+
+ネットワーク traceroute ｛ -nodename_|-lif_lif-name_｝ -waittime です _ 整数 _
+
+|===
+
+
+== U-Z
+
+[role="lead"]
+* U *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+ucadmin
+ a| 
+システムノードハードウェアユニファイド接続
+
+
+
+ a| 
+UPS
+ a| 
+サポート対象外
+
+
+
+ a| 
+アップタイム
+ a| 
+system node show -fields uptime
+
+
+
+ a| 
+useradmin domainuser add
+ a| 
+security login create を実行します
+
+
+
+ a| 
+useradmin domainuser delete
+ a| 
+security login delete のコマンドを実行します
+
+
+
+ a| 
+useradmin domainuser リスト
+ a| 
+security login show のページにアクセスします
+
+
+
+ a| 
+useradmin domainuser ロード
+ a| 
+サポートされていない場合は、「 vserver cifs users-and-groups 」コマンドセットを使用します。
+
+
+
+ a| 
+useradmin group add
+ a| 
+Security login role create を実行します
+
+
+
+ a| 
+useradmin group delete
+ a| 
+security login role delete
+
+
+
+ a| 
+useradmin group list
+ a| 
+security login role show と表示されます
+
+
+
+ a| 
+useradmin group modify コマンド
+ a| 
+security login role modify
+
+
+
+ a| 
+useradmin role add
+ a| 
+Security login role create を実行します
+
+
+
+ a| 
+useradmin role delete
+ a| 
+security login role delete
+
+
+
+ a| 
+useradmin role list
+ a| 
+security login role show と表示されます
+
+
+
+ a| 
+useradmin role modify
+ a| 
+security login role modify
+
+
+
+ a| 
+useradmin user add
+ a| 
+security login create を実行します
+
+
+
+ a| 
+useradmin user delete
+ a| 
+security login delete のコマンドを実行します
+
+
+
+ a| 
+useradmin user list のコマンドです
+ a| 
+security login show のページにアクセスします
+
+
+
+ a| 
+useradmin user modify コマンド
+ a| 
+セキュリティログインの変更
+
+|===
+[role="lead"]
+* v *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+version -b の形式で指定します
+ a| 
+* version -b *
+
+または system image show を入力します
+
+
+
+ a| 
+バージョン -v
+ a| 
+* version -v *
+
+または system image show を入力します
+
+
+
+ a| 
+vFiler
+ a| 
+サポート対象外
+
+
+
+ a| 
+vFiler を実行します
+ a| 
+Vserver
+
+
+
+ a| 
+vFiler 開始
+ a| 
+SVM が起動します
+
+
+
+ a| 
+vFiler の停止
+ a| 
+SVM が停止します
+
+
+
+ a| 
+vFiler ステータス
+ a| 
+vserver show のコマンドです
+
+
+
+ a| 
+vFiler 不許可
+ a| 
+vserver modify -disallowed-protocols
+
+
+
+ a| 
+VLAN の追加
+ a| 
+network port vlan create をクリックします
+
+
+
+ a| 
+VLAN の作成
+ a| 
+network port vlan create をクリックします
+
+
+
+ a| 
+VLAN の削除
+ a| 
+ネットワークポート VLAN を削除します
+
+
+
+ a| 
+VLAN の変更
+ a| 
+サポート対象外
+
+
+
+ a| 
+VLAN 統計
+ a| 
+system node run -node nodename __ command vlan stat の略
+
+
+
+ a| 
+vmservices
+ a| 
+system node run -node ｛ _nodename _|local ｝ vmservices
+
+
+
+ a| 
+ボリュームの追加
+ a| 
+サポート対象外
+
+
+
+ a| 
+ボリュームのオートサイズ
+ a| 
+* ボリュームのオートサイズ *
+
+
+
+ a| 
+ボリュームクローン
+ a| 
+* ボリュームクローン *
+
+
+
+ a| 
+ボリュームクローンをスプリット
+ a| 
+* ボリュームクローンスプリット *
+
+
+
+ a| 
+ボリュームコンテナ
+ a| 
+volume show -fields aggregate 」のように表示されます
+
+
+
+ a| 
+ボリュームコピー
+ a| 
+サポートされない論理ストレージのマニュアルに記載されているように ' 次のいずれかの方法を使用する必要があります
+
+* 元のボリュームの FlexClone ボリュームを作成し、 volume move コマンドを使用して別のアグリゲートに移動します。
+* SnapMirror を使用して元のボリュームをレプリケートしたあと、 SnapMirror 関係を解除して読み書き可能なボリュームにします。
+
+
+http://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-5578BA46-5522-4BA6-B354-5C924B8207B1.html["論理ストレージ管理ガイド』を参照してください"]
+
+
+
+ a| 
+volume create を実行します
+ a| 
+* volume create *
+
+
+
+ a| 
+vol destroy の指定
+ a| 
+ボリュームを削除します
+
+
+
+ a| 
+ボリュームファイルフィンガープリント
+ a| 
+サポート対象外
+
+
+
+ a| 
+ボリュームメディアスクラビング
+ a| 
+サポート対象外
+
+
+
+ a| 
+ボリュームを移行
+ a| 
+サポート対象外
+
+
+
+ a| 
+ボリュームミラー
+ a| 
+サポート対象外
+
+
+
+ a| 
+ボリューム移動
+ a| 
+* ボリューム移動 *
+
+
+
+ a| 
+ボリュームはオフラインです
+ a| 
+* ボリュームがオフライン *
+
+
+
+ a| 
+ボリュームはオンラインです
+ a| 
+* ボリュームオンライン *
+
+
+
+ a| 
+ボリュームのオプション
+ a| 
+ボリューム ｛ show | modify ｝
+
+
+
+ a| 
+ボリュームクォータの許可
+ a| 
+サポート対象外
+
+
+
+ a| 
+ボリュームクォータの禁止
+ a| 
+サポート対象外
+
+
+
+ a| 
+ボリュームの名前を変更
+ a| 
+* ボリューム名の変更 *
+
+
+
+ a| 
+ボリュームの制限
+ a| 
+* 音量制限 *
+
+
+
+ a| 
+ボリュームスクラビング
+ a| 
+サポート対象外
+
+
+
+ a| 
+ボリュームサイズ
+ a| 
+* 音量サイズ *
+
+
+
+ a| 
+ボリューム Snapshot の差分
+ a| 
+サポート対象外
+
+
+
+ a| 
+ボリュームの Snapshot リザーブ
+ a| 
+サポート対象外
+
+代替コマンドは次のとおりです。
+
+* ボリュームの場合は、「 volume show -fields percent-snapshot-space 」コマンドおよび「 volume modify -volume _volumeName -percent-snapshot-space percent 」コマンドを使用します。
+* アグリゲートの場合は、「 storage aggregate show -fields percent-snapshot-space 」コマンドおよび「 storage aggregate modify -aggregate name_-percent-snapshot-space _ 」コマンドを使用します。
+
+
+
+
+ a| 
+ボリュームのスプリット
+ a| 
+サポート対象外
+
+
+
+ a| 
+ボリュームステータス
+ a| 
+volume show のコマンドです
+
+
+
+ a| 
+ボリュームの検証
+ a| 
+サポート対象外
+
+
+
+ a| 
+ボリューム wafliron
+ a| 
+サポート対象外
+
+
+
+ a| 
+vscan
+ a| 
+SVM vscan
+
+
+
+ a| 
+SVM CIFS adupdate のことです
+ a| 
+サポート対象外
+
+
+
+ a| 
+SVM cifs ブロードキャスト
+ a| 
+サポート対象外
+
+
+
+ a| 
+SVM CIFS コメントです
+ a| 
+サポート対象外
+
+
+
+ a| 
+SVM CIFS トップです
+ a| 
+サポート対象外
+
+
+
+ a| 
+vserver iscsi ip_tpgroup add
+ a| 
+サポート対象外
+
+
+
+ a| 
+vserver iscsi ip_tpgroup create
+ a| 
+サポート対象外
+
+
+
+ a| 
+vserver iscsi ip_tpgroup destroy
+ a| 
+サポート対象外
+
+
+
+ a| 
+vserver iscsi ip_tpgroup remove
+ a| 
+サポート対象外
+
+
+
+ a| 
+vserver iscsi ip_tpgroup show
+ a| 
+サポート対象外
+
+
+
+ a| 
+vserver iscsi tpgroup ALUA set
+ a| 
+サポート対象外
+
+
+
+ a| 
+vserver iscsi tpgroup alua show のようになります
+ a| 
+サポート対象外
+
+
+
+ a| 
+vserver services name-service dns flush
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* W *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+wrfile
+ a| 
+サポート対象外
+
+|===
+[role="lead"]
+* Y *
+
+|===
+| 7-Mode コマンド | ONTAP コマンド 
+
+
+ a| 
+ypcat
+ a| 
+サポート対象外
+
+
+
+ a| 
+ypgroup
+ a| 
+サポート対象外
+
+
+
+ a| 
+ypmatch
+ a| 
+サポート対象外
+
+
+
+ a| 
+ypwhich
+ a| 
+サポート対象外
+
+|===

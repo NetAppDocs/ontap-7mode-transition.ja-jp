@@ -1,0 +1,13 @@
+---
+permalink: snapmirror/task_preparing_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, prepare, storage, system, cluster 
+summary: 7-Mode のボリュームを clustered Data ONTAP に移行する前に、 7-Mode ストレージシステムとクラスタを準備する必要があります。また、 7-Mode システムと Storage Virtual Machine （ SVM ）の間に移行ピア関係を作成する必要があります。 
+---
+= 移行を準備しています
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode のボリュームを clustered Data ONTAP に移行する前に、 7-Mode ストレージシステムとクラスタを準備する必要があります。また、 7-Mode システムと Storage Virtual Machine （ SVM ）の間に移行ピア関係を作成する必要があります。

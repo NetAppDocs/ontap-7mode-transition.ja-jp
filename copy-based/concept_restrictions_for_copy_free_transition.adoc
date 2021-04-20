@@ -1,0 +1,64 @@
+---
+permalink: copy-based/concept_restrictions_for_copy_free_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, restrictions, 7, mode, volumes 
+summary: 7-Mode ボリュームを移行する場合の制限事項を把握する必要があります。一部の制限事項は、 ONTAP でサポートされない機能によるものです。一部の制限事項については、対処策を実施することで移行を続行できます。 
+---
+= 7-Mode ボリュームを移行する場合の制限事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode ボリュームを移行する場合の制限事項を把握する必要があります。一部の制限事項は、 ONTAP でサポートされない機能によるものです。一部の制限事項については、対処策を実施することで移行を続行できます。
+
+
+
+== ボリュームタイプ
+
+次のタイプのボリュームは、移行対象としてサポートされていません。
+
+* トラディショナルボリューム
++
+トラディショナルボリュームを移行するには、ホストベースの移行方法を使用します。
+
++
+http://www.netapp.com/us/media/tr-4052.pdf["ネットアップテクニカルレポート 4052 ：『 Successfully Transitioning to Clustered Data ONTAP （ Data ONTAP 8.2.x and 8.3 ）』"]
+
+* SnapLock ボリューム
++
+SnapLock ボリュームの移行は、 ONTAP リリース 9.2~9.5 でサポートされています。
+
+* FlexCache ボリューム
+
+
+
+
+== ボリュームの状態
+
+移行対象として選択した 7-Mode ボリュームが次のいずれかの状態の場合、移行はブロックされます。
+
+* オフラインです
+* 制限
+* 不整合（ WAFL 不整合）
+
+
+
+
+== 別の vFiler ユニットに属する qtree を含むボリューム
+
+ボリュームに qtree が含まれていて、 qtree がボリュームとは異なる vFiler ユニットに属している場合、そのボリュームを移行することはできません。移行の前に次のいずれかを実行して、各ボリュームとそのすべての qtree が同じ vFiler ユニットに属するようにする必要があります。
+
+* ボリュームが属する vFiler ユニットに qtree を移動します。
+* qtree を削除します。
+
+
+
+
+== inode から親へのパス名変換の設定
+
+inode から親へのパス名変換が各ボリュームで有効になっている必要があります。no_i2p オプションをオフにすると、親のパス名変換を有効にすることができます。
+
+` * vol options vol_name _no_i2p off * 」というメッセージが表示されます
+
+i2p スキャンが完了するまで待たずに、移行準備を続行できます。

@@ -1,0 +1,29 @@
+---
+permalink: copy-free/reference_required_tools_and_documentation.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, tools, documentation, required 
+summary: Config Advisor は、コピーフリーの移行に必要なツールです。ディスクシェルフのケーブル接続を検証するには、 Config Advisor を使用する必要があります。SAN ホストの更新に関するドキュメントもあります。 
+---
+= Copy-Free Transition に必要なツールとドキュメント
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Config Advisor は、コピーフリーの移行に必要なツールです。ディスクシェルフのケーブル接続を検証するには、 Config Advisor を使用する必要があります。SAN ホストの更新に関するドキュメントもあります。
+
+
+
+== Config Advisor
+
+7-Mode ディスクシェルフをターゲットクラスタノードに接続したあとにケーブル接続を検証するには、 Config Advisor の「 Transition 」実行プロファイルを使用する必要があります。
+
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["ネットアップのダウンロード： Config Advisor"]
+
+
+
+== ドキュメント
+
+Copy-Free Transition を使用した移行時に SAN ホストで実行する必要のある、移行前と移行後の手順について説明します。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN ホストの移行および修復"]

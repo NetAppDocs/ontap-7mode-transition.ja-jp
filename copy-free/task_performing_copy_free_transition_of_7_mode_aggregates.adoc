@@ -1,0 +1,21 @@
+---
+permalink: copy-free/task_performing_copy_free_transition_of_7_mode_aggregates.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, aggregates, transition 
+summary: Copy-Free Transition ワークフローでは、プロジェクトの計画、 SVM への 7-Mode 構成の適用、 7-Mode システム情報のエクスポートと 7-Mode システムの停止、ディスクシェルフからクラスタノードへの手動でのケーブル接続、および 7-Mode のデータと構成のインポートを実行します。 
+---
+= コピーフリーの移行を使用した 7-Mode アグリゲートの移行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Copy-Free Transition ワークフローでは、プロジェクトの計画、 SVM への 7-Mode 構成の適用、 7-Mode システム情報のエクスポートと 7-Mode システムの停止、ディスクシェルフからクラスタノードへの手動でのケーブル接続、および 7-Mode のデータと構成のインポートを実行します。
+
+image::../media/perform_cft_phases_workflow.gif[CFT フェーズのワークフローを実行]
+
+7-Mode システムとクラスタで Copy-Free Transition の準備を完了しておきます。
+
+ストレージカットオーバーの所要時間は 4~8 時間です。カットオーバー時間には、エクスポートおよび停止処理とインポート処理の 2 つの自動処理をツールで実行するためにかかる時間と、ディスクシェルフを新しいコントローラに手動でケーブル接続するためにかかる時間が含まれます。
+
+エクスポート処理とインポート処理には約 2 時間かかります。ケーブル接続にかかる時間は 2~6 時間です。

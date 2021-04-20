@@ -1,0 +1,27 @@
+---
+permalink: san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_windows_hosts.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, windows, hosts 
+summary: Data ONTAP 7-Mode からの移行後に ONTAP LUN が想定どおりに動作しない場合は、 Windows ホストで ONTAP から 7-Mode LUN にロールバックできます。 
+---
+= Windows ホストにおける ONTAP LUN から 7-Mode LUN へのロールバック
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode からの移行後に ONTAP LUN が想定どおりに動作しない場合は、 Windows ホストで ONTAP から 7-Mode LUN にロールバックできます。
+
+7-Mode LUN をホストに再マッピングする必要があります。
+
+.手順
+. Hyper-V Manager を使用して、 LUN で実行されているすべての仮想マシン（ VM ）をシャットダウンします。
+. Windows ディスクマネージャを使用して、 LUN をオフラインにします。
+. クラスタディスクマネージャを使用して、クラスタディスクをオフラインにします。
+. ホストをシャットダウンします。
+. Data ONTAP 7-Mode にリバートします。
+. ホストをブートします。
+. Windows ディスクマネージャを使用して、 7-Mode LUN をオンラインにします。
+. クラスタディスクマネージャを使用して、クラスタディスクをオンラインにします。
+. Hyper-V Manager を使用して、 VM をオンラインにします。
+

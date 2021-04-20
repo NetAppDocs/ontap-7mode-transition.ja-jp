@@ -1,0 +1,250 @@
+---
+permalink: inventory-collect/reference_collection_and_assessment_commands.html 
+sidebar: sidebar 
+keywords: collection, assessment, commands, transition, 7, mode, inventory, collect, tool, ict 
+summary: Inventory Collect Tool （ ICT ）は、コマンドのリストを使用してインベントリ XML レポートを生成し、コントローラ、ホスト、および FC スイッチからインベントリ情報を収集します。は、これらのシステムの機能を評価します。 およびに、移行先として選択した clustered Data ONTAP バージョンでそれらの機能がどのように動作するかを示します。 
+---
+= 収集と評価のコマンド
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Inventory Collect Tool （ ICT ）は、コマンドのリストを使用してインベントリ XML レポートを生成し、コントローラ、ホスト、および FC スイッチからインベントリ情報を収集します。は、これらのシステムの機能を評価します。 およびに、移行先として選択した clustered Data ONTAP バージョンでそれらの機能がどのように動作するかを示します。
+
+
+
+== ONTAP 7-Mode API
+
+* 「 aggr-list-info 」を参照してください
+* 「 cf-status 」
+* 「 cifs.homedir-paths-get 」を入力します
+* 「 cifs.list-config 」を使用します
+* 「 cifs.nbalias -names -get 」を入力します
+* 'cifs-share-acl-list-iter-start
+* 「 cifs.share-list-iter-start 」を指定します
+* 「 cifs -status 」
+* 「ディスクリスト情報」
+* 「 fcp -adapter-list-info 」を参照してください
+* 「 fpolicy-list-info 」を参照してください
+* 「 igroup-list-info 」と入力します
+* 「 iscsi-interface-list-info 」を参照してください
+* 「 iscsi-node-get-name 」と入力します
+* 「 license-list-info 」を参照してください
+* 「 license-v2-list-info 」を参照してください
+* 「 lun-get-comment
+* 「 lun-list-info 」と入力します
+* 「 lun-map-list-info 」を参照してください
+* 「 net-config -get-active 」と入力します
+* 「 nfs-exportfs -list-rules 」
+* 「 nfs-exportfs -list-rules-2 」
+* 「 nfs-exportfs -list-rules-2 」
+* 「 nfs-status 」をクリックします
+* 「 options -get 」を入力します
+* 「 options -list-info 」を参照してください
+* 「 qtree-list-iter-start 」を入力します
+* 'quota-list-entries-iter-start
+* 'quote-report-iter-start
+* 「あらゆる情報に対応したスタート」です
+* 's-status'
+* 「 napmirror -get-status 」のようになります
+* 「 napmirror -list-schedule 」と入力します
+* 「 napmirror -list-sync-schedule 」を参照してください
+* 「 snapshot-get-schedule 」を実行します
+* 「 snapshot-list-info 」を実行します
+* 'snapshot-volume-info'
+* 'napvault-primary-relationship-status-list-iter-start
+* 'napvault-secondary-relationship-status -list-iter-start
+* 「 nmp-status 」
+* 'storage-disk-get-iter'
+* 「利用可能なレプリケーション転送」を参照してください
+* 「 system-get-info 」
+* 「 system-get-ontapi-version 」を入力します
+* 'System - get - version'
+* useradmin `-group-list`
+* useradmin `-role list`
+* useradmin-user-list`
+* 「 vfiler-get-allowed-protocols 」と入力します
+* 「 vfiler-get-status 」を使用します
+* 「 vfiler-list-info 」を参照してください
+* 「 volume-charmap -get 」のように入力します
+* 「 volume-get-filer-info 」のように入力します
+* 「 volume-get-language 」と入力します
+* volume-list-info -iter-start
+* 「 volume-options-list-info 」を参照してください
+
+
+
+
+== ONTAP 7-Mode CLI
+
+* CIFS 共有
+* 「 IC primary show 」
+* ifconfig -a
+* ifconfig vip'
+* 'ifgrp status'
+* 「 ls $volume_path/metadir/slag 」というテキストを入力します
+* printflag wafl_smetadata_visible
+* rdffile$root_vol/etc/cifsconfig_share.cfg
+* rdfile $root_vol/etc/group
+* 「 rdfile $root_vol/etc/hosts.hosts 」という形式で保存されます
+* rdfile $root_vol/etc/krb5auto.conf
+* 「 rdfile $root_vol/etc/mcrc 」という形式になります
+* 「 rdfile $root_vol/etc/netgroup' 」という形式で指定します
+* rdfile $root_vol/etc/nsswitch.conf
+* rdfile $root_vol/etc/passwd
+* rdfile $root_vol/etc/resolv.conf
+* rdfile $root_vol/etc/snapmirror.conf
+* rdfile $root_vol/etc/symlink.translation
+* 「 rdfile $root_vol/etc/usermap.cfg 」という形式で入力します
+* rdffile$vfiler_root/etc/cifsconfig_share.cfg
+* `rdfile$vfiler_roots/etc/group`
+* 「 rdfile $vfiler_roots/etc/hosts 」
+* rdfile$vfiler_root/etc/krb5auto.conf
+* rdfile $vfiler_roots//etc/mcrc
+* `rdfile$vfiler_roots/etc/netgroup`
+* `rdfile$vfiler_root/etc/nsswitch.conf`
+* `rdfile$vfiler_roots/etc/passwd`
+* rdfile $vfiler_roots/etc/resolv.conf`
+* rdfile $vfiler_roots/etc/snapmirror.conf
+* `rdfile$vfiler_roots/etc/symlink.translation`
+* `rdfile$vfiler_roots/etc/usermap.cfg`
+* 「 RLM の状態」
+* ルートステータス
+* 'route-sn'
+* 'setflag wafl_smetadata_visible 0
+* 'setflag wafl_dmeta_visible 1'
+* SnapVault status -l
+* 「 sysconfig -a 」のようになりました
+* 「アップタイム」
+* vfiler status -a
+* 「 vlan stat 」
+
+
+
+
+== ONTAP 7-Mode NetApp Manageability SDK
+
+* 「 cluster-identity-get 」のように入力します
+* 'cluster-node-get-iter
+* 「 fcp -adapter-get-iter 」のように指定します
+* 「 fcp-initiator-get-iter 」と入力します
+* 「 fcp-interface-get-iter 」と入力します
+* 「 lun-get-iter 」
+* 「 lun-map-get-iter
+* 「 net-interface-get-iter 」の略
+* 「 system-get-node-info-iter' 」のように指定します
+* 'System - get - version'
+* 「 volume-get-iter 」のように入力します
+* 「 vserver -get-iter 」
+
+
+
+
+== Windows の場合
+
+* HKEY_LOCAL_MACHINE\SOFTWARE\NetApp *
+* HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall`
+* 「 MPIO_REGISTERD_DSM 」から * を選択します
+* 「 MSCluster_Cluster から * を選択」
+* 「 MSCluster_Disk から * を選択」を参照してください
+* 「 MSCluster_Node から * を選択」を参照してください
+* 「 MSCluster_NodeToActiveResource 」から「 SELECT * 」を選択します
+* 「 MSCluster_Resource から * を選択」
+* 「 MSCluster_ResourceToDisk 」から * を選択します
+* 「 MSFC_FCAdapterHBAAttributes 」からの「 SELECT * 」を参照してください
+* 'Select* from MSFC_FibrePortHBAAttributes'
+* 「 MSiSCSI_HBAInformation 」から * を選択します
+* 「 MSiSCSIInitiator_MethodClass からの SELECT * 」を参照してください
+* 「 Win32_ComputerSystem から * を選択」
+* 'select* from Win32_DiskDrive
+* 「 Win32_OperatingSystem から * を選択」を参照してください
+* 'Select * from Win32_PnPSignedDriver where DEVICECLATS="SCSIADAPTER"`
+* 'Select * from Win32_Product' （ Win32_Product から * を選択
+
+
+
+
+== Linux CLI の場合
+
+* 子供
+* 「 cat /boot/grub/devic.map 」のようになります
+* 「 cat /etc/grub.conf 」を参照してください
+* 「 cat /etc/iscsi/initiatorname.iscsi 」のように表示されます
+* 「 ctman_tool nodes 」
+* 「 ctman_tool status 」のように入力します
+* 「 f - h 」
+* 「製造コード - システム」
+* find /etc/maxdepth 1-name*-reley-type f-print-exec Cat-V {} \;`
+* 'for file in /sys/block/sd*** ； do echo $ ｛ file/\#\/sys ｝ ； scsi_id -p 0x80 -g -x -s $ ｛ file/#\/sys ｝ ； done
+* /sys/class/scsi_host/**** 内のファイルの場合 ; echo を実行します ; $ ｛ file}/**** 内の ent の場合 ; echo -n "$ent:" を実行します ; if [-f "$ ｛ ent}"] の場合 ; [-r "$ ｛ ent}"] の場合 ; cat -v -s ${ent}2>/dev/null" を実行します。 !="0"]; エコー ; FI ; その他エコー ; fi; done ; done
+* ${file}/**** に含まれるファイルの場合、 echo を実行します。 $ ｛ file}/**** に含まれる ent の場合、 echo -n "$ent:" を実行します。 [-f "$ ｛ ent}"] の場合、 [-r "${ent}] の場合は、 cat -v -s ${ent}2>/dev/null" を実行します。 !="0"]; エコー ; FI ; その他エコー ; fi; done ; done
+* 'iscsiadm -m node
+* 「 lsb_release - a 」
+* lvdisplay -m`
+* 「マウント」
+* `rpm -qa -- QF"% ｛ name ｝ ____% ｛ summary ｝ ____% ｛ vendor ｝ __ % ｛ PROVIDEVERSION｝ \n
+* 'lun fcp show adapter -v
+* 'nanlun lun lun show -pv
+* 'lun lun lun lun show -v
+* 「 anlun version 」を参照してください
+* 'a_version
+* 「 fdisk -us-l`
+* uname -a
+* vxclustadm nidmap
+* vxclustadm -v nodestate
+
+
+
+
+== VMware CLI
+
+* 「 esxcfg-info -a -F XML 」を参照してください
+* esxcfg-mpath -l
+* esxcfg-scsidevs-a
+* esxcfg-scsidevs-l`
+* esxcli software vib get `
+* 'find /proc/scsi-type f| 読み込み中 ; echo $line] ； cat $line ； done を実行します
+* 'a_version
+* uname -m
+* uname -n
+* /usr/lib/vmware/vmkmgmt_keyval/vmkmgmt_keyval -a
+* /usr/lib/vmware/vm-support /bin/dump-vmdk-rdm-info.sh $vm_paths
+* 「 vim-cmd/vmsvc/getallvms 」を参照してください
+* 「 vim-cmd vmsvc/snapshot.get $vm_ids 」を参照してください
+* vmkload_mod -s nmp
+* 「 vmware -l 」と入力します
+* 「 VMware-V 」を参照してください
+
+
+
+
+== Cisco CLI
+
+* 'How fcdomain domain-list
+* 'How flogi database'
+* 'how switchname
+* 'how version （バージョンの表示） '
+* 'How VSAN' （ VSAN の仕組み
+* 'how zoneset`
+* 「ゾーンセットのアクティブ化」
+* uname -m
+* nsshow`
+* 'witchshow'
+* 「バージョン」
+* 「ゾーン」
+* 「 vim-cmd vmsvc/snapshot.get $vm_ids 」を参照してください
+* vmkload_mod -s nmp
+* 「 vmware -l 」と入力します
+* 「 VMware-V 」を参照してください
+
+
+
+
+== Brocade CLI
+
+* nsshow`
+* 'witchshow'
+* 「バージョン」
+* 「ゾーン」
+

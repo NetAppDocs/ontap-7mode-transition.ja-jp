@@ -1,0 +1,236 @@
+---
+permalink: copy-based/reference_configurations_that_can_be_excluded.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, configurations, excluded 
+summary: 7-Mode Transition Tool CLI の transition cbt property-set コマンドでプロパティ名を指定することで、 NFS 、 CIFS 、 SAN 、およびネームサービスの構成を移行から除外することで、構成の移行をカスタマイズできます。 
+---
+= 移行対象から除外可能な構成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool CLI の「 transition cbt property-set 」コマンドでプロパティ名を指定することで、 NFS 、 CIFS 、 SAN 、およびネームサービスの一部の構成を移行から除外することで、構成の移行をカスタマイズできます。
+
+
+
+== NFS
+
+|===
+| 除外する 7-Mode 構成 | プロパティ名 
+
+
+ a| 
+エクスポートポリシー
+ a| 
+「 ignore-nfs-exports-transition 」を参照してください
+
+
+
+ a| 
+NFS オプション
+ a| 
+「 ignore-nfs-options -transition 」を参照してください
+
+
+
+ a| 
+すべての NFS 構成
+ a| 
+「 ignore-all-nfs-configurations -transition 」を参照してください
+
+|===
+
+
+== CIFS
+
+|===
+| 除外する 7-Mode 構成 | プロパティ名 
+
+
+ a| 
+ローカルユーザとローカルグループ
+ a| 
+「 ignore-local-users-groups-transition 」を参照してください
+
+
+
+ a| 
+ホームディレクトリパス
+ a| 
+「 ignore-cifs-home-directory-paths-transition 」を指定します
+
+
+
+ a| 
+シンボリックリンク
+ a| 
+「 ignore-cifs-symlinks-transition 」を参照してください
+
+
+
+ a| 
+ワイドリンク
+ a| 
+「 ignore-cifs-wideline-transition 」を参照してください
+
+
+
+ a| 
+共有および共有 ACL
+ a| 
+「 ignore-cifs-shares-and -ACLs-transition 」を参照してください
+
+
+
+ a| 
+CIFS オプション
+ a| 
+「 ignore-cifs-options -transition 」を参照してください
+
+
+
+ a| 
+ネームマッピング
+ a| 
+「 ignore-cifs-name-mapping-transition 」を参照してください
+
+
+
+ a| 
+監査設定
+ a| 
+「 ignore-cifs-audit-transition 」を参照してください
+
+
+
+ a| 
+優先ドメインコントローラリスト
+ a| 
+「 ignore-cifs-preferred-domain-controllers -list-transition 」
+
+
+
+ a| 
+すべての CIFS 構成
+ a| 
+「 ignore-all-cifs-configurations -transition 」を参照してください
+
+|===
+
+
+== ネームサービス
+
+|===
+| 除外する 7-Mode 構成 | プロパティ名 
+
+
+ a| 
+ネットグループ
+ a| 
+「 ignore-netgroups-transition 」を参照してください
+
+
+
+ a| 
+UNIX ユーザおよびグループ
+ a| 
+「 ignore-unix-users-groups-transition 」を参照してください
+
+
+
+ a| 
+NIS
+ a| 
+「 ignore-nis-transition 」
+
+
+
+ a| 
+DNS
+ a| 
+「 ignore-dns-transition 」を参照してください
+
+
+
+ a| 
+LDAP
+ a| 
+「 ignore-ldap-transition 」を参照してください
+
+
+
+ a| 
+/etc/nsswitch.conf ファイル
+ a| 
+「 ignore-nsswitch-transition 」を参照してください
+
+
+
+ a| 
+LDAP ベースのユーザマッピング
+ a| 
+「 ignore-nmswitch-transition 」を参照してください
+
+
+
+ a| 
+/etc/hosts ファイル
+ a| 
+「 ignore-etc/hosts.transition 」を参照してください
+
+
+
+ a| 
+すべてのネームサービス設定
+ a| 
+「 ignore-all-nameserveservices-configurations -transition 」を参照してください
+
+|===
+
+
+== SAN
+
+|===
+| 除外する 7-Mode 構成 | プロパティ名 
+
+
+ a| 
+igroup と LUN マッピング
+ a| 
+「 ignore-igroup-and -lunmapping -transition 」を参照してください
+
+
+
+ a| 
+すべての構成
+ a| 
+「 ignore-all-san-configurations -transition 」を参照してください
+
+|===
+
+
+== Snapshot スケジュール
+
+|===
+| 除外する 7-Mode 構成 | プロパティ名 
+
+
+ a| 
+Snapshot スケジュール
+ a| 
+snapshot-schedule-transition を無視します
+
+
+NOTE: このオプションが true に設定されている場合は、「デフォルト」の Snapshot ポリシーが移行したボリュームに適用されます。
+
+|===
+* 関連情報 *
+
+xref:concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[ONTAP への移行対象としてサポートされる CIFS 構成とされない CIFS 構成]
+
+xref:concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[NFS の移行：サポートされる構成とされない構成、必要な手動手順]
+
+xref:concept_supported_and_unsupported_name_services_configurations.adoc[ネームサービスの移行：サポートされる構成とされない構成、必要な手動手順]
+
+xref:concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.adoc[SAN の移行：サポートされる構成とされない構成、必要な手動手順]

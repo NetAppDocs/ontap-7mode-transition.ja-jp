@@ -1,0 +1,13 @@
+---
+permalink: copy-based/concept_managing_a_transition_project.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, manage, project 
+summary: 7-Mode Transition Tool \ （ Web インターフェイス \ ）を使用して、移行プロジェクトを管理することができます。編集、一時停止、再開、中止、削除、 さらに、プロジェクトに対して事前確認を実行できます。 
+---
+= 移行プロジェクトの管理
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ Web インターフェイス）を使用して、移行プロジェクトを管理することができます。編集、一時停止、再開、中止、削除、 さらに、プロジェクトに対して事前確認を実行できます。

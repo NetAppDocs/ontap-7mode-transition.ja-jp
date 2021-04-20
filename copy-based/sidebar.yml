@@ -1,0 +1,264 @@
+---
+section: copy-based
+title: コピーベースの移行
+url: "/copy-based/index.html"
+entries:
+- title: 移行の概要
+  url: "/copy-based/concept_transition_overview.html"
+  entries:
+  - title: 7-Mode Transition Tool を使用したコピーベースの移行
+    url: "/copy-based/concept_copy_based_transition_using_7mtt.html"
+  - title: 移行に関する用語
+    url: "/copy-based/concept_transition_terminology.html"
+  - title: 移行の制限
+    url: "/copy-based/reference_limits_for_transition.html"
+- title: インベントリ情報を収集して評価する
+  url: "/copy-based/concept_collecting_and_assessing_inventory_information.html"
+  entries:
+  - title: 移行のための環境評価でのストレージ、ホスト、 FC スイッチのバージョン要件
+    url: "/copy-based/concept_storage_host_fc_switches_version_requirements.html"
+  - title: 移行のための環境評価を実行する 7-Mode システムとホストの準備
+    url: "/copy-based/task_preparing_7_mode_systems_for_inventory_collection.html"
+  - title: コントローラとホストの評価
+    url: "/copy-based/task_assessing_controllers_and_hosts.html"
+    entries:
+    - title: 7-Mode にシステムを追加することによる評価レポートの作成 移行ツール
+      url: "/copy-based/task_generating_an_assessment_report_by_adding_systems_to_7mtt.html"
+    - title: インベントリレポート XML をインポートして評価レポートを作成する
+      url: "/copy-based/task_generating_an_assessment_report_by_importing_inventory_report_xml.html"
+  - title: FC ゾーン計画の生成
+    url: "/copy-based/task_generating_fc_zone_plan.html"
+    entries:
+    - title: FC ゾーン計画の生成でサポートされる構成
+      url: "/copy-based/concept_supported_configurations_for_generating_an_fc_zone_plan.html"
+  - title: 評価のエグゼクティブサマリーを移行に使用する方法 評価
+    url: "/copy-based/concept_how_you_can_use_assessment_executive_summary_for_transition_assessment.html"
+- title: Copy-Based Transition ワークフロー
+  url: "/copy-based/concept_copy_based_transition_workflow.html"
+- title: データと構成のマイグレーションプロセス
+  url: "/copy-based/concept_data_and_configuration_migration_process.html"
+  entries:
+  - title: スタンドアロンボリュームの移行方法
+    url: "/copy-based/concept_how_you_transition_a_stand_alone_volume.html"
+  - title: SnapMirror 関係にあるボリュームの移行方法
+    url: "/copy-based/concept_how_you_transition_volumes_in_a_snapmirror_relationship.html"
+- title: Copy-Based Transition の準備をしています
+  url: "/copy-based/concept_preparing_for_copy_based_transition.html"
+  entries:
+  - title: Copy-Based Transition の要件
+    url: "/copy-based/concept_requirements_for_copy_based_transition.html"
+  - title: 7-Mode Transition Tool と通信するためのポート要件
+    url: "/copy-based/concept_port_requirements_for_communicating_with_7mtt.html"
+  - title: 移行に関する制限事項
+    url: "/copy-based/concept_restrictions_for_transition.html"
+  - title: 7-Mode システムでの移行の準備
+    url: "/copy-based/task_preparing_7_mode_system_for_transition.html"
+  - title: ネットワークでの移行の準備
+    url: "/copy-based/task_preparing_network_for_transition.html"
+    entries:
+    - title: 7-Mode IP アドレスの移行に関する考慮事項
+      url: "/copy-based/concept_considerations_for_transitioning_7_mode_ip_addresses.html"
+  - title: クラスタで移行準備をします
+    url: "/copy-based/task_preparing_cluster_for_transition.html"
+  - title: 7-Mode のアグリゲートとボリュームで移行準備をします
+    url: "/copy-based/task_preparing_7_mode_volumes_and_aggregates_for_transition.html"
+    entries:
+    - title: 7-Mode ボリュームを移行する場合の制限事項
+      url: "/copy-based/concept_restrictions_for_copy_free_transition.html"
+    - title: ONTAP 8.3 以降のサポートされるリリースに移行する準備をしています
+      url: "/copy-based/task_transitioning_to_clustered_ontap_8_3_from_a_7_mode_version_with_32_bit_data.html"
+      entries:
+      - title: アグリゲートの 64 ビット形式への拡張
+        url: "/copy-based/task_expanding_an_aggregate_to_64_bit_format_without_adding_storage.html"
+      - title: 32 ビットボリュームと Snapshot コピーの検出と削除
+        url: "/copy-based/task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.html"
+    - title: 重複排除と圧縮に関する考慮事項
+      url: "/copy-based/concept_considerations_for_deduplication_and_compression.html"
+    - title: FlexClone ボリュームに関する考慮事項
+      url: "/copy-based/concept_considerations_for_flexclone_volumes.html"
+    - title: クォータに関する考慮事項
+      url: "/copy-based/concept_considerations_for_quotas.html"
+  - title: SnapLock ボリュームの移行がサポートされます
+    url: "/copy-based/concept_support_for_transitioning_snaplock_volumes.html"
+    entries:
+    - title: SnapLock Enterprise ボリュームの移行に関する考慮事項
+      url: "/copy-based/concept_considerations_for_transitioning_of_snaplock_enterprise_volumes.html"
+    - title: SnapLock Compliance ボリュームの移行に関する考慮事項
+      url: "/copy-based/concept_considerations_for_transitioning_of_snaplock_compliance_volumes.html"
+    - title: SnapLock 監査ボリュームの移行に関する考慮事項
+      url: "/copy-based/concept_considerations_for_transitioning_of_snaplock_audit_volumes.html"
+    - title: 7-Mode の SnapLock オプションの移行に関する考慮事項
+      url: "/copy-based/concept_considerations_for_transitioning_of_7_mode_snaplock_options.html"
+    - title: 7-Mode SnapLock で CoC 検証を実施する場合の考慮事項 個のボリューム
+      url: "/copy-based/concept_considerations_for_chain_of_custody_verification_for_7_mode_snaplock_volumes.html"
+  - title: ネームサービスの移行準備をしています
+    url: "/copy-based/concept_preparing_for_name_services_transition.html"
+    entries:
+    - title: ネームサービスの移行：サポートされる構成とされない構成、必要な手動手順
+      url: "/copy-based/concept_supported_and_unsupported_name_services_configurations.html"
+    - title: DNS 、 NIS 、 LDAP の構成の移行に関する考慮事項
+      url: "/copy-based/concept_considerations_for_transitioning_dns_and_ldap_configurations.html"
+    - title: ネットグループと UNIX ユーザおよびグループの移行に関する考慮事項
+      url: "/copy-based/concept_considerations_for_transitioning_unix_users_and_groups.html"
+  - title: NFS の移行を準備しています
+    url: "/copy-based/concept_preparing_for_nfs_transition.html"
+    entries:
+    - title: NFS 構成を移行するための前提条件
+      url: "/copy-based/concept_prerequisites_to_transition_nfs_configurations.html"
+    - title: NFS の移行：サポートされる構成とされない構成、必要な手動手順
+      url: "/copy-based/concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html"
+    - title: NFS エクスポートが移行される仕組み
+      url: "/copy-based/concept_how_nfs_exports_are_transitioned.html"
+  - title: SMB / CIFS の移行の準備
+    url: "/copy-based/concept_preparing_for_smb_cifs_transition.html"
+    entries:
+    - title: CIFS 構成を移行するための前提条件
+      url: "/copy-based/concept_prerequisites_for_transitioning_cifs_configurations.html"
+    - title: ONTAP への移行対象としてサポートされる CIFS 構成とされない CIFS 構成
+      url: "/copy-based/concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html"
+    - title: CIFS ローカルユーザおよびローカルグループの移行に関する考慮事項
+      url: "/copy-based/concept_considerations_for_local_users_and_groups_transition.html"
+  - title: MetroCluster 構成の移行準備
+    url: "/copy-based/concept_preparing_for_metrocluster_configuration_transition.html"
+  - title: SAN の移行準備をしています
+    url: "/copy-based/task_preparing_for_san_transition.html"
+    entries:
+    - title: SAN ホストでの移行準備
+      url: "/copy-based/task_preparing_san_hosts_for_transition.html"
+    - title: FC ゾーン計画を使用したゾーンの設定
+      url: "/copy-based/task_configuring_zones_by_using_fc_zone_plan.html"
+    - title: 移行前に SAN LIF を作成
+      url: "/copy-based/task_creating_san_lifs_before_transition.html"
+    - title: SAN の移行：サポートされる構成とされない構成、必要な手動手順
+      url: "/copy-based/concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.html"
+    - title: SAN ボリュームを移行する際のスペースに関する考慮事項
+      url: "/copy-based/concept_considerations_for_space_when_transitioning_san_volumes.html"
+  - title: データ保護機能の移行準備をしています
+    url: "/copy-based/concept_preparing_data_protection_features_for_transition.html"
+    entries:
+    - title: データ保護の移行：サポートされる構成とされない構成
+      url: "/copy-based/concept_supported_and_unsupported_data_protection_relationships.html"
+    - title: SnapMirror を使用した移行に関する考慮事項
+      url: "/copy-based/concept_considerations_for_using_snapmirror_for_transition.html"
+  - title: カットオーバーの実行タイミングを決定する際のガイドライン
+    url: "/copy-based/concept_guidelines_for_deciding_when_to_cutover.html"
+  - title: テイクオーバーとギブバックが移行に与える影響
+    url: "/copy-based/concept_impact_of_takeover_and_giveback_on_transition.html"
+- title: 7-Mode ボリュームからデータと構成をマイグレート
+  url: "/copy-based/task_transitioning_volumes_using_7mtt.html"
+  entries:
+  - title: 移行準備チェックリスト
+    url: "/copy-based/reference_transition_preparation_checklist.html"
+  - title: コントローラとクラスタを追加する
+    url: "/copy-based/task_adding_controllers_and_clusters.html"
+  - title: 移行プロジェクトの作成
+    url: "/copy-based/task_creating_a_transition_project.html"
+  - title: 7-Mode 構成の移行のカスタマイズ
+    url: "/copy-based/task_customizing_configurations_for_transition.html"
+  - title: 事前確認を実行
+    url: "/copy-based/task_running_prechecks.html"
+    entries:
+    - title: 事前確認メッセージの重大度レベル
+      url: "/copy-based/concept_severity_levels_for_precheck_messages.html"
+  - title: ベースラインデータコピーを開始しています
+    url: "/copy-based/task_starting_baseline_data_copy.html"
+  - title: 7-Mode 構成の適用
+    url: "/copy-based/task_applying_7_mode_configurations.html"
+  - title: FC ゾーン計画を使用したゾーンの設定
+    url: "/copy-based/task_configuring_zones_by_using_fc_zone_plan.html"
+  - title: SnapMirror 更新をオンデマンドで実行
+    url: "/copy-based/task_performing_on_demand_snapmirror_update_operation.html"
+  - title: 移行プロジェクトの完了
+    url: "/copy-based/task_completing_a_transition_project.html"
+  - title: CoC 検証の実行
+    url: "/copy-based/task_completing_chain_of_custody_verification.html"
+- title: 7-Mode Transition Tool CLI を使用したボリュームの移行
+  url: "/copy-based/concept_transitioning_volumes_using_7mtt_cli.html"
+  entries:
+  - title: さまざまなシナリオを使用してプロジェクトのボリュームを選択します
+    url: "/copy-based/concept_scenarios_for_selecting_volumes_in_a_session.html"
+  - title: 7-Mode Transition Tool CLI を使用したボリュームの移行
+    url: "/copy-based/concept_transitioning_volumes_using_7mtt_cli.html"
+    entries:
+    - title: 移行プロジェクトの作成
+      url: "/copy-based/task_creating_a_transition_session.html"
+    - title: CLI を使用した 7-Mode 構成の移行のカスタマイズ
+      url: "/copy-based/task_transitioning_volumes_by_excluding_a_subset_of_configurations.html"
+      entries:
+      - title: 移行対象から除外可能な構成
+        url: "/copy-based/reference_configurations_that_can_be_excluded.html"
+      - title: の NFS エクスポートルールと Snapshot スケジュールの統合例 移行
+        url: "/copy-based/reference_example_consolidating_nfs_export_rules_for_transition.html"
+    - title: 事前確認を実行
+      url: "/copy-based/task_running_precheck_on_a_session.html"
+    - title: 移行プロジェクトのデータコピーを開始します
+      url: "/copy-based/task_starting_data_copy_for_a_transition_session.html"
+    - title: ONTAP ボリュームに構成を適用する
+      url: "/copy-based/task_applying_configurations_to_ontap_volumes.html"
+    - title: 移行を完了します
+      url: "/copy-based/task_completing_transition_process.html"
+  - title: 移行管理用のコマンド
+    url: "/copy-based/reference_commands_for_managing_transition_sessions.html"
+- title: 移行後の手動タスクを実行
+  url: "/copy-based/task_performing_post_transition_tasks.html"
+  entries:
+  - title: FC ゾーン計画を使用したゾーンの設定
+    url: "/copy-based/task_configuring_zones_by_using_fc_zone_planner.html"
+  - title: LUN 移行が失敗した場合のリカバリ
+    url: "/copy-based/task_recovering_from_a_failed_lun_transition.html"
+  - title: 移行された SAN 構成を表示する
+    url: "/copy-based/task_viewing_transitioned_san_configurations.html"
+  - title: SnapDrive で管理される LUN の 7-Mode Snapshot コピーに関する制限事項 および SnapManager への移行後の対応を示します
+    url: "/copy-based/concept_limitations_with_snapshot_copies_and_luns_managed_by_snap_products.html"
+  - title: 移行後にリモートサイトで cron ジョブスケジュールを設定 MetroCluster 構成
+    url: "/copy-based/task_post_transition_task_for_a_metrocluster_configuration.html"
+  - title: 移行したボリュームから 7-Mode ボリュームの Snapshot コピーを削除する
+    url: "/copy-based/task_deleting_7_mode_volume_snapshot_copies_from_transitioned_volumes.html"
+  - title: ボリューム移行後の cron スケジュールの統合
+    url: "/copy-based/task_consolidating_snapshot_policies_and_cron_schedules_on_transitioned_volumes.html"
+- title: 移行プロジェクトの管理
+  url: "/copy-based/concept_managing_a_transition_project.html"
+  entries:
+  - title: プロジェクトを編集する
+    url: "/copy-based/task_editing_a_subproject.html"
+  - title: SnapMirror 転送およびスケジュールの管理
+    url: "/copy-based/concept_managing_snapmirror_transfers_and_schedule.html"
+    entries:
+    - title: SnapMirror 転送のデータコピースケジュールを作成します
+      url: "/copy-based/task_creating_schedule_for_snapmirror_transfers.html"
+    - title: データコピースケジュールの作成に関する考慮事項
+      url: "/copy-based/concept_guidelines_for_creating_a_data_copy_schedule.html"
+    - title: SnapMirror 転送のデータコピースケジュールを編集または削除する
+      url: "/copy-based/task_editing_or_deleting_snapmirror_transfer_schedule.html"
+  - title: 論理インターフェイスを管理する
+    url: "/copy-based/task_managing_logical_interfaces.html"
+  - title: プロジェクトからボリュームを削除する
+    url: "/copy-based/task_removing_volumes_from_a_project.html"
+  - title: プロジェクトの一時停止と再開
+    url: "/copy-based/task_pausing_and_resuming_a_subproject.html"
+  - title: プロジェクトを中止する
+    url: "/copy-based/task_aborting_a_subproject.html"
+  - title: プロジェクトを削除する
+    url: "/copy-based/task_deleting_a_project.html"
+- title: 問題のトラブルシューティング
+  url: "/copy-based/concept_troubleshooting_web_interface_issues.html"
+  entries:
+  - title: 移行ログファイルをダウンロードしています
+    url: "/copy-based/task_collecting_tool_logs.html"
+  - title: 7-Mode Transition Tool のログファイル
+    url: "/copy-based/concept_log_files_for_7mtt.html"
+  - title: 無視できるエラーが発生した場合の移行の続行
+    url: "/copy-based/task_acknowledging_errors_to_continue_with_transition.html"
+    entries:
+    - title: 移行時に無視できるエラーです
+      url: "/copy-based/reference_ignorable_errors_during_transition.html"
+  - title: スイッチオーバーまたはスイッチオーバーが原因で失敗した MetroCluster 構成を移行する スイッチバック
+    url: "/copy-based/task_transitioning_a_metrocluster_configuration_if_a_switchover_or_switchback_event_occurs.html"
+  - title: Volume selection （ボリューム選択）ペインでセカンダリボリュームを選択できない
+    url: "/copy-based/reference_cannot_select_a_secondary_volume_from_volume_selection_pane.html"
+  - title: ツールで障害が発生した場合、移行対象のボリュームを選択できません ボリューム情報を取得します
+    url: "/copy-based/reference_cannot_select_volume_for_transition_if_tool_fails_to_retrieve_volume_information.html"
+  - title: 選択した場合、ボリュームマッピングペインから続行できません SVM にアグリゲートがありません
+    url: "/copy-based/reference_cannot_proceed_from_volume_mapping_pane_if_selected_svm_has_no_aggregate.html"
+  - title: Data ONTAP 7.3.x からの移行後に圧縮は有効になりません
+    url: "/copy-based/reference_compression_fails_to_start_after_transition.html"

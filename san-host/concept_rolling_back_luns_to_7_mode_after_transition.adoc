@@ -1,0 +1,28 @@
+---
+permalink: san-host/concept_rolling_back_luns_to_7_mode_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rolling, lun, 7, mode 
+summary: clustered Data ONTAP LUN のパフォーマンスに満足できない場合は、コピーフリーの移行用に clustered Data ONTAP から Data ONTAP 7-Mode にロールバックできます（ CFT ）。コピーベースの移行（ CBT ）では、ロールバックはサポートされていません。ロールバックは特定のホストでのみサポートされます。 
+---
+= 移行後の 7-Mode への LUN のロールバック
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+コピーフリーの移行（ CFT ）では、 clustered Data ONTAP LUN のパフォーマンスに満足できない場合、 clustered Data ONTAP から Data ONTAP 7-Mode にロールバックできます。コピーベースの移行（ CBT ）では、ロールバックはサポートされていません。ロールバックは特定のホストでのみサポートされます。
+
+clustered Data ONTAP から Data ONTAP 7-Mode へのロールバックは、 7-Mode Transition Tool （ 7MTT ）で * commit * をクリックする前であれば、いつでも実行できます。[*commit*] をクリックした後は、ロールバックできません。
+
+ロールバックをサポートするホストは次のとおりです。
+
+* Windows の場合
+* Red Hat Enterprise Linux （ RHEL ）
+* ESXi
+
+
+ロールバックをサポートしないホストは次のとおりです。
+
+* HP-UX
+* AIX の場合
+

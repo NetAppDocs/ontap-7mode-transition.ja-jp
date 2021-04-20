@@ -1,0 +1,123 @@
+---
+permalink: command-map/reference_how_7_mode_configuration_files_map_to_clustered_ontap_commands.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, configuration, files, clustered, data, ontap 
+summary: Data ONTAP 7-Mode では、通常フラットファイルを使用してストレージシステムを設定します。clustered Data ONTAP では、設定コマンドを使用します。7-Mode の構成ファイルと clustered Data ONTAP の構成コマンドのマッピングを理解しておく必要があります。 
+---
+= 7-Mode 構成ファイルと clustered Data ONTAP コマンドのマッピング
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode では、通常フラットファイルを使用してストレージシステムを設定します。clustered Data ONTAP では、設定コマンドを使用します。7-Mode の構成ファイルと clustered Data ONTAP の構成コマンドのマッピングを理解しておく必要があります。
+
+|===
+| 7-Mode の構成ファイル | clustered Data ONTAP の設定コマンド 
+
+
+ a| 
+/etc/cifs_homedir.cfg
+ a| 
+「 vserver cifs home-directory search-path 」
+
+
+
+ a| 
+「 /etc/exports 」
+ a| 
+「 vserver export-policy 」の形式で指定します
+
+
+
+ a| 
+「 /etc/hosts 」
+ a| 
+「 vserver services dns hosts 」のように入力します
+
+
+
+ a| 
+「 /etc/hosts.equiv 」
+ a| 
+該当なし。
+
+「 securitylogin 」コマンドを使用すると、ユーザアクセスプロファイルを作成できます。
+
+
+
+ a| 
+「 /etc/messages 」
+ a| 
+「 event log show 」を参照してください
+
+
+
+ a| 
+/etc/motd
+ a| 
+「 securitylogin motd modify 」を参照してください
+
+
+
+ a| 
+/etc/nsswitch.conf
+ a| 
+「 vserver modify 」
+
+
+
+ a| 
+/etc/rc`
+ a| 
+clustered Data ONTAP では、ブート時に処理されたノードの構成情報が、構成情報を保持する他の内部ファイルに転送されます。
+
+Data ONTAP 7-Mode では ' メモリに構成された機能も '/etc/rc ファイルに保持され ' ブート時に再生および再構成されます
+
+
+
+ a| 
+/etc/quotas
+ a| 
+ボリューム・クォータ
+
+
+
+ a| 
+/etc/resolv.conf
+ a| 
+「 vserver services dns modify 」
+
+
+
+ a| 
+/etc/snapmirror.allow`
+ a| 
+2 つのクラスタ間にはクラスタ間関係が存在します。
+
+同じクラスタにある 2 つのノードの間にはクラスタ内関係が存在します。リモートクラスタの認証はクラスタピア関係の作成中に行われます。
+
+クラスタ内の「 Snapmirror create 」コマンドは、 Storage Virtual Machine （ SVM ）単位のセキュリティを適用する目的でクラスタ管理者だけが実行できます。
+
+
+
+ a| 
+/etc/snapmirror.conf
+ a| 
+'Snapmirror create'
+
+
+
+ a| 
+/etc/symlink.translations
+ a| 
+「 vserver cifs symlink 」
+
+
+
+ a| 
+「 /etc/usermap.cfg 」を参照してください
+ a| 
+「 vserver name-mapping create
+
+|===

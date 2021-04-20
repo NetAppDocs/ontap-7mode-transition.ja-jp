@@ -1,0 +1,131 @@
+---
+permalink: san-host/task_preparing_linux_guest_operating_systems_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, linux, operating, system 
+summary: 7-Mode LUN が物理互換 RDM （ PTRDM\ ）としてブートデバイス用の Linux 仮想マシン（ VM\ ）にマッピングされている場合は、 Linux VM で移行準備のための手順を実行する必要があります。 
+---
+= Linux ゲスト OS での移行準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode LUN が物理互換 RDM （ PTRDM ）としてブートデバイス用の Linux 仮想マシン（ VM ）にマッピングされている場合は、 Linux VM で移行準備のための手順を実行する必要があります。
+
+* コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode システムのエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+
+.手順
+. SCSI デバイスのシリアル番号を取得します。
++
+「 * cat /boot/grub/menu.lst * 」のようになります
+
++
+次の例では、 360a9800032466879362b45777447462d-part2 および 360a9800032466879362b45777447462d-part1 が SCSI デバイス番号です。
+
++
+[listing]
+----
+# cat /boot/grub/menu.lst
+...
+kernel /boot/vmlinuz-3.0.13-0.27-default root=/dev/disk/by-id/scsi-
+360a9800032466879362b45777447462d-part2 resume=/dev/disk/by-id/scsi-
+360a9800032466879362b45777447462d-part1
+----
+. SCSI デバイスのシリアル番号と SCSI デバイス / パーティション間のマッピングを確認します。
++
+'*#ls -l /dev/disk/by-id*'
+
++
+関係マッピングは次のように表示されます。「 S CSI devices / partitions 」は、「 S CSI device / partition serial numbers 」の後に表示されます。この例では、「 . . . . . /sda 」、「 . . . . /sda1 」、「 . . . . /. /sda2 」は SCSI デバイス / パーティションです。
+
++
+[listing]
+----
+lrwxrwxrwx 1 root root 9 Oct 27 06:54 scsi-360a9800032466879362b45777447462d -> ../../sda
+   lrwxrwxrwx 1 root root 10 Oct 27 05:09 scsi-360a9800032466879362b45777447462d-part1 -> ../../sda1
+   lrwxrwxrwx 1 root root 10 Oct 27 02:21 scsi-360a9800032466879362b45777447462d-part2 -> ../../sda2
+----
+. SCSI デバイスパスと UUID 間のマッピングを確認します。
++
+「 *ls -l /dev/disk/by-uuid * 」
+
++
+関係マッピングは次のように表示されます。この例では、「 33d43a8b-fcfe-4ac4-9355-36b479cfa524 」は SCSI デバイス / パーティション sda2 の UUID 、「 603e01f8-7873-440a-9182-878abff17143` は SCSI デバイス / パーティション /cda-08b017d309b-08f0173f0d30d30d30d30b~308b9d308d308b9d308b724 」の UUID の UUID の UUID の UUID の UUID です。
+
++
+[listing]
+----
+ lrwxrwxrwx 1 root root 10 Oct 27 02:21 33d43a8b-cfae-4ac4-9355-36b479cfa524 -> ../../sda2
+   lrwxrwxrwx 1 root root 9 Oct 27 06:54 603e01f8-7873-440a-9182-878abff17143 -> ../../sdb
+   lrwxrwxrwx 1 root root 10 Oct 27 05:09 c50b757b-0817-4c19-8291-0d14938f7f0f -> ../../sda1
+----
+. SCSI デバイスパスおよび SCSI シリアル番号と一致する UUID を使用して、 grub ブート「 m enu.lst 」ファイル内のデバイス参照を更新します。
++
+[listing]
+----
+#blkid
+/dev/sda1: UUID="c50b757b-0817-4c19-8291-0d14938f7f0f" TYPE="swap"
+/dev/sda2: UUID="33d43a8b-cfae-4ac4-9355-36b479cfa524" TYPE="ext3"
+/dev/sdb: UUID="603e01f8-7873-440a-9182-878abff17143" SEC_TYPE="ext2" TYPE="ext3"
+----
+. 取得した UUID を使用して、 grub ブートの「 enu.lst 」ファイル内のデバイス参照を更新します。
++
+次の例は、更新後の「 menu.lst 」ファイルを示しています。
+
++
+[listing]
+----
+# Modified by YaST2. Last modification on Fri Oct 17 02:08:40 EDT 2014
+default 0
+timeout 8
+##YaST - generic_mbr
+gfxmenu (hd0,1)/boot/message
+##YaST - activate
+###Don't change this comment - YaST2 identifier: Original name: linux###
+title SUSE Linux Enterprise Server 11 SP2 - 3.0.13-0.27
+root (hd0,1)
+kernel /boot/vmlinuz-3.0.13-0.27-default root=/dev/disk/by-uuid/e5127cdf-8b30-
+418e-b0b2-35727161ef41 resume=/dev/disk/by-uuid/d9133964-d2d1-4e29-b064-7316c5ca5566
+splash=silent crashkernel=128M-:64M showopts vga=0x314
+initrd /boot/initrd-3.0.13-0.27-default
+----
+. /etc/fstab ファイルを更新します
++
+.. 取得した UUID を使用して '/etc/fstab ファイル内のデバイス・リファレンスを更新します
++
+次の例は 'SCSI シリアル番号を持つ /etc/fstab ファイルを示しています
+
++
+[listing]
+----
+/dev/disk/by-id/scsi-360a9800032466879362b45777447462d-part1 swap swap
+defaults 0 0
+/dev/disk/by-id/scsi-360a9800032466879362b45777447462d-part2 / ext3
+acl,user_xattr 1 1
+proc /proc proc defaults 0 0
+sysfs /sys sysfs noauto 0 0
+debugfs /sys/kernel/debug debugfs noauto 0 0
+devpts /dev/pts devpts mode=0620,gid=5 0 0
+----
+.. SCSI シリアル番号への参照を UUID に置き換えます。
++
+次の例は 'SCSI シリアル番号を UUID に置き換えるために更新された /etc/fstab ファイルを示しています
+
++
+[listing]
+----
+cat /etc/fstab
+UUID="c50b757b-0817-4c19-8291-0d14938f7f0f swap swap defaults
+0 0
+UUID="33d43a8b-cfae-4ac4-9355-36b479cfa524 / ext3 acl,user_xattr
+1 1
+proc /proc proc defaults 0 0
+sysfs /sys sysfs noauto 0 0
+debugfs /sys/kernel/debug debugfs noauto 0 0
+devpts /dev/pts devpts mode=0620,gid=5 0 0
+----
+
+
+

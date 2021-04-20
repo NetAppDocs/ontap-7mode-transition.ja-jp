@@ -1,0 +1,23 @@
+---
+permalink: san-host/concept_exceptions_and_known_issues_when_transitioning_san_hosts_to_clustered_ontap.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, exceptions, issues, san, host 
+summary: Data ONTAP 7-Mode から新しいバージョンの ONTAP に SAN ホストを移行する場合は、一定の例外および既知の問題を把握しておく必要があります。 
+---
+= SAN ホストを ONTAP に移行する際の例外と既知の問題
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode から新しいバージョンの ONTAP に SAN ホストを移行する場合は、一定の例外および既知の問題を把握しておく必要があります。
+
+* ファイルタイプとして VHD または VHDX のみを使用する Hyper-V 仮想マシン（ VM ）を移行する場合は、 7-Mode Transition Tool （ 7MTT ）の代わりにストレージのライブマイグレーションを使用できます。
++
+Hyper-V ストレージのライブマイグレーションの詳細については、 Microsoft のドキュメントを参照してください。
+
+* 7-Mode コントローラの両方のノードで同じ igroup 名を使用している場合、移行ツールが igroup の競合を解決できないことがあります。
++
+バグ ID https://mysupport.netapp.com/NOW/cgi-bin/bol?Type=Detail&Display=769715["769715"]。
+
+

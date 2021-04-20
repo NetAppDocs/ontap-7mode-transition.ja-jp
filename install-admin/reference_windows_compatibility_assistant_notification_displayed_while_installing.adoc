@@ -1,0 +1,15 @@
+---
+permalink: install-admin/reference_windows_compatibility_assistant_notification_displayed_while_installing.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, windows, assistant, notification, compatibility 
+summary: ツールのインストール中に、 Windows のプログラム互換性アシスタントから、プログラムが正しくインストールされなかった可能性があることが通知される場合があります。この通知は、必ずしもプログラムが正しくインストールされなかったことを示すものではありません。 
+---
+= ツールのインストール中に Windows のプログラム互換性アシスタントから通知が表示される
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ツールのインストール中に、 Windows のプログラム互換性アシスタントから、プログラムが正しくインストールされなかった可能性があることが通知される場合があります。この通知は、必ずしもプログラムが正しくインストールされなかったことを示すものではありません。
+
+この通知を無視するには、 [* このプログラムは正しくインストールされました * ] をクリックします。

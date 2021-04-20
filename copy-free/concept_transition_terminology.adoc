@@ -1,0 +1,31 @@
+---
+permalink: copy-free/concept_transition_terminology.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, terminology 
+summary: 7-Mode Transition Tool に関連する移行の用語を理解しておくと、移行プロセスを理解しやすくなります。 
+---
+= 移行に関する用語
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool に関連する移行の用語を理解しておくと、移行プロセスを理解しやすくなります。
+
+* * 収集と評価 *
++
+データと構成を ONTAP に移行する前に、ストレージシステム、ホスト、およびアプリケーションを含むストレージ環境に関する情報を収集する必要があります。その後、収集したシステムの機能を評価し、移行先として選択した ONTAP バージョンでそれらの機能がどのように動作するかを確認する必要があります。
+
+* * 移行 *
++
+7-Mode ボリュームから ONTAP にデータと構成を移行することを指します。マイグレーションは、 7-Mode コントローラを評価したあとに実行する必要があります。
+
+* * プロジェクト *
++
+7-Mode Transition Tool では、プロジェクトを使用して、一連のボリュームの移行を設定し、管理することができます。
+
+* * プロジェクトグループ *
++
+7-Mode Transition Tool では、プロジェクトグループは論理コンテナであり、これを使用して関連するマイグレーションプロジェクトを保持できます。Default_Group という名前のデフォルトグループがシステムに常に 1 つ存在します。
+
+

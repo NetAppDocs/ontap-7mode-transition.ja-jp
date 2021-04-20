@@ -1,0 +1,45 @@
+---
+permalink: san-host/task_gathering_pretransition_information_from_inventory_assessment_workbook.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, pretransition, information, inventory, assessment, workbook 
+summary: Inventory Assessment Workbook には、移行のさまざまなフェーズで必要となる情報が含まれています。移行を開始する前にこの情報を収集して記録し、プロセスをとおして必要に応じて参照できるようにしておく必要があります。 
+---
+= Inventory Assessment Workbook からの移行前の情報収集
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Inventory Assessment Workbook には、移行のさまざまなフェーズで必要となる情報が含まれています。移行を開始する前にこの情報を収集して記録し、プロセスをとおして必要に応じて参照できるようにしておく必要があります。
+
+.手順
+. Inventory Collect Tool （ ICT ）を使用して、 _ Inventory Assessment Workbook を生成します。
+. Inventory Assessment Workbook を開きます。
+. 「 * LUN * 」タブに移動します。
+. LUN 名 * 列で、移行する LUN の名前を特定して記録します。
+. [* SAN Host LUNs] タブに移動します。
+. [* SCSI Device ID*] 列で、 SCSI デバイス名を識別して記録します。
+. OS Device ID * 列で、移行する LUN の DMMP デバイス名を特定して記録します。
+. 「 * filesystems * 」列で、 DMMP デバイスに設定されているファイルシステムを特定して記録します。
+. 「 * UUID * 」列で、 LUN の UUID 番号を特定し、記録します。
+. 「 * Mount * 」列で、 DMMP デバイスがマウントされているディレクトリを特定して記録します。
+. LVM の * タブに移動します。
+. Physical Volume Name * 列に、論理ボリュームによって使用されている DMMP デバイスを特定して記録します。
+. SAN ホストの LVM のタブに移動します。
+. ボリュームグループ名 * 列で、ボリュームグループを特定して記録します。
+. 論理ボリュームパス * 列で、論理ボリュームを特定して記録します。
+. 「 * SAN ホスト・ファイル・システム * 」タブに移動します。
+. ファイルシステム * 列で、論理ボリュームに設定されているファイルシステムを特定し、記録します。
+. [ * マウント * ] 列で、論理ボリュームがマウントされているディレクトリを特定して記録します。
+. [GRUB Configuration*] タブに移動します。
+. [*initrd*] 列で、修正する initrd イメージを特定して記録します。
+. [* SAN Host HBAs * （ SAN ホスト HBA * ） ] タブに移動します。
++
+また、「 * iSCSI SAN インターフェイス * 」タブでは、 7-Mode コントローラで設定されている iSCSI IQN 番号と IP アドレスを確認できます。
+
+. 「 * ターゲット IP （ iSCSI ） * 」列に、 7-Mode コントローラの iSCSI セッションを特定して記録します。
+
+
+* 関連情報 *
+
+xref:concept_what_the_inventory_collect_tool_is.adoc[Inventory Collect Tool の概要]

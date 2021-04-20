@@ -1,0 +1,24 @@
+---
+permalink: copy-based/reference_compression_fails_to_start_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, compression, data, enable, error 
+summary: Data ONTAP 7.3.x を実行しているシステムの 32 ビットボリュームを、 64 ビットアグリゲートに含まれる ONTAP に移行した場合、移行後の ONTAP ボリュームで圧縮は有効になりません。ボリュームが 32 ビットから 64 ビットにアップグレードされるまで、圧縮を有効にすることはできません。 
+---
+= Data ONTAP 7.3.x からの移行後に圧縮は有効になりません
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7.3.x を実行しているシステムの 32 ビットボリュームを、 64 ビットアグリゲートに含まれる ONTAP に移行した場合、移行後の ONTAP ボリュームで圧縮は有効になりません。ボリュームが 32 ビットから 64 ビットにアップグレードされるまで、圧縮を有効にすることはできません。
+
+
+
+== 回避策
+
+. アップグレードが完了するまで待ちます。
++
+volume show -fields block-type -volume vol_name _ ` コマンドを使用すると、ボリュームのブロックタイプが 64 ビットに変わったかどうかを確認できます。
+
+. volume efficiency modify コマンドを使用して ' 圧縮を有効にします
+

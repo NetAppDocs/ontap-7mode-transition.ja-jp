@@ -1,0 +1,64 @@
+---
+permalink: copy-based/task_applying_configurations_to_ontap_volumes.html 
+sidebar: sidebar 
+keywords: apply, configuration, ontap, copy, based, transition 
+summary: ベースラインデータコピーが完了したら、 7-Mode システムのすべての NAS 構成（プロトコルとサービスの構成を含む）を ONTAP ボリュームにコピーして適用することができます。ターゲットクラスタで Data ONTAP 8.3.2 以降が実行されている場合は、このフェーズで SAN 構成が移行されます。 
+---
+= ONTAP ボリュームに構成を適用する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ベースラインデータコピーが完了したら、 7-Mode システムのすべての NAS 構成（プロトコルとサービスの構成を含む）を ONTAP ボリュームにコピーして適用することができます。ターゲットクラスタで Data ONTAP 8.3.2 以降が実行されている場合は、このフェーズで SAN 構成が移行されます。
+
+* 構成はカットオーバー前フェーズで適用されます。このフェーズにはカットオーバー前読み取り専用モードとカットオーバー前読み取り / 書き込みモードの 2 つのモードがあります。
+* プロジェクトに次の要素が含まれている場合、カットオーバー前読み取り / 書き込みモードはサポートされません。
++
+** SAN ボリュームとターゲットクラスタで Data ONTAP 8.3.1 以前が実行されている。この場合、次の構成はカットオーバー前フェーズでは適用されず、カットオーバーフェーズで適用されます。
++
+*** SAN 構成
+*** Snapshot スケジュールの設定
+
+
+** SnapLock Compliance ボリューム。
++
+プロジェクトに SnapLock Compliance ボリュームが含まれている場合は、 Snapshot スケジュールの設定はカットオーバー前フェーズでは適用されず、カットオーバーフェーズで適用されます。
+
++
+を参照してください xref:concept_considerations_for_transitioning_of_snaplock_compliance_volumes.adoc[SnapLock Compliance ボリュームの移行に関する考慮事項]。
+
+
+
+* ターゲットクラスタが Data ONTAP 8.3.1 以前を実行していて、プロジェクト内のいずれかのボリュームに LUN が含まれている場合、カットオーバー前フェーズの読み取り / 書き込みモードはサポートされません。
+* ターゲットクラスタが Data ONTAP 8.3.1 以前を実行していて、 SAN ボリュームと NAS ボリュームの両方がプロジェクトに含まれている場合、カットオーバー前フェーズでは NAS 構成のみが移行され、移行された NAS 構成は読み取り専用モードでのみテストできます。
++
+SAN 構成はストレージカットオーバーフェーズで移行されます。
+
++
+
+NOTE: SAN LIF は設定されません。
+
+* ターゲットクラスタで Data ONTAP 8.3.1 以前が実行されていて、 SAN ボリュームがプロジェクトに含まれている場合、構成の適用（カットオーバー前）フェーズでは Snapshot スケジュールの設定が適用されません。
++
+これらの設定はカットオーバーフェーズで適用されます。
+
+* ターゲットクラスタで Data ONTAP 8.3.1 以前が実行されていて、 SAN ボリュームがプロジェクトに含まれている場合、構成の適用（カットオーバー前）フェーズでは Snapshot スケジュールの設定が適用されません。
++
+これらの設定はカットオーバーフェーズで適用されます。
+
+
+
+.手順
+* 読み取り専用モードで移行処理を実行します。
++
+'*transition cbt precutover -p _project_name -m ro_test -c max_cap_concurrent_transfers _snapmirror_throttle_*`
+
+* 読み取り / 書き込みモードで移行処理を実行します。
++
+.. ONTAP に構成を適用します。 +`* transition cbt precutover -p _project_name -m rw_test -c max_cap_concurrent_transfers -b _snapmirror_throttle_*`
+.. ONTAP で構成を手動でテストして検証します。
+.. 再同期操作を開始します +`* transition cbt resync -p _project_name *`
+
+
+

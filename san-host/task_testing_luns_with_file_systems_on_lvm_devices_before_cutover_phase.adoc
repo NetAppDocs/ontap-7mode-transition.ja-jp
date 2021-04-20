@@ -1,0 +1,105 @@
+---
+permalink: san-host/task_testing_luns_with_file_systems_on_lvm_devices_before_cutover_phase.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, file, system, lvm, devices, cutover, phase 
+summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Red Hat Enterprise Linux \ （ RHEL \ ）ホストのコピーベースの移行を実行する場合は、カットオーバーフェーズの前に LVM デバイス上のファイルシステムを搭載した移行済みの clustered Data ONTAP LUN をテストすることができます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
+---
+= の前に、 LVM デバイス上のファイルシステムを搭載した LUN のテストを行います コピーベースの移行のカットオーバーフェーズ
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Red Hat Enterprise Linux （ RHEL ）ホストのコピーベースの移行を実行する場合は、カットオーバーフェーズの前に LVM デバイス上のファイルシステムを搭載した移行済みの clustered Data ONTAP LUN をテストすることができます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。
+
+* 新しい clustered Data ONTAP LUN をテスト用ホストにマッピングする必要があります。
+* LUN を移行できる状態にしておく必要があります。
+
+
+テスト用ホストとソースホスト間のハードウェアパリティを維持し、テスト用ホストで以下の手順を実行する必要があります。
+
+clustered Data ONTAP LUN は、テスト時には読み取り / 書き込みモードになります。テストが完了してカットオーバーフェーズの準備を行う段階で、読み取り専用モードに切り替わります。
+
+テストモードでは、ボリュームグループを非アクティブ化またはエクスポートすることはありません。そのため、テスト用ホストに論理ボリュームをマウントすると、ファイルシステムエラーが表示される場合があります。
+
+.手順
+. ベースラインデータコピーが完了したら、 7MTT ユーザインターフェイス（ UI ）で「 * Test Mode 」を選択します。
+. 7MTT UI で、 * 構成の適用 * をクリックします。
+. テスト用ホストで、新しい clustered Data ONTAP LUN を検出します。
++
+*rescan -scsi-bus.sh *
+
+. 新しい clustered Data ONTAP LUN が検出されたことを確認します。
++
+「 * sanlun lun show * 」と表示されます
+
+. clustered Data ONTAP LUN 用に DMMP デバイスを設定します。
++
+「 * マルチパス * 」
+
+. clustered Data ONTAP LUN のデバイスハンドル ID を取得します。
++
+*multipath -ll *
+
++
+デバイスハンドル ID の例を次に示します。「 3600a09804d532d79565d47617679764d` 」
+
+. LVM で使用されている DMMP デバイスを特定します。
++
+'*pvscan *'
+
++
+3600a09804d532d79565d476176797655 は、 LVM でされている DMMP デバイスの一例です。
+
+. ボリュームグループを特定します。
++
+'*vgscan*'
+
+. 論理ボリュームを特定します。
++
+'*lvscan *
+
+. 論理ボリュームを有効にします： *`*vgchange-ay_volume_group_*`
+. 論理ボリュームのステータスを確認します *`*lvdisplay*`
++
+出力の [LV Status]( ステータス ) 列に [Available]( 使用可能 ) と表示されます
+
+. ソース・ホストの /etc/fstab ファイルに ' 論理ボリュームのマウント・ポイント・エントリーが存在するかどうかを確認します
++
+次の例では ' 論理ボリューム '/dev/mapper/vg_7MTT -lv1' が /etc/fstab ファイルに表示されています
+
++
+[listing]
+----
+# /etc/fstab
+...
+tmpfs   /dev/shm  tmpfs   defaults        0 0
+devpts  /dev/pts  devpts  gid=5, mode=620 0 0
+sysfs   /sys      sysfs   defaults        0 0
+proc    /proc     proc    defaults        0 0
+/dev/mapper/vg_7MTT-lv1 /7MTT  ext4  defaults 0	0
+----
+. ソース・ホスト上の /etc/fstab ファイルに論理ボリュームのマウント・ポイント・エントリーが存在する場合は ' テスト・ホスト上の /etc/fstab ファイルを手動で編集して ' マウント・ポイント・エントリーを追加します
+. マウントポイントをマウントします。
++
+*mount-a *`
+
+. マウントポイントがマウントされたことを確認します。
++
+'*mount*'
+
+. 必要に応じてテストを実行します。
+. テストが完了したら、ホストをシャットダウンします。
++
+*shutdown-h-t0 now *`
+
+. 7MTT UI で、 * テストの終了 * をクリックします。
+
+
+clustered Data ONTAP LUN をソースホストに再マッピングする場合は、ソースホストをカットオーバーフェーズ用に準備する必要があります。clustered Data ONTAP LUN をテスト用ホストにマッピングしたままにする場合、テスト用ホストでこれ以上の手順を実行する必要はありません。
+
+* 関連情報 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[Inventory Assessment Workbook からの移行前の情報収集]
+
+xref:task_preparing_for_cutover_when_transitioning_linux_host_file_systems_on_lvm_devices.adoc[Linux ホストファイルシステム移行時のカットオーバーフェーズの準備 LVM デバイス]

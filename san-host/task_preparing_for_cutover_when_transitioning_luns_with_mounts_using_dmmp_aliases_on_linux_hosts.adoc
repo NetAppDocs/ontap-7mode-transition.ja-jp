@@ -1,0 +1,41 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, lun, point, dmmp, device, names 
+summary: Linux ホスト上のエイリアス名を使用するマウントポイントを含む LUN を移行する場合は、カットオーバーフェーズを開始する前にいくつかの手順を実行する必要があります。 
+---
+= マウントを含む LUN 移行時のカットオーバーフェーズの準備 Linux ホストで DMMP デバイス名を使用するポイントです
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Linux ホスト上のエイリアス名を使用するマウントポイントを含む LUN を移行する場合は、カットオーバーフェーズを開始する前にいくつかの手順を実行する必要があります。
+
+FC 構成の場合は、 clustered Data ONTAP コントローラへのファブリック接続とゾーニングが必要です。
+
+iSCSI 構成の場合は、 iSCSI セッションを検出し、 clustered Data ONTAP コントローラにログインする必要があります。
+
+* コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode システムのエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+
+.手順
+. マウントポイントへの I/O を停止します。
+. アプリケーションベンダーの推奨事項に従って、 LUN にアクセスしているアプリケーションをシャットダウンします。
+. DMMP デバイスをアンマウントします。
++
+'*umount_dir_name_*
+
+. 7-Mode LUN の DMMP デバイス ID をフラッシュします。
++
+'*multipath-f_device_name _*
+
++
+必要に応じて、 _ Inventory Assessment Workbook _ の * SAN Host LUNs * タブにある * OS Device ID * 列から DMMP デバイス名を取得できます。
+
+
+
+* 関連情報 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[Inventory Assessment Workbook からの移行前の情報収集]

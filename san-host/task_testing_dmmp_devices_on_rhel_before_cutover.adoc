@@ -1,0 +1,78 @@
+---
+permalink: san-host/task_testing_dmmp_devices_on_rhel_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, dmmp, file, systems, rhel, cutover, copy, based 
+summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Red Hat Enterprise Linux \ （ RHEL \ ） 5 ホストを移行する場合は、 カットオーバーフェーズの前に、移行した clustered Data ONTAP LUN をテストして、ホストとアプリケーションをオンラインにできるかどうかを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
+---
+= 前の RHEL ホスト上のファイルシステムのない DMMP デバイスのテスト コピーベースの移行のカットオーバーフェーズ
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Red Hat Enterprise Linux （ RHEL ） 5 ホストを移行する場合は、 カットオーバーフェーズの前に、移行した clustered Data ONTAP LUN をテストして、ホストとアプリケーションをオンラインにできるかどうかを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。
+
+新しい clustered Data ONTAP LUN をテスト用ホストにマッピングして、 LUN を移行できる状態にしておく必要があります。
+
+テスト用ホストとソースホスト間のハードウェアパリティを維持し、テスト用ホストで以下の手順を実行する必要があります。
+
+clustered Data ONTAP LUN は、テスト時には読み取り / 書き込みモードになります。テストが完了してカットオーバーフェーズの準備を行う段階で、読み取り専用モードに切り替わります。
+
+.手順
+. ベースラインデータコピーが完了したら、 7MTT ユーザインターフェイス（ UI ）で「 * Test Mode 」を選択します。
+. 7MTT UI で、 * 構成の適用 * をクリックします。
+. テスト用ホストで新しい clustered Data ONTAP LUN を再スキャンします。
++
+*rescan -scsi-bus.sh *
+
+. clustered Data ONTAP LUN の新しい SCSI デバイス名を取得します。
++
+「 * sanlun lun show * 」と表示されます
+
++
+次の例では '/dev/sdl' は 'lun_DMMP raw LUN の SCSI デバイス名 '/dev/sdk は 'lun_DMMP raw エイリアス LUN の SCSI デバイス名です
+
++
+[listing]
+----
+[root@ibmx3550-229-108 /]# sanlun lun show
+controller(7mode/E-Series)/
+vserver (cDOT/FlashRay lun-pathname   filename
+------------------------------------------------------------------------
+vs_brb   /vol/dmmp_raw_vol/lun_dmmp_raw             /dev/sdl
+vs_brb   /vol/dmmp_raw_alias_vol/lun_dmmp_raw_alias	/dev/sdk
+----
+. clustered Data ONTAP LUN のデバイスハンドル ID （ WWID ）を取得します。
++
+「 * /sbin/scsi_id -g -u -s /block/__ scsi_device_name __ * 」のように入力します
+
++
+WWID の例を次に示します。「 3600a09804d532d79565d47617679764d` 」
+
+. ソース・ホスト上の /etc/multipath.conf ファイルにエイリアスが定義されているかどうかを確認します
+. ソースホストでエイリアスが定義されている場合は、テスト用ホストの「 /etc/multipath.conf 」ファイルにエイリアスを追加します。ただし、 7-Mode デバイスハンドル ID は clustered Data ONTAP LUN ID に置き換えてください。
+. DMMP エイリアス設定を更新します。
++
+「 * マルチパス * 」
+
+. DMMP エイリアス名が clustered Data ONTAP LUN を正しく参照していることを確認します。
++
+*multipath -ll *
+
+. 必要に応じてテストを実行します。
+. テストが完了したら、テスト用ホストをシャットダウンします。
++
+*shutdown-h-t0 now *`
+
+. 7MTT UI で、 * テストの終了 * をクリックします。
+
+
+clustered Data ONTAP LUN をソースホストに再マッピングする場合は、ソースホストをカットオーバーフェーズ用に準備する必要があります。clustered Data ONTAP LUN をテスト用ホストにマッピングしたままにする場合、テスト用ホストでこれ以上の手順を実行する必要はありません。
+
+* 関連情報 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[Inventory Assessment Workbook からの移行前の情報収集]
+
+xref:task_verifying_that_rhel_luns_are_ready_for_transition_using_inventory_assessment_workbook.adoc[を使用した RHEL LUN の移行準備状況の確認 Inventory Assessment Workbook の作成]
+
+xref:task_preparing_for_cutover_when_transitioning_linux_host_dmmp_device_without_file_system.adoc[Linux ホストの DMMP デバイス移行時のカットオーバーの準備 ファイルシステムを使用しない場合]

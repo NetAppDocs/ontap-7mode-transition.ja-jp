@@ -1,0 +1,91 @@
+---
+permalink: copy-free/concept_log_files_for_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, log, files, tool 
+summary: 7-Mode Transition Tool では、システムで発生した移行処理の詳細を記録したログファイルが作成されます。ログファイルは、 7-Mode Transition Tool がインストールされているパスの logs ディレクトリにあります。 
+---
+= 7-Mode Transition Tool のログファイル
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool では、システムで発生した移行処理の詳細を記録したログファイルが作成されます。ログファイルは、 7-Mode Transition Tool がインストールされているパスの logs ディレクトリにあります。
+
+7-Mode システムおよびクラスタの SnapMirror ログに関連した EMS メッセージを使用して、問題をトラブルシューティングすることもできます。
+
+次の表に、特定の移行プロジェクトに関連するログファイルを示します。
+
+|===
+| ログファイルのパス | 次の情報が含まれます。 
+
+
+ a| 
+`_project_name__ /transition.log`
+ a| 
+プロジェクト固有のデバッグメッセージ
+
+
+
+ a| 
+`_project_name_/zapi-outbound.log`
+ a| 
+実行されたすべての Data ONTAP API の出力 7-Mode Transition Tool で特定のプロジェクトを実行する
+
+|===
+次の表に、特定のプロジェクトには関連しないログファイルを示します。
+
+|===
+| ログファイルのパス | 次の情報が含まれます。 
+
+
+ a| 
+「 transition-GUI.log 」を参照してください
+ a| 
+Web を使用して実行されるすべてのアクションのエントリ インターフェイス
+
+
+
+ a| 
+「デフォルト / 監査ログ」
+ a| 
+* 7-Mode Transition Tool を実行するたびに、ツールによって使用される HTTP または HTTPS ポートやログディレクトリのパスなどのすべてのパラメータ
+* 実行されたすべての移行コマンドとその出力
+
+
+
+
+ a| 
+「デフォルト / デフォルト / トランジション .log 」
+ a| 
+プロジェクトに固有でないデバッグメッセージ
+
+
+
+ a| 
+'default/stream_management/stream_management.log
+ a| 
+スケジューラによって管理中に記録されたデバッグメッセージ スケジュールと、どのプロジェクトにも属さないスケジュール
+
+
+
+ a| 
+「デフォルト / デフォルト /zapi-outbound.log 」
+ a| 
+実行されたすべての Data ONTAP API の出力 7-Mode Transition Tool およびに属していない 任意のプロジェクト
+
+
+
+ a| 
+'default/stream_management/zapi-outbound.log'
+ a| 
+実行されたすべての Data ONTAP API の出力 7-Mode Transition Tool スケジューラとスケジュールを管理します どのプロジェクトにも属さないものです
+
+
+
+ a| 
+'server-console.log
+ a| 
+7-Mode Transition Tool サーバとの間で行われたすべてのパケット交換のログエントリこのファイルは、サーバクラッシュに関連する問題のトラブルシューティングに役立ちます。
+
+|===

@@ -1,0 +1,96 @@
+---
+permalink: san-host/task_replacing_7_mode_wwids_on_linux_host_after_transition_of_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, 7, mode, wwids, linux, lun 
+summary: LUN を移行すると 7-Mode LUN WWID が変わります。データの提供を開始するためには、 7-Mode LUN WWID を対応する ONTAP LUN WWID に置き換える必要があります。 
+---
+= 移行後の Linux ホストにおける 7-Mode LUN WWID の置き換え LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LUN を移行すると 7-Mode LUN WWID が変わります。データの提供を開始するためには、 7-Mode LUN WWID を対応する ONTAP LUN WWID に置き換える必要があります。
+
+コピーフリーの移行（ CFT ）を実行している場合は、 vol rehost の手順を完了する必要があります。
+
+を参照してください link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["『 7-Mode Transition Tool Copy-Free Transition Guide 』"]を参照してください。
+
+* コピーベースの移行（ CBT ）の場合は、 7MTT でストレージカットオーバー処理を完了したあとに以下の手順を実行します。
+* CFT の場合は、 7MTT でデータと設定のインポート処理が完了したあとに以下の手順を実行します。
+
+
+.手順
+. 7-Mode から ONTAP への LUN マッピングファイルを生成します。
++
+** CBT の場合は、 7MTT がインストールされている Linux ホストから次のコマンドを実行します。 +`* transition cbt export lunmap -p project-name -o file_path_*`
++
+例：
+
++
+*transition cbt export lunmap -p SanWorkLoad-o c:\Libraires/Documents/7-C-lun-mapping.csv *
+
+** CFT の場合は、 7MTT がインストールされているシステムから次のコマンドを実行します。 +`* transition cft export lunmap -p _project-name _s_s_s_s_SVM_name_o_output-file_*`
++
+例：
+
++
+*transition cft export lunmap -p SanWorkLoad -s svml-0 c:/mLibraries /Documents/7-C-LUN-mapping - svml.csv *
+
++
+
+NOTE: このコマンドはそれぞれの Storage Virtual Machine （ SVM ）に対して実行する必要があります。
+
+
+
+. LUN マッピングファイルで、新しい ONTAP LUN デバイスハンドル ID をメモします。
+. 7-Mode LUN 用に作成された SCSI デバイスを削除します。
++
+** すべての SCSI デバイスを削除するには、 +`*rescan-scsi-bus.sh -r *` を実行します
+** 各 SCSI デバイスを個別に削除するには、 +`*echo 1>/sys/block/_SCSI_ID_/delete *` を実行します
++
+このコマンドは、 7-Mode LUN のすべての SCSI デバイスに対して実行する必要があります。LUN の SCSI デバイス ID を特定するには、 _Inventory Assessment Workbook の SAN Host LUNs タブにある SCSI Device ID の列を参照してください。
+
+
+
+. 新しい ONTAP LUN を検出します。
++
+*rescan -scsi-bus.sh *
+
+. 新しい ONTAP LUN の SCSI デバイスを特定します。
++
+「 * sanlun lun show * 」と表示されます
+
+. 新しい ONTAP LUN の WWID を取得します。
++
+`*/lib/udev/scsi_id -g -u -d /dev/scsi_dev_*`
+
+. DMMP エイリアスが定義されている場合は、 /etc/multipath.conf ファイルを更新して、 7-Mode LUN WWID を対応する ONTAP LUN WWID に置き換え、 DMMP エイリアスが clustered Data ONTAP LUN を指すようにします。
++
+`*cat /etc/multipath.conf *`
+
+. DMMP デバイスを設定します。
++
+「 * マルチパス * 」
+
+. DMMP エイリアスが ONTAP LUN WWID を正しく参照していることを確認します。
++
+*multipath -11*`
+
++
+次の出力例では、 DMMP エイリアス「 dbmc_raw_lun 」が「 3600a098051764b2d4f3f453135452d31` を ONTAP WWID として参照しています。
+
++
+[listing]
+----
+root@IBMx3550M3-229-169 ~]# multipath -ll dmmp_raw_lun
+dmmp_raw_lun (3600a098051764b2d4f3f453135452d31) dm-8 NETAPP, LUN C-Mode
+[size=1.0G] [features=3 queue_if_no_path pg_init_retries 50] [hwhandler=1 alua] [rw]
+\_round-robin 0 [prio=50][enabled]
+ \_5:0:0:6 sdx 	65:112 [active][ready]
+	\_8:0:0:6 sdab 65:176 [active][ready]
+\_round-robin 0 [prio=10][enabled]
+ \_6:0:0:6 sdy 	65:128 [active][ready]
+	\_7:0:0:6 sdaa 65:160 [active][ready]
+----
+

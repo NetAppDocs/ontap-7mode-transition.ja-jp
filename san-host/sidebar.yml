@@ -1,0 +1,239 @@
+---
+section: san-host
+title: SAN ホストの移行および修復
+url: "/san-host/index.html"
+entries:
+- title: ONTAP のターゲットリリースは 7-Mode Transition Tool でサポートされます
+  url: "/san-host/concept_ontap_target_releases_supported_by_7mtt.html"
+- title: 7-Mode Transition Tool の移行フェーズ
+  url: "/san-host/concept_7mtt_transition_phases.html"
+- title: VMware ESXi ホストの修復
+  url: "/san-host/concept_vmware_esxi_host_remediation.html"
+  entries:
+  - title: 7MTT を使用した SAN の移行でサポートされる ESXi のバージョンと機能
+    url: "/san-host/concept_esxi_versions_and_features_supported_for_san_transitions_using_7mtt.html"
+  - title: ESXi ホストの移行準備
+    url: "/san-host/task_preparing_for_transition_of_esxi_hosts.html"
+    entries:
+    - title: Inventory Collect Tool の概要
+      url: "/san-host/concept_what_the_inventory_collect_tool_is.html"
+    - title: Linux ゲスト OS での移行準備
+      url: "/san-host/task_preparing_linux_guest_operating_systems_for_transition.html"
+    - title: Windows ゲスト OS での移行準備
+      url: "/san-host/concept_preparing_windows_guest_operating_systems_for_transition.html"
+    - title: 事前に削除が必要な VM の Snapshot を特定する方法 移行
+      url: "/san-host/concept_how_to_identify_vm_snapshots_that_must_be_removed_before_transition.html"
+      entries:
+      - title: vSphere Client を使用して VM Snapshot コピーを削除します
+        url: "/san-host/task_deleting_vm_snapshots_using_vsphere_client.html"
+      - title: ESXi CLI を使用して VM Snapshot を削除している
+        url: "/san-host/task_removing_vm_snapshots_using_esxi_cli.html"
+  - title: カットオーバー前の移行した LUN と ESXi ホストアプリケーションのテスト コピーベースの移行のフェーズ
+    url: "/san-host/task_testing_transitioned_luns_and_esxi_host_applications_before_cutover.html"
+  - title: ESXi ホスト移行時の構成の適用（カットオーバー前）フェーズにおけるダウンタイム
+    url: "/san-host/concept_downtime_at_precutover_phase_of_esxi_host_transition.html"
+  - title: ESXi ホストでの移行後の修復の要件
+    url: "/san-host/concept_post_transition_requirements_for_esxi_hosts.html"
+    entries:
+    - title: 移行後の ESXi ホストの修復準備
+      url: "/san-host/task_preparing_for_post_transition_esxi_host_remediation.html"
+    - title: を使用した非 SAN ブート ESXi ホストへの VM の再登録 vSphere Client の各機能を使用
+      url: "/san-host/task_reregistering_vms_after_transition_on_non_san_boot_esxi_host_using_vsphere_client.html"
+    - title: 移行後の VMware ソフトウェア iSCSI イニシエータの再設定
+      url: "/san-host/concept_reconfiguration_of_vmware_software_iscsi_initiator.html"
+    - title: SAN ブート用に設定された ESXi ホストを移行後にセットアップする
+      url: "/san-host/task_setting_up_esxi_hosts_configured_for_san_boot_after_transition.html"
+    - title: 移行後に VMFS ボリュームの再マウントが必要かどうかを判断します
+      url: "/san-host/task_determining_whether_vmfs_volumes_need_to_be_remounted_after_transition.html"
+      entries:
+      - title: vSphere Client を使用した移行後の VMFS ボリュームの再マウント
+        url: "/san-host/task_remounting_vmfs_volumes_after_transition_using_vsphere_client.html"
+      - title: ESXi CLI を使用した移行後の VMFS ボリュームの再マウント
+        url: "/san-host/task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.html"
+    - title: RDM LUN を VM に再接続
+      url: "/san-host/task_reattaching_rdm_luns_to_vms.html"
+      entries:
+      - title: vSphere Client を使用して古い RDM を削除する
+        url: "/san-host/task_removing_stale_rdm_using_vsphere_client.html"
+      - title: vSphere Client を使用した RDM の VM への再接続
+        url: "/san-host/task_reattaching_rdm_to_vms_using_vsphere_client.html"
+      - title: ESXi CLI / コンソールを使用した RDM の再接続
+        url: "/san-host/task_reattaching_rdm_using_esxi_cli_console.html"
+    - title: Linux および Windows ゲストオペレーティングシステムでの移行後の修復
+      url: "/san-host/concept_post_transition_remediation_for_linux_and_windows_guest_operating_systems.html"
+    - title: 移行の修復後の ESXi ホストの推奨設定
+      url: "/san-host/concept_configure_recommended_settings_for_esxi_hosts.html"
+  - title: ESXi CLI を使用したデータストアでの CAW の有効化
+    url: "/san-host/task_enabling_caw_on_a_datastore_using_esxi_cli.html"
+- title: RHEL ホストの修復
+  url: "/san-host/concept_linux_host_remediation.html"
+  entries:
+  - title: Inventory Assessment Workbook からの移行前の情報収集
+    url: "/san-host/task_gathering_pretransition_information_from_inventory_assessment_workbook.html"
+    entries:
+    - title: Inventory Collect Tool の概要
+      url: "/san-host/concept_what_the_inventory_collect_tool_is.html"
+  - title: ファイルシステムのない RHEL DMMP デバイスの移行
+    url: "/san-host/concept_transitioning_rhel_dmmp_devices_without_file_systems.html"
+    entries:
+    - title: を使用した RHEL LUN の移行準備状況の確認 Inventory Assessment Workbook の作成
+      url: "/san-host/task_verifying_that_rhel_luns_are_ready_for_transition_using_inventory_assessment_workbook.html"
+    - title: を使用した RHEL 5 LUN の移行準備状況の確認 CLI を使用します
+      url: "/san-host/task_verifying_rhel_5_luns_are_ready_for_transition_using_cli.html"
+    - title: RHEL 6 DMMP デバイスの移行準備状況の確認 CLI を使用
+      url: "/san-host/task_verifying_rhel_6_ddmp_devices_are_ready_for_transition_using_cli.html"
+    - title: 前の RHEL ホスト上のファイルシステムのない DMMP デバイスのテスト コピーベースの移行のカットオーバーフェーズ
+      url: "/san-host/task_testing_dmmp_devices_on_rhel_before_cutover.html"
+    - title: Linux ホストの DMMP デバイス移行時のカットオーバーの準備 ファイルシステムを使用しない場合
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_linux_host_dmmp_device_without_file_system.html"
+    - title: 移行後の Linux ホストにおける 7-Mode LUN WWID の置き換え LUN
+      url: "/san-host/task_replacing_7_mode_wwids_on_linux_host_after_transition_of_luns.html"
+  - title: DMMP デバイス名を使用するマウントポイントを含む LUN の移行
+    url: "/san-host/concept_transitioning_luns_with_mount_points_using_dmmp_devices_names.html"
+    entries:
+    - title: DMMP デバイス名を使用するマウントポイントを含む RHEL LUN を準備しています Inventory Assessment Workbook
+        を使用した移行
+      url: "/san-host/task_preparing_rhel_luns_transition_using_inventory_assessment_workbook.html"
+    - title: DMMP エイリアス名を使用するマウントポイントを含む RHEL LUN を準備しています CLI を使用した移行の場合
+      url: "/san-host/task_preparing_rhel_luns_for_transition_using_the_cli.html"
+    - title: 前の RHEL ホスト上のファイルシステムを搭載した DMMP デバイスのテスト コピーベースの移行のカットオーバーフェーズ
+      url: "/san-host/task_testing_dmmp_devices_with_file_systems_on_rhel_hosts_before_cutover_phase.html"
+    - title: マウントを含む LUN 移行時のカットオーバーフェーズの準備 Linux ホストで DMMP デバイス名を使用するポイントです
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.html"
+    - title: 移行後の Linux ホストへの DMMP デバイスの再マウント
+      url: "/san-host/task_remounting_dmmp_devices_on_linux_hosts_after_transition.html"
+  - title: DMMP エイリアス名を使用するマウントポイントを含む LUN の移行
+    url: "/san-host/concept_transitioning_luns_with_mount_points_using_dmmp_alias_names.html"
+    entries:
+    - title: DMMP エイリアス名を使用するマウントポイントを含む RHEL LUN を準備しています CLI を使用した移行の場合
+      url: "/san-host/task_preparing_rhel_luns_for_transition_using_the_cli.html"
+    - title: DMMP エイリアス名を使用するマウントポイントを含む LUN のテスト コピーベースの移行のカットオーバーフェーズ前の RHEL ホスト
+      url: "/san-host/task_testing_luns_with_mounts_using_dmmp_aliases_on_rhel_hosts_before_cutover.html"
+    - title: マウントを含む LUN 移行時のカットオーバーフェーズの準備 Linux ホストで DMMP デバイス名を使用するポイントです
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.html"
+    - title: DMMP エイリアス名を使用するマウントポイントを含む LUN をに再マウントしています 移行後の Linux ホスト
+      url: "/san-host/task_remounting_luns_with_mount_point_using_dmmp_alias_name_on_linux_hosts_after_transition.html"
+  - title: LVM デバイス上の Linux ホストファイルシステムの移行
+    url: "/san-host/concept_transitioning_linux_host_file_systems_on_lvm_devices.html"
+    entries:
+    - title: の前に、 LVM デバイス上のファイルシステムを搭載した LUN のテストを行います コピーベースの移行のカットオーバーフェーズ
+      url: "/san-host/task_testing_luns_with_file_systems_on_lvm_devices_before_cutover_phase.html"
+    - title: Linux ホストファイルシステム移行時のカットオーバーフェーズの準備 LVM デバイス
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_linux_host_file_systems_on_lvm_devices.html"
+    - title: 移行後の Linux ホストへの論理ボリュームのマウント
+      url: "/san-host/task_mounting_logical_volumes_on_linux_host_after_transition.html"
+  - title: SAN ブート LUN を移行します
+    url: "/san-host/concept_transition_of_san_boot_luns.html"
+    entries:
+    - title: 移行対象としてサポートされる SAN ブート LUN のタイプ
+      url: "/san-host/concept_types_of_san_boot_luns_supported_for_transition.html"
+    - title: FC または FCoE SAN ブート LUN の移行準備をしています RHEL ホスト
+      url: "/san-host/task_preparing_for_transition_of_fc_or_fcoe_san_boot_luns.html"
+    - title: iSCSI SAN ブート LUN の移行準備をしています
+      url: "/san-host/task_preparing_for_transition_of_iscsi_san_boot_luns.html"
+    - title: カットオーバー前の RHEL ホスト上の SAN ブート LUN のテスト コピーベースの移行のフェーズ
+      url: "/san-host/task_testing_san_boot_luns_on_rhel_hosts_before_cutover.html"
+    - title: SAN ブート LUN 移行時のカットオーバーフェーズの準備
+      url: "/san-host/concept_preparing_for_cutover_when_transitioning_san_boot_luns.html"
+    - title: 移行後に SAN ブート LUN を検出します
+      url: "/san-host/task_discovering_san_boot_luns_after_transition.html"
+- title: Windows ホストの修正
+  url: "/san-host/concept_windows_host_remediation.html"
+  entries:
+  - title: Windows ホストでの移行準備
+    url: "/san-host/task_preparing_windows_hosts_for_transition.html"
+    entries:
+    - title: Inventory Collect Tool の概要
+      url: "/san-host/concept_what_the_inventory_collect_tool_is.html"
+  - title: カットオーバーフェーズ前の Windows ホスト上の移行した LUN のテスト
+    url: "/san-host/task_testing_transitioned_luns_on_windows_hosts_before_cutover.html"
+  - title: Windows ホスト移行時のカットオーバーフェーズの準備
+    url: "/san-host/task_preparing_for_cutover_when_transitioning_windows_hosts.html"
+  - title: 移行後に Windows ホストをオンラインにします
+    url: "/san-host/task_bringing_windows_hosts_online_after_transition.html"
+  - title: SAN ホストを ONTAP に移行する際の例外と既知の問題
+    url: "/san-host/concept_exceptions_and_known_issues_when_transitioning_san_hosts_to_clustered_ontap.html"
+- title: HP-UX ホストの修復
+  url: "/san-host/concept_hp_ux_host_remediation.html"
+  entries:
+  - title: ファイルシステムを搭載した HP-UX ホスト LUN の移行
+    url: "/san-host/concept_transitioning_hp_ux_host_luns_with_file_systems.html"
+    entries:
+    - title: ファイルシステムを搭載した HP-UX ホスト LUN の移行準備
+      url: "/san-host/task_preparing_to_transition_hp_ux_host_luns_with_file_systems.html"
+    - title: カットオーバーフェーズ前の HP-UX ホスト上のデータ LUN のテスト コピーベースの移行の数
+      url: "/san-host/task_testing_data_luns_on_hp_ux_hosts_before_cutover.html"
+    - title: HP-UX ホストデータ LUN 移行時のカットオーバーフェーズの準備 ファイルシステムで実現できます
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_hp_ux_host_data_luns_with_file_systems.html"
+    - title: 移行後のファイルシステムを搭載した HP-UX ホスト LUN のマウント
+      url: "/san-host/task_mounting_hp_ux_host_luns_with_file_systems_after_transition.html"
+  - title: FC / FCoE 構成の HP-UX ホストの SAN ブート LUN の移行
+    url: "/san-host/concept_transitioning_hp_ux_host_san_boot_luns_with_fc_fcoe_configurations.html"
+    entries:
+    - title: を搭載した HP-UX ホスト上の SAN ブート LUN の移行準備 FC 構成
+      url: "/san-host/task_preparing_to_transition_san_boot_luns_on_hp_ux_hosts_with_fc_configurations.html"
+    - title: の前に、 HP-UX ホスト上の移行した SAN ブート LUN のテストを行いました コピーベースの移行のカットオーバーフェーズ
+      url: "/san-host/task_testing_transitioned_san_boot_luns_on_hp_ux_hosts_before_cutover.html"
+    - title: SAN ブート LUN 移行時のカットオーバーフェーズの準備
+      url: "/san-host/concept_preparing_for_cutover_when_transitioning_san_boot_luns.html"
+    - title: SAN ブート LUN を用のプライマリブート LUN にします 移行後に HP-UX Emulex HBA を使用します
+      url: "/san-host/task_making_a_san_boot_lun_primary_for_hp_ux_emulex_hbas_after_transition.html"
+    - title: SAN ブート LUN を用のプライマリブート LUN にします 移行後の HP-UX QLogic HBA
+      url: "/san-host/task_making_san_boot_lun_primary_boot_lun_for_hp_ux_qlogic_hbas_after_transition.html"
+- title: AIX ホストの修復
+  url: "/san-host/concept_aix_host_remediation.html"
+  entries:
+  - title: FC / FCoE を使用する AIX ホスト上の SAN ブート LUN の移行 設定
+    url: "/san-host/concept_transition_of_san_boot_luns_on_aix_hosts_with_fc_fcoe_configurations.html"
+    entries:
+    - title: が搭載された AIX ホスト上の SAN ブート LUN の移行準備 FC / FCoE 構成
+      url: "/san-host/task_preparing_to_transition_san_boot_luns_on_aix_hosts_with_fc_fcoe_configurations.html"
+    - title: 前に AIX ホスト上の移行した SAN ブート LUN をテストします コピーベースの移行のカットオーバーフェーズ
+      url: "/san-host/task_testing_transitioned_san_boot_luns_on_aix_hosts_before_cutover.html"
+    - title: FC / FCoE 構成の AIX ホスト移行時のカットオーバーフェーズの準備
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_aix_hosts_with_fc_fcoe_configurations.html"
+    - title: FC / FCoE を使用した AIX ホスト上の SAN ブート LUN からのブート 移行後の構成
+      url: "/san-host/task_booting_from_san_boot_lun_on_aix_hosts_with_fc_fcoe_configurations_after_transition.html"
+  - title: ファイルシステムを搭載した AIX ホストデータ LUN の移行
+    url: "/san-host/concept_transitioning_aix_host_data_luns_with_file_systems.html"
+    entries:
+    - title: ファイルシステムを搭載した AIX ホストデータ LUN の移行準備
+      url: "/san-host/task_preparing_to_transition_aix_data_host_luns_with_file_systems.html"
+    - title: カットオーバーフェーズ前の AIX ホスト上の移行した LUN のテスト コピーベースの移行の数
+      url: "/san-host/task_testing_transitioned_luns_on_aix_hosts_before_cutover.html"
+    - title: AIX ホストデータ LUN 移行時のカットオーバーフェーズの準備 ファイルシステムで実現できます
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_aix_data_luns_with_file_systems.html"
+    - title: 移行後のファイルシステムを搭載した AIX ホストデータ LUN のマウント
+      url: "/san-host/task_mounting_aix_host_luns_with_file_systems_after_transition.html"
+- title: Solaris ホストの修復
+  url: "/san-host/concept_solaris_host_remediation.html"
+  entries:
+  - title: ZFS ファイルシステムを搭載した Solaris ホストデータ LUN の移行
+    url: "/san-host/concept_transitioning_solaris_host_data_luns_with_zfs_file_systems.html"
+    entries:
+    - title: ZFS ファイルを搭載した Solaris ホストデータ LUN の移行準備をしています システム
+      url: "/san-host/task_preparing_to_transition_solaris_host_data_luns_with_zfs_file_system.html"
+    - title: ZFS ファイルシステムを搭載した Solaris ホスト上のデータ LUN のテスト コピーベースの移行のカットオーバーフェーズ前
+      url: "/san-host/task_testing_data_luns_on_solaris_hosts_with_zfs_file_system_before_cutover.html"
+    - title: Solaris ホストデータ LUN 移行時のカットオーバーフェーズの準備 ZFS ファイルシステムでは
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_solaris_host_data_luns_with_zfs_file_systems.html"
+    - title: 移行後の ZFS ファイルシステムを搭載した Solaris ホスト LUN のマウント
+      url: "/san-host/task_mounting_solaris_host_luns_with_zfs_file_systems_after_transition.html"
+  - title: Sun Volume Manager を搭載した Solaris ホストデータ LUN の移行
+    url: "/san-host/concept_transitioning_solaris_host_data_luns_with_sun_volume_manager.html"
+    entries:
+    - title: Sun Volume Manager を搭載した Solaris ホスト LUN の移行準備
+      url: "/san-host/task_preparing_to_transition_solaris_host_data_luns_with_sun_volume_manager.html"
+    - title: Sun Volume Manager を搭載した Solaris ホスト上のデータ LUN のテスト コピーベースの移行のカットオーバーフェーズ前
+      url: "/san-host/task_testing_data_luns_on_solaris_hosts_with_sun_volume_manager_svm_before_cutover.html"
+    - title: Solaris ホストの Sun Volume 移行時のカットオーバーフェーズの準備 Manager データ LUN
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_solaris_host_sun_volume_manager_data_luns.html"
+    - title: 移行後の Solaris Volume Manager を搭載した Solaris ホスト LUN のマウント
+      url: "/san-host/task_mounting_solaris_host_luns_with_sun_volume_manager_after_transition.html"
+- title: 移行後の 7-Mode への LUN のロールバック
+  url: "/san-host/concept_rolling_back_luns_to_7_mode_after_transition.html"
+  entries:
+  - title: RHEL ホストにおける ONTAP LUN から 7-Mode LUN へのロールバック
+    url: "/san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_rhel_hosts.html"
+  - title: Windows ホストにおける ONTAP LUN から 7-Mode LUN へのロールバック
+    url: "/san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_windows_hosts.html"

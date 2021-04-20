@@ -1,0 +1,25 @@
+---
+permalink: san-host/concept_post_transition_remediation_for_linux_and_windows_guest_operating_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, remediation, linux, windows, guest, operating, systems 
+summary: Data ONTAP 7-Mode から clustered Data ONTAP に LUN を移行したあとで、 Linux および Windows ゲストオペレーティングシステムでは追加の修復が必要になる場合があります。 
+---
+= Linux および Windows ゲストオペレーティングシステムでの移行後の修復
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode から clustered Data ONTAP に LUN を移行したあとで、 Linux および Windows ゲストオペレーティングシステムでは追加の修復が必要になる場合があります。
+
+コピーベースの移行の場合は、 7MTT でストレージカットオーバー処理を完了したあとに以下の手順を実行します。コピーフリーの移行の場合は、 7MTT でデータと設定のインポート処理が完了したあとに以下の手順を実行します。
+
+* Linux の場合
++
+マウント・ポイントが /etc/fstab ファイルに定義されている場合は 'LUN （ `m ount-a ’）をマウントする必要があります
+
+* Windows の場合
++
+VM にフェイルオーバークラスタが設定されている場合は、フェイルオーバークラスタマネージャからディスクをオンラインにする必要があります。
+
+

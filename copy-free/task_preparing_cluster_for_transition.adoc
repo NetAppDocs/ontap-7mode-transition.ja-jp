@@ -1,0 +1,96 @@
+---
+permalink: copy-free/task_preparing_cluster_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, cluster, prepare 
+summary: 移行の前に、クラスタが 7-Mode Transition Tool と通信できるように準備し、 SVM で移行準備をする必要があります。データアグリゲートがあるターゲット HA ペアに移行できます。 
+---
+= クラスタで移行準備をします
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行の前に、クラスタが 7-Mode Transition Tool と通信できるように準備し、 SVM で移行準備をする必要があります。データアグリゲートがあるターゲット HA ペアに移行できます。
+
+* クラスタをセットアップし、ターゲットクラスタノードをクラスタに追加する必要があります。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["ソフトウェアのセットアップ"]
+
+* SVM を作成して、 IPspace に割り当てる必要があります。
+* 7-Mode ディスクシェルフは、データアグリゲートおよびボリュームがすでに存在するターゲット HA ペアに移行できます。
++
+2 ノードクラスタの場合は、ターゲット SVM のルートボリュームをホストするデータアグリゲートが必要です。4 つ以上のノードで構成されるクラスタの場合は、 SVM のルートボリュームは移行対象のノードまたはクラスタ内のその他のノードでホストできます。
+
+
+
+移行中にクラスタを別のバージョンの ONTAP にアップグレードしないでください。
+
+
+NOTE: 必要に応じて、クラスタを同じ ONTAP バージョンのパッチリリースにアップグレードすることができます。
+
+. 管理ホストから、クラスタ管理 LIF を使用してクラスタにアクセスできることを確認します。
++
+'*ssh_username@cluster_mgmt_ip_*
+
+. クラスタで SSLv3 または FIPS を有効にします。
++
+|===
+| 有効にする項目 | 入力するコマンド 
+
+
+ a| 
+SSLv3
+ a| 
+*system services web modify -sslv3-enabled true *
+
+
+
+ a| 
+FIPS 140-2 準拠
+ a| 
+*system services web modify -ssl-fips-enabled true *
+
+|===
++
+FIPS 140-2 準拠を有効にすると、 SSLv3 は無効になります。ONTAP では、 FIPS 140-2 への準拠が有効な場合、 SSLv3 を有効にすることはできません。FIPS 140-2 を有効にしたあとで無効にしても、 SSLv3 は無効なままです。
+
++
+
+IMPORTANT: SSLv3 にはセキュリティ上の脆弱性があるため、 FIPS を有効にすることを推奨します。
+
+. クラスタ管理 LIF で HTTPS が許可されていることを確認します。
++
+.. クラスタ管理 LIF のファイアウォールポリシーを表示します。 +`* network interface show -vserver _svm_name --lif cluster_mgmt_lif_-fields firewall-policy * '
++
+[listing]
+----
+cluster1::> network interface show -vserver cluster1 -lif cluster_mgmt -fields firewall-policy
+vserver lif          firewall-policy
+------- ------------ ---------------
+cluster1  cluster_mgmt mgmt
+----
+.. クラスタ管理 LIF に関連付けられたファイアウォールポリシーで HTTPS アクセスが許可されていることを確認します。 +`* system services firewall policy show -policy mgmt *`
++
+[listing]
+----
+cluster1::> system services firewall policy show -policy mgmt
+Policy           Service    Action IP-List
+---------------- ---------- ------ --------------------
+mgmt
+                 dns        allow  0.0.0.0/0, ::/0
+                 http       allow  0.0.0.0/0, ::/0
+                 https      allow  0.0.0.0/0, ::/0
+                 ndmp       allow  0.0.0.0/0, ::/0
+                 ntp        allow  0.0.0.0/0, ::/0
+                 rsh        deny   0.0.0.0/0, ::/0
+                 snmp       allow  0.0.0.0/0, ::/0
+                 ssh        allow  0.0.0.0/0, ::/0
+                 telnet     deny   0.0.0.0/0, ::/0
+9 entries were displayed.
+----
+
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["システム管理"]
+
+

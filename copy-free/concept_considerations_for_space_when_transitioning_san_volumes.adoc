@@ -1,0 +1,25 @@
+---
+permalink: copy-free/concept_considerations_for_space_when_transitioning_san_volumes.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, space, considerations, san, volumes 
+summary: 移行中にボリュームに十分なスペースを確保する必要があります。移行プロセスでは、データや Snapshot コピーの格納に必要なスペースに加えて、一部のファイルシステムメタデータの更新用に 1 つの LUN につき 1MB のスペースが必要です。 
+---
+= SAN ボリュームを移行する際のスペースに関する考慮事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行中にボリュームに十分なスペースを確保する必要があります。移行プロセスでは、データや Snapshot コピーの格納に必要なスペースに加えて、一部のファイルシステムメタデータの更新用に 1 つの LUN につき 1MB のスペースが必要です。
+
+7-Mode ボリュームに対して「 d f -h 」コマンドを実行すると、ボリューム内の各 LUN に 1MB の空きスペースがあるかどうかを確認できます。また、ホストが休止されるまでにボリュームへの書き込みが予想されるデータ量に相当する空きスペースも必要です。十分な空きスペースがない場合は、必要なスペースを 7-Mode ボリュームに追加する必要があります。
+
+ボリュームのスペースが不足しているためにインポートフェーズで移行が失敗した場合は、「 LUN.vol.proc.fail.no.space: ： Processing for LUNs in volume vol_name failed due to lack of space. 」という EMS メッセージが生成されます。
+
+スペースリザーブ LUN を含むボリュームがある場合は、ボリュームのサイズを LUN 1 つあたり 1MB 増やしてもスペースが十分に確保されない可能性があります。この場合、ボリュームの Snapshot リザーブと同じサイズのスペースを追加する必要があります。ボリュームにスペースを追加したら、「 lun transition start 」コマンドを使用して LUN を移行できます。
+
+* 関連情報 *
+
+xref:task_recovering_from_a_failed_lun_transition.adoc[LUN 移行が失敗した場合のリカバリ]
+
+http://docs.netapp.com/ontap-9/index.jsp["ネットアップのマニュアル： ONTAP 9"]

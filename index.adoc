@@ -1,0 +1,15 @@
+---
+layout: astra 
+sidebar: sidebar 
+permalink: index.html 
+lead: The 7-Mode Transition documentation includes information to help you install and setup the 7-Mode Transition Tool, transition data using SnapMirror commands, perform a copy-base or copy-free transition, collect information for transition, and complete pre- and post transition procedures for SAN hosts. 
+summary: 7-Mode Transition Tool のインストールとセットアップ、 SnapMirror コマンドを使用した移行データ、 Copy-Based Transition または Copy-Free Transition の実行、移行に関する情報の収集、 SAN ホストに関する移行前 / 移行後の手順の完了に役立つ情報が記載されています。 
+---
+= 7-Mode Transition Documentation 』を参照してください
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

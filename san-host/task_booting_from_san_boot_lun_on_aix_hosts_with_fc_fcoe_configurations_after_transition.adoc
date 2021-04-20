@@ -1,0 +1,64 @@
+---
+permalink: san-host/task_booting_from_san_boot_lun_on_aix_hosts_with_fc_fcoe_configurations_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, booting, san, lun, aix, host, fc, fcoe, configuration 
+summary: FC または FCoE 構成の AIX ホスト上の SAN ブート LUN を移行した場合、移行後に特定の手順を実行して SAN ブート LUN からホストをブートする必要があります。 
+---
+= FC / FCoE を使用した AIX ホスト上の SAN ブート LUN からのブート 移行後の構成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC または FCoE 構成の AIX ホスト上の SAN ブート LUN を移行した場合、移行後に特定の手順を実行して SAN ブート LUN からホストをブートする必要があります。
+
+コピーベースの移行の場合は、 7-Mode Transition Tool でストレージカットオーバー処理を完了したあとに以下の手順を実行する必要があります。AIX ホストでは、コピーフリーの移行はサポートされていません。
+
+. ハードウェア管理コンソール（ HMC ）にログインし、 SMS メニューでホストを起動します。
+. ホストを選択します。
+. [ * オペレーション * （ Operations * ） ]>[ * 活動化 * （ * Activate * ） ]>[ * プロファイル * （ * Profile * ）
+. [ 詳細設定 ] タブをクリックします。
+. *SMS* を選択し、 *OK* をクリックします。
+. SMS メインメニューで「 *5* 」と入力して、 *5 を選択します。起動オプション * を選択します。
+. 「 * 1 」を入力して * 1 を選択します。[ デバイスのインストール / 起動 *] を選択します。
+. *5 を選択するには '*5*' と入力しますすべてのデバイスを表示 * 。
+. ブートに使用する ONTAP SAN ブート LUN のデバイス番号を入力します。
++
+次の例では、目的の LUN はオプション 5 です。
+
++
+[listing]
+----
+Select Device
+Device 	Current 	Device
+Number		Position	Name
+1.   -   PCIe2 4-port 1GbE Adapter
+     ( loc=U78CB.001.WZS062Y-P1-C12-T1 )
+2.   -   PCIe2 4-port 1GbE Adapter
+     ( loc=U78CB.001.WZS062Y-P1-C12-T2 )
+3.   -   PCIe2 4-port 1GbE Adapter
+     ( loc=U78CB.001.WZS062Y-P1-C12-T3 )
+4.   -   PCIe2 4-port 1GbE Adapter
+     ( loc=U78CB.001.WZS062Y-P1-C12-T4 )
+5.   -   107 GB		FC Harddisk, part=2 (AIX 7.1.0)
+     ( loc=U78CB.001.WZS062Y-P1-C7-T1-W232200a09830ca3a-L0000000000000000 )
+6.   -   107 GB		FC Harddisk, part=2 (AIX 7.1.0)
+     ( loc=U78CB.001.WZS062Y-P1-C7-T2-W232200a09830ca3a-L0000000000000000 )
+---------------------------------------------------------------
+Navigation keys:
+M = return to Main Menu  N = Next page of list
+ESC key = return to previous screen   X = eXit System Management Services
+---------------------------------------------------------------
+Type menu item number and press Enter or select Navigation keys: 5
+----
+. 「 * 2 」を入力して、「 * 2 」を選択します。Normal Mode Boot* 。
+. SMS メニューを終了するには、「 * 1 」と入力します。
+. オペレーティングシステムがブートするまで待ちます。
+. LUN パス名を表示します。
++
+「 * sanlun lun show * 」と表示されます
+
++
+mode カラムの出力は '7`' から C` に変更されているはずです
+
+

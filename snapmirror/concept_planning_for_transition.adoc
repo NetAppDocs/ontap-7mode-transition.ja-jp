@@ -1,0 +1,37 @@
+---
+permalink: snapmirror/concept_planning_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, plan, clustered, volumes, snapmirror 
+summary: 7-Mode ボリュームから clustered ONTAP ボリュームにデータをコピーする前に、どのような場合に SnapMirror を使用して移行を実行するかを理解し、サポートされている 7-Mode のバージョンと移行可能なボリュームについて確認する必要があります。また、移行に関する考慮事項も把握しておく必要があります。 
+---
+= 移行の計画
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode ボリュームから clustered ONTAP ボリュームにデータをコピーする前に、どのような場合に SnapMirror を使用して移行を実行するかを理解し、サポートされている 7-Mode のバージョンと移行可能なボリュームについて確認する必要があります。また、移行に関する考慮事項も把握しておく必要があります。
+
+移行に関する問題が発生した場合は、移行先リリースの _Release Notes を確認しておく必要があります。
+
+https://library.netapp.com/ecmdocs/ECMLP2492508/html/frameset.html["ONTAP 9 リリースノート"]
+
+7-Mode ボリュームと clustered ONTAP ボリュームの間の SnapMirror 関係は、次のリリースでサポートされています。
+
+* ONTAP 9.8 以降
+* ONTAP 9.7P2 以降の 9.7 リリース
+* ONTAP 9.6P7 以降 9.6 リリース
+* ONTAP 9.0 から ONTAP 9.5
+
+
+SnapMirror を使用してデータを移行できるのは、次のような場合です。
+
+* 7-Mode Transition Tool で移行の要件がサポートされていない場合。たとえば、 7-Mode Transition Tool には Windows ホストまたは Linux ホストが必要ですが、環境によっては使用できない場合があります。
++
+* 推奨事項： * 7-Mode Transition Tool は、移行が可能かどうかを検証する事前チェック機能を備えており、プロトコル、ネットワーク、サービスのすべての設定がデータとともに移行されるため、 7-Mode ボリュームの移行にはこのツールを使用することを推奨します。
+
++
+SnapMirror コマンドを使用して 7-Mode ボリュームから clustered ONTAP ボリュームにデータを移行する前に、 7-Mode Transition Tool をインストールおよび使用して、移行の事前チェックを実行できます。
+
+* クラスタと Storage Virtual Machine （ SVM ）を構成済みで、 7-Mode ボリュームから clustered ONTAP ボリュームへの移行が必要なのはデータのみの場合。
+

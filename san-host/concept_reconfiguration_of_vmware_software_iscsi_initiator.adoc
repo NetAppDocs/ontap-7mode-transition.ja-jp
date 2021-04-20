@@ -1,0 +1,23 @@
+---
+permalink: san-host/concept_reconfiguration_of_vmware_software_iscsi_initiator.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, reconfiguration, vmware, software, iscsi, initiator 
+summary: VMware ソフトウェア iSCSI イニシエータを搭載した Data ONTAP 7-Mode システムに ESXi ホストがアクセスしていた場合は、 7-Mode から clustered Data ONTAP への移行後に ESXi ホストで VMware ソフトウェア iSCSI イニシエータを再設定し、新しい clustered Data ONTAP ターゲットを検出できるようにする必要があります。 
+---
+= 移行後の VMware ソフトウェア iSCSI イニシエータの再設定
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware ソフトウェア iSCSI イニシエータを搭載した Data ONTAP 7-Mode システムに ESXi ホストがアクセスしていた場合は、 7-Mode から clustered Data ONTAP への移行後に ESXi ホストで VMware ソフトウェア iSCSI イニシエータを再設定し、新しい clustered Data ONTAP ターゲットを検出できるようにする必要があります。
+
+コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を開始する前に、 VMware ソフトウェア iSCSI イニシエータを再設定する必要があります。コピーフリーの移行の場合は、 7MTT で 7-Mode システムのエクスポートおよび停止処理を開始する前に、 VMware ソフトウェア iSCSI イニシエータを再設定する必要があります。
+
+再設定の際には、新しい clustered Data ONTAP ターゲットで使用されている iSCSI IP および IQN を取得する必要があります。ターゲットの IP サブネットが変わった場合は、ホスト iSCSI イニシエータポートでも対応する IP サブネットの変更が必要です。
+
+VMware ESXi ホスト上のソフトウェア iSCSI イニシエータに対して必要な変更を行うには、 _ VMware vSphere ESXi5.x Storage Guide _ を参照してください。
+
+* 関連情報 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["システム管理"]

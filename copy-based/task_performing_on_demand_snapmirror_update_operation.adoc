@@ -1,0 +1,44 @@
+---
+permalink: copy-based/task_performing_on_demand_snapmirror_update_operation.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, perform, demand, snapmirror, updates 
+summary: カットオーバー処理の前にすべてのボリュームに対して SnapMirror 差分更新を実行し、カットオーバーにかかる時間を短縮できます。 
+---
+= SnapMirror 更新をオンデマンドで実行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+カットオーバー処理の前にすべてのボリュームに対して SnapMirror 差分更新を実行し、カットオーバーにかかる時間を短縮できます。
+
+* ベースラインデータコピーのあと、およびカットオーバー前処理のあとに差分データ転送がスケジュールされている場合は、 SnapMirror 更新をオンデマンドで実行できません。
+* これはオプションのタスクです。
++
+.. Update Now * をクリックして、 SnapMirror の手動更新を実行します。
++
+Transition Update （移行の更新）ダイアログボックスが表示され、この処理の SnapMirror 転送数およびスロットル制限を選択できます。
+
+.. SnapMirror データコピー処理の数とスロットル制限を指定するには、「この処理の同時 SnapMirror 転送数とスロットル制限をカスタマイズする」チェックボックスを選択します。
++
+... 移行中に実行する SnapMirror 同時転送の最大数を入力します。
+... ツールが SnapMirror 転送に使用できる使用可能なストリームの割合を入力します。
++
+デフォルトでは、実行可能な Volume SnapMirror 転送の 50% が使用されます。
+
+... スロットル制限を入力して、最大帯域幅を指定します。
++
+デフォルトでは、構成の移行には最大スロットルが使用されます。
+
+
+
+.. [* Continue （続行） ] をクリックします
+
+
+
+
+* 関連情報 *
+
+xref:task_starting_baseline_data_copy.adoc[ベースラインデータコピーを開始しています]
+
+xref:task_creating_schedule_for_snapmirror_transfers.adoc[SnapMirror 転送のデータコピースケジュールを作成します]

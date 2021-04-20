@@ -1,0 +1,56 @@
+---
+permalink: san-host/task_testing_san_boot_luns_on_rhel_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, boot, lun, rhel, cutover, copy, based 
+summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Red Hat Enterprise Linux \ （ RHEL \ ）ホストのコピーベースの移行を実行する場合は、カットオーバーフェーズの前に移行した ONTAP SAN ブート LUN をテストすることができます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
+---
+= カットオーバー前の RHEL ホスト上の SAN ブート LUN のテスト コピーベースの移行のフェーズ
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Red Hat Enterprise Linux （ RHEL ）ホストのコピーベースの移行を実行する場合は、カットオーバーフェーズの前に移行した ONTAP SAN ブート LUN をテストすることができます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。
+
+新しい ONTAP LUN をテスト用ホストにマッピングして、 LUN を移行できる状態にしておく必要があります。
+
+テスト用ホストとソースホスト間のハードウェアパリティを維持する必要があります。
+
+* コピーベースの移行の場合は、 7-Mode Transition Tool でストレージカットオーバー処理を完了したあとに以下の手順を実行する必要があります。
+* コピーフリーの移行の場合は、 7-Mode Transition Tool でデータと設定のインポート処理が完了したあとに以下の手順を実行する必要があります。
+
+
+.手順
+. FC 構成と FCoE 構成の場合のみ：
++
+.. HBA BIOS 設定モードに切り替えます。
+.. [Rescan] を選択して、ホスト上の ONTAP SAN ブート LUN を検出します。
+.. 7-Mode ブート LUN ID を削除します。
+.. HBA BIOS に ONTAP ブート LUN ID を追加します。
+.. HBA BIOS 設定モードを終了し、ホストをリブートします。
+
+
+. ホストのリブート後、テスト用ホストで IP アドレスとホスト名を変更します。
+. 新しい ONTAP LUN が検出されたことを確認します。
++
+「 * sanlun lun show * 」と表示されます
+
+. ONTAP LUN 用に DMMP デバイスを設定します。
++
+*multipath -ll *
+
+. 必要に応じてテストを実行します。
+. テスト用ホストをシャットダウンします。
++
+*shutdown-h-t0 now *`
+
+. 7-Mode Transition Tool のユーザインターフェイス（ UI ）で、 * テストの完了 * をクリックします。
+
+
+ONTAP LUN をソースホストに再マッピングする場合は、ソースホストをカットオーバーフェーズ用に準備する必要があります。ONTAP LUN をテスト用ホストにマッピングしたままにする場合、テスト用ホストでこれ以上の手順を実行する必要はありません。
+
+* 関連情報 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[Inventory Assessment Workbook からの移行前の情報収集]
+
+xref:concept_preparing_for_cutover_when_transitioning_san_boot_luns.adoc[SAN ブート LUN 移行時のカットオーバーフェーズの準備]

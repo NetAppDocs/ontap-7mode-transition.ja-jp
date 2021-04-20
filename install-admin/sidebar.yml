@@ -1,0 +1,49 @@
+---
+section: install-admin
+title: 7-Mode Transition Tool のインストールと管理
+url: "/install-admin/index.html"
+entries:
+- title: 7-Mode Transition Tool を使用して、 clustered ONTAP に移行する
+  url: "/install-admin/concept_transition_to_clustered_ontap_using_7mtt.html"
+  entries:
+  - title: ONTAP のターゲットリリースは 7-Mode Transition Tool でサポートされます
+    url: "/install-admin/concept_ontap_target_releases_supported_by_7mtt.html"
+  - title: コピーフリーの移行とコピーベースの移行の比較
+    url: "/install-admin/concept_comparison_of_copy_free_transition_and_copy_based_transition.html"
+  - title: Windows および Linux で使用できるインターフェイスと移行機能
+    url: "/install-admin/reference_interfaces_and_transition_capabilities_available_on_windows_and_linux.html"
+- title: Windows での 7-Mode Transition Tool のインストールまたはアンインストール システム
+  url: "/install-admin/concept_installing_and_uninstalling_7mtt.html"
+  entries:
+  - title: Windows に 7-Mode Transition Tool をインストールするためのシステム要件 システム
+    url: "/install-admin/concept_system_requirements_for_7mtt_on_windows.html"
+  - title: Windows システムへの 7-Mode Transition Tool のインストール
+    url: "/install-admin/task_installing_7mtt.html"
+  - title: Administrators グループに属していないユーザのログインの有効化
+    url: "/install-admin/task_enabling_login_for_users_not_part_of_administrator_group.html"
+  - title: 7-Mode Transition Tool へのログイン
+    url: "/install-admin/task_logging_in_to_tool.html"
+  - title: Windows システムでの 7-Mode Transition Tool のアンインストール
+    url: "/install-admin/task_uninstalling_7mtt.html"
+- title: Linux での 7-Mode Transition Tool のインストールまたはアンインストール （コピーベースの移行のみ）
+  url: "/install-admin/concept_installing_and_uninstalling_7mtt_on_linux.html"
+  entries:
+  - title: Linux で 7-Mode Transition Tool をインストールするためのシステム要件
+    url: "/install-admin/concept_system_requirements_for_7_mode_transition_tool_on_linux.html"
+  - title: Linux への 7-Mode Transition Tool のインストール
+    url: "/install-admin/task_installing_7_mode_transition_tool_on_linux.html"
+  - title: Linux での 7-Mode Transition Tool のアンインストール
+    url: "/install-admin/task_uninstalling_7_mode_transition_tool_on_linux.html"
+- title: 7-Mode Transition Tool の構成オプションの変更
+  url: "/install-admin/task_modifying_default_configuration_settings_of_7mtt.html"
+- title: 問題のトラブルシューティング
+  url: "/install-admin/concept_troubleshooting_web_interface_issues.html"
+  entries:
+  - title: OS との互換性エラーでツールのインストールが失敗します
+    url: "/install-admin/reference_tool_installation_fails_with_incompatible_os_error.html"
+  - title: 7-Mode Transition Tool のインストールまたはアンインストールがブロックされます
+    url: "/install-admin/reference_installation_or_uninstallation_of_7mtt_is_blocked.html"
+  - title: Windows で 7-Mode Transition Tool の再インストールまたはアップグレードが失敗する システム
+    url: "/install-admin/reference_reinstalling_or_upgrading_7mtt_fails_on_windows_system.html"
+  - title: ツールのインストール中に Windows のプログラム互換性アシスタントから通知が表示される
+    url: "/install-admin/reference_windows_compatibility_assistant_notification_displayed_while_installing.html"

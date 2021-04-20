@@ -1,0 +1,17 @@
+---
+permalink: san-host/concept_what_the_inventory_collect_tool_is.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, inventory, collect, tool 
+summary: Inventory Collect Tool （ ICT ）は、 7-Mode ストレージコントローラ、コントローラに接続されたホスト、およびホストで実行されているアプリケーションに関する設定情報とインベントリ情報を収集して、システムの移行準備状況を評価するためのスタンドアロンユーティリティです。ICT を使用して、移行に必要な LUN および設定に関する情報を生成できます。 
+---
+= Inventory Collect Tool の概要
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Inventory Collect Tool （ ICT ）は、 7-Mode ストレージコントローラ、コントローラに接続されたホスト、およびホストで実行されているアプリケーションに関する設定およびインベントリ情報を収集して、システムの移行準備状況を評価するためのスタンドアロンユーティリティです。ICT を使用して、移行に必要な LUN および設定に関する情報を生成できます。
+
+ICT を使用すると、 _ Inventory Assessment Workbook とストレージシステムとホストシステムの設定の詳細が格納されたインベントリレポート XML ファイルが生成されます。
+
+ICT は、 ESXi 5.x 、 ESXi 6.x 、および Windows ホストで使用できます。

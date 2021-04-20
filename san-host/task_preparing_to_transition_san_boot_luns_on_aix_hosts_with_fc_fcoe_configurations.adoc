@@ -1,0 +1,42 @@
+---
+permalink: san-host/task_preparing_to_transition_san_boot_luns_on_aix_hosts_with_fc_fcoe_configurations.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, san, boot, lun, aix, host, fc, fcoe 
+summary: FC / FCoE 構成の AIX ホスト上の SAN ブート LUN を移行する前に、 AIX がインストールされている 7-Mode LUN の名前と、その LUN の SCSI デバイス名を記録しておく必要があります。 
+---
+= が搭載された AIX ホスト上の SAN ブート LUN の移行準備 FC / FCoE 構成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC / FCoE 構成の AIX ホスト上の SAN ブート LUN を移行する前に、 AIX がインストールされている 7-Mode LUN の名前と、その LUN の SCSI デバイス名を記録しておく必要があります。
+
+. Data ONTAP 7-Mode コントローラのコンソールから、 AIX 7.1 および AIX 6.1 オペレーティングシステムがインストールされている 7-Mode LUN 名を特定します。
++
+「 * lun show * 」と入力します
+
+. ホスト上の LUN の SCSI デバイス名を取得します。
++
+「 * sanlun lun show * 」と表示されます
+
++
+次の例では、移行 LUN は「 lun_sanboot_fas3170_aix04 」で、この LUN の SCSI デバイスは「 hdisk0 」です。
+
++
+[listing]
+----
+[04:02 AM root@822-aix03p1/]: sanlun lun show
+controller[7mode]/
+vserver[Cmode] lun-pathname
+---------------------------------------------------------------------
+fas3170-aix04  /vol/vol_fas3170_aix04_sanboot/lun_sanboot_fas3170_aix04
+kit            /vol/kit/kit_0
+kit            /vol/kit/kit_0
+filename	adapter	protocol	size		mode
+-------------------------------------
+hdisk0     fcs0       FCP      100g	  7
+hdisk1     fcs0       FCP      5g       C
+hdisk2     fcs0       FCP      5g       C
+----
+

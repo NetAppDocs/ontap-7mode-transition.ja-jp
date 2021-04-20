@@ -1,0 +1,32 @@
+---
+permalink: copy-based/concept_preparing_for_copy_based_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare 
+summary: 7-Mode から ONTAP へのデータコピー処理を開始する前に、マイグレーションの要件と制限事項を理解し、 7-Mode システムとクラスタで一定の作業を完了しておく必要があります。 
+---
+= Copy-Based Transition の準備をしています
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode から ONTAP へのデータコピー処理を開始する前に、マイグレーションの要件と制限事項を理解し、 7-Mode システムとクラスタで一定の作業を完了しておく必要があります。
+
+移行前に、次の要件が満たされていることを確認する必要があります。
+
+* ツールがインストールされているホストから 7-Mode システムと ONTAP システムに到達可能であること。
+* サポートされている Data ONTAP バージョンが 7-Mode システムで実行されている必要があります。
+* 7-Mode システムで SnapMirror のライセンスが有効になっていること。
+* 必要な機能ライセンスが 7-Mode システムにある場合は、それらのライセンスがクラスタにインストールされている必要があります。
+* NTP サーバが設定され、 7-Mode システムとクラスタの間で時刻が同期されている必要があります。
+* 7-Mode システムでの準備作業がすべて完了していること。
+* クラスタでの準備作業がすべて完了していること。
+
+
+* 関連情報 *
+
+xref:reference_transition_preparation_checklist.adoc[移行準備チェックリスト]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_v2.0%2F%2FTransitioned_Data_ONTAP_features["7MTT v2.0/Transitioned Data ONTAP の機能"]
+
+link:https://mysupport.netapp.com/matrix/imt.jsp?components=68128;&solution=1&isHWU&src=IMT["NetApp Interoperability Matrix Tool で確認できます"^]

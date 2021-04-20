@@ -1,0 +1,122 @@
+---
+permalink: copy-free/task_removing_disk_shelves_from_7_mode_and_connecting_to_cluster_nodes.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, disconnect, disk, shelves, connect, cluster, node 
+summary: 7-Mode ディスクシェルフをターゲットクラスタノードにケーブル接続する作業は手動で行います。ディスクシェルフのケーブル接続が完了したら、 Config Advisor を使用してケーブル接続を検証することを推奨します。その後、 7-Mode Transition Tool を使用してケーブル接続を検証します。ツールで実行されるチェックは、 Config Advisor で実行されるチェックの一部です。 
+---
+= ディスクシェルフを 7-Mode システムから切断して接続 クラスタノード
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode ディスクシェルフをターゲットクラスタノードにケーブル接続する作業は手動で行います。ディスクシェルフのケーブル接続が完了したら、 Config Advisor を使用してケーブル接続を検証することを推奨します。その後、 7-Mode Transition Tool を使用してケーブル接続を検証します。ツールで実行されるチェックは、 Config Advisor で実行されるチェックの一部です。
+
+ディスクシェルフの 7-Mode コントローラポートへの接続に関する情報を記録しておく必要があります。
+
+SAS ディスクシェルフを接続する際の考慮事項を確認しておく必要があります。
+
+* 四角形と円形の SAS ポートのケーブル接続に関するルールに従う必要があります。
+* IOM6 シェルフと IOM3 シェルフを同じスタックに配置することはできますが、 IOM タイプが異なるシェルフ間の移行は 1 回だけにします。
++
+たとえば、 IOM6e （コントローラ） -IOM6 （シェルフ） -IOM3 （シェルフ） -IOM3 （シェルフ） -IOM3 （シェルフ）はサポートされる構成ですが、IOM6e （コントローラ） -IOM3 （シェルフ） -IOM6 （シェルフ） -IOM3 （シェルフ）はサポートされません。
+
+
+
+.手順
+. 7-Mode HA ペアとターゲットクラスタノードのディスクシェルフ ID を確認します。
++
+.. シェルフ ID が重複している場合（ 7-Mode のディスクシェルフ ID がターゲットクラスタノードのディスクシェルフで使用されている場合）は、 ID を変更します。
++
+*** SAS ディスクシェルフの場合、有効なシェルフ ID は 00~99 です。
+*** SAS シェルフ ID は、 HA ペア内で一意であることが必要です。https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["『 SAS Disk Shelves Installation and Service Guide for DS4243 、 DS2246 、 DS4486 、 and DS4246 』を参照してください"]
+*** FC ディスクシェルフの場合、有効なシェルフ ID は 1~7 です。
+*** FC シェルフ ID は、各 FC ループ内で一意である必要があります。https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC および DS14mk4 FC ハードウェアサービスガイド"]
+
+
+.. ディスクシェルフの電源を再投入して、新しい ID を有効にします。
+
+
+. 7-Mode ディスクシェルフの電源をオフにします。
+. ターゲットクラスタノードで使用可能な追加のポートがあるかどうかに応じて、次のいずれかのオプションを選択します。
++
+|===
+| 状況 | 作業 
+
+
+ a| 
+追加のポートを使用してディスクシェルフを接続できます
+ a| 
+新しいスタック内のディスクシェルフを、マルチパス構成でターゲットクラスタノードに接続します。
+
+
+NOTE: ディスクシェルフを別のスタックに接続することを推奨します。7-Mode Transition Tool では、事前確認の実行時に、ターゲットクラスタノードで必要な数のポートを使用できるかどうかが検出されます。
+
+
+
+ a| 
+ポートを使用してディスクシェルフを接続することはできません
+ a| 
+次のいずれかを実行します。
+
+** 新しい拡張カードを追加し、新しいスタック内のディスクシェルフをマルチパス構成でターゲットクラスタノードに接続します。
++
+デスティネーションプラットフォームで拡張カードがサポートされていることを確認しておく必要があります。
+
+** ディスクシェルフをマルチパス構成で既存のスタックに接続します。
+
+
+|===
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["『 SAS Disk Shelves Installation and Service Guide for DS4243 、 DS2246 、 DS4486 、 and DS4246 』を参照してください"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280273["DiskShelf14mk2 AT ハードウェアサービスガイド"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC および DS14mk4 FC ハードウェアサービスガイド"]
+
+. ディスクシェルフの電源をオンにします。
++
+
+IMPORTANT: 次の手順に進む前に、 70 秒以上待機する必要があります。
+
+. Config Advisor を使用して接続を確認します。
++
+Config Advisor で特定されたケーブル接続の問題をすべて修正する必要があります。
+
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["ネットアップのダウンロード： Config Advisor"]
+
+. 7-Mode Transition Tool で、 * ケーブル接続を検証 * をクリックします。
++
+この処理に関する重要な考慮事項を示すメッセージが表示されます。
+
++
+* トラブルシューティング： * アグリゲートのディスクが不足している場合、アグリゲートはデグレード状態になり、ケーブル接続の検証が失敗します。不足しているディスクの数が許容範囲の場合は、 7-Mode Transition Tool CLI から次のコマンドを実行して、デグレードアグリゲートを使用して移行を続行できます。
+
++
+`*transition cft aggregate degraded-transition -p _project_name __ n 7--_mode_host_name ________-7-mode_aggregate_name - 私は * を認めます
+
++
+その後、ケーブル接続の検証処理を再実行して、移行を続行できます。アグリゲートが移行されたあとにこれらの RAID グループを再構築するには、ターゲットクラスタノードに十分な数のスペアディスクを確保する必要があります。
+
+. 続行するには、 [ はい ] をクリックします。
+. 処理の完了を待って次の手順を実行し、処理結果を保存してツールログを収集します。
++
+.. [ * CSV として保存 * （ Save as CSV * ） ] をクリックして、操作結果をファイルに保存します。
+.. ツールログの収集 * をクリックして、すべての移行ログファイルのバックアップを作成します。
++
+移行処理を実行するたびにログファイルを保存することを推奨します。
+
+.. [* 閉じる * ] をクリックします。
+
+
++
+処理の完了に時間がかかる場合は、 * バックグラウンドで実行 * をクリックすると、処理結果ウィンドウを終了できます。バックグラウンドで処理を実行している間は、プロジェクトを編集したり他のタスクを実行したりしないでください。その後、 [ 操作履歴（ Operation History ） ] タブで操作結果を表示できます。
+
+
+
+* 関連情報 *
+
+xref:task_gathering_cabling_information_for_transition.adoc[移行のためのケーブル接続情報の収集]

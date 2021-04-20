@@ -1,0 +1,70 @@
+---
+permalink: inventory-collect/concept_ontap_target_releases_supported_by_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, target, releases, supported, tool 
+summary: ONTAP 移行ターゲットクラスタがサポートされるかどうかは、使用する移行方法、コピーベースまたはコピーフリー、および 7-Mode Transition Tool のバージョンによって異なります。 
+---
+= ONTAP のターゲットリリースは 7-Mode Transition Tool でサポートされます
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 移行ターゲットクラスタがサポートされるかどうかは、使用する移行方法、コピーベースまたはコピーフリー、および 7-Mode Transition Tool のバージョンによって異なります。
+
+必ず最新の 7-Mode Transition Tool を参照してください link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["リリースノート"] サポートされるターゲットリリースと既知の問題に関する最新情報については、を参照してください。
+
+これらの ONTAP ターゲットリリースでは、コピーベースの移行がサポートされています。
+
+|===
+| 移行ターゲットの実行中のバージョン | 使用する 7-Mode Transition Tool のバージョン 
+
+
+ a| 
+ONTAP 9.8 以前のサポートされているリリース
+ a| 
+3.3.3
+
+
+
+ a| 
+ONTAP 9.7P2 以降 9.7 P リリース
+
+
+NOTE: それよりも前の 9.7 のリリースはサポートされません。
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.6P7 以降 9.6 P リリース
+
+
+NOTE: 9.6 よりも前のリリースはサポートされません。
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.5 以前の ONTAP 9 リリース
+ a| 
+3.3.2 または 3.3.1
+
+
+
+ a| 
+clustered Data ONTAP 8.1.4P4 以降の 8.x リリース
+ a| 
+3.3.2 または 3.3.1
+
+|===
+これらの ONTAP ターゲットリリースでは、 7-Mode Transition Tool 3.3 を使用したコピーフリーの移行がサポートされています。
+
+* ONTAP 9.4 以前の ONTAP 9 リリース。
+* clustered Data ONTAP 8.3.2 以降の 8.x リリース。
+
+
+
+NOTE: コピーフリー方式を使用して ONTAP 9.5 以降に移行する場合、 7-Mode Transition Tool を使用することはできません。そのためには、まず 7-Mode Transition Tool 3.3.1 を使用した ONTAP 9.4 に移行してから、クラスタを ONTAP 9.5 以降にアップグレードする必要があります。7-Mode Transition Tool 3.3.2 では、コピーフリーの移行はサポートされていません。

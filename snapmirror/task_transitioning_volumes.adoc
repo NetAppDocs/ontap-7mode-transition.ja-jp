@@ -1,0 +1,23 @@
+---
+permalink: snapmirror/task_transitioning_volumes.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, snapmirror, transition, volume, data, protection, relationship, stand, alone 
+summary: SnapMirror テクノロジを使用して、スタンドアロンボリューム、またはデータ保護関係（ Volume SnapMirror 関係）にあるボリュームを移行できます。 
+---
+= ボリュームを移行する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror テクノロジを使用して、スタンドアロンボリューム、またはデータ保護関係（ Volume SnapMirror 関係）にあるボリュームを移行できます。
+
+ノンストップオペレーション（ NDO ）処理（テイクオーバーやアグリゲートの再配置）が原因で、設定したスケジュールで実行中の更新が中断された場合は、 NDO 処理の完了後に更新が自動的に再開されます。
+
+LUN を含むスタンドアロンボリュームまたは Volume SnapMirror 関係を移行した場合は、 igroup を作成して LUN をマッピングする必要があります。その後、移行した clustered Data ONTAP ボリュームへのアクセスを設定する前に、必要な移行後のタスクをホスト上で実行する必要があります。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN ホストの移行および修復"]
+
+* 関連情報 *
+
+xref:task_transitioning_7_mode_volumes_using_snapmirror.adoc[SnapMirror を使用して 7-Mode ボリュームを移行する]

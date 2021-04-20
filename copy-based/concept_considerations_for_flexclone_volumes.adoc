@@ -1,0 +1,15 @@
+---
+permalink: copy-based/concept_considerations_for_flexclone_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, flexclone, volume 
+summary: FlexClone ボリュームを SVM に移行すると、クローンが親ボリュームからスプリットされ、 FlexVol ボリュームとしてデスティネーションクラスタに移行されます。その結果、移行プロセスでクローン階層と Storage Efficiency が失われます。 
+---
+= FlexClone ボリュームに関する考慮事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexClone ボリュームを SVM に移行すると、クローンが親ボリュームからスプリットされ、 FlexVol ボリュームとしてデスティネーションクラスタに移行されます。その結果、移行プロセスでクローン階層と Storage Efficiency が失われます。
+
+ターゲットクラスタで Data ONTAP 8.3 以前が実行されている場合は、 7-Mode から移行した Snapshot コピーから FlexClone ボリュームを作成することはできません。ボリュームを ONTAP に移行したあとに作成された新しい Snapshot コピーから作成してください。clustered Data ONTAP 8.3.1 以降では、 7-Mode から移行した Snapshot コピーから FlexClone ボリュームを作成できます。

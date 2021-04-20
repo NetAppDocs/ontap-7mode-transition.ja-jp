@@ -1,0 +1,23 @@
+---
+permalink: inventory-collect/concept_supported_configurations_for_generating_an_fc_zone_plan.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, supported, configuration, fc, zone, plan 
+summary: FC ゾーン計画の生成でサポートされる 7-Mode システム、ホスト、 FC スイッチ、およびクラスタの構成を理解しておく必要があります。移行後のクラスタのゾーンの設定には、この計画を使用する必要があります。 
+---
+= FC ゾーン計画の生成でサポートされる構成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC ゾーン計画の生成でサポートされる 7-Mode システム、ホスト、 FC スイッチ、およびクラスタの構成を理解しておく必要があります。移行後のクラスタのゾーンの設定には、この計画を使用する必要があります。
+
+データセンターの要件に応じて、 7-Mode システム（シングルコントローラまたは HA ペア）、ホスト、およびクラスタは同じファブリック内または異なるファブリックのスイッチに接続できます。
+
+次の図は、 7-Mode システム、ホスト、およびクラスタを同じファブリック内のスイッチに接続した場合の構成を示しています。
+
+image::../media/delete_me2_fc_zone_config1.gif[次の図は、 7-Mode を使用した構成を示しています システム,hosts,and cluster are connected to the switches in the same fabric]
+
+次の図は、 7-Mode システムとクラスタを異なるファブリックのスイッチに接続した場合の構成を示しています。
+
+image::../media/delete_me2_fc_zone_config2.gif[次の図は、 7-Mode を使用した構成を示しています システムとクラスタが異なるファブリックのスイッチに接続されています]

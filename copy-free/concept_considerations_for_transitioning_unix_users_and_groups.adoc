@@ -1,0 +1,43 @@
+---
+permalink: copy-free/concept_considerations_for_transitioning_unix_users_and_groups.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, netgroups, unix, users, groups 
+summary: ネットグループ構成は、 7-Mode の /etc/netgroup ファイルのサイズが 5MB 未満の場合にのみ移行されます。UNIX ユーザおよびグループは、 SVM 上の UNIX ユーザおよびグループの総数が、 ONTAP でのユーザとグループの制限を超えない場合にのみ移行されます。 
+---
+= ネットグループと UNIX ユーザおよびグループの移行に関する考慮事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ネットグループ構成は、 7-Mode の「 /etc/netgroup 」ファイルのサイズが 5MB 未満の場合にのみ移行されます。UNIX ユーザおよびグループは、 SVM 上の UNIX ユーザおよびグループの総数が、 ONTAP でのユーザとグループの制限を超えない場合にのみ移行されます。
+
+
+
+== ネットグループに関する考慮事項
+
+7-Mode の「 /etc/netgroup 」ファイルが 5MB より大きい場合、ネットグループ構成は移行されません。移行を続行するには、次のいずれかを実行する必要があります。
+
+* ネットグループを移行対象から除外する。
++
+xref:task_customizing_configurations_for_transition.adoc[7-Mode 構成の移行のカスタマイズ]
+
+* 移行の前に、ネットグループ構成を NIS サーバまたは LDAP サーバに移動する。
+
+
+
+
+== UNIX ユーザおよびグループに関する考慮事項
+
+移行する UNIX ユーザおよびグループの総数が、 ONTAP の UNIX ユーザおよびグループの制限を超える場合は、 7-Mode Transition Tool によって移行がブロックされます。移行を続行するには、次のいずれかを実行する必要があります。
+
+* UNIX ユーザおよびグループを移行対象から除外する。
++
+xref:task_customizing_configurations_for_transition.adoc[7-Mode 構成の移行のカスタマイズ]
+
+* 移行の前に、 UNIX ユーザおよびグループを NIS サーバまたは LDAP サーバに移動する。
+
+
+* 関連情報 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]

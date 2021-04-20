@@ -1,0 +1,13 @@
+---
+permalink: copy-free/task_completing_post_transition_tasks_for_a_copy_free_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, complete 
+summary: 移行を完了するには、移行したボリュームと構成の手動検証、ワークロードのテスト、運用の開始、および Copy-Free Transition プロジェクトのコミットを実行します。コミット処理後はロールバックは実行できないため、すべてのワークロードを検証し、短期間だけ運用を開始して、ロールバックが必要かどうかを評価してください。 
+---
+= 移行を完了します
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行を完了するには、移行したボリュームと構成の手動検証、ワークロードのテスト、運用の開始、および Copy-Free Transition プロジェクトのコミットを実行します。コミット処理後はロールバックは実行できないため、すべてのワークロードを検証し、短期間だけ運用を開始して、ロールバックが必要かどうかを評価してください。

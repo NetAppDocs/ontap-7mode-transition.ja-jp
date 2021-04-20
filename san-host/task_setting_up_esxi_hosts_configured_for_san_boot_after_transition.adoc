@@ -1,0 +1,36 @@
+---
+permalink: san-host/task_setting_up_esxi_hosts_configured_for_san_boot_after_transition.html 
+sidebar: sidebar 
+keywords: esxi, configured, boot, ontap, san, host, transition 
+summary: Data ONTAP 7-Mode から移行する前に ESXi ホストが SAN ブート用に設定されていた場合は、移行後にホストを使用する前にいくつかの手順を実行する必要があります。 
+---
+= SAN ブート用に設定された ESXi ホストを移行後にセットアップする
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode から移行する前に ESXi ホストが SAN ブート用に設定されていた場合は、移行後にホストを使用する前にいくつかの手順を実行する必要があります。
+
+* コピーベースの移行の場合は、 7MTT でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode システムのエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+
+.手順
+. clustered Data ONTAP システムの SAN ブート LUN からブートするように FC および FCoE HBA BIOS を再設定します。
+. ESXi ホストをブートします。
+. ホストの設定を移行前の設定にリセットします。
+. iSCSI ホストについては、「 VMware iSCSI イニシエータを再設定する方法」を参照してください。
++
+xref:concept_reconfiguration_of_vmware_software_iscsi_initiator.adoc[VMware iSCSI イニシエータを再設定します]
+
+. デフォルトのインストール環境でブート LUN から作成された VMFS データストアを再マウントします。
+
+
+* 関連情報 *
+
+xref:task_remounting_vmfs_volumes_after_transition_using_vsphere_client.adoc[vSphere Client を使用した移行後の VMFS ボリュームの再マウント]
+
+xref:task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.adoc[ESXi CLI を使用した移行後の VMFS ボリュームの再マウント]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 管理"]

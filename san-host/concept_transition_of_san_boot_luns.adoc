@@ -1,0 +1,21 @@
+---
+permalink: san-host/concept_transition_of_san_boot_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, san, boot, lun 
+summary: 7-Mode Transition Tool \ （ 7MTT \ ）を使用して Data ONTAP 7-Mode から clustered Data ONTAP に移行する前に、 SAN ブート LUN をリブートする必要があります。カットオーバーフェーズに備えて特定の手順を実行し、移行後に LUN を検出する必要があります。 
+---
+= SAN ブート LUN を移行します
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ）を使用して Data ONTAP 7-Mode から clustered Data ONTAP に移行する前に、 SAN ブート LUN をリブートする必要があります。カットオーバーフェーズに備えて特定の手順を実行し、移行後に LUN を検出する必要があります。
+
+* 関連情報 *
+
+xref:task_preparing_for_transition_of_fc_or_fcoe_san_boot_luns.adoc[FC または FCoE SAN ブート LUN の移行準備をしています RHEL ホスト]
+
+xref:task_preparing_for_transition_of_iscsi_san_boot_luns.adoc[iSCSI SAN ブート LUN の移行準備をしています]
+
+xref:task_discovering_san_boot_luns_after_transition.adoc[移行後に SAN ブート LUN を検出します]

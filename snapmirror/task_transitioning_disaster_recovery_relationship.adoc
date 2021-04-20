@@ -1,0 +1,63 @@
+---
+permalink: snapmirror/task_transitioning_disaster_recovery_relationship.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, disaster, recovery, relationship, vfiler, units, snapmirror 
+summary: 7-Mode システムのプライマリ vFiler ユニットとセカンダリ vFiler ユニット間のディザスタリカバリ（ DR ）関係を、クラスタ内のソース SVM とデスティネーション SVM 間のディザスタリカバリ関係に移行できます。 
+---
+= vFiler ユニット間でディザスタリカバリ関係を移行する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode システムのプライマリ vFiler ユニットとセカンダリ vFiler ユニット間のディザスタリカバリ（ DR ）関係を、クラスタ内のソース SVM とデスティネーション SVM 間のディザスタリカバリ関係に移行できます。
+
+移行プロセスでは、プライマリ vFiler ユニットがソース SVM に、セカンダリ vFiler ユニットがデスティネーション SVM に移行されます。
+
+.手順
+. プライマリ vFiler ユニットをソース SVM に、セカンダリ vFiler ユニットをデスティネーション SVM に移行します。
+. vserver stop コマンドを使用して、デスティネーション SVM を停止します。
++
+デスティネーション SVM で、ボリュームの名前を変更したり新しいボリュームを追加したりしないでください。
+
+. 移行した各プライマリボリュームに対して、「 snapmirror create 」コマンドを使用して、対応するセカンダリボリュームとのボリュームレベルの SnapMirror 関係を作成します。
++
+[listing]
+----
+destination_cluster::> snapmirror create -source-path src_vserver:c_vol -destination-path dst_vserver:c_vol -type DP
+----
+. 「 snapmirror resync 」コマンドを使用して、移行したプライマリボリュームとセカンダリボリューム間のボリュームレベルの SnapMirror 関係を再同期します。
++
+再同期が成功するためには、プライマリボリュームとセカンダリボリュームに共通の Snapshot コピーが存在する必要があります。
+
++
+[listing]
+----
+destination_cluster::> snapmirror resync -destination-path
+dst_vserver:c_vol
+----
+. 「 snapmirror show 」コマンドを使用して、再同期処理が完了し、 SnapMirror 関係が「 SnapMirro 済み」状態であることを確認します。
+. 「 -identity-preserve 」オプションを「 true 」に設定した「 snapmirror create 」コマンドを使用して、ソース SVM とデスティネーション SVM 間の SVM ディザスタリカバリ関係を作成します。
++
+[listing]
+----
+destination_cluster::> snapmirror create -source-path src_vserver: -destination-path dst_vserver: -type DP -throttle unlimited -policy DPDefault -schedule hourly -identity-preserve true
+----
+. 「 snapmirror resync 」コマンドを使用して、ソース SVM からデスティネーション SVM を再同期します。
++
+[listing]
+----
+destination_cluster::> snapmirror resync dst_vserver:
+----
+. 「 snapmirror show 」コマンドを使用して、再同期処理が完了し、 SnapMirror 関係が「 SnapMirro 済み」状態であることを確認します。
++
+[listing]
+----
+destination_cluster::> snapmirror show
+                                                                                    Progress
+Source               Destination     Mirror       Relationship  Total               Last
+Path           Type  Path            State        Status        Progress   Healthy  Updated
+--------       ---- ------------     -------      -------------- --------- ------- --------
+src_vserver     DP    dst_vserver    Snapmirrored  Idle           -         true    -
+----
+

@@ -1,0 +1,25 @@
+---
+permalink: install-admin/concept_installing_and_uninstalling_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, uninstall, transition, windows 
+summary: Windows システムでは、ウィザード形式の標準インストーラを使用して 7-Mode Transition Tool をダウンロードしてインストールできます。ただし、以前のバージョンの 7-Mode Transition Tool がインストールされている場合は、事前に一定の前提条件を確認しておく必要があります。 
+---
+= Windows での 7-Mode Transition Tool のインストールまたはアンインストール システム
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Windows システムでは、ウィザード形式の標準インストーラを使用して 7-Mode Transition Tool をダウンロードしてインストールできます。ただし、以前のバージョンの 7-Mode Transition Tool がインストールされている場合は、事前に一定の前提条件を確認しておく必要があります。
+
+* システムにバージョン 3.0 より前の 7-Mode Transition Tool がインストールされている場合は、 7-Mode Transition Tool 3.3 をインストールする前に、古い 7-Mode Transition Tool をアンインストールする必要があります。
++
+アンインストール時にログファイルの保持を選択した場合は、ログファイルのバックアップを作成する必要があります。アンインストール後に 7-Mode Transition Tool インストーラを実行すると、同じフォルダにツールがインストールされ、ログファイルが上書きされます。
+
+* システムに 7-Mode Transition Tool 3.0 以降がインストールされている場合は、 7-Mode Transition Tool 3.3 をインストールする前に次の条件を満たす必要があります。
++
+** 既存のコピーベースの移行プロジェクトをすべて完了させるか中止する必要があります。
+** 既存のコピーフリーの移行プロジェクトをすべて完了させるか、ロールバックを完了させる必要があります。
+
+
+

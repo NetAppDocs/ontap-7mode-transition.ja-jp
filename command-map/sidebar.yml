@@ -1,0 +1,13 @@
+---
+section: command-map
+title: 7-Mode 管理用のコマンドマップ
+url: "/command-map/index.html"
+entries:
+- title: 7-Mode コマンドと ONTAP コマンドのマッピング
+  url: "/command-map/reference_how_7_mode_commands_map_to_clustered_ontap_commands.html"
+- title: 7-Mode オプションと ONTAP コマンドのマッピング
+  url: "/command-map/reference_how_7_mode_options_map_to_clustered_ontap_commands.html"
+- title: 7-Mode 構成ファイルと clustered Data ONTAP コマンドのマッピング
+  url: "/command-map/reference_how_7_mode_configuration_files_map_to_clustered_ontap_commands.html"
+- title: 7-Mode 管理者用の clustered Data ONTAP のコマンド、オプション、構成ファイルの対応マップ
+  url: "/command-map/concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.html"

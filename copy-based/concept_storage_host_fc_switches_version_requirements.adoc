@@ -1,0 +1,17 @@
+---
+permalink: copy-based/concept_storage_host_fc_switches_version_requirements.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, storage, host, fc, switches, version, requirements, assessment 
+summary: 移行のための環境評価でサポートされる Data ONTAP 7-Mode 、ホスト、および FC スイッチのバージョンを把握しておく必要があります。 
+---
+= 移行のための環境評価でのストレージ、ホスト、 FC スイッチのバージョン要件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行のための環境評価でサポートされる Data ONTAP 7-Mode 、ホスト、および FC スイッチのバージョンを把握しておく必要があります。
+
+7-Mode Transition Tool による環境評価でサポートされる 7-Mode システム、ホスト、および FC スイッチのバージョンについては、 NetApp Interoperability Matrix Tool を参照してください。
+
+https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]

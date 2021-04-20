@@ -1,0 +1,17 @@
+---
+permalink: inventory-collect/concept_storage_and_host_version_requirements.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, storage, host, fc, switches, version, requirements, inventory, collection 
+summary: インベントリ情報を収集できる Data ONTAP 7-Mode 、ホスト、および FC スイッチのバージョンを把握しておく必要があります。 
+---
+= インベントリを収集するためのストレージ、ホスト、 FC スイッチのバージョン要件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+インベントリ情報を収集できる Data ONTAP 7-Mode 、ホスト、および FC スイッチのバージョンを把握しておく必要があります。
+
+Inventory Collect Tool による環境評価でサポートされる 7-Mode システム、ホスト、および FC スイッチのバージョンについては、 Interoperability Matrix を参照してください。
+
+https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]

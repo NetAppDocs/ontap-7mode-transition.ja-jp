@@ -1,0 +1,45 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_aix_data_luns_with_file_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, aix, data, lun 
+summary: ファイルシステムを搭載した AIX ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、カットオーバーフェーズを開始する前に特定の手順を実行する必要があります。 
+---
+= AIX ホストデータ LUN 移行時のカットオーバーフェーズの準備 ファイルシステムで実現できます
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ファイルシステムを搭載した AIX ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、カットオーバーフェーズを開始する前に特定の手順を実行する必要があります。
+
+clustered Data ONTAP ノードへのファブリック接続とゾーニングを確立しておく必要があります。
+
+コピーベースの移行の場合は、 7-Mode Transition Tool でストレージカットオーバー処理を完了したあとに以下の手順を実行します。AIX ホストでは、コピーフリーの移行はサポートされていません。
+
+.手順
+. すべてのマウントポイントで I/O を停止します。
+. アプリケーションベンダーの推奨事項に従って、 LUN にアクセスしている各アプリケーションをシャットダウンします。
+. すべてのマウントポイントをアンマウントします。
++
+'*umount_mount_point_*
+
+. ボリュームグループを無効にします。
++
+*varyoffvq_vg_name_*`
+
+. ボリュームグループをエクスポートします。
++
+'*exportvg_vg_name_*
+
+. ボリュームグループのステータスを確認します。
++
+'*lsvg*
+
++
+エクスポートされたボリュームグループは出力に表示されません。
+
+. 古いエントリがある場合は削除します。
++
+「 * rmdev - RDL hdisk# * 」
+
+

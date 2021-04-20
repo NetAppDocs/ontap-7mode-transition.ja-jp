@@ -1,0 +1,101 @@
+---
+permalink: copy-based/task_preparing_7_mode_systems_for_inventory_collection.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, host, assessment 
+summary: 評価レポートを正しく作成するには、 7-Mode システムおよびホストが一定のネットワーク要件とプロトコル要件を満たしている必要があります。 
+---
+= 移行のための環境評価を実行する 7-Mode システムとホストの準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+評価レポートを正しく作成するには、 7-Mode システムおよびホストが一定のネットワーク要件とプロトコル要件を満たしている必要があります。
+
+.手順
+. 7-Mode システムで HTTPS を有効にします。
++
+*options httpd. admin.ssl.enable on *`
+
+. 7-Mode システムで TLS を有効にします。
++
+'*options tls.enable on *
+
++
+
+IMPORTANT: SSLv3 にはセキュリティ上の脆弱性があるため、 TLS を有効にすることを推奨します。
+
+. 7-Mode システムで SSL を有効にして、 SSLv2 と SSLv3 を無効にします。
++
+.. SSL をセットアップして開始します。
++
+*secureadmin setup ssl *`
+
+.. SSL を有効にします。
++
+'*options ssl.enable on *
+
+.. SSLv2 と SSLv3 を無効にします。
++
+'*options ssl.v2.enable off*
+
++
+'*options ssl.v3.enable off*
+
++
+
+IMPORTANT: セキュリティ上の脆弱性を回避するため、 SSLv2 と SSLv3 を無効にすることを推奨します。
+
+
+
+. 7-Mode システムで SSH を有効にします。
++
+.. 7-Mode システムで SSH をセットアップします。
++
+`*secureadmin setup -f ssh *`
+
++
+-f オプションを指定すると、 SSH サーバがすでに設定されている場合でも、セットアップが強制的に実行されます。
+
+.. SSH を有効にします。
++
+*secureadmin enable ssh2*`
+
+.. SSH サーバでパスワード認証を有効にします。
++
+*options ssh.passwd_auth.enable *`
+
+.. ホストへの SSH アクセスを有効にします。 +`* options ssh.access *`
+
+
+. Windows ホストシステムを準備します。
++
+** WMI アクセスを有効にします。
++
+WMI アクセスの有効化の詳細については、ホストのマニュアルを参照してください。
+
+** Windows Server 2003 を使用している場合は、 Microsoft Fibre Channel Information Tool （ fcinfo ）パッケージがインストールされていることを確認し、 Windows ホストシステムで 1 回実行します。
++
+このツールでは、ホストの HBA 構成情報を収集することができます。
+
+** 7-Mode Transition Tool を実行するシステムがドメインに属していない場合は、次の点を確認します。
++
+*** ホストシステムがドメインに属している。
+*** ホストにローカルユーザが設定されている場合は、そのユーザのユーザ名が次の形式であること。
++
+「 SystemName\Username 」の略
+
+
+
+
+
+. Linux または ESXi ホストで SSH を有効にします。
++
+SSH の有効化の詳細については、ホストのマニュアルを参照してください。
+
+. 各ホストに最新の NetApp Host Utilities ソフトウェアがインストールされていることを確認します。
++
+NetApp Host Utilities ソフトウェアのダウンロードとインストールについては、ネットアップサポートサイトを参照してください。
+
+. 7-Mode Transition Tool を実行する Windows システムからすべてのホストおよびストレージシステムに到達できることを確認します。
+

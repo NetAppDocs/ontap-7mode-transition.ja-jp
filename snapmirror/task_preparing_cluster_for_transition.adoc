@@ -1,0 +1,79 @@
+---
+permalink: snapmirror/task_preparing_cluster_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, prepare, transition, cluster, requirements 
+summary: 7-Mode システムを移行する前に、クラスタをセットアップしておく必要があります。また、 LIF のセットアップ、ネットワーク接続の検証など、移行の要件をクラスタが満たしていることを確認する必要があります。 
+---
+= クラスタで移行準備をします
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode システムを移行する前に、クラスタをセットアップしておく必要があります。また、 LIF のセットアップ、ネットワーク接続の検証など、移行の要件をクラスタが満たしていることを確認する必要があります。
+
+* クラスタと SVM のセットアップが完了している必要があります。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["ソフトウェアのセットアップ"]
+
++
+ターゲット SVM が SVM ディザスタリカバリ関係にないことを確認します。
+
+* クラスタは管理 LIF を使用して到達できる必要があります。
+* クラスタが正常に動作している必要があります。また、テイクオーバーモードになっているノードがある場合は移行できません。
+* 移行したボリュームを格納するターゲットアグリゲートには、 SFO ポリシーが設定されている必要があります。
+* アグリゲートは、最大ボリューム制限に達していないノードに配置されている必要があります。
+* Volume SnapMirror 関係を移行するときに SVM ピア関係を確立するには、次の条件が満たされている必要があります。
++
+** セカンダリクラスタに、プライマリ SVM と同じ名前の SVM が存在しない。
+** プライマリクラスタに、セカンダリ SVM と同じ名前の SVM が存在しない。
+** ソースの 7-Mode システムの名前が、ローカルの SVM や、すでにピア関係が設定されている SVM と重複していない。
+
+
+
+
+クラスタと 7-Mode システムが通信できるようにするために、クラスタの各ノードに、デフォルトの IPspace のローカル LIF またはインタークラスタ LIF をセットアップします。ローカル LIF をセットアップした場合は、クラスタ間 LIF をセットアップする必要はありません。インタークラスタ LIF とローカル LIF の両方をセットアップした場合は、ローカル LIF が優先されます。
+
+. クラスタの各ノードにインタークラスタ LIF を作成し、クラスタと 7-Mode システムが通信できるようにします。
++
+.. クラスタ間 LIF を作成します。
++
+「 * network interface create -vserver _svm_name _ -lif _ intercluster_lif_ -role intercluster -home-node _home_node -home-port_port_IP_address _ip_address _netmask_netmask_ * ’を指定します
+
++
+[listing]
+----
+cluster1::> network interface create -vserver cluster1-01 -lif intercluster_lif -role intercluster -home-node cluster1-01 -home-port e0c -address 192.0.2.130 -netmask 255.255.255.0
+----
+.. インタークラスタ LIF の静的ルートを作成します。
++
+「 * network route create -vserver _svm_name 」 -destination_ip_address /mask_ -gateway_IP_address _ *
+
++
+[listing]
+----
+cluster1::> network route create -vserver vs0 -destination 0.0.0.0/0 -gateway 10.61.208.1
+----
+.. インタークラスタ LIF から 7-Mode システムに ping を送信できることを確認します。
++
+「 * network ping -lif lif_intercluster_lif _ -vserver_svm_name _ -destination_remote_InetAddress_* 」と入力します
+
++
+[listing]
+----
+cluster1::> network ping -lif intercluster_lif -vserver cluster1 -destination system7mode
+system7mode is alive
+----
+
+
+
+
+マルチパスの場合は、各ノードに 2 つのクラスタ間 LIF が必要です。
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["ネットワークと LIF の管理"]
+
+* 関連情報 *
+
+xref:task_creating_a_transition_peering_relationship.adoc[移行ピア関係を作成]
+
+https://mysupport.netapp.com/site/docs-and-kb["ネットアップのマニュアル： Product Library A-Z"]

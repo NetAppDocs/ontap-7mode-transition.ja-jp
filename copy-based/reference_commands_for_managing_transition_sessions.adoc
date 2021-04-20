@@ -1,0 +1,403 @@
+---
+permalink: copy-based/reference_commands_for_managing_transition_sessions.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, cbt, command, manage 
+summary: transition cbt コマンドを使用して、移行プロジェクトの作成、変更、削除、表示などの処理を管理することができます。 
+---
+= 移行管理用のコマンド
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+「 transition cbt 」コマンドを使用して、移行プロジェクトの作成、変更、削除、表示などの機能を管理することができます。
+
+次のオプションはすべてのコマンドで使用できます。
+
+-r no: コマンドの対話的な性質を無効にします。デフォルトでは、このオプションは有効になっています。
+
+詳細モードを有効にする -v オプションを 'transition version' および transition cbt menu' コマンドとともに使用することもできます
+
+
+
+== 移行処理を管理するコマンド
+
+|===
+| 状況 | 使用するコマンド 
+
+
+ a| 
+移行プロジェクトを作成
+ a| 
+「 transition cbt create 」のようになります
+
+
+
+ a| 
+指定したプロジェクトにクラスタ情報を追加します
+ a| 
+「 transition cbt add-cluster-info 」を実行します
+
+
+
+ a| 
+移行プロジェクトを変更
+ a| 
+「 transition cbt modify 」のように変更されます
+
+
+
+ a| 
+ONTAP ストレージシステムへの移行を完了する
+ a| 
+移行の CBT カットオーバー
+
+
+
+ a| 
+プロジェクトに対して事前確認を実行します
+ a| 
+「 transition cbt precheck 」のようになりました
+
+
+
+ a| 
+ONTAP ストレージシステムに構成を適用します
+ a| 
+移行 CBT precutover
+
+
+
+ a| 
+7-Mode ボリュームと ONTAP 間の SnapMirror 再同期を開始します プロジェクト内のボリューム
+ a| 
+「 transition cbt resync 」のように実行されます
+
+
+
+ a| 
+ONTAP ボリュームに対して SnapMirror 更新処理を開始する
+ a| 
+「 transition cbt update 」のように表示されます
+
+
+
+ a| 
+7-Mode Transition Tool のバージョンを表示する
+ a| 
+「 transition cbt version 」のように表示されます
+
+
+
+ a| 
+7-Mode ボリュームから ONTAP へのベースラインデータコピーを開始する プロジェクト内のボリューム
+ a| 
+「 transition cbt start 」のように表示されます
+
+
+
+ a| 
+7-Mode ボリュームから ONTAP ボリュームへのデータコピーを一時停止します プロジェクト内
+ a| 
+transition cbt pause （移行の CBT 一時停止
+
+
+
+ a| 
+7-Mode ボリュームから ONTAP へのデータコピー転送を再開します 一時停止中のプロジェクトのボリューム
+ a| 
+「 transition cbt resume 」のようになります
+
+
+
+ a| 
+移行プロジェクトを中止する
+ a| 
+「 transition cbt abort 」のように表示されます
+
+
+
+ a| 
+移行プロジェクトを削除する
+ a| 
+「 transition cbt delete 」のように表示されます
+
+
+
+ a| 
+移行プロジェクトのリストを表示するか、に関する情報を表示します プロジェクト
+ a| 
+「 transition cbt show 」のように表示されます
+
+|===
+
+
+== Volume SnapMirror 関係を管理するコマンド
+
+|===
+| 状況 | 使用するコマンド 
+
+
+ a| 
+7-Mode プライマリシステムに関する情報をセカンダリに追加する プロジェクト
+ a| 
+「 transition cbt add-primary-7-mode-system` 」
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/CBT_%3A_How_to_provide_all_the_required_primary_7-Mode_details_for_a_given_secondary_project["CBT ：特定のセカンダリプロジェクトに必要なプライマリ 7-Mode の詳細をすべて提供する方法"]
+
+
+
+ a| 
+ONTAP セカンダリシステムに関する情報をプライマリに追加する プロジェクト
+ a| 
+transition cbt add-secondary-cluster-mode-system`
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/CBT%3A_How_to_add_the_required_secondary_cluster_details_to_the_primary_project["CBT ：必要なセカンダリクラスタの詳細をプライマリプロジェクトに追加する方法"]
+
+
+
+ a| 
+7-Mode プライマリシステムに関する情報をセカンダリから削除する プロジェクト
+ a| 
+transition cbt remove-primary-7-mode-system`
+
+
+
+ a| 
+ONTAP セカンダリシステムに関する情報をプライマリから削除する プロジェクト
+ a| 
+transition cbt remove-secondary-cluster-mode-system`
+
+
+
+ a| 
+セカンダリプロジェクトに追加された 7-Mode プライマリシステムを一覧表示します
+ a| 
+「 transition cbt show -primary-7-mode systems 」を参照してください
+
+
+
+ a| 
+プライマリプロジェクトに追加された ONTAP セカンダリシステムを一覧表示します
+ a| 
+transition cbt show-ssecondary-cluster-mode-pSystems 」のように表示されます
+
+|===
+
+
+== Data ONTAP システムのクレデンシャルを管理するコマンド
+
+|===
+| 状況 | 使用するコマンド 
+
+
+ a| 
+クレデンシャルの保存（ユーザ名とパスワード） 移行サーバ内のホスト
+ a| 
+移行クレデンシャルには、「 add 」が追加
+
+
+
+ a| 
+ホストのユーザ名を取得します
+ a| 
+移行クレデンシャルは「取得」されます
+
+
+
+ a| 
+ホストのユーザ名またはパスワードを変更します
+ a| 
+「 transition credentials modify 」を参照してください
+
+
+
+ a| 
+ホストのクレデンシャルを移行サーバから削除する
+ a| 
+移行クレデンシャルは削除されます
+
+|===
+
+
+== プロジェクトのボリュームペアを管理するコマンド
+
+|===
+| 状況 | 使用するコマンド 
+
+
+ a| 
+7-Mode ボリュームと ONTAP ボリュームを追加（ボリュームペア） をプロジェクトに追加します
+ a| 
+transition cbt volumepair add
+
+
+
+ a| 
+プロジェクトの ONTAP ボリュームを変更する
+ a| 
+transition cbt volumepair modify 」のように表示されます
+
+
+
+ a| 
+プロジェクトからボリュームペアを削除する
+ a| 
+「 transition cbt volumepair remove 」のように表示されます
+
+
+
+ a| 
+プロジェクトのボリュームペアをリストします
+ a| 
+transition cbt volumepair show
+
+|===
+
+
+== LIF の詳細を管理するコマンドです
+
+
+NOTE: FC LIF と iSCSI LIF は 7-Mode Transition Tool では移行されません。
+
+|===
+| 状況 | 使用するコマンド 
+
+
+ a| 
+SVM データ LIF をプロジェクトに追加する
+ a| 
+「 transition cbt lif add 」のように変更されました
+
+
+
+ a| 
+プロジェクトの SVM データ LIF を変更する
+ a| 
+「 transition cbt lif modify 」のように変更されます
+
+
+
+ a| 
+プロジェクトから LIF を削除する
+ a| 
+「 transition cbt lif remove 」のように表示されます
+
+
+
+ a| 
+プロジェクトに追加したすべての LIF を一覧表示します
+ a| 
+「 transition cbt lif show 」のように表示されます
+
+|===
+
+
+== プロジェクトプロパティを管理するコマンド
+
+|===
+| 状況 | 使用するコマンド 
+
+
+ a| 
+特定のプロジェクトプロパティの値を設定します
+ a| 
+transition cbt property-set`
+
+
+
+ a| 
+特定のプロジェクトプロパティの値をクリアします
+ a| 
+「 transition cbt property-reset 」のように指定します
+
+
+
+ a| 
+特定のプロジェクトプロパティの値を取得します
+ a| 
+「 transition cbt property-get 」のように指定します
+
+|===
+
+
+== 移行ジョブを管理するコマンド
+
+|===
+| 状況 | 使用するコマンド 
+
+
+ a| 
+特定ので実行されたジョブまたは実行中のジョブを一覧表示します プロジェクトと運用
+ a| 
+「ジョブの移行」
+
+
+
+ a| 
+ジョブのステータスを表示します
+ a| 
+「 transition job-status 」を参照してください
+
+
+
+ a| 
+ジョブの結果を表示します
+ a| 
+「 transition job-results 」を参照してください
+
+|===
+
+
+== 移行スケジュールを管理するコマンド
+
+|===
+| 状況 | 使用するコマンド 
+
+
+ a| 
+SnapMirror 転送を帯域幅とともに管理するスケジュールを追加してください
+ a| 
+「 transition cbt schedule add 」のようになります
+
+
+
+ a| 
+プロジェクトの SnapMirror スケジュールを変更します
+ a| 
+「 transition cbt schedule modify 」のように変更されます
+
+
+
+ a| 
+プロジェクトから SnapMirror スケジュールを削除します
+ a| 
+「 transition cbt schedule remove 」のように表示されます
+
+
+
+ a| 
+プロジェクトのすべての SnapMirror スケジュールを一覧表示する
+ a| 
+「 transition cbt schedule show 」のように表示されます
+
+|===
+
+
+== ツールログを収集するコマンド
+
+|===
+| 状況 | 使用するコマンド 
+
+
+ a| 
+7-Mode Transition Tool ログのログファイルを収集するには、サーバの 7-Mode Transition Tool インストールパスの「 asup 」ディレクトリにログファイルを保存します。
+ a| 
+transition bundle-tool-logs 」のように入力します
+
+|===
+これらのコマンドの詳細については、 7-Mode Transition Tool CLI のマニュアルページを参照してください。
+
+* 関連情報 *
+
+xref:task_transitioning_volumes_using_7mtt.adoc[7-Mode ボリュームからデータと構成をマイグレート]

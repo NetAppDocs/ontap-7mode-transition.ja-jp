@@ -1,0 +1,76 @@
+---
+permalink: san-host/task_bringing_windows_hosts_online_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, windows, host, online 
+summary: Windows ホスト用の 7-Mode Transition Tool \ （ 7MTT \ ）を使用して LUN を移行したら、いくつかの手順を実行してホストをオンラインにし、データの提供を再開する必要があります。 
+---
+= 移行後に Windows ホストをオンラインにします
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Windows ホスト用の 7-Mode Transition Tool （ 7MTT ）を使用して LUN を移行したら、いくつかの手順を実行してホストをオンラインにし、データの提供を再開する必要があります。
+
+コピー・フリーの移行（ CFT ）を実行している場合は 'vol rehost の手順を完了する必要がありますを参照してください link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["『 7-Mode Transition Tool Copy-Free Transition Guide 』"] を参照してください。
+
+* コピーベースの移行（ CBT ）の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を完了したあとに以下の手順を実行します。
+* CFT の場合は、 7MTT でデータと設定のインポート処理を完了したあとに以下の手順を実行します。
++
+.. 7-Mode から ONTAP への LUN マッピングファイルを生成します。
++
+*** コピーベースの移行の場合は、 7MTT がインストールされているホストから次のコマンドを実行します。 +`* transition cbt export lunmap -p _project-name _-o file_path_*`
++
+例：
+
++
+*transition cbt export lunmap -p SanWorkLoad-o c:\Libraires/Documents/7-C-lun-mapping.csv *
+
+*** コピーフリーの移行の場合は、 7MTT がインストールされているシステムから次のコマンドを実行します。 +`* transition cft export lunmap -p _project-name _s_s_s_s_s_o_output-file_*`
++
+
+NOTE: このコマンドはそれぞれの Storage Virtual Machine （ SVM ）に対して実行する必要があります。
+
++
+例：
+
++
+*transition cft export lunmap -p SANWorkLoad -s svml -o c ： /Libraries/Documents/7-C-lun-mapping-svml.csv *
+
+
+
+.. Windows ホストが SAN ブートされていて、ブート LUN が移行された場合は、ホストの電源をオンにします。
+.. FC BIOS を更新して、 clustered Data ONTAP コントローラ上の LUN からシステムをブートできるようにします。
++
+詳細については、 HBA のドキュメントを参照してください。
+
+.. Windows ホストで、ディスクマネージャからディスクを再スキャンします。
+.. ホストにマッピングされている LUN の LUN シリアル番号、 LUN ID 、および対応する Windows 物理ディスク番号を取得します。
++
+*** Data ONTAP ONTAPDSM を実行しているシステムの場合： Data ONTAP DSM Management Extension Snap-In または Get-SanDisk Windows PowerShell コマンドレットを使用します。
+*** MSDSM を実行しているシステムの場合： Inventory Collect Tool （ ICT ）を使用します。
++
+LUN ID 、 LUN シリアル番号、および対応するシリアル番号は、 [SAN Host LUNs] タブでキャプチャされます。
+
+
+
+.. LUN の LUN シリアル番号、 ID 、および対応する Windows 物理ディスク番号と、 LUN マップの出力、および移行前の状態で収集されたデータを使用して、 LUN が正常に移行されたかどうかを確認します。
+.. 移行した LUN の物理ディスク番号が変わっているかどうかを確認します。
+.. ディスクをオンラインにします。
++
+*** クラスタフェイルオーバーの対象ではないディスクをオンラインにするには、 Windows ディスクマネージャを使用します。
+*** クラスタフェイルオーバーの対象のディスクをオンラインにするには、フェイルオーバークラスタマネージャを使用します。
+
+
+.. 移行するホストが Windows Server 2003 を実行していて、クォーラムデバイスを移行済みの場合は、すべてのクラスタノードでクラスタサービスを開始します。
+.. ホストで Hyper-V が有効になっていて、パススルーデバイスが VM に設定されている場合は、 Hyper-V Manager から設定を変更します。
++
+移行の結果、パススルーデバイスに対応する LUN の物理ディスク番号が変わる可能性があります。
+
+
+
+
+
+* 関連情報 *
+
+xref:concept_what_the_inventory_collect_tool_is.adoc[Inventory Collect Tool の概要]

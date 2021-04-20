@@ -1,0 +1,102 @@
+---
+permalink: san-host/task_mounting_logical_volumes_on_linux_host_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, logical, volumes, linux, hosts 
+summary: ONTAP 7-Mode から clustered Data ONTAP に移行後、論理ボリュームはオフラインになります。LUN からホストにアクセスできるように、論理ボリュームをマウントする必要があります。 
+---
+= 移行後の Linux ホストへの論理ボリュームのマウント
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 7-Mode から clustered Data ONTAP に移行後、論理ボリュームはオフラインになります。LUN からホストにアクセスできるように、論理ボリュームをマウントする必要があります。
+
+コピーフリーの移行（ CFT ）を実行している場合は、 vol rehost の手順を実行する必要があります。を参照してください link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["『 7-Mode Transition Tool Copy-Free Transition Guide 』"] を参照してください。
+
+* コピーベースの移行（ CBT ）の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を完了したあとに以下の手順を実行します。
+* CFT の場合は、 7MTT でデータと設定のインポート処理のあとに以下の手順を実行します。
++
+.. 7-Mode から clustered Data ONTAP への LUN マッピングファイルを生成します。
++
+*** コピーベースの移行の場合は、 7MTT がインストールされている Linux ホストから次のコマンドを実行します。 +`* transition cbt export lunmap -p _project-name _-o file_path_*`
++
+例：
+
++
+*transition cbt export lunmap -p SanWorkLoad-o c:\Libraires/Documents/7-C-lun-mapping.csv *
+
+*** コピーフリーの移行の場合は、 7MTT がインストールされているシステムから次のコマンドを実行します。
++
+*transition cft export lunmap -p p_roject-name_s_s_SVM_name_o_output-file_*`
+
++
+例：
+
++
+*transition cft export lunmap -p SanWorkLoad -s svml-0 c:/mLibraries /Documents/7-C-LUN-mapping - svml.csv *
+
++
+
+NOTE: このコマンドはそれぞれの Storage Virtual Machine （ SVM ）に対して実行する必要があります。
+
+
+
+.. 7-Mode LUN 用に作成された SCSI デバイスを削除します。
++
+*** すべての SCSI デバイスを削除するには、 +`*rescan-scsi-bus.sh -r *` を実行します
+*** 各 SCSI デバイスを個別に削除するには、 +`*echo 1>/sys/block/_SCSI_ID_/delete *` を実行します
++
+このコマンドは、 7-Mode LUN のすべての SCSI デバイスに対して実行する必要があります。LUN の SCSI デバイス ID を特定するには、 _Inventory Assessment Workbook の SAN Host LUNs タブにある SCSI Device ID の列を参照してください。
+
+
+
+.. 新しい ONTAP LUN を検出します。
++
+*rescan -scsi-bus.sh *
+
+.. ONTAP LUN 用に DMMP デバイスを設定します。
++
+「 * マルチパス * 」
+
+.. ONTAP LUN が検出されたことを確認します。
++
+「 * sanlun lun show * 」と表示されます
+
+.. 新しい ONTAP LUN デバイスハンドル ID を確認します。
++
+'*multipath -ll _Device_handle_name_*
+
+.. ボリュームグループをインポートします。
++
+'*vgimport_vg_name_*
+
+.. ボリュームグループのステータスを確認します。
++
+'*vgdisplay*'
+
+.. 論理ボリュームを有効にします。
++
+*vgchange-ay_vg_name_*`
+
+.. 論理ボリュームのステータスを確認します。
++
+'*lvdisplay*
+
++
+ステータスが「 available 」と表示される必要があります。
+
+.. ONTAP LUN からその各マウントポイントディレクトリに論理ボリュームをマウントします。
++
+`m ount_lv_namemount_point_`
+
++
+マウント・ポイントが /etc/fstab ファイルに定義されている場合は '`m ount-a` コマンドを使用して論理ボリュームをマウントできます
+
+.. マウントポイントを確認します。
++
+'*mount*'
+
+
+
+

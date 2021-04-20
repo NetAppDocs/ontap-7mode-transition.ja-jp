@@ -1,0 +1,39 @@
+---
+permalink: copy-based/task_performing_post_transition_tasks.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, perform, manual, post, tasks 
+summary: ストレージカットオーバーが終了して移行が完了したら、 ONTAP ボリュームにクライアントがアクセスできるようにする前に、移行されなかった機能を設定するタスクを実行する必要があります。 
+---
+= 移行後の手動タスクを実行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ストレージカットオーバーが終了して移行が完了したら、 ONTAP ボリュームにクライアントがアクセスできるようにする前に、移行されなかった機能を設定するタスクを実行する必要があります。
+
+.手順
+. 手動：事前確認レポートで報告された、移行されなかった機能を設定するために必要な手順を実行します。
++
+たとえば、 IPv6 と FPolicy は移行後に手動で設定する必要があります。
+
+. 移行された構成を削除または統合します。
++
+7-Mode Transition Tool は、 7-Mode から移行されるすべての構成に対して新しいインスタンスを作成します。そのため、 cron スケジュールなどの一部の構成は、手動で統合または削除しなければならない場合があります。
+
+. SAN の移行：ホストを手動で再設定します。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN ホストの移行および修復"]
+
+. 次の点を検証し、 SVM がクライアントにデータを提供できる状態であることを確認します。
++
+** SVM 上のボリュームがオンラインであり、読み取り / 書き込み可能である。
+** SVM 上の IP アドレスが有効になっており、ネームサーバから到達可能である。
+
+
+. クライアントアクセスを ONTAP ボリュームにリダイレクトします。
+
+
+* 関連情報 *
+
+http://docs.netapp.com/ontap-9/index.jsp["ネットアップのマニュアル： ONTAP 9"]

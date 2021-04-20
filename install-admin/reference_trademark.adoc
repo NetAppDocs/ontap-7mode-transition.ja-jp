@@ -1,0 +1,14 @@
+---
+permalink: install-admin/reference_trademark.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, trademark 
+summary: 『 7-Mode Transition Tool Installation and Setup Guide 』の商標に関する情報。 
+---
+= 商標です
+:icons: font
+:imagesdir: ../media/
+
+
+NetApp 、 NetApp のロゴ、および NetApp の商標ページに記載されているマークは、 NetApp, Inc. の商標です。その他の会社名および製品名は、それぞれの所有者の商標である場合があります。
+
+https://www.netapp.com/company/legal/trademarks/[""]

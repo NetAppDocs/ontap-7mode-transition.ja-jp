@@ -1,0 +1,51 @@
+---
+permalink: san-host/task_preparing_for_post_transition_esxi_host_remediation.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, post, esxi, host, remediation 
+summary: 7-Mode Transition Tool （ 7MTT ）の移行が完了したら、 ESXi ホストのさまざまな修復タスクを実行する必要があります。これらのタスクを実行する前に、いくつかの手順を実行する必要があります。 
+---
+= 移行後の ESXi ホストの修復準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ）の移行が完了したら、 ESXi ホストのさまざまな修復タスクを実行する必要があります。これらのタスクを実行する前に、いくつかの手順を実行する必要があります。
+
+* コピーベースの移行（ CBT ）の場合は、 7MTT でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行（ CFT ）の場合は、 7MTT で 7-Mode システムのエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+
+.手順
+. 7-Mode から ONTAP への LUN マッピングファイルを生成します。
++
+** CBT の場合は、 7MTT がインストールされている Linux ホストから次のコマンドを実行します。 +`* transition cbt export lunmap -p _project-name _-o _file_path_*`
++
+例：
+
++
+*transition cbt export lunmap -p SanWorkLoad-o c:\Libraires/Documents/7-C-lun-mapping.csv *
+
+** CFT の場合は、 7MTT がインストールされているシステムから次のコマンドを実行します。 +`* transition cft export lunmap -p _project-name _s_s_s_s_SVM_name_o_output-file_*`
++
+例：
+
++
+*transition cft export lunmap -p SanWorkLoad -s svm1 -o c ： /Libraires /Documents/7-C-LUN マッピング -svm1.csv *
+
++
+
+NOTE: このコマンドはそれぞれの Storage Virtual Machine （ SVM ）に対して実行する必要があります。
+
+
+
+. igroup とイニシエータのマッピングが存在することを確認します。
++
+7MTT は、 Data ONTAP 7-Mode で使用されていたイニシエータと同じ igroup を再作成し、 clustered Data ONTAP LUN をホストに再マッピングします。
+
+. ゾーニングが新しい clustered Data ONTAP ターゲットに適していることを確認します。
+. コピー・フリーの移行（ CFT ）を実行している場合は 'vol rehost を実行します
++
+を参照してください link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-free/index.html["『 7-Mode Transition Tool Copy-Free Transition Guide 』"] vol rehost 手順については ' を参照してください
+
+

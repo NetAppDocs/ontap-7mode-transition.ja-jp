@@ -1,0 +1,89 @@
+---
+permalink: inventory-collect/reference_syntax_and_options.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, syntax, option, ict, inventory, collection, tool 
+summary: Inventory Collection Tool （ ICT\ ）コマンドは、コマンドラインインターフェイス \ （ CLI\ ）またはシステムの詳細を含むテキストファイルで指定されたコントローラおよびホストから、構成情報とインベントリ情報を収集します。ここでは、 ICT コマンドで使用できる構文とオプションを示します。 
+---
+= 構文とオプション
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Inventory Collection Tool （ ICT ）コマンドは、コマンドラインインターフェイス（ CLI ）またはシステムの詳細を記述したテキストファイルで指定されたコントローラおよびホストから、構成情報とインベントリ情報を収集します。ここでは、 ICT コマンドで使用できる構文とオプションを示します。
+
+
+
+== 構文
+
+* `*ICT -- cmd collect [--output <inventory.xml>] <uri>[<uri>...]*`
+* *ict -- cmd collect [--output<inventory.xml>] -- input <CREDENTER_FILE.txt>*`
+* *ict --cmd generate-fc-zones --source-filer-ip>[,<filer-ip>] -dest-svm <cluster-name> --fc-switches <switch-ip>[:<vsan-id> ][ 、 <switch-ip>][,<vsan-id> … ] <inventory_xml> [<inventory_xml>...] *
+* `*ICT --cmd generate-fc-zones --source-filer-ip>[<filer-ip>] -dest-svm <cluster-name> -fc-switches <switch-ip>[:<vsan-id> ][ 、 <switch-ip>][,<vsan-id> … ] --fc-switches -target <switch-ip> [ ： <vsan-id> ][ 、 <switch-ip> [ ： <vsan-id> …… ] <inventory_xml> [<inventory_xml>...] *
+* '*tICT -- ヘルプ *
+* `*ICT -- バージョン *`
+
+
+
+
+== オプション（ Options ）
+
+テキストファイルでは、各システムのシステムの詳細を別々の行に記述する必要があります。
+
+* uri1
+* uri2.
+* uri3
+
+
+CLI またはテキスト・ファイルでパスワードを「 * 」にするか省略した場合は、 CLI でパスワードを入力するように求められます。ICT で使用できるオプションは次のとおりです。
+
+* ` -- 助け」
++
+ヘルプメッセージを表示して終了します。
+
+* `-- バージョン
++
+ツールのバージョンを印刷して終了します。
+
+* --cmd [collect | generate-fc-zones ]`
++
+collect ：コントローラおよびホストから構成情報とインベントリ情報を収集します。
+
++
+generate-fc-zones ：特定のインベントリについての FC ゾーンプランナードキュメントを生成します。
+
+* `--output <filename[.xml [.gz]>`
++
+ファイルが生成される場所を指定します。ファイル名の末尾に "`.gz`" が付いている場合、ファイルは圧縮されます。このオプションを指定すると、インベントリレポートとインベントリレポートワークブックという 2 つのファイル（レポート）が生成されます。
+
+* `--input <credentials_file.txt>`
++
+システムのクレデンシャルを含むファイルの保存場所を指定します。このオプションは '--cmd generate-fc-` ゾーンでは使用されません
+
++
+
+NOTE: ASCII 形式でエンコードされたテキストファイルのみがサポートされます。
+
+* URI 形式（「 ontap | windows | vmware | linux | cisco | brocade 」）： //[ （ <user>|<domain_user> ） [:(<password>|*)]@] （ <hostname> | <ip>` ）
++
+コントローラまたはホストのシステムタイプ、 IP アドレス、およびクレデンシャルを指定します。入力されたパスワードが「 * 」の場合、またはパスワードが入力されていない場合は、コマンドラインでパスワードを入力するように求められます。
+
+* `--source-filers
++
+FC ゾーン計画の生成で使用するソースコントローラの IP アドレスをカンマで区切って指定します。
+
+* 「 --dest-svm 」を指定します
++
+FC ゾーン計画の生成に使用するデスティネーション clustered Data ONTAP SVM を「 _cluster-name:svm_name 」の形式で指定します。
+
+* 「 --fc-switches 」と入力します
++
+FC ゾーン計画を生成する FC スイッチのリストを指定します。各スイッチの ID をカンマで区切って指定できます。Cisco の場合、 FC スイッチは「 _switch-ip:vsan-id_ 」の形式で指定し、 Brocade の場合、 FC スイッチは「 _switch-ip_」 の形式で指定する必要があります。たとえば、 Cisco の場合は「 10.61.187.6 ： 200 、 10.61.187.7 ： 200 」、 Brocade の場合は「 10.61.187.4 、 10.61.187.5 」のようになります。
+
+* 「 --fc-switches -target 」
++
+FC ゾーン計画を生成する、クラスタ側の FC スイッチのリストを指定します。ターゲットのスイッチの ID を元の FC スイッチ（ -fc-switches ）と同じ順序でカンマで区切って指定できます。fc-switches パラメータのリストに追加した元のスイッチのそれぞれに対して FC ゾーニングスクリプトが生成されます。これはオプションパラメータです。
+
+
+
+FC ゾーンプランナーの場合、名前のない引数で入力インベントリ XML を指定します。

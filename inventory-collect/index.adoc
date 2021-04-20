@@ -1,0 +1,13 @@
+---
+permalink: inventory-collect/index.html 
+sidebar: sidebar 
+keywords: 7, mode, ontap, host, storage, information, collection, transition, assessment 
+summary: ONTAP と 7-Mode のシステム、スイッチ、ホスト、およびホストアプリケーションに関する情報を収集し、 7-Mode Transition Tool で使用してシステムの移行準備状況を評価するインベントリレポートを生成する方法について説明します。 
+---
+= 『 Host and Storage Information Collection Guide 』を参照してください
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+このガイドでは、 ONTAP および 7-Mode のシステム、スイッチ、ホスト、およびホストアプリケーションに関する情報を収集し、 7-Mode Transition Tool でシステムの移行準備状況を評価するために使用できるインベントリレポートを生成する方法について説明します。

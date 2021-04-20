@@ -1,0 +1,203 @@
+---
+permalink: copy-based/task_creating_a_transition_session.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, create, project 
+summary: 移行対象の 7-Mode オブジェクトと ONTAP オブジェクトへのマッピング方法を指定して、移行プロジェクトを作成します。プロジェクトを作成すると、 7-Mode Transition Tool によって移行オブジェクトに関する情報が収集され、保存されます。このプロジェクト情報を使用して、移行を段階的に実行できます。 
+---
+= 移行プロジェクトの作成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行対象の 7-Mode オブジェクトと ONTAP オブジェクトへのマッピング方法を指定して、移行プロジェクトを作成します。プロジェクトを作成すると、 7-Mode Transition Tool によって移行オブジェクトに関する情報が収集され、保存されます。このプロジェクト情報を使用して、移行を段階的に実行できます。
+
+次の情報を収集しておく必要があります。
+
+* プロジェクトタイプ： stand-alone 、 primary 、または secondary
+* MultiStore のライセンスがある場合は、 7-Mode ストレージシステムの FQDN または IP アドレス、あるいはデフォルトの vFiler ユニット
+* 7-Mode ストレージシステムの管理ユーザ名とパスワード
+* 7-Mode ボリュームのリスト
+* クラスタの FQDN またはクラスタ管理の IP アドレス LIF
+* SVM 名
+
+
+.手順
+. 「 * Start * 」メニューから「 * All Programs * > * NetApp 7-Mode Transition Tool * > * NetApp 7-Mode Transition Tool （ CLI ） 3.0 * 」をクリックして、 7-Mode Transition Tool コマンドプロンプトを開きます。
+. 移行プロジェクトに追加するシステムのユーザ名とパスワードを追加します。
++
+'*transition credentials add -h host_name --u_user_name_*
+
++
+`_host_name_` は、 7-Mode システムまたはクラスタの FQDN または IP アドレスです。
+
++
+`_user_name_` はシステムの管理ユーザ名である。
+
++
+
+NOTE: この手順は、移行プロジェクトに追加するストレージシステムごとに繰り返す必要があります。
+
++
+[listing]
+----
+7-Mode Transition Tool>transition credentials add -h system1.example.com -u root
+Enter password for 'root@system1.example.com':
+----
+. 移行プロジェクトを作成します。
++
+`*transition cbt create -p_project_name>-t_project_type -n_7-Mode_system_c data_data-copy-ipaddress _[-f_vfiler_name_][-hy_cluster_V-V_name_*`
+
++
+`_project_name_` は、移行プロジェクトの名前です。
+
++
+`_project_type は ' プロジェクトタイプです有効な値は standalone 、 secondary 、または primary です。
+
++
+`_7-Mode_system_` は、 7-Mode システムの FQDN または IP アドレスです。
+
++
+`_cluster_` はクラスタの FQDN かクラスタ管理 LIF の IP アドレスである。
+
++
+
+NOTE: 7-Mode システムとクラスタのホスト名は、プロジェクト作成時に指定したものと同じであることが必要です。
+
++
+`_data-copy-ipaddress_` は、データのコピー時に経由する IP アドレスです。
+
++
+`_vfiler_name_` は、デフォルト以外の vFiler ユニットの名前です。
+
++
+`_vserver_name _ は SVM の名前です
+
++
+
+NOTE: 新しい SVM の場合は、「 -g 」オプションを使用して SVM のルートボリュームのアグリゲート名を指定する必要があります。
+
++
+[listing]
+----
+7-Mode Transition Tool>transition cbt create -p sample_project -t standalone -n system1.example.com -n 10.238.55.33 -h cluster1.example.com -v vs2
+----
++
+移行プロジェクトが準備状態になります。
+
+. 7-Mode ボリュームと ONTAP ボリュームをプロジェクトに追加します。
++
+`*transition cbt volumepair add -p _project_name _-v_7-Mode_volume -c_vserver_volume _ -g_aggr_name_-t *
+
++
+「 _7-Mode_volume_」 は、 7-Mode ボリューム名です。
+
++
+`_vserver_volume_` は、 SVM 上の ONTAP ボリュームです。
+
++
+
+NOTE: ベースライン転送が完了した ONTAP ボリュームを追加することもできます。このようなボリュームを準備フェーズで追加すると、データコピーフェーズでは差分転送のみが実行されます。
+
++
+`_aggr_name_` は、開始操作中に ONTAP ボリューム「 _vserver_volume_` が作成されるアグリゲートです。
+
++
+`--t_` は、 SnapMirror 関係にあるボリュームをスタンドアロンボリュームとして移行する必要がある場合に使用されます。
+
++
+
+NOTE: ボリュームをスタンドアロンボリュームとして移行した場合、 SnapMirror 関係は維持されません。
+
++
+SnapMirror 関係 SnapLock にある SnapLock Compliance ボリュームの場合、 SnapMirror 関係を 7-Mode Transition Tool で移行することはできません。SnapMirror 関係にあるすべての SnapLock Compliance ボリュームは、スタンドアロン、プライマリ、またはセカンダリのプロジェクトに含めてスタンドアロンボリュームとして（フラグ -t を指定して）移行する必要があります。移行後に、該当するボリューム間で SnapMirror の再同期処理を手動で実行する必要があります。
+
++
+を参照してください xref:concept_considerations_for_transitioning_of_snaplock_compliance_volumes.adoc[SnapLock Compliance ボリュームの移行に関する考慮事項]
+
++
+[listing]
+----
+7-Mode Transition Tool>transition cbt volumepair add -p sample_project -v vol1 -c vol1 -g aggr1
+----
+. 移行対象の IP アドレスをプロジェクトに追加します。
++
+`* transition cbt lif add -p _project_name [-i_ip-address_[-m_netmask_] [-g_default-gateway_] [-p_home_port_][-n_home_node] *
+
++
+移行プロジェクトにはほかにも、未設定またはストレージカットオーバー時に 7-Mode システムから削除される既存の IP アドレス、および 7-Mode と ONTAP のどちらにも設定されていない新しい IP アドレスを追加できます。
+
++
+
+NOTE: FC LIF と iSCSI LIF は 7-Mode Transition Tool では移行されません。
+
++
+[listing]
+----
+7-Mode Transition Tool>transition cbt lif add -p sample_project -i 192.0.2.250 -m 255.255.255.128 -g 192.40.0.1 -p e0a -n cluster1-01
+----
++
+新しい IP アドレスは、構成の適用（カットオーバー前）処理の up 状態のときに ONTAP システムに設定されます。
+
+. プライマリプロジェクトとセカンダリプロジェクトに情報を追加するには、次の手順を実行します。
++
+|===
+| 追加する情報 | 入力するコマンド 
+
+
+ a| 
+プライマリ 7-Mode システムからセカンダリプロジェクトへ
+ a| 
+`*transition cbt add-primary-7-mode -system-p_project_name_-h_source -host_f_management-ipaddress _-d _data-copy-ipaddress _[-m_multipathing-ipaddress _]*
+
+詳細については、を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/CBT_%3A_How_to_provide_all_the_required_primary_7-Mode_details_for_a_given_secondary_project["CBT ：特定のセカンダリプロジェクトに必要なプライマリ 7-Mode の詳細をすべて提供する方法"]。
+
+
+
+ a| 
+セカンダリクラスタまたは SVM ：プライマリプロジェクトに追加します
+ a| 
+`*transition cbt add-secondary-cluster-mode-system-p_project_name_-h_c-mode-host-name _v_vserver-name_*`
+
+詳細については、を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/CBT%3A_How_to_add_the_required_secondary_cluster_details_to_the_primary_project["CBT ：必要なセカンダリクラスタの詳細をプライマリプロジェクトに追加する方法"]
+
+|===
++
+`_project_name_` は、移行プロジェクトの名前です。
+
++
+「 _source-host_ 」は、セカンダリ 7-Mode システムの「 napmirror status 」コマンド出力に表示される、プライマリ 7-Mode ストレージシステムのホスト名または IP アドレスです。
+
++
+7-Mode プライマリシステムの詳細を指定する場合の考慮事項については、マニュアルページを参照してください。
+
++
+`_management-ipaddress_` は、ソースホストの管理 IP アドレスです。
+
++
+`_data-copy-ipaddress_` は、データのコピー時に経由する IP アドレスです。
+
++
+「 _multipathing-ipaddress_ 」は、データコピーに使用する追加の IP アドレスです。
+
++
+`_c-mode-host-name_` は、プロジェクト内のセカンダリボリュームの移行先クラスタの FQDN または IP アドレスです。
+
++
+`_vserver-name _ は、セカンダリボリュームをホストする SVM の名前です。
+
+. データコピースケジュールを作成します。
++
+`*transition cbt schedule add -p _project_name>-n _sschedule_name _-d_d_d_d_days -range_ -b_start -time_-e _duration _-u _update -frequency -t available-transfers-percentage _c_max-cap-concurrent-transfers _ -x_project-snapmirror-throttle_*`
+
++
+次のコマンドでは、実行可能な SnapMirror 同時転送を 100% 使用するスケジュールを追加しています。ただし、どの時点においても同時転送数は 25 を超えない範囲に設定しています。
+
++
+*transition schedule add -p sample_project-n dr_active -d 1-5 -b 23:30-e 03:00-c 25-x 200-u 00:30*
+
+. 作成した移行プロジェクトに関する詳細情報を表示します。
++
+*transition cbt show -p_project-name_*`
+
+

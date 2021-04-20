@@ -1,0 +1,48 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_hp_ux_host_data_luns_with_file_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, hp, ux, host, data, lun, file, system 
+summary: ファイルシステムを搭載した HP ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、カットオーバーフェーズを開始する前に特定の手順を実行する必要があります。 
+---
+= HP-UX ホストデータ LUN 移行時のカットオーバーフェーズの準備 ファイルシステムで実現できます
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ファイルシステムを搭載した HP ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、カットオーバーフェーズを開始する前に特定の手順を実行する必要があります。
+
+FC 構成を使用している場合は、 clustered Data ONTAP ノードへのファブリック接続とゾーニングを確立する必要があります。
+
+iSCSI 構成を使用している場合は、 clustered Data ONTAP ノードへの iSCSI セッションを検出して、ログインする必要があります。
+
+コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を完了したあとに以下の手順を実行します。HP-UX ホストでは、コピーフリーの移行はサポートされていません。
+
+.手順
+. すべてのマウントポイントで I/O を停止します。
+. アプリケーションベンダーの推奨事項に従って、 LUN にアクセスしている各アプリケーションをシャットダウンします。
+. すべてのマウントポイントをアンマウントします。
++
+'*umount_mount_point_*
+
+. ボリュームグループをエクスポートし、ボリュームグループの VGID と論理ボリュームをマップファイルに書き込みます。
++
+*vgexport -p-s -m /tmp/mapfile.vg01 vg01 *`
+
+. mapfilevg01 ファイルのバックアップコピーを外部ソースに作成します
+. ボリュームグループを無効にします。
++
+`*vgchange-a n_vg_name_*`
+
+. ボリュームグループをエクスポートします。
++
+'*vgexport_vg_name_*
+
+. ボリュームグループがエクスポートされたことを確認します。
++
+'*vgdisplay*'
+
++
+エクスポートされたボリュームグループ情報は出力に表示されません。
+
+

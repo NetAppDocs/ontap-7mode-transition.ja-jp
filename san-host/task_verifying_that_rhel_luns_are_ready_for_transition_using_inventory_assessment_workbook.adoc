@@ -1,0 +1,23 @@
+---
+permalink: san-host/task_verifying_that_rhel_luns_are_ready_for_transition_using_inventory_assessment_workbook.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rhel, lun, inventory, assessment, workbook 
+summary: Red Hat Enterprise Linux\（ RHEL\） 5 または RHEL 6 LUN に Device Mapper Multipath \ （ DMMP \ ）が設定されている場合、 Data ONTAP 7-Mode から clustered Data ONTAP に LUN を移行する前に、ファイルシステムが設定されていないことを確認する必要があります。 
+---
+= を使用した RHEL LUN の移行準備状況の確認 Inventory Assessment Workbook の作成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Red Hat Enterprise Linux （ RHEL ） 5 または RHEL 6 LUN に Device Mapper Multipath （ DMMP ）が設定されている場合、 Data ONTAP 7-Mode から clustered Data ONTAP に LUN を移行する前に、ファイルシステムが設定されていないことを確認する必要があります。
+
+この手順環境コピーベースの移行とコピーフリーの移行の 2 つです。
+
+.手順
+. _ Inventory Assessment Workbook から移行前の情報を収集します。
+. DMMP デバイスエントリが * SAN ホストファイルシステム * タブにあるかどうかを確認します。
++
+DMMP デバイスエントリが表示されない場合、ファイルシステムが設定されていないため、 LUN を移行できます。
+
+

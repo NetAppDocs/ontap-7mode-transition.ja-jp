@@ -1,0 +1,31 @@
+---
+permalink: install-admin/reference_installation_or_uninstallation_of_7mtt_is_blocked.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, uninstall, transition, tool, blocked 
+summary: 7-Mode Transition Tool のインストーラまたはアンインストーラを使用して処理（インストール、修復、再インストール、アップグレード、アンインストールなど）を実行する場合、 次のエラーメッセージが表示されます。 Another instance of NetApp 7-Mode Transition Tool Setup or Uninstall is runned.一度に実行できるインスタンスは 1 つだけです。 
+---
+= 7-Mode Transition Tool のインストールまたはアンインストールがブロックされます
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool のインストーラまたはアンインストーラを使用して処理（インストール、修復、再インストール、アップグレード、アンインストールなど）を実行する場合は、 「 Another instance of NetApp 7-Mode Transition Tool Setup or Uninstall is runned. 」というエラーメッセージが表示されます。一度に実行できるインスタンスは 1 つだけです
+
+
+
+== 回避策
+
+作業を開始する前に、 7-Mode Transition Tool のインスタンスやダイアログボックスが開いていないことを確認します。そうしないと、手順をもう一度実行しなければならない場合があります。
+
+. [ スタート ] ボタンをクリックして、 * レジストリ * を開きます。
+. Search programs and files* に「 * regedit* 」と入力します。
+. レジストリエディタが開いているときに、 HKEY_LOCAL_MACHINE レジストリハイブを探します。
+. HKEY_LOCAL_MACHINE ハイブのフォルダアイコンの左にある展開アイコンをクリックして、このハイブを展開します。
+. レジストリキーとサブキーを展開し、「 HKEY_LOCAL_MACHINE\ SOFTWARE \NetApp\7-Mode Transition Tool 」を表示します。
+. 7-Mode Transition Tool * をクリックします。
+. INSTALL_STATUS を右クリックし、 * Modify * を選択します。
+. INSTALL_RUNNING から INSTALLED に値を変更し、 * OK * をクリックします。
+
+
+これで、 7-Mode Transition Tool のインストーラまたはアンインストーラを使用して処理を実行できるようになります。

@@ -1,0 +1,11 @@
+---
+permalink: copy-free/reference_copyright_and_trademark.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, copyright, trademark 
+summary: コピーフリーの移行ガイドの著作権と商標。 
+---
+= 著作権および商標
+:icons: font
+:imagesdir: ../media/
+
+

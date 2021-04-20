@@ -1,0 +1,91 @@
+---
+permalink: san-host/task_preparing_for_transition_of_fc_or_fcoe_san_boot_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, transition, fc, fcoe, san, boot, lun, rhel 
+summary: FC または FCoE SAN ブート LUN を移行する前に、 Red Hat Enterprise Linux （ RHEL \ ）ホストで特定の手順を実行する必要があります。 
+---
+= FC または FCoE SAN ブート LUN の移行準備をしています RHEL ホスト
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC または FCoE SAN ブート LUN を移行する前に、 Red Hat Enterprise Linux （ RHEL ）ホストで特定の手順を実行する必要があります。
+
+次の情報を Inventory Assessment Workbook から収集しておく必要があります。
+
+* RHEL 5 または RHEL 6 が格納されている 7-Mode LUN の名前 がインストールされている
+* 移行する LUN の SCSI デバイス名
+* 移行する LUN の DMMP デバイス名
+* マウントディレクトリ
+* DMMP デバイスに設定されているファイルシステム
+* /boot パーティションの UUID 番号
+* initrid イメージの名前
+
+
+この手順環境コピーベースの移行とコピーフリーの移行の 2 つです。
+
+. DMMP デバイスが /dev/mapper ディレクトリにあることを確認します。
++
+*ls /dev/mapper/_DMMP _DEVICE_NAME_*
+
++
+DMMP デバイスが見つからない場合は、エイリアスまたはフレンドリ名が使用されている可能性があります。
+
+. RHEL 5 または RHEL 6 オペレーティングシステムの /boot ディレクトリと root （ / ）ディレクトリがインストールされている DMMP デバイスと論理ボリュームマネージャ（ LVM ）名を特定します。
++
+「 * df -h * 」と入力します
+
++
+デフォルトでは、 RHEL 5 と RHEL 6 は論理ボリューム上のルート（ / ）パーティションにインストールされます。ルートパーティションが論理ボリュームにインストールされている場合は、移行前の設定変更は必要ありません。
+
+. /boot パーティションが DMMP デバイスにインストールされている場合は、ブート時に /etc/fstab でマウント用に /boot パーティションがどのように参照されているかを確認します。
+. /boot パーティションが DMMP デバイス名によって /etc/fstab 内で参照されている場合は、 DMMP デバイス名をファイルシステム UUID 名に置き換えます。
+. /etc/fstab ファイルのバックアップを作成します
++
+`*cp /etc/fstab /etc/fstab/etc/fstab_pre_transition_file_name _*`
+
+. 「 /etc/fstab 」ファイルを編集して、 DMMP デバイス名をそれぞれのファイルシステム UUID 番号に置き換えます。
+. initrd イメージ・ファイルのバックアップを作成します
++
+'*cp /boot/_initrd_image_file_name initrd_image_file_name __ _ _ _ _ _ .bak *'
+
+. RHEL 5 のみ：
++
+.. /etc/mutipath.conf ファイルで ' スワップ・パーティション・デバイスを指定します
++
+次の例では '/dev/VolGroup00/LogVol01' は SWAP パーティションデバイスです
+
++
+/dev/VolGroup00/LogVol01 スワップのデフォルト値は 0` です
+
+.. SWAP パーティションをマウントするためのラベルを作成します :+`*swapoff_swap-partition_device_*`
++
+'*mkswap-L_label-for -swap-partition-device_*
+
++
+'*swapon_swap -partition_device_*
+
+.. /etc/fstab ファイル内のスワップ・パーティション・デバイス名をスワップ・ラベルに置き換えます
++
+/etc/fstab ファイル内の更新された行は次のようになります
+
++
+[listing]
+----
+LABEL=SwapPartition  swap  swap   defaults    0 0
+----
+
+
+. initrd イメージを再作成します。
++
+** RHEL5 の場合： +`*mkinitrd-f/boot/initrd-""uname -r ".img'uname -r -- マルチパス *`
+** RHEL 6 の場合 :+`*dracut --force --add multipath --verbose*`
+
+
+. ホストを再起動して ' 新しい initrd` イメージからブートします
+
+
+* 関連情報 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[Inventory Assessment Workbook からの移行前の情報収集]

@@ -1,0 +1,107 @@
+---
+permalink: copy-free/concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, supported, unsupported, cifs, configurations 
+summary: ONTAP でサポートされていないか、または手動で移行しなければならない一部の CIFS 構成は、 ONTAP に移行されません。事前確認のエラーおよび警告メッセージをすべて検証して、このような構成が移行に及ぼす影響を評価する必要があります。 
+---
+= ONTAP への移行対象としてサポートされる CIFS 構成とされない CIFS 構成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP でサポートされていないか、または手動で移行しなければならない一部の CIFS 構成は、 ONTAP に移行されません。事前確認のエラーおよび警告メッセージをすべて検証して、このような構成が移行に及ぼす影響を評価する必要があります。
+
+
+
+== 移行対象としてサポートされる構成
+
+以下の CIFS 構成が 7-Mode Transition Tool で移行されます。
+
+* CIFS の優先 DC 構成
+* ユーザマッピングの構成
++
+** 「 /etc/usermap.cfg 」を参照してください
+** 'wafl.nt_admin_priv_map_to_root_`
+
+
+* CIFS ローカルユーザおよびローカルグループ
+* シンボリックリンクとワイドリンクの構成（ /etc/symlink.translations ）
+* CIFS 監査構成
+* CIFS 共有
+* CIFS 共有 ACL
+* CIFS のホームディレクトリ設定
+* CIFS オプション：
++
+** 'cifs.gpo.enable
+** cifs.smb2.enable
+** 「 cifs.smb2.signing.required 」
+** 'cifs.wins_servers'
+** cifs.grant_implicit_exe_perms`
+** 'cifs.restrict_anonymous'
+
+
+* ドメインコントローラなどの外部サーバへの SMB2 接続。次のコマンドを実行することで実現します。
++
+** `*cifs security modify -vserver SVM1-smb2-enabled-for -dc -connections *`
+
+
+* FPolicy のネイティブファイルブロッキング構成
+
+
+これらの CIFS 構成の詳細については、事前確認の結果を参照してください。
+
+
+
+== ONTAP でサポートされない構成
+
+以下の 7-Mode 構成は、 ONTAP でサポートされません。そのため、これらの構成は移行できません。
+
+* NT4 およびパスワード認証タイプ
+* SMB1 署名と SMB2 署名それぞれのオプション
+* クライアント単位の CIFS 統計情報
+* 
++
+** Windows NT より前のバージョンのクライアントの認証
+
+
+* ローカルユーザとローカルグループのアカウント管理イベントの監査
+* IP アドレス、ホスト名、ネットワーク名、またはドット表記でサブネットが指定されたネットワーク名を含むユーザマップエントリ
+* マシンアカウントのアクセスが制限された CIFS 共有
++
+移行後、マシンアカウントはすべての共有にアクセスできるようになります。
+
+
+
+
+
+== 手動で移行する必要のある構成
+
+一部の CIFS 構成は、 ONTAP でサポートされるものの、 7-Mode Transition Tool では移行されません。
+
+以下の CIFS 構成に対しては、事前確認の際に警告メッセージが生成されます。これらの構成は SVM に手動で適用する必要があります。
+
+* ウィルス対策の設定
+* FPolicy の設定
++
+7-Mode の FPolicy サーバとウィルス対策サーバは、 ONTAP では機能しません。これらのサーバをアップグレードするには、サーバベンダーに問い合わせる必要があります。ただし、移行を完了するまでは、 7-Mode の FPolicy サーバとウィルス対策サーバの運用を停止しないでください。移行をロールバックする場合、これらのファイルが必要です。
+
+* BranchCache 構成
+* 文字マッピングの構成（ charmap ）
+* CIFS 共有の forcegroup 属性：を使用してファイルを作成します 所有グループとして指定された UNIX グループ
+* CIFS 共有の maxusers 属性：最大数を指定します 7-Mode CIFS 共有への同時接続数
+* ストレージレベルのアクセス保護（ SLAG ）構成
+* UNIX 形式のアクセス権を使用する共有レベルの ACL
+* UNIX ユーザおよびグループの共有 ACL
+* LAN Manager 認証レベル
+* NetBIOS エイリアス
+* CIFS 検索ドメイン
+* 一部の CIFS オプション
++
+これらのオプションの詳細については、事前確認の結果を参照してください。
+
+
+
+* 関連情報 *
+
+xref:task_customizing_configurations_for_transition.adoc[7-Mode 構成の移行のカスタマイズ]

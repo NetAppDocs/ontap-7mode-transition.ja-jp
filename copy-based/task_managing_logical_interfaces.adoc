@@ -1,0 +1,76 @@
+---
+permalink: copy-based/task_managing_logical_interfaces.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, manage, logical, interfaces 
+summary: プロジェクトに対して、 7-Mode IP アドレスを追加、編集、または削除することができます。 
+---
+= 論理インターフェイスを管理する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+プロジェクトに対して、 7-Mode IP アドレスを追加、編集、または削除することができます。
+
+LIF は、構成の適用（カットオーバー前）フェーズで SVM 上に設定されます。
+
+* 既存の 7-Mode IP アドレスは、管理状態が「自身の」状態で作成されます。
+* 新しい IP アドレスは ' 管理状態がアップ状態で作成されます
+
+
+
+IMPORTANT: FC LIF と iSCSI LIF は 7-Mode Transition Tool では移行されません。
+
+.手順
+. 次のいずれかを実行します。
++
+|===
+| 状況 | 作業 
+
+
+ a| 
+既存の LIF を編集する
+ a| 
+.. をクリックします image:../media/edit_schedule.gif[""] 。
+.. Modify LIF ダイアログボックスで、必要な変更を行い、 * Save * をクリックします。
+
+
+
+
+ a| 
+既存の LIF を削除する
+ a| 
+.. をクリックします image:../media/delete_schedule.gif[""] をクリックします。
++
+
+NOTE: LIF を削除できるのは、プロジェクトが準備状態、ベースラインデータコピー状態、一時停止状態、カットオーバー前状態、または更新状態のときに限られます。ただし、カットオーバー処理が失敗した場合は、 LIF を削除できません。
+
+.. Select 7-Mode LIF * をクリックします。
+.. 移行する 7-Mode IP アドレスを選択します。
+.. ターゲットノードとターゲットポートの詳細を入力します。
+.. [ 保存（ Save ） ] をクリックします。
+
+
+
+
+ a| 
+7-Mode IP アドレスを追加します
+ a| 
+** Select 7-Mode LIF * をクリックします。
+** 移行する 7-Mode IP アドレスを選択します。
+** ターゲットノードとターゲットポートの詳細を入力します。
+** [ 保存（ Save ） ] をクリックします。
+
+
+
+
+ a| 
+新しい LIF を追加します
+ a| 
+.. テーブルの下にある * Add New LIF * をクリックします。
+.. 必要な値を入力します。
+.. [ 保存（ Save ） ] をクリックします。
+
+
+|===
+

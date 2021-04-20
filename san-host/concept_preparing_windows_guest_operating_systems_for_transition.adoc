@@ -1,0 +1,17 @@
+---
+permalink: san-host/concept_preparing_windows_guest_operating_systems_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, windows, guest, operating, systems 
+summary: Windows VM で物理互換 RDM （ PTRDM ）デバイスを使用している場合は、移行前に Windows VM でディスクをオフラインにする必要があります。ディスクマネージャを使用して、ディスクをオフラインにすることができます。 
+---
+= Windows ゲスト OS での移行準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Windows VM で物理互換 RDM （ PTRDM ）デバイスを使用している場合は、移行前に Windows VM でディスクをオフラインにする必要があります。ディスクマネージャを使用して、ディスクをオフラインにすることができます。
+
+* コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode システムのエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+

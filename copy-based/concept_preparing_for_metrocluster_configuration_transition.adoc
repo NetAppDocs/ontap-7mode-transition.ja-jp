@@ -1,0 +1,56 @@
+---
+permalink: copy-based/concept_preparing_for_metrocluster_configuration_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, metrocluster, configuration 
+summary: MetroCluster 構成に移行する前に、 7-Mode ボリュームを ONTAP 内の MetroCluster 構成に移行する場合の要件と考慮事項を理解しておく必要があります。 
+---
+= MetroCluster 構成の移行準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster 構成に移行する前に、 7-Mode ボリュームを ONTAP 内の MetroCluster 構成に移行する場合の要件と考慮事項を理解しておく必要があります。
+
+
+
+== 前提条件
+
+* ONTAP で MetroCluster の設定が完了している必要があります。
+* SVM タイプは「 sync-source 」である必要があります。
+* 7-Mode コントローラがテイクオーバー状態でない、またはギブバック待ちでないことが必要です。
+* ONTAP の MetroCluster 構成のノードがスイッチオーバーされていない、またはスイッチバック待ちでないことが必要です。
+
+
+
+
+== 考慮事項
+
+* ターゲットクラスタが MetroCluster 構成に含まれている場合、 SnapLock Compliance ボリュームの移行はサポートされません。
+* 7-Mode コントローラ、 HA 構成、または MetroCluster 構成のボリュームは、 ONTAP 内の MetroCluster 構成にスタンドアロンボリュームとして移行することができます。
+* 7-Mode MetroCluster 構成のボリュームが、別の 7-Mode コントローラのボリュームと Volume SnapMirror 関係にある場合は、その SnapMirror 関係をプライマリ関係およびセカンダリ関係として移行できます。
++
+7-Mode Transition Tool を各 MetroCluster サイトにインストールし、各サイトからボリュームを移行する必要があります。
+
+* 7-Mode ファブリック MetroCluster 構成用に設定された各種サブネットを、 ONTAP 内の MetroCluster 構成上で設定することはできません。
+* 7-Mode ファブリック MetroCluster 構成で設定されている優先ポートを、 ONTAP 内の MetroCluster 構成用に設定することはできません。
+* 7-Mode ファブリック MetroCluster 構成が Brocade 6510 スイッチを使用している場合は、既存のスイッチファブリックを ONTAP 内の新しい MetroCluster と共有できます。
++
+スイッチファブリックは、移行中にのみ共有することを推奨します。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-fabric/home.html["ファブリック接続 MetroCluster のインストールと設定"]
+
+* 移行中に作成された cron ジョブスケジュールはリモートサイトにレプリケートされないため、移行後のネゴシエートスイッチオーバーは失敗します。
++
+移行後にリモートサイトで cron ジョブスケジュールを手動で作成する必要があります。
+
+
+
+* 関連情報 *
+
+xref:task_post_transition_task_for_a_metrocluster_configuration.adoc[移行後にリモートサイトで cron ジョブスケジュールを設定 MetroCluster 構成]
+
+xref:concept_impact_of_takeover_and_giveback_on_transition.adoc[テイクオーバーとギブバックが移行に与える影響]
+
+xref:task_transitioning_a_metrocluster_configuration_if_a_switchover_or_switchback_event_occurs.adoc[スイッチオーバーまたはスイッチオーバーが原因で失敗した MetroCluster 構成を移行する スイッチバック]

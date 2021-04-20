@@ -1,0 +1,24 @@
+---
+permalink: san-host/task_deleting_vm_snapshots_using_vsphere_client.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, delete, vm, snapshots, copy, vsphere, client 
+summary: ESXi CLI を使い慣れていない場合や、 vSphere Client を使用する方が便利な環境では、 vSphere Client を使用して仮想マシン（ VM\ ）の Snapshot を削除できます。 
+---
+= vSphere Client を使用して VM Snapshot コピーを削除します
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ESXi CLI を使い慣れていない場合や、 vSphere Client を使用する方が便利な環境では、 vSphere Client を使用して仮想マシン（ VM ）の Snapshot を削除できます。
+
+* コピーベースの移行の場合は、 7-Mode Transition Tool （ 7MTT ）でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode システムのエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+
+.手順
+. ESXi ホストまたは ESXi ホストを管理する vCenter Server を開きます。
+. Snapshot を削除する VM を右クリックします。
+. スナップショット *>* スナップショット・マネージャ * スナップショット・ウィンドウを開きます
+. [ * すべて削除 * ] をクリックします。
+

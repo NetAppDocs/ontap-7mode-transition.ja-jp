@@ -1,0 +1,95 @@
+---
+permalink: copy-free/task_running_manual_steps_for_rolling_back_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, manual, roll, back 
+summary: 移行をロールバックする場合は、クラスタおよび 7-Mode システムでいくつかの手順を手動で実行する必要があります。手動のロールバック手順の一覧は 7-Mode Transition Tool で生成されます。 
+---
+= 手動による移行のロールバック
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行をロールバックする場合は、クラスタおよび 7-Mode システムでいくつかの手順を手動で実行する必要があります。手動のロールバック手順の一覧は 7-Mode Transition Tool で生成されます。
+
+ロールバックの手順は、ロールバックを決断したフェーズによって異なります。インポート処理が成功したあとにロールバックを決断した場合は、このタスクのすべての手順を実行する必要があります。それよりも前のフェーズでロールバックを決断した場合は、これらの手順の一部を実行する必要があります。
+
+.手順
+. クラスタにログインします。
+. 移行したボリュームのいずれかが SnapMirror 関係にある場合は、次のいずれかを実行します。
++
+** 移行したボリュームが SnapMirror 関係のデスティネーションである場合は、 SnapMirror 関係を削除します。 +`*snapmirror delete -destination-path destination-path -source-path _-source-path_*`
+** 移行したボリュームが SnapMirror 関係のソースである場合は、 SnapMirror 関係を解除します。「 * snapmirror release -destination-path destination-path -source-path source-path *
+
+
+. クラスタから、移行したボリュームで次の処理が実行されていないことを確認します。
++
+.. ボリューム移動操作 :+`* volume move show *`
+.. LUN の移動操作： +`* lun move show *`
+.. LUN コピー処理 :+`* lun copy show *`
+
+
+. すべての 7-Mode アグリゲートのロールバックを実行します。
++
+.. diagnostic 権限レベルにログインします :+`*set -privilege diagnostic*`
+.. 「 storage transition revert start 」コマンドを使用して、アグリゲートを 7-Mode の状態にリバートします。
++
+このコマンドには、移行プロジェクト ID やアグリゲートの属性など、追加のパラメータが必要です。7-Mode Transition Tool で生成された手順に従って、パラメータとその値を指定した完全なコマンドを使用してください。
+
+.. 移行したすべてのアグリゲートのロールバックが成功したことを確認します。 +`*storage transition revert show-status *`
++
+ロールバックが正常に完了すると、アグリゲートの [ ステータスコード ] フィールドに「 REVERT_コンプリート 」と表示されます。
+
+
+
+. ディスク所有権をターゲットクラスタノードから 7-Mode コントローラに再割り当てします。
++
+.. ディスク所有権を 7-Mode コントローラに割り当てます。 +`* disk assign – disk_disk_id – s_system_id_-force true *`
+.. ディスク所有権が 7-Mode コントローラに割り当てられたことを確認します。
++
+'*storage disk show -fields owner-id*
+
+
+
+. 7-Mode の LIF を SVM から削除します。
++
+「 * network interface delete -vserver _svm_name 」 - 「 lif_lif_name_*`
+
+. ターゲットクラスタノードに対するコピーフリーの移行の制限事項を diagnostic 権限レベルで削除します。
++
+'*storage transition pre-commit end -session-id_transition_project_id_*
+
++
+この手順は、ロールバック処理が完了して、 7-Mode コントローラが稼働状態になったあとにも実行できます。
+
+. 次に示す diagnostic 権限レベルのコマンドを使用して、ターゲットクラスタノードに関する移行プロジェクト情報を削除します。
++
+`* storage transition purge-info -session-id_transition_project_id _ *`
+
++
+この手順は、ロールバック処理が完了して、 7-Mode コントローラが稼働状態になったあとにも実行できます。
+
+. エクスポートおよび停止処理の際にディスク所有権の自動割り当てを無効にした場合は、有効にします。
++
+'*storage disk assign -auto true *
+
+. ツールによってターゲット SVM に移行された構成をすべて手動で削除します。
++
+ツールで移行された構成の情報については、 SVM のプロビジョニング処理とインポート処理の結果で確認できます。
+
+. ディスクシェルフをターゲットクラスタノードから切断し、 7-Mode コントローラに再接続します。
++
+
+TIP: ケーブル接続を検証するには、 Config Advisor ツールを使用する必要があります。
+
+. ターゲットクラスタノードのディスクシェルフ ID との競合を解決するために 7-Mode のディスクシェルフ ID が変更された場合は、古い ID に手動で変更し、ディスクシェルフの電源を再投入して新しい ID を有効にします。
+. ソースの 7-Mode コントローラを通常モードでブートします。
+. いずれかのソース 7-Mode コントローラから、テイクオーバー機能を有効にします。
++
+「 * cf enable * 」と入力します
+
+. エクスポートおよび停止処理の際にアグリゲート Snapshot コピーの自動削除を無効にした場合は、有効にします。
++
+`*options snap autodelete _aggr_name_on_*`
+
+

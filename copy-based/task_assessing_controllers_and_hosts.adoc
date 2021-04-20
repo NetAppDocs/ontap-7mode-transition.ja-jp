@@ -1,0 +1,25 @@
+---
+permalink: copy-based/task_assessing_controllers_and_hosts.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, assess, controller, host 
+summary: 環境内のセキュリティ規制に応じて、 7-Mode Transition Tool または Inventory Collect Tool を使用して、コントローラとホストに関する情報を収集して評価できます。 
+---
+= コントローラとホストの評価
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+環境内のセキュリティ規制に応じて、 7-Mode Transition Tool または Inventory Collect Tool を使用して、コントローラとホストに関する情報を収集して評価できます。
+
+* 7-Mode Transition Tool にシステムを追加するか、または Inventory Collect Tool で生成されたインベントリレポートを使用して、 7-Mode Transition Tool でコントローラとホストに関するインベントリ情報を収集します。
++
+次に 7-Mode Transition Tool は、インベントリ情報を評価して、移行のための環境評価レポートを作成します。
+
+* 移行のための環境評価を実行する際は、次の考慮事項を理解しておく必要があります。
++
+** コントローラで評価処理とマイグレーション処理を同時に実行しないでください。
+** アクティブなストレージコントローラでピーク時に評価処理を実行しないでください。
+
+
+

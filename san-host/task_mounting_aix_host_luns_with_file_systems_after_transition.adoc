@@ -1,0 +1,50 @@
+---
+permalink: san-host/task_mounting_aix_host_luns_with_file_systems_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, aix, host, lun, file, system 
+summary: ファイルシステムを搭載した AIX ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行した場合、移行後に LUN をマウントする必要があります。 
+---
+= 移行後のファイルシステムを搭載した AIX ホストデータ LUN のマウント
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ファイルシステムを搭載した AIX ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行した場合、移行後に LUN をマウントする必要があります。
+
+LUN を移行したあとも、論理ボリューム名やボリュームグループ名などの論理ボリュームマネージャ（ LVM ）属性に変更はありません。移行後の設定には、移行前の論理ボリューム名とボリュームグループ名をそのまま使用します。
+
+コピーベースの移行の場合は、 7-Mode Transition Tool でストレージカットオーバー処理を完了したあとに以下の手順を実行します。AIX ホストでは、コピーフリーの移行はサポートされていません。
+
+.手順
+. 新しい clustered Data ONTAP LUN を検出します。
++
+"*cfgmgr*`
+
+. clustered Data ONTAP LUN が検出されたことを確認します。
++
+「 * sanlun lun show * 」と表示されます
+
++
+clustered Data ONTAP LUN が表示され、 mode 列の出力が 7 から C に変更されます
+
+. ボリュームグループをインポートします。
++
+'*importvg-y_vg_name pv_name_*
+
++
+ボリュームグループ内の任意の物理ボリューム名を使用できます。
+
+. ボリュームグループがインポートされたことを確認します。
++
+'*lsvg_vg_name_*
+
+. 各デバイスをマウントします。
++
+`*mount-o log=/dev/loglv00_file_system mount_point_*`
+
+. マウントポイントを確認します。
++
+「 * df * 」
+
+

@@ -1,0 +1,47 @@
+---
+permalink: copy-free/task_preparing_7_mode_system_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, prepare, ha, pair 
+summary: 移行を開始する前に、 7-Mode システムがターゲットクラスタと通信できるようにし、 HTTPS と TLS を有効にするなど、 7-Mode システムで一定の作業を完了しておく必要があります。 
+---
+= 7-Mode HA ペアでの移行の準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行を開始する前に、 7-Mode システムがターゲットクラスタと通信できるようにし、 HTTPS と TLS を有効にするなど、 7-Mode システムで一定の作業を完了しておく必要があります。
+
+cf status コマンドを使用して、 HA ペアが正常であること、およびテイクオーバーモードになっているノードがないことを確認します。NetApp AutoSupport ツールを使用して、エラーやリスクのある状態を検出することもできます。
+
+. ストレージシステムで HTTPS が有効でない場合は、 HTTPS を有効にします。
++
+*options httpd. admin.ssl.enable on *`
+
++
+HTTPS はデフォルトでは有効になっています。
+
+. 7-Mode ストレージシステムで TLS を有効にして、 7-Mode Transition Tool が 7-Mode システムと通信できるようにします。
++
+.. ストレージシステムで SSL がまだ有効になっていない場合は、 SSL をセットアップして開始します。 +`*secureadmin setup ssl *`
++
+デフォルトでは、ストレージシステムに対して SSL がセットアップされています。ストレージシステムに対して SSL がすでにセットアップされている場合は、続行するかどうかの確認を求められます。変更を行わない場合は、 SSL のセットアップを終了できます。
+
+.. SSL を有効にします :+`* options ssl.enable on *`
++
+TLS 経由の通信を許可するには、このオプションを有効にする必要があります。
+
+.. Enable TLS:+`* options tls.enable on *`
+.. 7-Mode システムで SSLv2 と SSLv3 を無効にします。 +`*options ssl.v2.enable off *`
++
+'*options ssl.v3.enable off*
+
+
+
++
+7-Mode Transition Tool は、 7-Mode ストレージシステムとの通信に TLS または SSL プロトコルを使用します。ストレージシステムで TLS が有効になっている場合は、 TLS プロトコルを使用してストレージシステムと通信します。ストレージシステムで TLS が無効になっていて SSLv3 が有効になっている場合は、 SSLv3 を使用してストレージシステムと通信します。
+
++
++ 重要：セキュリティ上の脆弱性を回避するため、 TLS を有効にして、 SSLv2 と SSLv3 を無効にすることを推奨します。
+
+

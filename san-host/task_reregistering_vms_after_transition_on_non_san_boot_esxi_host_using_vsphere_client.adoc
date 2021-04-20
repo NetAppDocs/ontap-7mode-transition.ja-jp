@@ -1,0 +1,35 @@
+---
+permalink: san-host/task_reregistering_vms_after_transition_on_non_san_boot_esxi_host_using_vsphere_client.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, vm, esxi, vsphere, client 
+summary: SAN ブート以外のホストを移行したあと、仮想マシン（ VM ）を再登録する必要があります。 
+---
+= を使用した非 SAN ブート ESXi ホストへの VM の再登録 vSphere Client の各機能を使用
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN ブート以外のホストを移行したあと、仮想マシン（ VM ）を再登録する必要があります。
+
+ホストがオンラインで、 LUN が検出されている必要があります。
+
+* コピーベースの移行の場合は、 7-Mode Transition Tool でストレージカットオーバー処理を開始する前に以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT で 7-Mode システムのエクスポートおよび停止処理を開始する前に以下の手順を実行します。
+
+
+.手順
+. Inventory Collect Tool （ ICT ）で生成された Inventory Assessment Workbook を開きます。
+. [Host VMs] タブに移動し、 VM の * VM 構成ファイル * パスと * 場所 / データストア名 * を記録します。
+. vSphere Client を使用して、 ESXi ホストまたは ESXi ホストを管理する vCenter Server にログインします。
+. [* Host and Clusters] で、 ESXi ホストを選択します。
+. 「 * Configuration * > * Hardware * > * Storage * 」に移動します。
+. 前の手順でメモしたデータストア名のデータストアを選択します。
+. 右クリックし、 * データストアの参照 * を選択します。
++
+データストアブラウザウィンドウが開きます。
+
+. 前の手順でメモした * VM 構成ファイル * パスに移動します。
+. 「 .vmx 」ファイルを右クリックし、「 * インベントリに追加 * 」を選択します。
+. ICT によって生成された _ Inventory Assessment Workbook の * Host VMS * タブに表示された VM ごとに、上記の手順を繰り返します。
+

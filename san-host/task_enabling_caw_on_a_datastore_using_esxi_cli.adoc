@@ -1,0 +1,97 @@
+---
+permalink: san-host/task_enabling_caw_on_a_datastore_using_esxi_cli.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, enable, caw, datastore, esxi, cli 
+summary: Data ONTAP 7-Mode で Compare and Write （ CAW ）がサポートされていなかった場合、 clustered Data ONTAP への移行時に CAW のサポートを手動で有効にする必要があります。clustered Data ONTAP では CAW がデフォルトでサポートされています。 
+---
+= ESXi CLI を使用したデータストアでの CAW の有効化
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode で Compare and Write （ CAW ）がサポートされていなかった場合、 clustered Data ONTAP への移行時に CAW のサポートを手動で有効にする必要があります。clustered Data ONTAP では CAW がデフォルトでサポートされています。
+
+* VMFS データストアで I/O または VM が実行されていないことが必要です。
+* データストアが移行されている場合は、再マウントする必要があります。
+* 7-Mode Transition Tool （ 7MTT ）マッピングファイルから新しい ONTAP LUN NAA ID を収集しておく必要があります。
+
+
+CAW は、 VMFS データストアで I/O または VM が実行されていないときにのみ有効にする必要があります。
+
+* CAW は、 VMFS データストアで I/O または VM が実行されていないときにのみ有効にする必要があります。
+* コピーベースの移行の場合は、 7MTT でストレージカットオーバー処理を完了したあとに以下の手順を実行します。
+* コピーフリーの移行の場合は、 7MTT でデータと設定のインポート処理が完了したあとに以下の手順を実行します。
+
+
+.手順
+. Inventory Collect Tool （ ICT ）で生成された Inventory Assessment Workbook を開きます。
+. SAN ホストのファイルシステムタブに移動します。
+. データストアの CAW ステータスを確認します。
++
+データストアの * ATS / CAW * の値に「無効」 * と表示され、「 Filesystem 」列に「 * VMFS.x * 」と表示される必要があります。
+
+. Disk 列にデータストアの名前をメモします
+. SSH を使用して ESXi コンソールにログインします。
+. デバイスとパーティションの詳細を表示します。
++
+`*~#vmkfstools -ph-v1_datastore_path_*`
+
++
+datastore_path は、 _Inventory Assessment Workbook のディスク列に含まれるデータストア名です。
+
++
+`*#vmkfstools -ph-v1/vmfs/volumes/datastorname*`
+
++
+[listing]
+----
+VMFS-5.60 file system spanning 1 partitions.
+File system label (if any): datastorename
+Mode: public
+Capacity 9.8 GB, 8.2 GB available, file block size 1 MB, max file size 64
+TB
+Volume Creation Time: Mon Dec 9 10:29:18 2013
+Files (max/free): 27408/27394
+Ptr Blocks (max/free): 64512/64495
+Sub Blocks (max/free): 3968/3964
+Secondary Ptr Blocks (max/free): 256/256
+File Blocks (overcommit/used/overcommit %): 0/1593/0
+Ptr Blocks (overcommit/used/overcommit %): 0/17/0
+Sub Blocks (overcommit/used/overcommit %): 0/4/0
+Volume Metadata size: 590675968
+UUID: 52a59b7e-52d2fb6c-11d6-001ec9d631cb
+Partitions spanned (on "lvm"):
+naa.600a098044314c6c442b446d51376749:1
+naa.600a098054314c6c445d446f79716431:1
+naa.600a098054314c6c445d446f79716433:1
+Is Native Snapshot Capable: YES
+----
+. 最初のデバイス名とパーティション番号をメモします。
++
+上記の例では、「 naa.600a0988044314c6c442b446d51376749:1' 」はデバイス名とパーティション番号です。
+
+. デバイス ID とパーティション番号を使用して、データストアで CAW を有効にします。
++
+`*~#vmkfstools -- configATSOnly 1/vmfs/devices/disks/__ デバイス ID ： Partition_*
+
+. VMFS ボリュームが ATS にだけ設定されていることを確認します。
++
+`*#vmkfstools -ph-v1/vmfs/volumes/vmfs-volume-name*`
+
++
+[listing]
+----
+VMFS-5.54 file system spanning 1 partitions.
+File system label (if any): ats-test-1
+Mode: public ATS-only
+----
+
+
+* 関連情報 *
+
+xref:task_remounting_vmfs_volumes_after_transition_using_vsphere_client.adoc[vSphere Client を使用した移行後の VMFS ボリュームの再マウント]
+
+xref:task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.adoc[ESXi CLI を使用した移行後の VMFS ボリュームの再マウント]
+
+https://pubs.vmware.com/vsphere-55/index.jsp?topic=/com.vmware.vsphere.storage.doc/GUID-6887003D-2322-49AC-A56C-7AFE7350DB5D.html["VMware のドキュメント"]

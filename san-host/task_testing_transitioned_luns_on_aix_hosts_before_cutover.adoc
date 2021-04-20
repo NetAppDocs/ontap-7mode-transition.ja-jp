@@ -1,0 +1,52 @@
+---
+permalink: san-host/task_testing_transitioned_luns_on_aix_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, aix, cutover, phase, copy, based, test 
+summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して AIX ホスト LUN を移行する場合は、カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、 MPIO デバイスがマウント可能であることを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
+---
+= カットオーバーフェーズ前の AIX ホスト上の移行した LUN のテスト コピーベースの移行の数
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して AIX ホスト LUN を移行する場合は、カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、 MPIO デバイスがマウント可能であることを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。
+
+LUN を移行できる状態にしておく必要があります。
+
+テスト用ホストとソースホスト間のハードウェアパリティを維持し、テスト用ホストで以下の手順を実行する必要があります。
+
+clustered Data ONTAP LUN は、テスト時には読み取り / 書き込みモードになります。テストが完了してカットオーバーフェーズの準備を行う段階で、読み取り専用モードに切り替わります。
+
+.手順
+. ベースラインデータコピーが完了したら、 7MTT のユーザインターフェイス（ UI ）で「 * テストモード」を選択します。
+. 7MTT UI で、 * 構成の適用 * をクリックします。
+. テスト用ホストで、新しい clustered Data ONTAP LUN を再スキャンします。
++
+"*cfgmgr*`
+
+. 新しい clustered Data ONTAP LUN が存在することを確認します。
++
+「 * sanlun lun show * 」と表示されます
+
+. ボリュームグループのステータスを確認します。
++
+*lsvg vg_name*`
+
+. 各論理ボリュームをマウントします。
++
+*mount -o log /dev/loglv00_file_system_mount_point_*
+
+. マウントポイントを確認します。
++
+「 * df * 」
+
+. 必要に応じてテストを実行します。
+. テスト用ホストをシャットダウンします。
++
+'*shutdown-h*'
+
+. 7MTT UI で、 * テストの終了 * をクリックします。
+
+
+clustered Data ONTAP LUN をソースホストに再マッピングする場合は、ソースホストをカットオーバーフェーズ用に準備する必要があります。clustered Data ONTAP LUN をテスト用ホストにマッピングしたままにする場合、テスト用ホストでこれ以上の手順を実行する必要はありません。

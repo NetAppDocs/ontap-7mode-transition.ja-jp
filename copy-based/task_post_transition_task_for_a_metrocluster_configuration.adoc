@@ -1,0 +1,23 @@
+---
+permalink: copy-based/task_post_transition_task_for_a_metrocluster_configuration.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, cron, job, schedules, metrocluster, remote, configuration 
+summary: 移行中に作成された cron ジョブスケジュールはリモートサイトにレプリケートされないため、移行後のネゴシエートスイッチオーバーは失敗します。移行後にリモートサイトで cron ジョブスケジュールを手動で作成する必要があります。 
+---
+= 移行後にリモートサイトで cron ジョブスケジュールを設定 MetroCluster 構成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行中に作成された cron ジョブスケジュールはリモートサイトにレプリケートされないため、移行後のネゴシエートスイッチオーバーは失敗します。移行後にリモートサイトで cron ジョブスケジュールを手動で作成する必要があります。
+
+7-Mode アクティブサイトのストレージカットオーバーが正常に完了している必要があります。
+
+.手順
+. リモートサイトにレプリケートする必要があるジョブスケジュールを特定するために、ストレージカットオーバーで生成された cron ジョブメッセージを記録しておきます。
++
+image::../media/mcc_cron_jobs.gif[MCC cron ジョブ]
+
+. リモート・サイトのクラスタ CLI から ' に記録されている job schedule cron create コマンドを実行します <<STEP_F72D5FA759564336A365328A3414D57A,手順 1.>>。
+

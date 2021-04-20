@@ -1,0 +1,13 @@
+---
+permalink: install-admin/index.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, index 
+summary: コピーフリーの移行またはコピーベースの移行用に 7-Mode Transition Tool をインストールしてセットアップする方法について説明します。 
+---
+= 『インストールおよびセットアップガイド』
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+このガイドでは、コピーフリーの移行またはコピーベースの移行用に 7-Mode Transition Tool をインストールしてセットアップする方法について説明します。

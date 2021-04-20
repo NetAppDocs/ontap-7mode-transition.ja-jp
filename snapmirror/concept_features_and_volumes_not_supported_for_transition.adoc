@@ -1,0 +1,42 @@
+---
+permalink: snapmirror/concept_features_and_volumes_not_supported_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, feature, volumes, supported, snapmirror 
+summary: 一部の機能は clustered Data ONTAP で使用できないため、トラディショナルボリュームなどの一部の 7-Mode ボリューム、および同期 SnapMirror 関係などの一部の 7-Mode 機能は移行できません。 
+---
+= 移行では、機能とボリュームはサポートされていません
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+一部の機能は clustered Data ONTAP で使用できないため、トラディショナルボリュームなどの一部の 7-Mode ボリューム、および同期 SnapMirror 関係などの一部の 7-Mode 機能は移行できません。
+
+7-Mode ボリュームは SVM にのみ移行できます。
+
+移行できない 7-Mode ボリュームまたは構成は次のとおりです。
+
+* 制限またはオフライン状態のボリューム
+* トラディショナルボリューム
+* NFS から CIFS への文字マッピング（ charmap ）が設定されているボリューム
+* ストレージレベルのアクセス保護構成を使用するボリューム
+* ストレージレベルのアクセス保護構成を使用する qtree を含むボリューム
++
+ターゲットクラスタが Data ONTAP 8.3.1 以降を実行している場合は、この構成を使用する qtree を含むボリュームを移行できます。
+
+* no_i2p オプションが有効になっているボリューム
+* FlexCache ボリューム
+* 32 ビット Snapshot コピーを含む 32 ビットボリュームおよび 64 ビットボリューム デスティネーションクラスタで Data ONTAP 8.3 またはが実行されている場合 後で
+* FlexClone ボリューム
++
+FlexClone ボリュームは FlexVol ボリュームとして移行できますが、クローン階層とストレージ効率化は失われます。
+
+* vFiler ユニットのルートボリューム。ルートボリュームは、デフォルトの vFiler ユニットに属する qtree に基づいています
+* 同期 SnapMirror 構成
+* qtree SnapMirror 関係
+* IPv6 設定
+* SnapVault 関係
+* SnapMirror のネットワーク圧縮機能
+* 特定の Snapshot コピーへのデスティネーションボリュームのリストア （ snapmirror break -s コマンド）
+* ボリューム移動処理
+

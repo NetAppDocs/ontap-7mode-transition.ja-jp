@@ -1,0 +1,47 @@
+---
+permalink: install-admin/task_modifying_default_configuration_settings_of_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, modify, configuration, options, transition, tool 
+summary: 7-Mode Transition Tool で使用される構成オプションを変更するには、 $INSTALL_DIR\\etc\... ファイルを編集します。このファイルには、ツールの動作に必要なすべての構成可能オプションに関する情報が含まれています。 
+---
+= 7-Mode Transition Tool の構成オプションの変更
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+「 $INSTALL_DIR\etc\... 」ファイルを編集すると、 7-Mode Transition Tool で使用される構成オプションを変更できます。このファイルには、ツールの動作に必要なすべての構成可能オプションに関する情報が含まれています。
+
+このファイルにはさまざまなオプションが含まれており、たとえばツールサービスを開始するポートや、 7-Mode システムまたはクラスタとの通信に使用するポートなどを指定できます。
+
+.手順
+. 7-Mode Transition Tool がインストールされているシステムで、インストールディレクトリから「 $INSTALL_DIR\etc\conf\transition-tool.conf 」ファイルを開き、ファイルを変更します。
++
+7-Mode Transition Tool が 7-Mode システムおよびクラスタと通信するには、ポート 8443 または 8088 が使用可能であることが必要です。ポート 8443 または 8088 を使用できない場合、または別のポートを使用したい場合は、「 transition-tool.conf 」ファイルの「 tool.https.port 」オプションで指定されているポートを変更する必要があります。ポート 8088 を使用できない場合、または別のポートを使用したい場合は、「 transition-tool.conf 」ファイルの「 tool.http.port 」オプションに指定されているポートを変更する必要があります。
+
+. 7-Mode Transition Tool サービスを再起動して新しい値を有効にします。
++
+|===
+| システムの種類 | 実行する処理 
+
+
+ a| 
+Windows の場合
+ a| 
+.. [ * スタート * > * コントロールパネル * > * システムとセキュリティー * > * 管理ツール * > * サービス * ] をクリックします。
+.. NetApp 7-Mode Transition Tool * サービスを右クリックし、 * Stop * をクリックします。
+.. NetApp 7-Mode Transition Tool * サービスを再度右クリックし、 * Start * をクリックします。
+
+
+
+
+ a| 
+Linux の場合
+ a| 
+次のコマンドを実行します。
+
+*service transition-service restart *
+
+|===
+. 7-Mode Transition Tool サービスが再起動したら、 7-Mode システムとクラスタのクレデンシャルを再度追加します。
+

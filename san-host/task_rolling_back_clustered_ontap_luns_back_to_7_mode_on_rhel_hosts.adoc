@@ -1,0 +1,50 @@
+---
+permalink: san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_rhel_hosts.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, rhel, roll, back 
+summary: Data ONTAP 7-Mode からの移行後に ONTAP LUN が想定どおりに動作しない場合は、 Red Hat Enterprise Linux\（ RHELD\） 5 または RHEL 6 ホストで ONTAP から 7-Mode LUN にロールバックできます。 
+---
+= RHEL ホストにおける ONTAP LUN から 7-Mode LUN へのロールバック
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7-Mode からの移行後に ONTAP LUN が想定どおりに動作しない場合は、 Red Hat Enterprise Linux （ RHEL ） 5 または RHEL 6 ホストで ONTAP から 7-Mode LUN にロールバックできます。
+
+7-Mode LUN を RHEL 5 または RHEL 6 ホストに再マッピングする必要があります。
+
+.手順
+. 7-Mode LUN を検出します。
++
+*rescan -scsi-bus.sh *
+
+. 7-Mode LUN 用に DMMP デバイスを設定します。
++
+「 * マルチパス * 」
+
+. 7-Mode LUN を確認します。
++
+「 * sanlun lun show * 」と表示されます
+
+. 7-Mode LUN のデバイスハンドル ID を確認します。
++
+'*multipath -ll _DEVICE_HANDLE NAME_*
+
+. ホストに論理ボリュームマネージャ（ LVM ）が設定されていた場合は、次の手順を実行します。
++
+.. ボリューム・グループをインポートします :+`*vgimport_vg_name_*`
+.. ボリューム・グループのステータスを確認します :+`*vgdisplay*`
+.. 論理ボリュームを有効にします :+`*vgchange-ay_vg_name_*`
+.. 論理ボリュームのステータスを確認します :+`*lvdisplay*`
++
+ステータスが available と表示される必要があります。
+
+.. ONTAP LUN から各マウントポイントディレクトリに論理ボリュームをマウントします： +`*mount_lv_name mount_point_*`
++
+マウントポイントが /etc/fstab ファイルに定義されている場合は '`m ount-a` コマンドを使用して論理ボリュームをマウントすることもできます
+
+.. マウントポイントを確認します :+`*mount*`
+
+
+

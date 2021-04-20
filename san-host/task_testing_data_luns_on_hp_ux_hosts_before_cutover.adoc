@@ -1,0 +1,56 @@
+---
+permalink: san-host/task_testing_data_luns_on_hp_ux_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, data, lun, hp, ux, citover, phase, copy, based 
+summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して HP-UX ホストデータ LUN のコピーベースの移行を実行する場合は、 カットオーバーフェーズの前に、移行した clustered Data ONTAP LUN をテストして、 MPIO デバイスがマウント可能であることを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
+---
+= カットオーバーフェーズ前の HP-UX ホスト上のデータ LUN のテスト コピーベースの移行の数
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ 7MTT ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して HP-UX ホストデータ LUN のコピーベースの移行を実行する場合は、 カットオーバーフェーズの前に、移行した clustered Data ONTAP LUN をテストして、 MPIO デバイスがマウント可能であることを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。
+
+新しい ONTAP LUN をテストにマッピングする必要があります ホストと LUN を移行できる状態にしておく必要があります
+
+テスト用ホストとソースホスト間のハードウェアパリティを維持し、テスト用ホストで以下の手順を実行する必要があります。
+
+ONTAP LUN は、テスト時には読み取り / 書き込みモードになります。テストが完了してカットオーバーフェーズの準備を行う段階で、読み取り専用モードに切り替わります。
+
+.手順
+. ベースラインデータコピーが完了したら、 7MTT ユーザインターフェイス（ UI ）で「 * Test Mode 」を選択します。
+. 7MTT UI で、 * 構成の適用 * をクリックします。
+. テスト用ホストで、新しい ONTAP LUN を再スキャンします。
++
+「 * ioscan -fnC disk * 」を参照してください
+
+. ONTAP LUN が存在することを確認します。
++
+「 * sanlun lun show * 」と表示されます
+
+. 以前に外部ソースにコピーされた '/tmp/mapfile.vg01 mapfile' を新しいホストにコピーします
+. マップファイルを使用してボリュームグループをインポートします。
++
+*vgimport -s -m /tmp/mapfile/vg01 vg01 *`
+
+. 「 VG Status 」が「 Available 」として表示されていることを確認します。
++
+'*vgdisplay*'
+
+. 従来の Device Special Filename （ DSF ；デバイススペシャルファイル名）を永続的な DSF に変換します。
++
+*vgdsf -c /dev/vg01 *`
+
+. mount コマンドを使用して、各論理ボリュームを手動でマウントします。
+. プロンプトが表示されたら 'fsck コマンドを実行します
+. マウントポイントを確認します。
++
+「 *bdf *` 」
+
+. 必要に応じてテストを実行します。
+. テスト用ホストをシャットダウンします。
+. 7MTT UI で、 * テスト終了 * をクリックします。
+
+
+ONTAP LUN をソースホストに再マッピングしなければならない場合は、ソースホストをカットオーバーフェーズ用に準備する必要があります。ONTAP LUN をテスト用ホストにマッピングしたままにする場合、テスト用ホストでこれ以上の手順を実行する必要はありません。

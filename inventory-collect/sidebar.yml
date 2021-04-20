@@ -1,0 +1,28 @@
+---
+section: inventory-collect
+title: "『 Host and Storage Information Collection Guide 』を参照してください"
+url: "/inventory-collect/index.html"
+entries:
+- title: ストレージとホストのインベントリ情報を収集
+  url: "/inventory-collect/concept_collecting_host_and_storage_inventory_information_for_transition_assessment.html"
+  entries:
+  - title: ONTAP のターゲットリリースは 7-Mode Transition Tool でサポートされます
+    url: "/inventory-collect/concept_ontap_target_releases_supported_by_7mtt.html"
+  - title: Inventory Collect Tool を実行するためのシステム要件
+    url: "/inventory-collect/concept_system_requirements_for_running_ict.html"
+  - title: インベントリを収集するためのストレージ、ホスト、 FC スイッチのバージョン要件
+    url: "/inventory-collect/concept_storage_and_host_version_requirements.html"
+  - title: 7-Mode システムとホストでインベントリ収集の準備を行う
+    url: "/inventory-collect/task_preparing_7_mode_systems_for_inventory_collection.html"
+  - title: FC ゾーン計画の生成でサポートされる構成
+    url: "/inventory-collect/concept_supported_configurations_for_generating_an_fc_zone_plan.html"
+  - title: 構文とオプション
+    url: "/inventory-collect/reference_syntax_and_options.html"
+  - title: インベントリの収集とインベントリレポートの生成
+    url: "/inventory-collect/task_collecting_inventory_and_generating_inventory_report.html"
+  - title: FC ゾーン計画の生成
+    url: "/inventory-collect/task_generating_fc_zone_plan.html"
+  - title: 収集と評価のコマンド
+    url: "/inventory-collect/reference_collection_and_assessment_commands.html"
+  - title: 移行のための環境評価に関する情報の参照先
+    url: "/inventory-collect/concept_where_to_find_information_about_transition_assessment.html"

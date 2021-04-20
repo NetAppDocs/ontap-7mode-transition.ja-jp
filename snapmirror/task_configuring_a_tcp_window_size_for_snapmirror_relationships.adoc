@@ -1,0 +1,55 @@
+---
+permalink: snapmirror/task_configuring_a_tcp_window_size_for_snapmirror_relationships.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, configure, tcp, window, size, snapmirror, relationship 
+summary: 7-Mode ボリュームと ONTAP ボリュームの間の SnapMirror 関係に TCP ウィンドウサイズを設定すると、 SnapMirror 転送のスループットを向上させてレプリケーション処理を高速化できます。 
+---
+= SnapMirror 関係の TCP ウィンドウサイズの設定
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode ボリュームと ONTAP ボリュームの間の SnapMirror 関係に TCP ウィンドウサイズを設定すると、 SnapMirror 転送のスループットを向上させてレプリケーション処理を高速化できます。
+
+7-Mode ボリュームと ONTAP ボリューム（ TDP ）間の SnapMirror 関係に TCP ウィンドウ・サイズを設定する snapmirror policy コマンドには、 window-size-for-tdp-mirror オプションが用意されています。このオプションを使用すると、 TCP ウィンドウサイズを上下に設定できます。このオプションを設定する場合は、次の考慮事項に注意してください。
+
+* window-size-for-tdp-mirror オプションは 'async-mirror タイプのポリシーにのみ設定できます
+* window-size-for-tdp-mirror オプションは '256 KB' ～ 7 MB' の範囲で設定できますそうしないと、設定は失敗し
+* window-size-for-tdp-mirror オプションのデフォルト値は「 2 MB 」です。
+
+
+
+NOTE: window-size-for-tdp-mirror オプションは非表示で、 tab complete は機能しません。使用するフルオプションを入力してください。
+
+次に、 TDP タイプの SnapMirror 関係に対して TCP ウィンドウ・サイズを「 5 MB 」に設定する例を示します。
+
+.手順
+. TCP ウィンドウサイズが「 5 MB 」の「 async 」タイプの SnapMirror ポリシーを作成します。
++
+'*snapmirror policy create *
+
++
+[listing]
+----
+cluster01::> snapmirror policy create -vserver vserverA –policy tdp_window_size_policy -window-size-for-tdp-mirror 5MB -type async-mirror
+----
+. 「 TDP 」タイプの SnapMirror 関係を作成し、このポリシーを適用します。
++
+「 * snapmirror create * 」
+
++
+[listing]
+----
+cluster01::> snapmirror create -source-path filerA:volA -destination-path vserverA:volA -type TDP -policy tdp_window_size_policy
+----
+. SnapMirror ポリシーに設定されているウィンドウサイズを表示します。
++
+「 * snapmirror policy show * 」と入力します
+
++
+[listing]
+----
+cluster01::> snapmirror policy show -vserver vserverA -policy tdp_window_size_policy -fields window-size-for-tdp-mirror
+----
+

@@ -1,0 +1,51 @@
+---
+permalink: copy-based/concept_supported_and_unsupported_data_protection_relationships.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, data, protection, supported, unsupported, configurations 
+summary: SnapMirror 関係の一部であるボリュームは移行できます。ただし、一部のデータ保護構成とディザスタリカバリ構成は移行対象としてサポートされていません。そのため、これらの構成を移行するには、いくつかの手順を手動で実行する必要があります。 
+---
+= データ保護の移行：サポートされる構成とされない構成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror 関係の一部であるボリュームは移行できます。ただし、一部のデータ保護構成とディザスタリカバリ構成は移行対象としてサポートされていません。そのため、これらの構成を移行するには、いくつかの手順を手動で実行する必要があります。
+
+
+
+== サポートされている構成
+
+Volume SnapMirror 関係は 7-Mode Transition Tool を使用して移行できます。7-Mode ボリュームを、 MetroCluster 構成から、 ONTAP 8.3 以降のサポートされるリリースの MetroCluster 構成へ移行することもできます。
+
+
+
+== サポートされない構成です
+
+* SnapVault 関係
++
+SnapVault 関係のソースであるボリュームはマイグレートできますが、 SnapVault 関係は移行されません。SnapVault 関係のデスティネーションボリュームは、 SnapVault バックアップを停止したあとにマイグレートできます。
+
++
+http://www.netapp.com/us/media/tr-4052.pdf["ネットアップテクニカルレポート 4052 ：『 Successfully Transitioning to Clustered Data ONTAP （ Data ONTAP 8.2.x and 8.3 ）』"]
+
+* qtree SnapMirror 関係
++
+qtree SnapMirror 関係のソースである qtree を含むボリュームは移行できますが、 qtree SnapMirror 関係は移行されません。qtree SnapMirror 関係のデスティネーションである、 qtree を含むボリュームは、 qtree SnapMirror 関係を解除したあとにマイグレートできます。
+
+* ディザスタリカバリ vFiler ユニット
++
+ディザスタリカバリ vFiler ユニットのソースボリュームはマイグレートできますが、ディザスタリカバリ vFiler ユニットは移行されません。ディザスタリカバリ vFiler ユニットのデスティネーションボリュームは、ディザスタリカバリ関係を削除したあとにマイグレートできます。
+
+* NDMP の設定
++
+移行の完了後、移行したボリュームのバックアップポリシーを ONTAP で手動で設定する必要があります。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["テープバックアップによるデータ保護"]
+
+* 同期 SnapMirror 関係
++
+ONTAP ではこの機能はサポートされていません。ただし、この関係に含まれているボリュームは移行できます。
+
+

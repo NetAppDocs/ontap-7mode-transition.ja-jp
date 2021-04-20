@@ -1,0 +1,77 @@
+---
+permalink: copy-free/task_svm_and_volume_mapping.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, map, svm, volumes 
+summary: HA ペアの各 7-Mode コントローラをターゲット SVM にマッピングする必要があります。vFiler ユニットがある場合は、 vFiler ユニットごとにターゲット SVM を選択する必要があります。7-Mode コントローラまたは vFiler ユニットのボリュームは、マッピングした SVM に移行されます。 
+---
+= SVM とボリュームのマッピング
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+HA ペアの各 7-Mode コントローラをターゲット SVM にマッピングする必要があります。vFiler ユニットがある場合は、 vFiler ユニットごとにターゲット SVM を選択する必要があります。7-Mode コントローラまたは vFiler ユニットのボリュームは、マッピングした SVM に移行されます。
+
+ターゲットクラスタに SVM を作成しておく必要があります。
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["System Manager を使用したクラスタの管理"]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["システム管理"]
+
+vFiler ユニットと SVM のマッピングは 1 つだけです。他の 7-Mode コントローラまたは vFiler ユニットのボリュームを、マッピングした SVM に移行することはできません。
+
+.手順
+. SVM とボリュームマッピングタブで、各 7-Mode コントローラまたは vFiler ユニットからボリュームを移行するターゲット SVM を選択します。
++
+デフォルトまたはデフォルト以外の IPspace の SVM をターゲットに指定できます。
+
+. すべての SVM のボリュームに同じジャンクションパスポリシーを適用するか、または各 SVM のボリュームに別々のジャンクションパスポリシーを適用するかに応じて、次のいずれかを選択します。
++
+|===
+| 状況 | 作業 
+
+
+ a| 
+すべての SVM に同じジャンクションパスポリシーを適用します
+ a| 
+.. [ 適用（ Apply ） ] をクリックします。
+.. ジャンクションパスポリシーのオプションを選択します。
+.. [OK] をクリックします。
+
+
+
+
+ a| 
+各 SVM にジャンクションパスポリシーを指定します
+ a| 
+各ターゲット SVM のドロップダウンリストからジャンクションパスポリシーを選択します。
+
+|===
++
+ジャンクションパスポリシーでは、クライアントアクセス用にターゲットの clustered Data ONTAP ボリュームをマウントする場合に使用するパスを指定します。ジャンクションパスポリシーには次のいずれかの値を追加できます。
+
++
+** * 7-Mode マウントパスの保持 *
++
+ソースの 7-Mode ボリュームで使用されているのと同じジャンクションパスを維持します。移行後、ボリュームはジャンクションパス「 /vol/ source_volume_name _ 」を使用してマウントされます。
+
+** * clustered Data ONTAP ボリューム名を使用 *
++
+移行後、ターゲットの clustered Data ONTAP ボリュームはすべて、 clustered Data ONTAP ボリューム名を使用したジャンクションパス「 _ / target_volume_name _ 」を使用してマウントされます。
+
+** * 7-Mode ボリューム名 * を使用します
++
+移行後、ターゲットの clustered Data ONTAP ボリュームはすべて、 7-Mode ボリューム名を使用したジャンクションパス「 _ / source_volume_name _ 」を使用してマウントされます。
+
+
+
+. をクリックします image:../media/delete_me_edit_schedule.gif["編集アイコン"] をクリックして、ターゲットの clustered Data ONTAP ボリュームの名前を変更します。
++
+デフォルトでは、ターゲットの clustered Data ONTAP ボリュームは 7-Mode ボリュームと同じ名前です。7-Mode ボリュームと同じ名前のボリュームがすでに SVM に存在する場合、ターゲットボリュームには新しい名前が自動的に割り当てられます。
+
+. マッピングされた各 SVM の * マッピングの保存 * をクリックします。
+. 「 * 次へ * 」をクリックします。
++
+[ ネットワーク ] 画面が表示されます。
+
+

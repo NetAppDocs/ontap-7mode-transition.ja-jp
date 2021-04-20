@@ -1,0 +1,36 @@
+---
+permalink: install-admin/task_installing_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, transition, tool, windows 
+summary: ウィザード形式のインストーラを使用して Windows システムに 7-Mode Transition Tool をインストールできます。 
+---
+= Windows システムへの 7-Mode Transition Tool のインストール
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ウィザード形式のインストーラを使用して Windows システムに 7-Mode Transition Tool をインストールできます。
+
+* 7-Mode Transition Tool のシステム要件を確認しておく必要があります。
++
+xref:concept_system_requirements_for_7mtt_on_windows.adoc[Windows での 7-Mode Transition Tool のシステム要件]
+
+* アプリケーションをインストールして起動するために必要な管理者権限が必要です。
+* Ctrl+F5 キーを押してブラウザキャッシュをクリアしておく必要があります。
++
+ツールの新しいバージョンをインストールするたびに、キャッシュをクリアする必要があります。
+
+
+
+.手順
+. ネットアップサポートサイトからソフトウェアをダウンロードします。
++
+http://mysupport.netapp.com/NOW/cgi-bin/software["ネットアップのダウンロード：ソフトウェア"]
+
+. NetApp_7ModeTransitionTool_Setup.exe ファイルを実行します
+. 7-Mode Transition Tool Setup の開始画面で、 * Next * をクリックします。
+. 画面の指示に従って、インストールを続行します。
+. Launch the tool * を選択して、インストールの直後に 7-Mode Transition Tool を開きます。
+. [ 完了 ] をクリックしてインストールを完了します。
+

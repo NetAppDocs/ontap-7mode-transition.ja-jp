@@ -1,0 +1,47 @@
+---
+permalink: inventory-collect/task_generating_fc_zone_plan.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, generate, fc, zone, plan, transition 
+summary: Data ONTAP システム、ホスト、および FC スイッチに関する情報を収集したあと、 FC ゾーン計画を生成できます。これは、移行後にクラスタ内のスイッチを構成するために使用します。 
+---
+= FC ゾーン計画の生成
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP システム、ホスト、および FC スイッチに関する情報を収集したあと、 FC ゾーン計画を生成できます。これは、移行後にクラスタ内のスイッチを構成するために使用します。
+
+* 7-Mode システム、ホスト、およびクラスタがスイッチに接続されている必要があります。
+* クラスタ、 SVM 、 FCP LIF 、およびスイッチに関する情報が収集されている必要があります。
++
+クラスタは、 7-Mode システムと同じスイッチに接続することも、同じファブリック内の新しいスイッチに接続することもできます。
+
++
+xref:concept_supported_configurations_for_generating_an_fc_zone_plan.adoc[FC ゾーン計画の生成でサポートされる構成]
+
+
+
+.手順
+. CLI で、 ICT ディレクトリに移動します。
+. CLI から FC ゾーン計画を生成します。
++
+「 * ict --cmd generate-fc-zones -- source-filer_7-Mode_7mode-ip1 、 7mode-ip2_-dest -svm_cluster-name ： vserver-name _ -fc-switche_name ： vsan-id1 、 vsan-id2_mode_cdc_switch_inventory.xml *
+
++
+Cisco スイッチの VSAN ID を入力する必要があります。
+
++
+[listing]
+----
+...bin\ict>ict --cmd generate-fc-zones --source-filers system1,system2 --dest-svm vs1:fc_zone1
+ --fc-switches brocade-1,brocade-2 7mode_cdot_switch_inventory.xml
+----
++
+FC ゾーン計画には、 7-Mode システムの igroup 構成ごとに作成されたゾーンが含まれています。各ゾーンには、イニシエータの WWPN が 1 つと SVM ターゲットの WWPN が複数含まれています。
+
+
+
+コピーベースの移行では、カットオーバー前に読み取り / 書き込みモードでテスト用ホストを使用してクラスタ構成を検証するとき、またはカットオーバーフェーズ後にクラスタからイニシエータホストへのデータアクセスを提供するときに、 FC ゾーン計画を使用してゾーンを構成できます。
+
+コピーフリーの移行では、構成の適用フェーズでクラスタからのデータアクセスを提供するために、 FC ゾーン計画を使用してゾーンを構成し、イニシエータホストとターゲットをグループ化する必要があります。

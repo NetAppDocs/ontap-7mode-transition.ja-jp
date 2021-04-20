@@ -1,0 +1,35 @@
+---
+permalink: install-admin/reference_reinstalling_or_upgrading_7mtt_fails_on_windows_system.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, reinstall, upgrade, transition, tool, fail, window 
+summary: ここでは、 Windows システムで 7-Mode Transition Tool を再インストールまたはアップグレードするときに発生するエラーについて説明します。また、エラーの理由とエラー解決手順も記載します。 
+---
+= Windows で 7-Mode Transition Tool の再インストールまたはアップグレードが失敗する システム
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ここでは、 Windows システムで 7-Mode Transition Tool を再インストールまたはアップグレードするときに発生するエラーについて説明します。また、エラーの理由とエラー解決手順も記載します。
+
+* * メッセージ *
++
+NetApp 7-Mode Transition Tool のセットアップまたはアンインストールの別のインスタンスが実行中である。一度に実行できるインスタンスは 1 つだけです
+
+* * 原因 *
++
+7-Mode Transition Tool インストールフォルダ内の一部のファイルが開いています。
+
+* * 是正措置 *
++
+.. 7-Mode Transition Tool のインストールファイルをすべて閉じます。
+.. 7-Mode Transition Tool のレジストリエントリを開きます。
++
+... INSTALL_STATUS * フィールドを確認します。
+... 値が「 * installer _ is_running * 」の場合は、「 * installed * 」に変更します。
+
+
+.. ツールの再インストールまたはアップグレードを再試行します。
+
+
+

@@ -1,0 +1,51 @@
+---
+permalink: copy-free/task_configuring_zones_by_using_fc_zone_plan.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, zones, fc, plans 
+summary: SAN FC 環境を移行する前に、 FC ゾーンプランナーを使用してイニシエータホストとターゲットをグループ化し、ゾーンを設定する必要があります。 
+---
+= FC ゾーン計画を使用したゾーンの設定
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN FC 環境を移行する前に、 FC ゾーンプランナーを使用してイニシエータホストとターゲットをグループ化し、ゾーンを設定する必要があります。
+
+* を使用して FC ゾーンプランナーを生成する必要があります 7-Mode Transition Tool の収集とアクセス機能
+* FC ゾーンのスクリプトファイルにアクセスできる必要があります。
++
+.. 7-Mode システムの igroup 構成が変更されている場合は、 FC ゾーン計画を変更して再生成します。
++
+xref:task_generating_an_assessment_report_by_adding_systems_to_7mtt.adoc[7-Mode にシステムを追加することによる評価レポートの作成 移行ツール]
+
+.. スイッチの CLI にログインします。
+.. 必要なゾーンコマンドを 1 つずつコピーして実行します。
++
+次の例では、スイッチに対して zone コマンドを実行します。
+
++
+[listing]
+----
+switch1:admin>config terminal
+# Enable NPIV feature
+feature npiv
+zone name auto_transition_igroup_d31_194bf3 vsan 10
+member pwwn 21:00:00:c0:dd:19:4b:f3
+member pwwn 20:07:00:a0:98:32:99:07
+member pwwn 20:09:00:a0:98:32:99:07
+.......
+.......
+.......
+copy running-config startup-config
+----
+.. テスト用イニシエータホストを使用して、クラスタからのデータアクセスを確認します。
+.. 検証が完了したら、次の手順を実行します。
++
+... テスト用イニシエータホストを切断します。
+... ゾーン設定を削除します。
+
+
+
+
+

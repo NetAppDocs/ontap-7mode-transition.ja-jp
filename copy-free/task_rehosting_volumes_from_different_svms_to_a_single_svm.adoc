@@ -1,0 +1,143 @@
+---
+permalink: copy-free/task_rehosting_volumes_from_different_svms_to_a_single_svm.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, rehost, volumes, svm 
+summary: ボリュームをリホストすると、データをコピーすることなく、移行したボリュームをある SVM から別の SVM に移行できます。リホスト処理では FC LUN を含むすべてのボリュームを 1 つの SVM に統合できるため、 7-Mode の Single-System Image \ （ SSI ；シングルシステムイメージ \ ）のセマンティクスを保持できます。移行した NAS ボリュームをリホストすることもできます。 
+---
+= 移行したボリュームを別の SVM にリホストする
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ボリュームをリホストすると、データをコピーすることなく、移行したボリュームをある SVM から別の SVM に移行できます。リホスト処理では FC LUN を含むすべてのボリュームを 1 つの SVM に統合できるため、 7-Mode の Single-System Image （ SSI ；シングルシステムイメージ）のセマンティクスを保持できます。移行した NAS ボリュームをリホストすることもできます。
+
+* リホストするボリュームはオンラインである必要があります。
+* ボリュームの移動や LUN の移動など、ボリューム管理操作を実行しないでください。
+* リホストするボリュームへのデータアクセスを停止する必要があります。
++
+リホストはシステム停止を伴う処理です。
+
+
+
+次のボリュームポリシー、ポリシールール、および構成はソースボリュームから失われるため、リホスト処理の完了後に、リホストしたボリュームで手動で再設定する必要があります。
+
+* ボリュームと qtree のエクスポートポリシー
+* ウィルス対策ポリシー
+* ボリューム効率化ポリシー
+* Quality of Service （ QoS ；サービス品質）ポリシー
+* Snapshot ポリシー
+* クォータルール
+* CIFS 共有
+* ポートセットに関連付けられている igroup
+
+
+.手順
+* * FC ボリュームと iSCSI ボリュームのリホスティング *
++
+.. advanced 権限レベルに切り替えます： +`*set -privilege advanced *`
+.. デスティネーション SVM でボリュームをリホストします。
++
+|===
+| 状況 | 実行するコマンド 
+
+
+ a| 
+リホスト後に LUN のマッピングを解除する
+ a| 
+「 * volume rehost -vserver _source_svm _ -volume_name_-destination -vserver _destination_SVM_-force – unmap-luns true * 」という名前のボリュームをリホストします
+
+
+
+ a| 
+リホスト後に LUN を同じ igroup に再マッピングします
+ a| 
+「 * volume rehost -vserver _source_svm _ -volume_vol_name __ -destination-vserver _destination_svm __ auto-remap-luns true * 」のように指定します
+
+|===
+
+
+* * NFS ボリュームのリホスティング *
++
+.. NFS エクスポートポリシーに関する情報を記録します。
+.. 親ボリュームからボリュームをアンマウントします :+`* volume unmount *`
+.. advanced 権限レベルに切り替えます：「 * set -privilege advanced * 」
+.. デスティネーション SVM でボリュームをリホストします。 +`* volume rehost -vserver _source_SVM_-volume vol_name -destination-vserver _destination_svm *`
++
+デスティネーション SVM のデフォルトのエクスポートポリシーがリホストしたボリュームに適用されます。
+
+.. エクスポートポリシーを作成します。 +`* vserver export-policy create *`
+.. リホストしたボリュームのエクスポートポリシーをユーザ定義のエクスポートポリシーに更新します。 +`*volume modify*`
+.. デスティネーション SVM の適切なジャンクションパスにボリュームをマウントします。 +`* volume mount *`
+.. デスティネーション SVM で NFS サービスが実行されていることを確認します。 +`* vserver nfs status*`
+.. リホストしたボリュームへの NFS アクセスを再開します。
++
+ボリュームのアクセスパス（ LIF とジャンクションパス）は変更されているため、 NFS クライアントのクレデンシャルと LIF の構成を更新してデスティネーション SVM の LIF を反映させる必要があります。
+
+
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]
+
+* * CIFS ボリュームのリホスティング *
++
+.. CIFS 共有に関する情報を記録します。
+.. 親ボリュームからボリュームをアンマウントします :+`* volume unmount *`
+.. advanced 権限レベルに切り替えます： +`*set -privilege advanced *`
+.. デスティネーション SVM でボリュームをリホストします。 +`* volume rehost -vserver _source_SVM_-volume vol_name -destination-vserver _destination_svm *`
+.. デスティネーション SVM の適切なジャンクションパスにボリュームをマウントします。 +`* volume mount *`
+.. リホストしたボリューム用の CIFS 共有を作成します。 +`* vserver cifs share create *`
+.. ソースとデスティネーションの SVM で DNS ドメインが異なる場合は、新しいユーザとグループを作成します。
+.. 新しいデスティネーション SVM の LIF とリホストしたボリュームへのジャンクションパスで、 CIFS クライアントを更新します。
+
+
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB / CIFS の管理"]
+
+* * SnapMirror 関係におけるボリュームのリホスト *
++
+.. SnapMirror 関係のタイプ +`* snapmirror show *` を記録します
+.. デスティネーションクラスタから、 SnapMirror 関係を削除します： +`*snapmirror delete *`
++
+
+IMPORTANT: SnapMirror 関係は解除しないでください。解除するとデスティネーションボリュームのデータ保護機能が失われ、リホスト処理の完了後に関係を再確立できません。
+
+.. ソースクラスタから、 SnapMirror 関係情報「 +`*snapmirror release *` 」を解放します
++
+Snapshot コピーは削除されずにソースの関係情報だけが削除されるように、 -relationship-info-only パラメータを true に設定します。
+
+.. advanced 権限レベルに切り替えます： +`*set -privilege advanced *`
+.. デスティネーション SVM でボリュームをリホストします。 +`* volume rehost -vserver _source_SVM_-volume vol_name -destination-vserver _destination_svm *`
+.. ソースとデスティネーションの SVM 間に SVM ピア関係を作成します。 +`* vserver peer create *`
+.. ソース・ボリュームとデスティネーション・ボリュームの間に SnapMirror 関係を作成します。 +`*snapmirror create *`
++
+リホストしたボリュームは、 SnapMirror 関係のソースまたはデスティネーションにすることができます。
+
+.. データ保護関係を再同期化します :+`*snapmirror resync *`
+
+
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["データ保護"]
+
+
+
+リホストしたボリュームの自動ボリュームワークロードを手動で作成する必要があります。手順は次のとおりです。
+
+. SVM にユーザ定義のポリシーグループを作成します。
++
+「 * qos policy-group create -vserver _destination -vserver_-policy -group_policy-group-name _ * 」のように指定します
+
+. この QoS ポリシーグループを、リホストしたボリュームに割り当てます。
++
+`* volume modify -vserver_destination-vserver_-volume _-qos-policy-group policy-group-group-name_*`
+
+
+
+ポリシーおよび関連するルールをリホストしたボリュームに手動で再設定する必要があります。
+
+
+NOTE: リホスト処理が失敗した場合は、ソースボリュームでボリュームのポリシーおよび関連するルールを再設定しなければならない場合があります。
+
+* 関連情報 *
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 のコマンド"]

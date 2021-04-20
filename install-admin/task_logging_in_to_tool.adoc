@@ -1,0 +1,65 @@
+---
+permalink: install-admin/task_logging_in_to_tool.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, login, transition, tool 
+summary: 7-Mode Transition Tool （ Web インターフェイス）にログインするには、ツールがインストールされている Windows システムのクレデンシャルを使用します。ログインする手順は、ユーザクレデンシャルのタイプによって異なります。 
+---
+= 7-Mode Transition Tool へのログイン
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool （ Web インターフェイス）にログインするには、ツールがインストールされている Windows システムのクレデンシャルを使用します。ログインする手順は、ユーザクレデンシャルのタイプによって異なります。
+
+ゲストユーザは、このツールにログインできません。
+
+.手順
+. ログインページに移動します。
++
+|===
+| ユーザのタイプとアクセス方法 | 作業 
+
+
+ a| 
+管理者グループおよびのメンバーであるユーザ ツール（ Web インターフェイス）にアクセスする場合 をインストールしたサーバから選択します
+ a| 
+デスクトップの 7-Mode Transition Tool アイコンをダブルクリックします。
+
+
+
+ a| 
+管理者グループおよびのメンバーであるユーザ ツールをインストールしていない場合は
+ a| 
+サポートされているブラウザを使用して、次のいずれかの URL に移動します。
+
+** https://_IP_address:port_/transition`
+** 「 http://_IP_address:port_/transition` `_IP_address_` 」はサーバの IP アドレスで、「 _port_ 」は 8443 （デフォルト）、「 _tool.https.port_」 に指定された値、または「 _transition-tool.conf 」ファイルの「 _tool.http.port_ 」パラメータに指定された値である 8088 を指定できます。
+
+
+
+
+ a| 
+管理者グループおよびのメンバーであるユーザ ツール（ Web インターフェイス）にアクセスする場合 別のコンピュータから
+ a| 
+サポートされているブラウザを使用して、次のいずれかの URL に移動します。
+
+** https://_IP_address:port_/transition`
+** 「 http://_IP_address:port_/transition` `_IP_address_` 」はサーバの IP アドレスで、 port は 8443 ( デフォルト ) 、「 _tool.https.port_」 に指定された値、または「 _transition-tool.conf 」ファイルの「 _tool.http.port_` パラメータ」に指定された値として 8088 を指定できます。
+
+
+
+
+ a| 
+Administrators グループに属していないユーザ ツール（ Web インターフェイス）にアクセスする場合 インストール先のサーバまたはのいずれかです 別のコンピュータから
+ a| 
+サポートされているブラウザを使用して、次のいずれかの URL に移動します。
+
+** https://_IP_address:port_/transition`
+** 「 http://_IP_address:port_/transition` `_IP_address_` 」はサーバの IP アドレスで、 port は 8443 （デフォルト）、「 _tool.https.port_」 に指定された値、または「 _transition-tool.conf 」ファイルの「 _tool.http.port_ 」パラメータに指定された値の 8088 です。
+
+
+|===
+. 自己署名 SSL 証明書に関するメッセージがブラウザに表示された場合は、自己署名 SSL 証明書を承認して続行します。
+. ツールがインストールされている Windows システムのクレデンシャルを使用して、 Web インターフェイスにログインします。
+

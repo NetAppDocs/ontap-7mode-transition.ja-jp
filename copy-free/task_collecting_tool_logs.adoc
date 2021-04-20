@@ -1,0 +1,26 @@
+---
+permalink: copy-free/task_collecting_tool_logs.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, download, log, files 
+summary: 7-Mode Transition Tool では、システムで実行された移行評価とマイグレーション処理の詳細が記録されたログファイルが作成されます。 
+---
+= 移行ログファイルをダウンロードしています
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool では、システムで実行された移行評価とマイグレーション処理の詳細が記録されたログファイルが作成されます。
+
+.手順
+. トップ・メニューの * Logs * をクリックします。
+. [ プロジェクトログの収集 ] をクリックして、すべてのプロジェクトに関連するログを収集します。
+. 特定のプロジェクトのログを収集するには、プロジェクトリストからプロジェクトを探し、 * ダウンロード * をクリックします。
++
+ログは「 .zip 」ファイルとしてダウンロードされます。フォルダ名はタイムスタンプです。
+
+
+
+* 関連情報 *
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["ネットアップにファイルをアップロードする方法"]

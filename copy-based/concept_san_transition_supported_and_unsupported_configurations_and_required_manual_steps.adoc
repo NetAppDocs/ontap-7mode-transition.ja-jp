@@ -1,0 +1,91 @@
+---
+permalink: copy-based/concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, san, supported, unsupported, configurations, manual, steps, required 
+summary: 7-Mode Transition Tool で移行される SAN 構成を理解しておく必要があります。また、 ONTAP でサポートされない 7-Mode の SAN 機能を把握して、移行前に必要な措置を講じる必要があります。 
+---
+= SAN の移行：サポートされる構成とされない構成、必要な手動手順
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool で移行される SAN 構成を理解しておく必要があります。また、 ONTAP でサポートされない 7-Mode の SAN 機能を把握して、移行前に必要な措置を講じる必要があります。
+
+事前確認のエラーおよび警告メッセージをすべて検証して、このような構成が移行に及ぼす影響を評価する必要があります。
+
+
+
+== 移行される構成
+
+次の SAN 構成は 7-Mode Transition Tool で移行されます。
+
+* FC および iSCSI サービス
+* igroup と LUN のマッピング
++
+[NOTE]
+====
+** LUN にマッピングされていない 7-Mode の igroup は、ターゲット SVM に移行されません。
+** clustered Data ONTAP 8.3.0 および 8.3.1 では、カットオーバー前処理で igroup と LUN のマッピング構成は移行されません。
++
+代わりに、必要な igroup が作成されます。プライマリボリュームとスタンドアロンボリュームの場合、カットオーバー処理の実行中に LUN が igroup にマッピングされます。ただし、セカンダリボリュームの場合、カットオーバー処理の実行中に LUN から igroup へのマッピングが行われません。プライマリボリュームの移行が完了したあとに、セカンダリ LUN を手動でマッピングする必要があります。
+
+** ONTAP 8.3.2 以降のサポートされるリリースでは、カットオーバー前処理の実行中に igroup と LUN のマッピング構成が適用されます。
+
+
+====
+
+
+
+
+== ONTAP でサポートされない構成です
+
+ONTAP でサポートされない構成は次のとおりです。
+
+* 7-Mode の Snapshot コピーでバックアップされた LUN クローン
++
+Snapshot コピーに含まれる、 Snapshot コピーでバックアップされた LUN クローンはリストア処理ではサポートされません。これらの LUN には ONTAP からアクセスできません。7-Mode の Snapshot コピーでバックアップされた LUN クローンは、移行前にスプリットまたは削除しておく必要があります。
+
+* ostype パラメータの値が vld ' image ' またはユーザ定義の任意の文字列である LUN
++
+このような LUN では、 ostype パラメータの値を変更するか、移行前に LUN を削除しておく必要があります。
+
+* LUN クローンスプリット
++
+実行中の LUN クローンスプリット処理が終了するまで待つか、 LUN クローンスプリットを中止して LUN を削除してから、移行を実行する必要があります。
+
+
+
+7-Mode の以下の機能は、使用していても移行プロセスを続行できますが、 ONTAP ではサポートされません。
+
+* lun share コマンド
++
+NAS プロトコルを使用した LUN の共有
+
+* SnapValidator
+
+
+
+
+== 手動で移行する必要のある構成
+
+次の構成は手動で移行する必要があります。
+
+* SAN LIF
++
+移行の前に LIF を手動で作成する必要があります。
+
+* ポートセット
++
+移行後に、ポートセットにバインドされた igroup を手動で設定する必要があります。
+
+* iSCSI アクセスリスト情報
+* iSNS 構成
+* iSCSI CHAP および RADIUS の構成
+
+
+* 関連情報 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["ネットワークと LIF の管理"]

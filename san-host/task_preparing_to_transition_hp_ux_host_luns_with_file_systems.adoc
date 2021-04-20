@@ -1,0 +1,107 @@
+---
+permalink: san-host/task_preparing_to_transition_hp_ux_host_luns_with_file_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, hp, ux, host, lun, file, system 
+summary: ファイルシステムを搭載した HP-UX ホスト LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する前に、移行プロセスに必要な情報を収集する必要があります。 
+---
+= ファイルシステムを搭載した HP-UX ホスト LUN の移行準備
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ファイルシステムを搭載した HP-UX ホスト LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する前に、移行プロセスに必要な情報を収集する必要があります。
+
+.手順
+. LUN を表示して、移行する LUN の名前を特定します。
++
+「 * lun show * 」と入力します
+
+. 移行する LUN の SCSI デバイス名と、 SCSI デバイスのアジャイル名を確認します。
++
+「 * sanlun lun show -p * 」のように表示されます
+
++
+次の例では、移行する LUN は lun1 と lun3 です。lun1 の SCSI デバイス名は '/dev/dsk/c14t0dd1' /dev/dsk/c27t0dd1' /dev/dsk/c40t0d1' および /dev/dsk/c31t0d1' ですlun3 の SCSI デバイス名は '/dev/dsk/c14t0d2'/dev/dsk/c27t0d2'/dev/dsk/c40t0d2'/dev/dsk/c31t0d2' です
+
++
+SCSI デバイスのアジャイル名 /dev/dsk/c31t0d1 は '/dev/rdisk/disk11` です
+
++
+[listing]
+----
+        ONTAP Path: f8040-211-185:/vol/vol185_n1/lun3
+               LUN: 1
+          LUN Size: 3g
+       Host Device: /dev/rdisk/disk11
+              Mode: 7
+Multipath Provider: None
+host      vserver   /dev/dsk
+path      path      filename           host     vserver
+state     type      or hardware path   adapter  LIF
+-----     --------- ----------------   -------  -------
+up        secondary /dev/dsk/c14t0d1   fcd0     fc4
+up        primary   /dev/dsk/c27t0d1   fcd0     fc2
+up        primary   /dev/dsk/c40t0d1   fcd1     fc1
+up        secondary /dev/dsk/c31t0d1   fcd1     fc3
+----
++
+[listing]
+----
+        ONTAP Path: f8040-211-183:/vol/vol183_n1/lun1
+               LUN: 3
+          LUN Size: 3g
+       Host Device: /dev/rdisk/disk14
+              Mode: 7
+Multipath Provider: None
+host      vserver   /dev/dsk
+path      path	     filename           host     vserver
+state     type      or hardware path   adapter  LIF
+-----     --------- ----------------   -------  -------
+up        secondary /dev/dsk/c14t0d1   fcd0     fc4
+up        primary   /dev/dsk/c27t0d1   fcd0     fc2
+up        primary   /dev/dsk/c40t0d1   fcd1     fc1
+up        secondary /dev/dsk/c31t0d1   fcd1     fc3
+----
+. ホスト上の LUN の WWID を特定します。
++
+`*scsimgr get_info -D_Agile _name_for_sSCSI_DEVICE_*`
+
++
+次の例では、デバイス「 /dev/rdisk11 」の LUN WWID は 0x600a09804d537739422445386b755529 です。
+
++
+[listing]
+----
+bash-2.05# scsimgr get_info -D /dev/rdisk/disk11 |grep WWID
+World  Wide Identifier (WWID)     = 0x600a09804d537739422445386b755529
+----
+. ボリュームグループを表示して記録します。
++
+'*vgdisplay*'
+
+. ボリュームグループ、論理ボリューム、および物理ボリュームを表示して記録します。
++
+*vgdisplay-v_v_vg_name_*`
+
+. ボリュームグループの VGID と論理ボリュームをマップファイルに書き込みます。
++
+*vgexport -p-s -m /tmp/mapfile/vg01 vg01 *`
+
+. 「 mapfilevg01 」のバックアップコピーを外部ソースに作成します。
+. マウントポイントを表示して記録します。
++
+「 *bdf *` 」
+
++
+次の例は、マウントポイントの表示方法を示しています。
+
++
+[listing]
+----
+bash-2.05# bdf
+Filesystem     kbytes      used        avail   	used   Mounted on
+/dev/vg01/lvol 123592960   1050952   22189796   5%   /mnt/qa/vg01
+/dev/vg01/lvol2 23592960   588480    22645044   3%   /mnt/qa/vg02
+----
+

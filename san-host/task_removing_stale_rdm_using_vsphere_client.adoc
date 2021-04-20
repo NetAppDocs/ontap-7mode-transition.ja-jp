@@ -1,0 +1,41 @@
+---
+permalink: san-host/task_removing_stale_rdm_using_vsphere_client.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, remove, stal, rdm, vsphere, client 
+summary: ONTAP 7-Mode から clustered Data ONTAP への移行時には、すべての RDM LUN が「古く」なります。移行後に LUN でデータの提供を開始するには、これらの RDM を削除して再接続する必要があります。 
+---
+= vSphere Client を使用して古い RDM を削除する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 7-Mode から clustered Data ONTAP への移行時には、すべての RDM LUN が「古く」なります。移行後に LUN でデータの提供を開始するには、これらの RDM を削除して再接続する必要があります。
+
+Inventory Assessment Workbook から RDM の VM 名とディスクパスを収集しておく必要があります。
+
+.手順
+. ESXi ホストまたは ESXi ホストを管理する vCenter Server を開きます。
+. VM を右クリックし、 * 設定の編集 * を選択します。
++
+VM Properties ウィンドウが表示されます。
+
+. Inventory Assessment Workbook から収集したディスクパスを使用して、デバイスのリストからハードディスクを選択します。
+. [VM のプロパティ ] ウィンドウで、仮想デバイスノード * と * 互換モード * をメモします。
++
+仮想デバイスノード： SCSI 0 ： 2
+
++
+互換モード： Physical
+
+. [ 削除（ Remove ） ] をクリックします。
+. [ 仮想マシンから削除し、ディスクからファイルを削除する *] を選択します。
+. [OK] をクリックします。
++
+次のようなエラーメッセージが表示されます。このメッセージは無視してかまいません。
+
++
+image::../media/reconfigure_virtual_machine.gif[仮想マシンを再構成します]
+
+. [* 閉じる * ] をクリックします。
+

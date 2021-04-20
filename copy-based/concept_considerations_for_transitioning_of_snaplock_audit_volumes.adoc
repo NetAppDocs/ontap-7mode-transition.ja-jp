@@ -1,0 +1,21 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_snaplock_audit_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, audit, volumes 
+summary: 7-Mode Transition Tool では、 SnapLock 監査ボリュームの移行がサポートされます。SnapLock 監査ボリュームを移行するワークフローは、 SnapLock Compliance ボリュームの移行と同じです。 
+---
+= SnapLock 監査ボリュームの移行に関する考慮事項
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool では、 SnapLock 監査ボリュームの移行がサポートされます。SnapLock 監査ボリュームを移行するワークフローは、 SnapLock Compliance ボリュームの移行と同じです。
+
+監査ボリュームを ONTAP に移行したら、移行した監査ボリュームをターゲット SVM の SnapLock 監査ボリュームとして手動で指定する必要があります。
+
+ONTAP では、監査ボリュームが SVM レベルで設定されます。Data ONTAP 7-Mode の監査ボリュームは、各 vFiler ユニットのコントローラ内のすべてのボリュームの統合リポジトリとして機能します。
+
+SnapLock 監査ボリュームは、 SnapLock Compliance ボリュームの一種です。ターゲットクラスタが MetroCluster 構成に含まれている場合、 SnapLock 監査ボリュームの移行はサポートされていません。
+
+を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_configure_audit_volume_in_clustered_Data_ONTAP_for_the_transitioned_SnapLock_volumes["clustered Data ONTAP での監査ボリュームの設定方法 移行した SnapLock ボリューム"]

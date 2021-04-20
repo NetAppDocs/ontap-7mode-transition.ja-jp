@@ -1,0 +1,42 @@
+---
+permalink: copy-based/task_removing_volumes_from_a_project.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, remove, volumes, project 
+summary: 移行プロセスの実行中にプロジェクトから障害ボリュームを削除し、 Volume SnapMirror 関係を中止することができます。 
+---
+= プロジェクトからボリュームを削除する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+移行プロセスの実行中にプロジェクトから障害ボリュームを削除し、 Volume SnapMirror 関係を中止することができます。
+
+データコピーの実行中にボリュームを削除した場合、転送は中止されず、処理が完了するまで続行されます。このボリュームはそれ以降のデータコピー処理の対象とはなりません。
+
+. ダッシュボードウィンドウでプロジェクトを選択し、ボリュームをクリックします。
++
+プロジェクトの既存のボリュームがすべて表示されます。
+
+. をクリックします image:../media/delete_schedule.gif[""]。
++
+ボリュームがプロジェクトから削除されます。
+
+
+
+ONTAP ボリュームを削除し、 SnapMirror 関係を解除することを推奨します。
+
+. クラスタで、移行の一環として作成された ONTAP ボリュームを削除します。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 のコマンド"]
+
+. 7-Mode システムで、 ONTAP ボリュームとの SnapMirror 関係を解除します。
+. Volume SnapMirror 関係を中止する場合は、次の手順を実行します。
++
+.. 7-Mode プライマリボリュームと ONTAP セカンダリボリュームの間の SnapMirror 関係を解除して削除します。
+.. プライマリ 7-Mode システムで、 ONTAP セカンダリボリュームとの SnapMirror 関係を解除します。
+
+
+
+
+https://library.netapp.com/ecm/ecm_get_file/ECMP1610200["clustered Data ONTAP 8.3 7-Mode 管理者向けのコマンドマップ"]

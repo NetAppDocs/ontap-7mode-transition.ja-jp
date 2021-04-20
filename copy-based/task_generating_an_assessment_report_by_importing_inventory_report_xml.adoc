@@ -1,0 +1,49 @@
+---
+permalink: copy-based/task_generating_an_assessment_report_by_importing_inventory_report_xml.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, generate, assessment, report, inventory, xml 
+summary: Inventory Collect Tool で作成されたインベントリ XML レポートをインポートして、ホストとコントローラの機能を評価できます。その後、評価レポートを作成して、移行先として選択した ONTAP バージョンでそれらのホストとコントローラがどのように動作するかを確認できます。 
+---
+= インベントリレポート XML をインポートして評価レポートを作成する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Inventory Collect Tool で作成されたインベントリ XML レポートをインポートして、ホストとコントローラの機能を評価できます。その後、評価レポートを作成して、移行先として選択した ONTAP バージョンでそれらのホストとコントローラがどのように動作するかを確認できます。
+
+* Inventory Collect Tool を実行し、インベントリレポート XML ファイルを生成しておく必要があります。
++
+
+NOTE: ホストとコントローラをコピーベースの移行の対象として評価するには、 Inventory Collect Tool 3.3 を使用してインベントリを収集する必要があります。
+
+* 移行のための環境評価を実行できるように、 7-Mode システムとホストを準備しておきます。
+
+
+インベントリレポートをインポートして移行のための環境評価を実行する際に、評価対象のシステムにアクセスできる必要はありません。
+
+.手順
+. 7-Mode Transition Tool にログインし、ホームページで * Collect and Assess * をクリックします。
+. [ インベントリレポート XML のインポート ] をクリックします。
+. [*Browse*] をクリックし、 Inventory Collect Tool で生成された XML レポートを選択します。
+. [* インポート * ] をクリックします。
++
+システムの評価ステータスには ' Imported ； Ready" と表示されます
+
+. 移行のための環境評価を実行するシステムを選択します。
+. Create Transition Assessment Report （移行評価レポートの作成） * をクリックします。
+. Create Transition Assessment Report ダイアログボックスで、ターゲットクラスタの Data ONTAP バージョンを選択します。
+. レポートのファイル名に付けるプレフィックスを指定します。
+. [ レポートの生成（ Generate Report ） ] をクリックする。
++
+AssessmentWorkbook レポートと AssessmentExecutiveSummary レポートが XML 形式で作成されます。
+
+. AssessmentWorkbook レポートを Microsoft Excel で表示し、 AssessmentExecutiveSummary レポートを Microsoft Office 2007 以降のバージョンで表示します。
++
+AssessmentWorkbook レポートを Microsoft Excel で表示する際に、 Excel でマクロを有効にしなければならない場合があります。
+
+
+
+* 関連情報 *
+
+xref:task_collecting_tool_logs.adoc[移行ログファイルをダウンロードしています]

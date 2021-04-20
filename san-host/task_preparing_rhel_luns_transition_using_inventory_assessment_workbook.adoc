@@ -1,0 +1,58 @@
+---
+permalink: san-host/task_preparing_rhel_luns_transition_using_inventory_assessment_workbook.html 
+sidebar: sidebar 
+keywords: rhel, lun, mount, points, dmmp, device, names, inventory, assessment, workbook 
+summary: DMMP デバイス名を使用するマウントポイントを含む LUN を移行する前に、 DMMP デバイス名をそれぞれのファイルシステム UUID 番号に置き換える必要があります。この環境 Red Hat Enterprise Linux\ （ RHEL \ ） 5 および RHEL 6 です。 
+---
+= DMMP デバイス名を使用するマウントポイントを含む RHEL LUN を準備しています Inventory Assessment Workbook を使用した移行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+DMMP デバイス名を使用するマウントポイントを含む LUN を移行する前に、 DMMP デバイス名をそれぞれのファイルシステム UUID 番号に置き換える必要があります。これは、環境 Red Hat Enterprise Linux （ RHEL ） 5 および RHEL 6 です。
+
+この手順環境コピーベースの移行とコピーフリーの移行の 2 つです。
+
+.手順
+. _ Inventory Assessment Workbook から移行前の情報を収集します。
++
+具体的には、次の情報が必要です。
+
++
+** DMMP デバイスに設定されているファイルシステムです
+** DMMP デバイスがマウントされているディレクトリです
+** DMMP デバイスのファイルシステム UUID
+
+
+
+
+.手順
+. DMMP デバイスのマウントポイントが「 /etc/fstab 」ファイルに定義されていることを確認します。
+. ファイルのバックアップを作成します。
++
+`*cp /etc/fstab /etc/fstab_pre_transition*`
+
+. 「 /etc/fstab 」ファイルを編集して、 DMMP デバイス名をそれぞれのファイルシステム UUID 番号に置き換えます。
++
+次の例では、 DMMP デバイス /dev/mapper/360a9800037534562572b453855496b41 が UUID a073547e-00b6-4bf9-8e08-5eef08499a9c に置き換えられています。
+
++
+[listing]
+----
+[root@IBMx3550M3-229-169 ~]# cat /etc/fstab
+/dev/VolGroup00/LogVol00 /  ext3  defaults   1 1
+LABEL=/boot /boot  ext3     defaults         1 2
+tmpfs  /dev/shm    tmpfs    defaults         0 0
+devpts /dev/pts    devpts   gid=5, mode=620  0 0
+sysfs  /sys	       sysfs           defaults  0 0
+proc   /proc       proc           defaults   0 0
+/dev/VolGroup00/LogVol01 swap	swap  defaults 0 0
+/dev/mapper/test_vg-test_lv /mnt/lvm_ext3 ext3 defaults,_netdev 0 0
+UUID=a073547e-00b6-4bf9-8e08-5eef08499a9c /mnt/dmmp_ext3 ext3 defaults,_netdev 0 0
+----
+
+
+* 関連情報 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[Inventory Assessment Workbook からの移行前の情報収集]

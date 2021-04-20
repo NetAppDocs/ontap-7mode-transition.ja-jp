@@ -1,0 +1,13 @@
+---
+permalink: command-map/index.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, index 
+summary: 7-Mode のコマンドと対応する ONTAP のコマンドを記載します 
+---
+= 7-Mode 管理者用のコマンドマップ
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+このガイドでは、 7-Mode のコマンドと対応する ONTAP のコマンドを記載します。

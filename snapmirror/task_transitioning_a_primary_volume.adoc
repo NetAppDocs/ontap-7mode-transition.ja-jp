@@ -1,0 +1,268 @@
+---
+permalink: snapmirror/task_transitioning_a_primary_volume.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, primary, volume, snapmirror 
+summary: プライマリボリュームを移行するには、 7-Mode のプライマリボリュームから clustered Data ONTAP のプライマリボリュームへデータをコピーし、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間のディザスタリカバリ関係を削除し、 clustered Data ONTAP のプライマリボリュームとセカンダリボリュームの間に SnapMirror 関係を確立する必要があります。 
+---
+= プライマリボリュームを移行する
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+プライマリボリュームを移行するには、 7-Mode のプライマリボリュームから clustered Data ONTAP のプライマリボリュームへデータをコピーし、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間のディザスタリカバリ関係を削除し、 clustered Data ONTAP のプライマリボリュームとセカンダリボリュームの間に SnapMirror 関係を確立する必要があります。
+
+プライマリクラスタと SVM のセットアップが完了している必要があります。
+
+.手順
+. 7-Mode のプライマリボリュームから clustered Data ONTAP のプライマリボリュームへ、データをコピーします。
++
+.. 7-Mode システムと SVM の間に SnapMirror 関係を作成するには、関係タイプを TDP に指定して「 snapmirror create 」コマンドを実行します。
++
+[listing]
+----
+pri_cluster::> snapmirror create -source-path src_system:finance -destination-path src_vserver:src_c_vol -type TDP
+Operation succeeded: snapmirror create the relationship with destination src_vserver:src_c_vol.
+----
+.. 「 snapmirror initialize 」コマンドを使用して、ベースライン転送を開始します。
++
+[listing]
+----
+pri_cluster::> snapmirror  initialize -destination-path src_vserver:src_c_vol
+Operation is queued: snapmirror initialize of destination src_vserver:src_c_vol.
+----
+.. clustered Data ONTAP ボリュームを手動で更新するか、 SnapMirror スケジュールを設定して更新するかに応じて、該当する操作を実行します。
++
+|===
+| 状況 | 作業 
+
+
+ a| 
+転送を手動で更新します
+ a| 
+... 「 snapmirror update 」コマンドを使用します。
++
+[listing]
+----
+pri_cluster::> snapmirror update -destination-path src_vserver:src_c_vol
+----
+... 「 snapmirror show 」コマンドを使用して、データコピーのステータスを監視します。
++
+[listing]
+----
+pri_cluster::> snapmirror show -destination-path src_vserver:src_c_vol
+                            Source Path: pri_system:src_7_vol
+                       Destination Path: src_vserver:src_c_vol
+                      Relationship Type: TDP
+                Relationship Group Type: none
+                    SnapMirror Schedule: -
+                 SnapMirror Policy Type: async-mirror
+                      SnapMirror Policy: DPDefault
+                            Tries Limit: -
+                      Throttle (KB/sec): unlimited
+                           Mirror State: Snapmirrored
+ ...
+           Number of Successful Updates: 1
+               Number of Failed Updates: 0
+           Number of Successful Resyncs: 0
+               Number of Failed Resyncs: 0
+            Number of Successful Breaks: 0
+                Number of Failed Breaks: 0
+                   Total Transfer Bytes: 473163808768
+         Total Transfer Time in Seconds: 43405
+----
+... 手順 3 に進みます。
+
+
+
+
+ a| 
+スケジュールされた更新転送を実行します
+ a| 
+... 更新転送のスケジュールを作成するには 'job schedule cron create コマンドを使用します
++
+[listing]
+----
+pri_cluster::> job schedule cron create -name 15_minute_sched -minute 15
+----
+... 「 snapmirror modify 」コマンドを使用して、 SnapMirror 関係にスケジュールを適用します。
++
+[listing]
+----
+pri_cluster::> snapmirror modify -destination-path src_vserver:src_c_vol -schedule 15_minute_sched
+----
+... snapmirror show コマンドを使用して、データコピーのステータスを監視します。
++
+[listing]
+----
+pri_cluster::> snapmirror show -destination-path src_vserver:src_c_vol
+                            Source Path: pri_system:src_7_vol
+                       Destination Path: src_vserver:src_c_vol
+                      Relationship Type: TDP
+                Relationship Group Type: none
+                    SnapMirror Schedule: 15_minute_sched
+                 SnapMirror Policy Type: async-mirror
+                      SnapMirror Policy: DPDefault
+                            Tries Limit: -
+                      Throttle (KB/sec): unlimited
+                           Mirror State: Snapmirrored
+...
+           Number of Successful Updates: 1
+               Number of Failed Updates: 0
+           Number of Successful Resyncs: 0
+               Number of Failed Resyncs: 0
+            Number of Successful Breaks: 0
+                Number of Failed Breaks: 0
+                   Total Transfer Bytes: 473163808768
+         Total Transfer Time in Seconds: 43405
+----
+
+
+|===
+
+
+. 差分転送のスケジュールを設定している場合は、カットオーバーの準備ができた時点で次の手順を実行します。
++
+.. 今後のすべての更新転送を無効にするには 'snapmirror quiesce コマンドを使用します
++
+[listing]
+----
+pri_cluster::> snapmirror quiesce -destination-path src_vserver:src_c_vol
+----
+.. SnapMirror スケジュールを削除するには、「 snapmirror modify 」コマンドを使用します。
++
+[listing]
+----
+pri_cluster::> snapmirror modify -destination-path src_vserver:src_c_vol -schedule ""
+----
+.. SnapMirror 転送を休止していた場合は、「 snapmirror resume 」コマンドを使用して SnapMirror 転送を有効にします。
++
+[listing]
+----
+pri_cluster::> snapmirror resume -destination-path src_vserver:src_c_vol
+----
+
+
+. clustered Data ONTAP のセカンダリとプライマリの SVM 間に SVM ピア関係を作成します。
++
+.. クラスタピア関係を作成するには 'cluster peer create コマンドを使用します
++
+[listing]
+----
+pri_cluster::> cluster peer create -peer-addrs cluster2-d2, 10.98.234.246 -timeout 60
+
+Notice: Choose a passphrase of 8 or more characters. To ensure the authenticity of the peering relationship, use a phrase or sequence of characters that would be hard to guess.
+
+Enter the passphrase: ********
+Confirm the passphrase: ********
+----
+.. ソースクラスタから vserver peer create コマンドを実行して、 clustered Data ONTAP のプライマリボリュームとセカンダリボリュームの間に SVM ピア関係を作成します。
++
+[listing]
+----
+pri_cluster::> vserver peer create -vserver src_vserver -peervserver src_c_vserver -applications snapmirror -peer-cluster sec_cluster
+----
+.. デスティネーションクラスタから「 vserver peer accept 」コマンドを使用して SVM ピア要求を承認し、 SVM ピア関係を確立します。
++
+[listing]
+----
+sec_cluster::> vserver peer accept -vserver dst_vserver -peervserver src_vserver
+----
+
+
+. 更新転送用のスケジュールが設定されている場合は、デスティネーションクラスタから「 snapmirror quiesce 」コマンドを実行して、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間のデータ転送を中断します。
++
+[listing]
+----
+sec_cluster::> snapmirror quiesce -destination-path dst_vserver:dst_c_vol
+----
+. データコピー処理を監視してカットオーバーを開始します。
++
+.. 7-Mode のプライマリボリュームから clustered Data ONTAP のプライマリ Data ONTAP ボリュームおよびセカンダリボリュームへの実行中の転送がある場合はその完了を待ってから、 7-Mode のプライマリボリュームからクライアントアクセスを切断してカットオーバーを開始します。
+.. 「 snapmirror update 」コマンドを使用して、 7-Mode のプライマリボリュームから clustered Data ONTAP のプライマリボリュームへの最終データ更新を実行します。
++
+[listing]
+----
+pri_cluster::> snapmirror update -destination-path src_vserver:src_c_vol
+----
+.. 「 snapmirror break 」コマンドを使用して、 7-Mode のプライマリボリュームと clustered Data ONTAP のプライマリボリュームの間の SnapMirror 関係を解除します。
++
+[listing]
+----
+pri_cluster::> snapmirror  break -destination-path src_vserver:src_c_vol
+[Job 1485] Job is queued: snapmirror break for destination src_vserver:src_c_vol.
+----
+.. ボリュームに LUN が設定されている場合は、 advanced 権限レベルで、「 lun transition 7-mode show 」コマンドを使用して、 LUN が移行されたことを確認します。
++
+clustered Data ONTAP ボリュームで「 lun show 」コマンドを使用して、移行されたすべての LUN を表示することもできます。
+
+.. 「 snapmirror delete 」コマンドを使用して、関係を削除します。
++
+[listing]
+----
+pri_cluster::> snapmirror  delete -destination-path src_vserver:src_c_vol
+----
+.. 「 snapmirror release 」コマンドを使用して、 7-Mode システムから SnapMirror 関係の情報を削除します。
++
+[listing]
+----
+system7mode> snapmirror release dataVol20 vs1:dst_vol
+----
+
+
+. デスティネーションクラスタから、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間のディザスタリカバリ関係を解除して削除します。
++
+.. 「 snapmirror break 」コマンドを使用して、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間のディザスタリカバリ関係を解除します。
++
+[listing]
+----
+sec_cluster::> snapmirror  break -destination-path dst_vserver:dst_c_vol
+[Job 1485] Job is queued: snapmirror break for destination dst_vserver:dst_c_vol.
+----
+.. 「 snapmirror delete 」コマンドを使用して、関係を削除します。
++
+[listing]
+----
+sec_cluster::> snapmirror  delete -destination-path dst_vserver:dst_c_vol
+----
+.. 「 snapmirror release 」コマンドを使用して、 7-Mode システムから SnapMirror 関係の情報を削除します。
++
+[listing]
+----
+system7mode> snapmirror release dataVol20 vs1:dst_vol
+----
+
+
+. デスティネーションクラスタから、 clustered Data ONTAP のプライマリボリュームとセカンダリボリュームの間の SnapMirror 関係を確立します。
++
+.. 「 snapmirror create 」コマンドを使用して、 clustered Data ONTAP のプライマリボリュームとセカンダリボリュームの間に SnapMirror 関係を作成します。
++
+[listing]
+----
+sec_cluster::> snapmirror create -source-path src_vserver:src_c_vol -destination-path dst_vserver:dst_c_vol -type DP -schedule 15_minute_sched
+----
+.. 「 snapmirror resync 」コマンドを使用して、 clustered Data ONTAP ボリューム間の SnapMirror 関係を再同期します。
++
+再同期が成功するためには、 clustered Data ONTAP のプライマリボリュームとセカンダリボリュームに共通の Snapshot コピーが存在する必要があります。
+
++
+[listing]
+----
+sec_cluster::> snapmirror  resync -destination-path dst_vserver:dst_c_vol
+----
+.. 「 snapmirror show 」コマンドを使用して、 SnapMirror 再同期のステータスが「 SnapManager にはミラー」と表示されることを確認します。
++
+
+NOTE: clustered Data ONTAP のセカンダリボリュームを読み取り専用アクセスに使用できるようにするためには、 SnapMirror 再同期が成功している必要があります。
+
+
+
+
+
+7-Mode システムの必要なボリュームをすべて SVM に移行したら、 7-Mode システムと SVM の間の SVM ピア関係を削除する必要があります。
+
+* 関連情報 *
+
+xref:task_recovering_from_a_failed_lun_transition.adoc[LUN 移行が失敗した場合のリカバリ]
+
+xref:task_configuring_a_tcp_window_size_for_snapmirror_relationships.adoc[SnapMirror 関係の TCP ウィンドウサイズの設定]
