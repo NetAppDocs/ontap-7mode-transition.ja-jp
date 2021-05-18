@@ -3947,7 +3947,6 @@
   <block id="418abd2a3d0ce38a1d0d1629b08fb50d" category="list-text">プライマリプロジェクトの移行をコミットします。</block>
   <block id="86653abda78d59fd2d83c995c1057bfa" category="inline-link">SnapMirror による 7-Mode データの移行</block>
   <block id="b6a79238efceeac12b84f79a5615d122" category="paragraph"><block ref="b6a79238efceeac12b84f79a5615d122" category="inline-link-rx"></block></block>
-  <block id="5f54e30b3c4cef4f57fd2b62c85ab591" category="summary">7-Mode Transition Tool のインストールとセットアップ、 SnapMirror コマンドを使用した移行データ、 Copy-Based Transition または Copy-Free Transition の実行、移行に関する情報の収集、 SAN ホストに関する移行前 / 移行後の手順の完了に役立つ情報が記載されています。</block>
   <block id="c8d1df851ddb91c52b45b9c36da52872" category="doc">7-Mode Transition Documentation 』を参照してください</block>
   <block id="d0fbe67f2f760cdfc7dca7d4ae42c132" category="summary">インベントリレポートを正常に生成するには、 7-Mode システムおよびホストが一定のネットワーク要件とプロトコル要件を満たしている必要があります。</block>
   <block id="b20e671b3b9c076970eedcf020eca57a" category="doc">7-Mode システムとホストでインベントリ収集の準備を行う</block>
@@ -7373,4 +7372,5 @@
   <block id="80a4be74705a612be3887e601f338c11" category="sidebar">Red Hat Enterprise に対する移行前と移行後の要件を確認します Linux ホスト</block>
   <block id="624868dc01678d5268f2ce0a2b5e6de8" category="sidebar">Microsoft Windows ホストの移行前と移行後の手順を確認</block>
   <block id="84a6933c212881ac1351cccc03b06c5a" category="sidebar">7-Mode 管理用のコマンドマップ</block>
+  <block id="89f95df2cc05eb9610c67960b12ffda2" category="summary">7-Mode Transition Tool のインストールとセットアップ、 SnapMirror コマンドを使用した移行データ、コピーベースまたはコピーフリーの移行の実行、移行に関する情報の収集、 SAN ホストの移行前 / 移行後の手順の完了に役立つ情報が記載されています。</block>
 </blocks>
