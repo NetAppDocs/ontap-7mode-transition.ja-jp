@@ -46,6 +46,6 @@ NOTE: このコマンドはそれぞれの Storage Virtual Machine （ SVM ）�
 . ゾーニングが新しい clustered Data ONTAP ターゲットに適していることを確認します。
 . コピー・フリーの移行（ CFT ）を実行している場合は 'vol rehost を実行します
 +
-を参照してください link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-free/index.html["『 7-Mode Transition Tool Copy-Free Transition Guide 』"] vol rehost 手順については ' を参照してください
+を参照してください link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["『 7-Mode Transition Tool Copy-Free Transition Guide 』"] vol rehost 手順については ' を参照してください
 
 

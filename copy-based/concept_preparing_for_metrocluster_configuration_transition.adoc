@@ -39,7 +39,10 @@ MetroCluster 構成に移行する前に、 7-Mode ボリュームを ONTAP 内�
 スイッチファブリックは、移行中にのみ共有することを推奨します。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-fabric/home.html["ファブリック接続 MetroCluster のインストールと設定"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-fabric/home.html["MetroCluster 9.8 以前のファブリック接続 ONTAP のインストールおよび設定"]
+
++
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["ファブリック接続 MetroCluster のインストールと設定、 ONTAP 9.9.1"]
 
 * 移行中に作成された cron ジョブスケジュールはリモートサイトにレプリケートされないため、移行後のネゴシエートスイッチオーバーは失敗します。
 +

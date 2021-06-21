@@ -14,4 +14,4 @@ summary: 7-Mode Transition Tool では、 7-Mode のコントローラ、ホス�
 
 サポートされるターゲットリリースおよび既知の問題に関する最新情報については、最新の 7-Mode Transition Tool リリースノートを参照してください。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["『 7-Mode Transition Tool Release Notes 』"]
+http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["『 7-Mode Transition Tool Release Notes 』"]

@@ -10,4 +10,4 @@ summary: ストレージシステム、ホスト、およびホストアプリ�
 
 
 [role="lead"]
-ストレージシステム、ホスト、およびホストアプリケーションを評価して移行の準備ができているかどうかを確認する作業については、で説明しています link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-based/index.html["『 7-Mode Transition Tool Copy-Based Transition Guide 』"]。このガイドでは、コントローラとホストについて作成したインベントリレポートをインポートする方法と、それらのコントローラとホストを評価して移行の準備ができているかどうかを確認する方法を詳しく説明しています。
+ストレージシステム、ホスト、およびホストアプリケーションを評価して移行の準備ができているかどうかを確認する作業については、で説明しています link:http://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["『 7-Mode Transition Tool Copy-Based Transition Guide 』"]。このガイドでは、コントローラとホストについて作成したインベントリレポートをインポートする方法と、それらのコントローラとホストを評価して移行の準備ができているかどうかを確認する方法を詳しく説明しています。

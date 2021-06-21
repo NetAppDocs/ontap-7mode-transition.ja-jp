@@ -12,12 +12,19 @@ summary: ONTAP 移行ターゲットクラスタがサポートされるかど�
 [role="lead"]
 ONTAP 移行ターゲットクラスタがサポートされるかどうかは、使用する移行方法、コピーベースまたはコピーフリー、および 7-Mode Transition Tool のバージョンによって異なります。
 
-必ず最新の 7-Mode Transition Tool を参照してください link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["リリースノート"] サポートされるターゲットリリースと既知の問題に関する最新情報については、を参照してください。
+必ず最新の 7-Mode Transition Tool を参照してください link:http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["リリースノート"] サポートされるターゲットリリースと既知の問題に関する最新情報については、を参照してください。
 
 これらの ONTAP ターゲットリリースでは、コピーベースの移行がサポートされています。
 
 |===
 | 移行ターゲットの実行中のバージョン | 使用する 7-Mode Transition Tool のバージョン 
+
+
+ a| 
+ONTAP 9.9.1 以前のサポートされるリリース
+ a| 
+3.4.0
+
 
 
  a| 

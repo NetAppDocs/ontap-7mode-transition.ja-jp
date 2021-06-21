@@ -25,10 +25,6 @@ summary: 7-Mode ボリュームを移行する場合の制限事項を把握す�
 +
 http://www.netapp.com/us/media/tr-4052.pdf["ネットアップテクニカルレポート 4052 ：『 Successfully Transitioning to Clustered Data ONTAP （ Data ONTAP 8.2.x and 8.3 ）』"]
 
-* SnapLock ボリューム
-+
-SnapLock ボリュームの移行は、 ONTAP リリース 9.2~9.5 でサポートされています。
-
 * FlexCache ボリューム
 
 

@@ -13,7 +13,7 @@ summary: 7-Mode Transition Tool （ 7MTT ）を使用して ESXi ホストを Da
 7-Mode Transition Tool （ 7MTT ）を使用して ESXi ホストを Data ONTAP 7-Mode から ONTAP に移行する前に、前提条件となるいくつかのタスクを実行する必要があります。
 
 .手順
-. の説明に従って、 clustered Data ONTAP を設定します link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-based/index.html["『 7-Mode Transition Tool Copy-Based Transition Guide 』"] または link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-free/index.html["『 7-Mode Transition Tool Copy-Free Transition Guide 』"] 実行する移行のタイプに基づいて判断します。
+. の説明に従って、 clustered Data ONTAP を設定します link:http://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["『 7-Mode Transition Tool Copy-Based Transition Guide 』"] または link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["『 7-Mode Transition Tool Copy-Free Transition Guide 』"] 実行する移行のタイプに基づいて判断します。
 . 移行する ESXi ホストに関する次の情報を収集します。
 +
 ** IP アドレス

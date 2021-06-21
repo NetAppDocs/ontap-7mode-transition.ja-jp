@@ -70,7 +70,7 @@ system7mode is alive
 
 マルチパスの場合は、各ノードに 2 つのクラスタ間 LIF が必要です。
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["ネットワークと LIF の管理"]
+https://docs.netapp.com/us-en/ontap/networking/index.html["ネットワークと LIF の管理"]
 
 * 関連情報 *
 

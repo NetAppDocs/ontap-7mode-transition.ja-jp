@@ -113,7 +113,6 @@
   <block id="2c1efc58f4100b5097f6ec666dd1b924" category="paragraph">データの移行が完了したら、次のタスクを実行する必要があります。</block>
   <block id="8e0be357c356bb261065fe4b6740760a" category="list-text">オプション： SVM にデータ LIF を作成してクライアントアクセスを有効にする</block>
   <block id="4344cf9672839a368c8fd958fef1ec6a" category="inline-link">ネットワークと LIF の管理</block>
-  <block id="a25515f7e03f402175015f98dc6bea14" category="paragraph"><block ref="bc3d619cb2db28a4bb6fdf98a10e1f1f" category="inline-link-rx"></block>。</block>
   <block id="d4cc526436ecff09a87a28eb2b688e30" category="list-text">SVM で、プロトコル、ネットワーク、およびサービスを設定します。</block>
   <block id="78834fa388e1f1624970cb4f542e13c7" category="inline-link">SMB / CIFS の管理</block>
   <block id="04a6652e4c9f11532f0c9f90ac9df4d4" category="list-text"><block ref="04a6652e4c9f11532f0c9f90ac9df4d4" category="inline-link-rx"></block></block>
@@ -448,7 +447,6 @@
   <block id="85b597a7eb513de10299d1591e4e1d8c" category="summary">7-Mode Transition Tool をインストールして実行するには、 Windows ホストが構成要件を満たしている必要があります。</block>
   <block id="be4ab46fe99327f9b878025183de2d17" category="doc">Windows に 7-Mode Transition Tool をインストールするためのシステム要件 システム</block>
   <block id="5dd03e8d039863e563e049be198c3fd3" category="inline-link">リリースノート</block>
-  <block id="658650eab232a5648b626b1d10415901" category="paragraph">必ず最新の 7-Mode Transition Tool を参照してください <block ref="8235dbac04c02488ad250464f0accf7c" category="inline-link-rx"></block> サポートされているホストおよび既知の問題に関する最新情報。</block>
   <block id="47dee50ad0138b8f5ca70e40e86e6c04" category="section-title">ハードウェア要件</block>
   <block id="ba175d8a92999f18f52857499b7fe2fd" category="list-text">デュアルコア x64 プロセッサ、 1.0GHz 以上</block>
   <block id="83626eda7582435cdf0eb139d5cc8972" category="list-text">8GB の RAM</block>
@@ -505,7 +503,6 @@
   <block id="8ae1a8b6dc4a3df150f27ca419fb9a6c" category="paragraph"><block ref="8ae1a8b6dc4a3df150f27ca419fb9a6c" category="inline-link-rx"></block></block>
   <block id="b9fc65b1a77f4814d957a342d597b075" category="summary">ONTAP 移行ターゲットクラスタがサポートされるかどうかは、使用する移行方法、コピーベースまたはコピーフリー、および 7-Mode Transition Tool のバージョンによって異なります。</block>
   <block id="e43df993a0ab34e7cfe36869864cdfcc" category="doc">ONTAP のターゲットリリースは 7-Mode Transition Tool でサポートされます</block>
-  <block id="3e925268f14f52875b966bc2ef6ff6e6" category="paragraph">必ず最新の 7-Mode Transition Tool を参照してください <block ref="8235dbac04c02488ad250464f0accf7c" category="inline-link-rx"></block> サポートされるターゲットリリースと既知の問題に関する最新情報については、を参照してください。</block>
   <block id="7f2ab056716da81f0d25b65eeaa6bfcc" category="paragraph">これらの ONTAP ターゲットリリースでは、コピーベースの移行がサポートされています。</block>
   <block id="8fb05c88e9c793eb0c9e2dbe87a7bdc1" category="cell">移行ターゲットの実行中のバージョン</block>
   <block id="ddf8259e0653862eae6235e5ca09f91f" category="cell">使用する 7-Mode Transition Tool のバージョン</block>
@@ -715,7 +712,6 @@
   <block id="ea11271e6484be2372cd2e1258df7fa8" category="list-text">ツールがインストールされている Windows システムのクレデンシャルを使用して、 Web インターフェイスにログインします。</block>
   <block id="a3100bf3334206028c894a5568ddcf09" category="summary">新機能、アップグレードの注意事項、解決済みの問題、既知の制限事項、および既知の問題について説明します。</block>
   <block id="a36356967ba019ce3f720deb36e80a91" category="inline-link">『 7-Mode Transition Release Notes 』</block>
-  <block id="ece50469c4d58f7adcd2a6650fcfd0d6" category="paragraph">。 <block ref="85d609d6fd5c4c606f71baadc525a46c" category="inline-link-rx"></block> 新機能、アップグレードに関する注意事項、解決済みの問題、既知の制限事項、および既知の問題について説明する。</block>
   <block id="dbd469acdcbd52648cb242bcfda6add3" category="paragraph">リリースノートにアクセスするには、ネットアップサポートサイトにサインオンする必要があります。</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="summary">著作権に関する声明、商標、特許などにアクセスできます。</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法的通知</block>
@@ -974,7 +970,6 @@
   <block id="664f739c9dfce166b4c021cac0d8633e" category="inline-link">ネットアップテクニカルレポート 4052 ：『 Successfully Transitioning to Clustered Data ONTAP （ Data ONTAP 8.2.x and 8.3 ）』</block>
   <block id="755b3c98012d25558d664e3aae2c2528" category="paragraph"><block ref="755b3c98012d25558d664e3aae2c2528" category="inline-link-rx"></block></block>
   <block id="092b8bff355a822658e73052e9a961f2" category="list-text">SnapLock ボリューム</block>
-  <block id="0647b7bfb99739c73a725259787a5dc0" category="paragraph">SnapLock ボリュームの移行は、 ONTAP リリース 9.2~9.5 でサポートされています。</block>
   <block id="056d78c845232f9f3c919b1d5a3acbb1" category="section-title">ボリュームの状態</block>
   <block id="4c0d2f9c23003e6c2b0d15a162dfdd45" category="paragraph">移行対象として選択した 7-Mode ボリュームが次のいずれかの状態の場合、移行はブロックされます。</block>
   <block id="8d9da4bc0e49a50e09ac9f7e56789d39" category="list-text">オフラインです</block>
@@ -1323,8 +1318,6 @@
   <block id="a888d2a4d853591bb5280fee9c5b23d8" category="list-text">7-Mode ファブリック MetroCluster 構成で設定されている優先ポートを、 ONTAP 内の MetroCluster 構成用に設定することはできません。</block>
   <block id="7f0778d6490934d8016b4e7552a78917" category="list-text">7-Mode ファブリック MetroCluster 構成が Brocade 6510 スイッチを使用している場合は、既存のスイッチファブリックを ONTAP 内の新しい MetroCluster と共有できます。</block>
   <block id="fb07aa9106442958786be7b30412f03e" category="paragraph">スイッチファブリックは、移行中にのみ共有することを推奨します。</block>
-  <block id="5bf1678517b4e7d065d78a458ca7ed44" category="inline-link">ファブリック接続 MetroCluster のインストールと設定</block>
-  <block id="1c1419a60d092179cd2d28d3fe2c36d9" category="paragraph"><block ref="1c1419a60d092179cd2d28d3fe2c36d9" category="inline-link-rx"></block></block>
   <block id="a47347cc67b6f1cf79fc1269e3113693" category="list-text">移行中に作成された cron ジョブスケジュールはリモートサイトにレプリケートされないため、移行後のネゴシエートスイッチオーバーは失敗します。</block>
   <block id="62fb3cde3b76fcdbdedbf4ac6aa39fbe" category="paragraph">移行後にリモートサイトで cron ジョブスケジュールを手動で作成する必要があります。</block>
   <block id="2ee7cce0bcd152aae8da360b3be01522" category="inline-xref-macro">移行後にリモートサイトで cron ジョブスケジュールを設定 MetroCluster 構成</block>
@@ -3446,7 +3439,6 @@
   <block id="75895495a2e369d5919d257834721ae1" category="paragraph">いずれかの HA ペアでプライマリボリュームとセカンダリボリュームが混在している場合は、並行の方法を使用して移行する必要があります。</block>
   <block id="03022107ed80e3efb78959e2fc8a9fa3" category="paragraph">プライマリとセカンダリの HA ペアを移行後に、 clustered Data ONTAP で Volume SnapMirror 関係を手動で設定する必要があります。再同期が成功するためには、 Data ONTAP 8.1 以降で作成された共通の Snapshot コピーが、 SnapMirror 関係のプライマリボリュームとセカンダリボリュームの間に少なくとも 1 つは存在している必要があります。</block>
   <block id="a585043838e0b04cbfba3913add0c97a" category="inline-link">7-Mode Transition Tool のインストールと管理</block>
-  <block id="cbb8ccdd37e40035cafbcc8205c892ff" category="paragraph"><block ref="cbb8ccdd37e40035cafbcc8205c892ff" category="inline-link-rx"></block></block>
   <block id="d40141a051001ab5ba8b4879a08e65ee" category="summary">移行を開始するには、 7-Mode HA ペアの両方のノードを含む 7-Mode コントローラと、移行に必要なクラスタを追加する必要があります。クラスタはクラスタ管理インターフェイスを使用して追加します。</block>
   <block id="f6c6c77849641b407ed3f95a43a473ab" category="list-text">Copy-Free Transition の場合、移行先のクラスタノードではなく、クラスタを追加する必要があります。</block>
   <block id="acb8e71042ee0630aeee75c4661a3325" category="list-text">ユーザが指定した 7-Mode コントローラとクラスタの情報は、永続的に保存されるわけではありません。</block>
@@ -3946,7 +3938,6 @@
   <block id="351f13de9ff677e9e64387882375e203" category="list-text">SnapMirror データ転送のステータスを監視します。 +`*snapmirror show *`</block>
   <block id="418abd2a3d0ce38a1d0d1629b08fb50d" category="list-text">プライマリプロジェクトの移行をコミットします。</block>
   <block id="86653abda78d59fd2d83c995c1057bfa" category="inline-link">SnapMirror による 7-Mode データの移行</block>
-  <block id="b6a79238efceeac12b84f79a5615d122" category="paragraph"><block ref="b6a79238efceeac12b84f79a5615d122" category="inline-link-rx"></block></block>
   <block id="c8d1df851ddb91c52b45b9c36da52872" category="doc">7-Mode Transition Documentation 』を参照してください</block>
   <block id="d0fbe67f2f760cdfc7dca7d4ae42c132" category="summary">インベントリレポートを正常に生成するには、 7-Mode システムおよびホストが一定のネットワーク要件とプロトコル要件を満たしている必要があります。</block>
   <block id="b20e671b3b9c076970eedcf020eca57a" category="doc">7-Mode システムとホストでインベントリ収集の準備を行う</block>
@@ -4254,7 +4245,6 @@
   <block id="85f1d5ba172d9003442d859db7e22e8c" category="summary">ストレージシステム、ホスト、およびホストアプリケーションを評価して移行の準備ができているかどうかを確認する作業については、 7-Mode Transition Tool コピーベースの移行ガイドで説明しています。このガイドでは、コントローラとホストについて作成したインベントリレポートをインポートする方法と、それらのコントローラとホストを評価して移行の準備ができているかどうかを確認する方法を詳しく説明しています。</block>
   <block id="2ab981fd0da665cff18a9c46e2e540b5" category="doc">移行のための環境評価に関する情報の参照先</block>
   <block id="db49f4fa016e5cd4e806b756be6dc9f7" category="inline-link">『 7-Mode Transition Tool Copy-Based Transition Guide 』</block>
-  <block id="2754abd484ea715e84e9af750f682bcc" category="paragraph">ストレージシステム、ホスト、およびホストアプリケーションを評価して移行の準備ができているかどうかを確認する作業については、で説明しています <block ref="d82875023f7d25ca2f98abb9f90608f0" category="inline-link-rx"></block>。このガイドでは、コントローラとホストについて作成したインベントリレポートをインポートする方法と、それらのコントローラとホストを評価して移行の準備ができているかどうかを確認する方法を詳しく説明しています。</block>
   <block id="446fe559aee6b13c1c2a66910c031545" category="summary">インベントリ情報を収集できる Data ONTAP 7-Mode 、ホスト、および FC スイッチのバージョンを把握しておく必要があります。</block>
   <block id="1ceb0bd1ce76c8e985fe1a38447f6b76" category="doc">インベントリを収集するためのストレージ、ホスト、 FC スイッチのバージョン要件</block>
   <block id="1caf091f6023152e68ae0a19167c2e97" category="paragraph">Inventory Collect Tool による環境評価でサポートされる 7-Mode システム、ホスト、および FC スイッチのバージョンについては、 Interoperability Matrix を参照してください。</block>
@@ -6206,7 +6196,6 @@
   <block id="702359f63f994542931dfee4a57bf827" category="doc">ESXi ホストの移行準備</block>
   <block id="015b9e4c1c992f2767f306b95538d1f3" category="paragraph">7-Mode Transition Tool （ 7MTT ）を使用して ESXi ホストを Data ONTAP 7-Mode から ONTAP に移行する前に、前提条件となるいくつかのタスクを実行する必要があります。</block>
   <block id="20a76da6972a3da215553fb9873d983c" category="inline-link">『 7-Mode Transition Tool Copy-Free Transition Guide 』</block>
-  <block id="2dae741f45bd04c5c63c2d3579451da6" category="list-text">の説明に従って、 clustered Data ONTAP を設定します <block ref="d82875023f7d25ca2f98abb9f90608f0" category="inline-link-rx"></block> または <block ref="f27214f6435907d3e061092ed1ca41a8" category="inline-link-rx"></block> 実行する移行のタイプに基づいて判断します。</block>
   <block id="549512f4f006b38ae56396fb0f3e6c9f" category="list-text">移行する ESXi ホストに関する次の情報を収集します。</block>
   <block id="75ba8d70e3692ba200f0e0df37b4d2ae" category="list-text">IP アドレス</block>
   <block id="dae4a538d4ca7b6c0789932062fe718d" category="list-text">ホスト名</block>
@@ -6549,7 +6538,6 @@
   <block id="40d0167edb1a871937ede6fe06f30dcb" category="paragraph">7MTT は、 Data ONTAP 7-Mode で使用されていたイニシエータと同じ igroup を再作成し、 clustered Data ONTAP LUN をホストに再マッピングします。</block>
   <block id="dda27aef2f5014051c82902400c42a5a" category="list-text">ゾーニングが新しい clustered Data ONTAP ターゲットに適していることを確認します。</block>
   <block id="3a81122702160b1053db4a79eaddd2d4" category="list-text">コピー・フリーの移行（ CFT ）を実行している場合は 'vol rehost を実行します</block>
-  <block id="0c40fa5d864d23c1a54d9bd574d5b6bf" category="paragraph">を参照してください <block ref="f27214f6435907d3e061092ed1ca41a8" category="inline-link-rx"></block> vol rehost 手順については ' を参照してください</block>
   <block id="b357d1c26379c095e7c5aa580920ce28" category="summary">Data ONTAP 7-Mode から clustered Data ONTAP に移行したあとで、 raw デバイスマッピング（ RDM ）を再接続する必要があります。</block>
   <block id="16ed3e2788e2b39500b71963ba15d508" category="doc">ESXi CLI / コンソールを使用した RDM の再接続</block>
   <block id="41d19d600f8d6507fcd4b0733f730f31" category="paragraph">Data ONTAP 7-Mode から clustered Data ONTAP に移行したあとで、 Raw デバイスマッピング（ RDM ）を再接続する必要があります。</block>
@@ -6680,7 +6668,6 @@
   <block id="7171317054dceb585a79bbdf0200813d" category="summary">ONTAP 7-Mode から clustered Data ONTAP に移行したら、マウントポイントを含む LUN を再マウントする必要があります。7-Mode ボリュームはオフラインになっており、 7-Mode LUN からホストにアクセスできません。</block>
   <block id="29bacbf69c6a5bc156cf461096c4163d" category="doc">DMMP エイリアス名を使用するマウントポイントを含む LUN をに再マウントしています 移行後の Linux ホスト</block>
   <block id="c91af532f1bd99b60f825c2b8f7d3d7e" category="paragraph">コピー・フリーの移行（ CFT ）を実行している場合は 'vol rehost の手順を完了する必要があります</block>
-  <block id="7770b4abcb931d9cd860b6385c5978a5" category="paragraph">を参照してください <block ref="f27214f6435907d3e061092ed1ca41a8" category="inline-link-rx"></block> を参照してください。</block>
   <block id="dcf2d68e0e6019e7c87a607cfe2afffb" category="list-text">コピーベースの移行（ CBT ）の場合は、 7MTT でストレージカットオーバー処理を完了したあとに以下の手順を実行します。</block>
   <block id="d1750c71dba72cbdd0d0218d703ffa39" category="list-text">CFT の場合は、 7MTT でデータと設定のインポート処理のあとに以下の手順を実行します。</block>
   <block id="263ea5eaab2cf023ea6afd64025b4c14" category="list-text">コピーベースの移行の場合は、 7MTT がインストールされている Linux ホストから次のコマンドを実行します。 +`* transition cbt export lunmap -p _project-name _-o file_path_*`</block>
@@ -6785,7 +6772,6 @@
   <block id="dd2015a5b1038f621b47efbb6f043c8c" category="doc">ESXi ホスト移行時の構成の適用（カットオーバー前）フェーズにおけるダウンタイム</block>
   <block id="f6364df42b161b9d9787e2cd9b940ae5" category="paragraph">ESXi ホストを移行する場合、構成の適用（カットオーバー前）フェーズにおけるダウンタイムを計画する必要があります。</block>
   <block id="6ce5ba8a29b2e0d292a8340679cfb077" category="paragraph">ESXi ホストの移行の前提条件を完了したら、 7-Mode Transition Tool （ 7MTT ）を使用して Data ONTAP 7-Mode から ONTAP に LUN を移行できます。ESXi ホスト、 VM 、およびアプリケーションは、 7MTT の移行の構成の適用（カットオーバー前）フェーズまではオンラインのままにすることができます。ただし、構成の適用（カットオーバー前）フェーズでは、すべてのアプリケーションとゲストオペレーティングシステムの電源をオフにする必要があります。ESXi ホストが SAN ブートの場合、または SAN ブート LUN が移行に含まれている場合は、構成の適用（カットオーバー前）フェーズで ESXi ホストの電源もオフにする必要があります。</block>
-  <block id="919f7ef554a95f4cd5717ca02592f792" category="paragraph">ホストが SAN ブートではなく、移行対象でない LUN またはネットアップ以外のアレイ LUN に対してサービスを継続する必要がある場合は、ホストをシャットダウンする必要はありません。ただし、ホストをシャットダウンしないと、 All-Paths-Down （ APD ）状態になる可能性があります。APD 状態を回避するには、 Data ONTAP 7-Mode LUN をマスクします。詳細については、 VMware ナレッジベース ID 1009449 を参照してください。</block>
   <block id="68b20fe600570c82920df18e2057ce7e" category="summary">FC または FCoE 構成の AIX ホストのカットオーバーフェーズを開始する前に、特定の手順を実行する必要があります。</block>
   <block id="0d82af72b4f81d26d3ef10657e291085" category="doc">FC / FCoE 構成の AIX ホスト移行時のカットオーバーフェーズの準備</block>
   <block id="45b60175993b46b53f99d32008204a6a" category="paragraph">clustered Data ONTAP ノードへのファブリック接続とゾーニングを確立しておく必要があります。</block>
@@ -7373,4 +7359,32 @@
   <block id="624868dc01678d5268f2ce0a2b5e6de8" category="sidebar">Microsoft Windows ホストの移行前と移行後の手順を確認</block>
   <block id="84a6933c212881ac1351cccc03b06c5a" category="sidebar">7-Mode 管理用のコマンドマップ</block>
   <block id="89f95df2cc05eb9610c67960b12ffda2" category="summary">7-Mode Transition Tool のインストールとセットアップ、 SnapMirror コマンドを使用した移行データ、コピーベースまたはコピーフリーの移行の実行、移行に関する情報の収集、 SAN ホストの移行前 / 移行後の手順の完了に役立つ情報が記載されています。</block>
+  <block id="ef0aacbe84b0de1c18e96c1b40bf48ea" category="paragraph"><block ref="ef0aacbe84b0de1c18e96c1b40bf48ea" category="inline-link-rx"></block></block>
+  <block id="2b4fbe527e017ca4ce17d526f0dcdba3" category="paragraph"><block ref="3a260d7a849b9d20ade07aac9ca689c7" category="inline-link-rx"></block>。</block>
+  <block id="3a260d7a849b9d20ade07aac9ca689c7" category="paragraph"><block ref="3a260d7a849b9d20ade07aac9ca689c7" category="inline-link-rx"></block></block>
+  <block id="899a2aedf48bf7803d44ef49a2444de9" category="paragraph">必ず最新の 7-Mode Transition Tool を参照してください <block ref="83cc5c8d91a883b7386631a4791b799c" category="inline-link-rx"></block> サポートされているホストおよび既知の問題に関する最新情報。</block>
+  <block id="1c9152f368de31db41831aa06ca3ff7f" category="paragraph">必ず最新の 7-Mode Transition Tool を参照してください <block ref="83cc5c8d91a883b7386631a4791b799c" category="inline-link-rx"></block> サポートされるターゲットリリースと既知の問題に関する最新情報については、を参照してください。</block>
+  <block id="29318b07dba1364571e56550c6f089bf" category="paragraph">ONTAP 9.9.1 以前のサポートされるリリース</block>
+  <block id="1321b4a11e7642a0f35bd828b82c3a59" category="paragraph">3.4.0</block>
+  <block id="0b5140d2bd87babd5325d2c620f67458" category="paragraph">。 <block ref="e11c70138711c8e98b53b976fc9ee495" category="inline-link-rx"></block> 新機能、アップグレードに関する注意事項、解決済みの問題、既知の制限事項、および既知の問題について説明する。</block>
+  <block id="ec1d5ad5ad898c81b5f00a9f147fad45" category="inline-link">MetroCluster 9.8 以前のファブリック接続 ONTAP のインストールおよび設定</block>
+  <block id="294ed429f3ed2548ab75f1b87845ce8b" category="paragraph"><block ref="294ed429f3ed2548ab75f1b87845ce8b" category="inline-link-rx"></block></block>
+  <block id="1d0fe3d6b69b0ad2a9f89a1a2dffe662" category="inline-link">ファブリック接続 MetroCluster のインストールと設定、 ONTAP 9.9.1</block>
+  <block id="b1de632dd945f69691092a6e7d859caa" category="paragraph"><block ref="b1de632dd945f69691092a6e7d859caa" category="inline-link-rx"></block></block>
+  <block id="9c833a4f788c919f99c219406430dfe2" category="paragraph"><block ref="9c833a4f788c919f99c219406430dfe2" category="inline-link-macro-rx"></block></block>
+  <block id="344245ffd5e989ae89c20e32c008fa81" category="inline-link">ネットワークおよび LIF の管理 / ONTAP 9.7 以前</block>
+  <block id="deacabb337a4e4593417f763b7ee9cdd" category="paragraph"><block ref="deacabb337a4e4593417f763b7ee9cdd" category="inline-link-rx"></block></block>
+  <block id="1d3cfe94d22cd88aa57d3292be16ce6a" category="inline-link">ネットワークおよび LIF の管理 / ONTAP 9.8 以降</block>
+  <block id="7c2408d034a81cd431503102ae3cf257" category="paragraph"><block ref="7c2408d034a81cd431503102ae3cf257" category="inline-link-rx"></block></block>
+  <block id="26ed02718973e705cd69ee6e109400e0" category="inline-link">System Manager の略</block>
+  <block id="a933edb21df2b9c42c8b8276a631be9a" category="paragraph"><block ref="a933edb21df2b9c42c8b8276a631be9a" category="inline-link-rx"></block></block>
+  <block id="336452ce2a76fb646223965970cdc183" category="paragraph">SnapLock ボリュームの移行は、最新のすべての ONTAP リリースでサポートされています。</block>
+  <block id="15c8f7f4226c27d5f1e4f8c245743e4a" category="paragraph"><block ref="15c8f7f4226c27d5f1e4f8c245743e4a" category="inline-link-rx"></block></block>
+  <block id="4ee14e473d8b904dd79e4ae0d7ebfab3" category="paragraph"><block ref="4ee14e473d8b904dd79e4ae0d7ebfab3" category="inline-link-rx"></block></block>
+  <block id="4ed06f19cb80fd50802cb3ec75506de0" category="paragraph">ストレージシステム、ホスト、およびホストアプリケーションを評価して移行の準備ができているかどうかを確認する作業については、で説明しています <block ref="bee318f971f59c6bc1bae261561a3636" category="inline-link-rx"></block>。このガイドでは、コントローラとホストについて作成したインベントリレポートをインポートする方法と、それらのコントローラとホストを評価して移行の準備ができているかどうかを確認する方法を詳しく説明しています。</block>
+  <block id="7c4c3aa83e004e19b84c149dc6a0e3ef" category="list-text">の説明に従って、 clustered Data ONTAP を設定します <block ref="bee318f971f59c6bc1bae261561a3636" category="inline-link-rx"></block> または <block ref="5051bd660a94246ffa01cc538d6199bf" category="inline-link-rx"></block> 実行する移行のタイプに基づいて判断します。</block>
+  <block id="db2e92c38bf2e4054b2bda749743ffad" category="paragraph">を参照してください <block ref="5051bd660a94246ffa01cc538d6199bf" category="inline-link-rx"></block> vol rehost 手順については ' を参照してください</block>
+  <block id="a031cd3bd86e12f6882a99800966f868" category="paragraph">を参照してください <block ref="5051bd660a94246ffa01cc538d6199bf" category="inline-link-rx"></block> を参照してください。</block>
+  <block id="2d8e41f878e57743dd9b520731d9b484" category="inline-link">VMware ナレッジベース ID 1009449</block>
+  <block id="1d9b853d8e36f14453c11e0aabdbf782" category="paragraph">ホストが SAN ブートではなく、移行対象でない LUN またはネットアップ以外のアレイ LUN に対してサービスを継続する必要がある場合は、ホストをシャットダウンする必要はありません。ただし、ホストをシャットダウンしないと、 All-Paths-Down （ APD ）状態になる可能性があります。APD 状態を回避するには、 Data ONTAP 7-Mode LUN をマスクします。を参照してください <block ref="a4625f2f06156f5339340d176a230c78" category="inline-link-rx"></block> を参照してください。</block>
 </blocks>

@@ -27,7 +27,7 @@ http://www.netapp.com/us/media/tr-4052.pdf["ネットアップテクニカルレ
 
 * SnapLock ボリューム
 +
-SnapLock ボリュームの移行は、 ONTAP リリース 9.2~9.5 でサポートされています。
+SnapLock ボリュームの移行は、最新のすべての ONTAP リリースでサポートされています。
 
 * FlexCache ボリューム
 

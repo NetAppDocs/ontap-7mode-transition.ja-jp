@@ -14,7 +14,7 @@ clustered Data ONTAP の SnapMirror コマンドを使用すると、 NAS およ
 
 * 推奨事項： * 7-Mode ボリュームを移行する場合は、 7-Mode Transition Tool の使用を推奨します。マイグレーションプロセスのすべてのステップで 7-Mode とクラスタの両方が事前確認で検証されるため、多数の潜在的な問題を回避できます。このツールを使用すると、データ移行だけでなく、すべてのプロトコル、ネットワーク、サービスの設定の移行も大幅に簡易化されます。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["『 7-Mode Transition Tool Release Notes 』"]
+http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["『 7-Mode Transition Tool Release Notes 』"]
 
 この手順は、 SnapMirror を使用した移行で実行する必要があるタスクの概要を提供します。
 
@@ -29,11 +29,11 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["『 7-
 
 * オプション： SVM にデータ LIF を作成してクライアントアクセスを有効にする
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["ネットワークと LIF の管理"]。
+https://docs.netapp.com/us-en/ontap/networking/index.html["ネットワークと LIF の管理"]。
 
 * SVM で、プロトコル、ネットワーク、およびサービスを設定します。
 +
-** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["ネットワークと LIF の管理"]。
+** https://docs.netapp.com/us-en/ontap/networking/index.html["ネットワークと LIF の管理"]。
 ** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB / CIFS の管理"]
 ** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]
 
