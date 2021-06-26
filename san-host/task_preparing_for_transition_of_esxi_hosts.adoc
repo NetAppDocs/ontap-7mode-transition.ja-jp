@@ -1,8 +1,8 @@
 ---
 permalink: san-host/task_preparing_for_transition_of_esxi_hosts.html 
 sidebar: sidebar 
-keywords: transition, esxi, host 
-summary: 7-Mode Transition Tool （ 7MTT ）を使用して ESXi ホストを Data ONTAP 7-Mode から ONTAP に移行する前に、前提条件となるいくつかのタスクを実行する必要があります。 
+keywords: transition, esxi, host, initiator, hba driver, collect assess feature 
+summary: Data ONTAP から ESXi ホストを移行する前に、タスクを完了する必要があります 
 ---
 = ESXi ホストの移行準備
 :icons: font

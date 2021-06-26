@@ -6192,7 +6192,6 @@
   <block id="20e0acd5d4c6ea95aaabbe318f40a3e6" category="paragraph"><block ref="20e0acd5d4c6ea95aaabbe318f40a3e6" category="inline-xref-macro-rx"></block></block>
   <block id="1f0d9b0e110b96a95838a0de463a7ac7" category="inline-xref-macro">移行後に SAN ブート LUN を検出します</block>
   <block id="fed7c2ae61ec98c2ab43484e8de41d4b" category="paragraph"><block ref="fed7c2ae61ec98c2ab43484e8de41d4b" category="inline-xref-macro-rx"></block></block>
-  <block id="78b807db0b73ed177eae3ee764356f21" category="summary">7-Mode Transition Tool （ 7MTT ）を使用して ESXi ホストを Data ONTAP 7-Mode から ONTAP に移行する前に、前提条件となるいくつかのタスクを実行する必要があります。</block>
   <block id="702359f63f994542931dfee4a57bf827" category="doc">ESXi ホストの移行準備</block>
   <block id="015b9e4c1c992f2767f306b95538d1f3" category="paragraph">7-Mode Transition Tool （ 7MTT ）を使用して ESXi ホストを Data ONTAP 7-Mode から ONTAP に移行する前に、前提条件となるいくつかのタスクを実行する必要があります。</block>
   <block id="20a76da6972a3da215553fb9873d983c" category="inline-link">『 7-Mode Transition Tool Copy-Free Transition Guide 』</block>
@@ -7387,4 +7386,5 @@
   <block id="a031cd3bd86e12f6882a99800966f868" category="paragraph">を参照してください <block ref="5051bd660a94246ffa01cc538d6199bf" category="inline-link-rx"></block> を参照してください。</block>
   <block id="2d8e41f878e57743dd9b520731d9b484" category="inline-link">VMware ナレッジベース ID 1009449</block>
   <block id="1d9b853d8e36f14453c11e0aabdbf782" category="paragraph">ホストが SAN ブートではなく、移行対象でない LUN またはネットアップ以外のアレイ LUN に対してサービスを継続する必要がある場合は、ホストをシャットダウンする必要はありません。ただし、ホストをシャットダウンしないと、 All-Paths-Down （ APD ）状態になる可能性があります。APD 状態を回避するには、 Data ONTAP 7-Mode LUN をマスクします。を参照してください <block ref="a4625f2f06156f5339340d176a230c78" category="inline-link-rx"></block> を参照してください。</block>
+  <block id="d16f495e3cbebda9b6c4cecd0dc6b6e4" category="summary">Data ONTAP から ESXi ホストを移行する前に、タスクを完了する必要があります</block>
 </blocks>
