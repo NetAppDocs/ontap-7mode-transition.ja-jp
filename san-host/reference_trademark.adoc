@@ -11,4 +11,4 @@ summary: 『 SAN ホストの移行および修復ガイド』の商標に関す
 
 NetApp 、 NetApp のロゴ、および NetApp の商標ページに記載されているマークは、 NetApp, Inc. の商標です。その他の会社名および製品名は、それぞれの所有者の商標である場合があります。
 
-http://www.netapp.com/us/legal/netapptmlist.aspx[""]
+http://www.netapp.com/us/legal/netapptmlist.aspx[]

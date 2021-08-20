@@ -75,9 +75,7 @@ SVM 上に CIFS サーバを作成するには、次の 2 つの方法があり�
  a| 
 CIFS サーバ ID をターゲットに転送するか、または保持します SVM
  a| 
-....
-You have the following two options to create the CIFS server:
-....
+ You have the following two options to create the CIFS server:
 .. ONTAP のすべてのバージョンに適用可能：
 +
 *** SVM のプロビジョニングフェーズの前に、一時的な CIFS ID を使用して、 7-Mode システムで CIFS サーバを再設定する必要があります。

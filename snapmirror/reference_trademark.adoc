@@ -11,4 +11,4 @@ summary: SnapMirror テクノロジによる 7-Mode データの移行に関す�
 
 NetApp 、 NetApp のロゴ、および NetApp の商標ページに記載されているマークは、 NetApp, Inc. の商標です。その他の会社名および製品名は、それぞれの所有者の商標である場合があります。
 
-https://www.netapp.com/company/legal/trademarks/[""]
+https://www.netapp.com/company/legal/trademarks/[]
