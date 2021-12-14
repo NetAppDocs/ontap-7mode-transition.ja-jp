@@ -1,0 +1,4151 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head class="at-element-marker">
+  <title>FlexClone ボリュームに関する考慮事項</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="FlexClone ボリュームに関する考慮事項" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_flexclone_volumes.html" />
+	<meta property="og:description" content="FlexClone ボリュームを SVM に移行すると、クローンが親ボリュームからスプリットされ、 FlexVol ボリュームとしてデスティネーションクラスタに移行されます。その結果、移行プロセスでクローン階層と Storage Efficiency が失われます。" />
+  <meta property="og:image" content="https://docs.netapp.com/ja-jp/ontap-7mode-transition/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="FlexClone ボリュームを SVM に移行すると、クローンが親ボリュームからスプリットされ、 FlexVol ボリュームとしてデスティネーションクラスタに移行されます。その結果、移行プロセスでクローン階層と Storage Efficiency が失われます。">
+  <meta name="keywords" content=" ontap, copy, based, transition, flexclone, volume">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/ja-jp/ontap-7mode-transition/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/ontap-7mode-transition/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/ja-jp/ontap-7mode-transition/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/ontap-7mode-transition/css/netapp.css">
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/ontap-7mode-transition/css/www-luci-dotcom.min.css">
+  <link rel="stylesheet" type="text/css" href="/ja-jp/ontap-7mode-transition/css/www-netapp-dotcom.css">
+  <link rel="stylesheet" href="/ja-jp/ontap-7mode-transition/css/www-netapp-library-critical.min.css" media="all" >
+  <link rel="stylesheet" href="/ja-jp/ontap-7mode-transition/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/ja-jp/ontap-7mode-transition/css/www-netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/ja-jp/ontap-7mode-transition/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/ja-jp/ontap-7mode-transition/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel="stylesheet" href="/ja-jp/ontap-7mode-transition/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/ja-jp/ontap-7mode-transition/css/tabbed-blocks.css" type="text/css">
+  <link rel="stylesheet" href='/ja-jp/ontap-7mode-transition/css/product-family.css' type="text/css">
+  
+
+  
+  <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/na-feature.css' type='text/css'>
+  
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/ja-jp/ontap-7mode-transition/js/na-search.js'></script>
+  
+
+  
+  <script src='/ja-jp/ontap-7mode-transition/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/prism-netapp.css' type='text/css'>
+
+
+  <script src='/ja-jp/ontap-7mode-transition/js/na-utility.js'></script>
+  <script src='/ja-jp/ontap-7mode-transition/js/clouddocs.js'></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    var head = document.getElementsByTagName('head')[0];
+    var adobe = document.createElement("script");
+    adobe.type = "text/javascript";
+    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+    head.appendChild(adobe);
+  }
+  </script>
+  <script src='/ja-jp/ontap-7mode-transition/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/ja-jp/ontap-7mode-transition/js/toc.js'></script>
+  <script src='/ja-jp/ontap-7mode-transition/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+  <script src='/ja-jp/ontap-7mode-transition/js/version-dropdown.js'></script>
+  <script src='/ja-jp/ontap-7mode-transition/js/product-family.js'></script>
+  <script src='/ja-jp/ontap-7mode-transition/js/FileSaver.min.js'></script>
+  <script src='/ja-jp/ontap-7mode-transition/js/jszip-utils.min.js'></script>
+  <script src='/ja-jp/ontap-7mode-transition/js/jszip.min.js'></script>
+  <script src='/ja-jp/ontap-7mode-transition/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">製品とソリューション</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">サポートとトレーニング</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">コミュニティ</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">ブログ</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">ユーザ事例</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/ja-jp/ontap-7mode-transition/search.html"
+          data-type="widget" 
+          data-placeholder="ドキュメントを検索" 
+          data-no-results-found="{query}に該当する結果はありません" 
+          data-did-you-mean="{suggestion} を検索" 
+          data-no-results-found-did-you-mean="{query} に該当する結果はありません。{suggestion} の間違いではありませんか?" 
+          data-results-found="{hitCount} 件見つかりました"  
+          data-sk-es-pf-indexes=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">日本語</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
+        <div class="n-language-selector-menu">
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_flexclone_volumes.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/concept_considerations_for_flexclone_volumes.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/ontap-7mode-transition/copy-based/concept_considerations_for_flexclone_volumes.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" >
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>利用可能なPDF<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        <a target="_blank" href="/ja-jp/ontap-7mode-transition/pdfs/fullsite-sidebar/7_Mode_Transition_Documentation__を参照してください.pdf" >
+          <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_管理用のコマンドマップ.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            7-Mode 管理用のコマンドマップ
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_Transition_Tool_のインストールと管理.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            7-Mode Transition Tool のインストールと管理
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_Transition_Tool_を使用して__clustered_ONTAP_に移行する.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            7-Mode Transition Tool を使用して、 clustered ONTAP に移行する
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Windows_での_7_Mode_Transition_Tool_のインストールまたはアンインストール_システム.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            Windows での 7-Mode Transition Tool のインストールまたはアンインストール システム
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Linux_での_7_Mode_Transition_Tool_のインストールまたはアンインストール__コピーベースの移行のみ_.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            Linux での 7-Mode Transition Tool のインストールまたはアンインストール （コピーベースの移行のみ）
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/問題のトラブルシューティング.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            問題のトラブルシューティング
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コピーベースの移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            コピーベースの移行
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行の概要.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行の概要
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/インベントリ情報を収集して評価する.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            インベントリ情報を収集して評価する
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コントローラとホストの評価.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            コントローラとホストの評価
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/FC_ゾーン計画の生成.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            FC ゾーン計画の生成
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/データと構成のマイグレーションプロセス.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            データと構成のマイグレーションプロセス
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Copy_Based_Transition_の準備をしています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            Copy-Based Transition の準備をしています
+          </a>
+          
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ネットワークでの移行の準備.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ネットワークでの移行の準備
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_のアグリゲートとボリュームで移行準備をします.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            7-Mode のアグリゲートとボリュームで移行準備をします
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ONTAP_8_3_以降のサポートされるリリースに移行する準備をしています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ONTAP 8.3 以降のサポートされるリリースに移行する準備をしています
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ja-jp/ontap-7mode-transition/pdfs/pages/copy-based/concept_considerations_for_flexclone_volumes.pdf" >
+    <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapLock_ボリュームの移行がサポートされます.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SnapLock ボリュームの移行がサポートされます
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ネームサービスの移行準備をしています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ネームサービスの移行準備をしています
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/NFS_の移行を準備しています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            NFS の移行を準備しています
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SMB___CIFS_の移行の準備.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SMB / CIFS の移行の準備
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SAN_の移行準備をしています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SAN の移行準備をしています
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/データ保護機能の移行準備をしています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            データ保護機能の移行準備をしています
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_ボリュームからデータと構成をマイグレート.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            7-Mode ボリュームからデータと構成をマイグレート
+          </a>
+          
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/事前確認を実行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            事前確認を実行
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_Transition_Tool_CLI_を使用したボリュームの移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            7-Mode Transition Tool CLI を使用したボリュームの移行
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_Transition_Tool_CLI_を使用したボリュームの移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            7-Mode Transition Tool CLI を使用したボリュームの移行
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/CLI_を使用した_7_Mode_構成の移行のカスタマイズ.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            CLI を使用した 7-Mode 構成の移行のカスタマイズ
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行後の手動タスクを実行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行後の手動タスクを実行
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行プロジェクトの管理.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行プロジェクトの管理
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapMirror_転送およびスケジュールの管理.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SnapMirror 転送およびスケジュールの管理
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/問題のトラブルシューティング.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            問題のトラブルシューティング
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/無視できるエラーが発生した場合の移行の続行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            無視できるエラーが発生した場合の移行の続行
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コピーフリーの移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            コピーフリーの移行
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行の概要.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行の概要
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/インベントリ情報を収集して評価する.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            インベントリ情報を収集して評価する
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コントローラとホストの評価.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            コントローラとホストの評価
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/FC_ゾーン計画の生成.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            FC ゾーン計画の生成
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Copy_Free_Transition_ワークフロー.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            Copy-Free Transition ワークフロー
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Copy_Free_Transition_を準備しています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            Copy-Free Transition を準備しています
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ネットワークでの移行の準備.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ネットワークでの移行の準備
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行のためのケーブル接続情報の収集.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行のためのケーブル接続情報の収集
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_のアグリゲートとボリュームで移行準備をします.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            7-Mode のアグリゲートとボリュームで移行準備をします
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/32_ビットアグリゲートを使用する_7_Mode_システムの移行準備.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            32 ビットアグリゲートを使用する 7-Mode システムの移行準備
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ネームサービスの移行準備をしています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ネームサービスの移行準備をしています
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/NFS_の移行を準備しています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            NFS の移行を準備しています
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SMB___CIFS_の移行の準備.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SMB / CIFS の移行の準備
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SAN_の移行準備をしています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SAN の移行準備をしています
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/データ保護機能の移行準備をしています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            データ保護機能の移行準備をしています
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コピーフリーの移行を使用した_7_Mode_アグリゲートの移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            コピーフリーの移行を使用した 7-Mode アグリゲートの移行
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コピーフリーの移行プロジェクトの計画.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            コピーフリーの移行プロジェクトの計画
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_構成の移行のカスタマイズ.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            7-Mode 構成の移行のカスタマイズ
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/事前確認を実行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            事前確認を実行
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行を完了します.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行を完了します
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapMirror_関係を移行する.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SnapMirror 関係を移行する
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行に関する問題のトラブルシューティング.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行に関する問題のトラブルシューティング
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/無視できるエラーが発生した場合の移行の続行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            無視できるエラーが発生した場合の移行の続行
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_への移行のロールバックの実行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            7-Mode への移行のロールバックの実行
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コピーフリーの移行プロジェクトをロールバックしています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            コピーフリーの移行プロジェクトをロールバックしています
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/__Host_and_Storage_Information_Collection_Guide__を参照してください.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            『 Host and Storage Information Collection Guide 』を参照してください
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ストレージとホストのインベントリ情報を収集.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ストレージとホストのインベントリ情報を収集
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapMirror_による_7_Mode_データの移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SnapMirror による 7-Mode データの移行
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapMirror_を使用して_7_Mode_ボリュームを移行する.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SnapMirror を使用して 7-Mode ボリュームを移行する
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行の計画.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行の計画
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行では_機能とボリュームはサポートされていません.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行では、機能とボリュームはサポートされていません
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行を準備しています.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行を準備しています
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ボリュームを移行する.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ボリュームを移行する
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/段階的構成での_Volume_SnapMirror_関係の移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            段階的構成での Volume SnapMirror 関係の移行
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行中の_7_Mode_サイトでの災害からの復旧.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行中の 7-Mode サイトでの災害からの復旧
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapMirror_使用時の移行問題のトラブルシューティング.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SnapMirror 使用時の移行問題のトラブルシューティング
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SAN_ホストの移行および修復.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SAN ホストの移行および修復
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/VMware_ESXi_ホストの修復.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            VMware ESXi ホストの修復
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ESXi_ホストの移行準備.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ESXi ホストの移行準備
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/事前に削除が必要な_VM_の_Snapshot_を特定する方法_移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            事前に削除が必要な VM の Snapshot を特定する方法 移行
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ESXi_ホストでの移行後の修復の要件.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ESXi ホストでの移行後の修復の要件
+          </a>
+          
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行後に_VMFS_ボリュームの再マウントが必要かどうかを判断します.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行後に VMFS ボリュームの再マウントが必要かどうかを判断します
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/RDM_LUN_を_VM_に再接続.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            RDM LUN を VM に再接続
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/RHEL_ホストの修復.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            RHEL ホストの修復
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Inventory_Assessment_Workbook_からの移行前の情報収集.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            Inventory Assessment Workbook からの移行前の情報収集
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ファイルシステムのない_RHEL_DMMP_デバイスの移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ファイルシステムのない RHEL DMMP デバイスの移行
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/DMMP_デバイス名を使用するマウントポイントを含む_LUN_の移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            DMMP デバイス名を使用するマウントポイントを含む LUN の移行
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/DMMP_エイリアス名を使用するマウントポイントを含む_LUN_の移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            DMMP エイリアス名を使用するマウントポイントを含む LUN の移行
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/LVM_デバイス上の_Linux_ホストファイルシステムの移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            LVM デバイス上の Linux ホストファイルシステムの移行
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SAN_ブート_LUN_を移行します.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            SAN ブート LUN を移行します
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Windows_ホストの修正.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            Windows ホストの修正
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Windows_ホストでの移行準備.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            Windows ホストでの移行準備
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/HP_UX_ホストの修復.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            HP-UX ホストの修復
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ファイルシステムを搭載した_HP_UX_ホスト_LUN_の移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ファイルシステムを搭載した HP-UX ホスト LUN の移行
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/FC___FCoE_構成の_HP_UX_ホストの_SAN_ブート_LUN_の移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            FC / FCoE 構成の HP-UX ホストの SAN ブート LUN の移行
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/AIX_ホストの修復.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            AIX ホストの修復
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/FC___FCoE_を使用する_AIX_ホスト上の_SAN_ブート_LUN_の移行_設定.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            FC / FCoE を使用する AIX ホスト上の SAN ブート LUN の移行 設定
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ファイルシステムを搭載した_AIX_ホストデータ_LUN_の移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ファイルシステムを搭載した AIX ホストデータ LUN の移行
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Solaris_ホストの修復.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            Solaris ホストの修復
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ZFS_ファイルシステムを搭載した_Solaris_ホストデータ_LUN_の移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            ZFS ファイルシステムを搭載した Solaris ホストデータ LUN の移行
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Sun_Volume_Manager_を搭載した_Solaris_ホストデータ_LUN_の移行.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            Sun Volume Manager を搭載した Solaris ホストデータ LUN の移行
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行後の_7_Mode_への_LUN_のロールバック.pdf" 
+            
+          >
+            <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>
+            移行後の 7-Mode への LUN のロールバック
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/ja-jp/ontap-7mode-transition/images/pdf-zip.png" width="16" height="16"/>
+      <pre>個別のPDFドキュメントのコレクション<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/index.html">
+        7-Mode からの移行
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/releasenotes.html">
+        リリースノート
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/command-map/index.html">
+        <div class="na-navbar-padding"> 7-Mode 管理用のコマンドマップ</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/command-map/reference_how_7_mode_commands_map_to_clustered_ontap_commands.html">
+        7-Mode コマンドと ONTAP コマンドのマッピング
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/command-map/reference_how_7_mode_options_map_to_clustered_ontap_commands.html">
+        7-Mode オプションと ONTAP コマンドのマッピング
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/command-map/reference_how_7_mode_configuration_files_map_to_clustered_ontap_commands.html">
+        7-Mode 構成ファイルと clustered Data ONTAP コマンドのマッピング
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/command-map/concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.html">
+        7-Mode 管理者用の clustered Data ONTAP のコマンド、オプション、構成ファイルの対応マップ
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/install-admin/index.html">
+        <div class="na-navbar-padding"> 7-Mode Transition Tool のインストールと管理</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/install-admin/concept_transition_to_clustered_ontap_using_7mtt.html">
+        <div class="na-navbar-padding"> 7-Mode Transition Tool を使用して、 clustered ONTAP に移行する</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/concept_ontap_target_releases_supported_by_7mtt.html">
+        ONTAP のターゲットリリースは 7-Mode Transition Tool でサポートされます
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/concept_comparison_of_copy_free_transition_and_copy_based_transition.html">
+        コピーフリーの移行とコピーベースの移行の比較
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/reference_interfaces_and_transition_capabilities_available_on_windows_and_linux.html">
+        Windows および Linux で使用できるインターフェイスと移行機能
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/install-admin/concept_installing_and_uninstalling_7mtt.html">
+        <div class="na-navbar-padding"> Windows での 7-Mode Transition Tool のインストールまたはアンインストール システム</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/concept_system_requirements_for_7mtt_on_windows.html">
+        Windows に 7-Mode Transition Tool をインストールするためのシステム要件 システム
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/task_installing_7mtt.html">
+        Windows システムへの 7-Mode Transition Tool のインストール
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/task_enabling_login_for_users_not_part_of_administrator_group.html">
+        Administrators グループに属していないユーザのログインの有効化
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/task_logging_in_to_tool.html">
+        7-Mode Transition Tool へのログイン
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/task_uninstalling_7mtt.html">
+        Windows システムでの 7-Mode Transition Tool のアンインストール
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/install-admin/concept_installing_and_uninstalling_7mtt_on_linux.html">
+        <div class="na-navbar-padding"> Linux での 7-Mode Transition Tool のインストールまたはアンインストール （コピーベースの移行のみ）</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/concept_system_requirements_for_7_mode_transition_tool_on_linux.html">
+        Linux で 7-Mode Transition Tool をインストールするためのシステム要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/task_installing_7_mode_transition_tool_on_linux.html">
+        Linux への 7-Mode Transition Tool のインストール
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/task_uninstalling_7_mode_transition_tool_on_linux.html">
+        Linux での 7-Mode Transition Tool のアンインストール
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/task_modifying_default_configuration_settings_of_7mtt.html">
+        7-Mode Transition Tool の構成オプションの変更
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/install-admin/concept_troubleshooting_web_interface_issues.html">
+        <div class="na-navbar-padding"> 問題のトラブルシューティング</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/reference_tool_installation_fails_with_incompatible_os_error.html">
+        OS との互換性エラーでツールのインストールが失敗します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/reference_installation_or_uninstallation_of_7mtt_is_blocked.html">
+        7-Mode Transition Tool のインストールまたはアンインストールがブロックされます
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/reference_reinstalling_or_upgrading_7mtt_fails_on_windows_system.html">
+        Windows で 7-Mode Transition Tool の再インストールまたはアップグレードが失敗する システム
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/install-admin/reference_windows_compatibility_assistant_notification_displayed_while_installing.html">
+        ツールのインストール中に Windows のプログラム互換性アシスタントから通知が表示される
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/index.html">
+        <div class="na-navbar-padding"> コピーベースの移行</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_transition_overview.html">
+        <div class="na-navbar-padding"> 移行の概要</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_copy_based_transition_using_7mtt.html">
+        7-Mode Transition Tool を使用したコピーベースの移行
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_transition_terminology.html">
+        移行に関する用語
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/reference_limits_for_transition.html">
+        移行の制限
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_collecting_and_assessing_inventory_information.html">
+        <div class="na-navbar-padding"> インベントリ情報を収集して評価する</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_storage_host_fc_switches_version_requirements.html">
+        移行のための環境評価でのストレージ、ホスト、 FC スイッチのバージョン要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_preparing_7_mode_systems_for_inventory_collection.html">
+        移行のための環境評価を実行する 7-Mode システムとホストの準備
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/task_assessing_controllers_and_hosts.html">
+        <div class="na-navbar-padding"> コントローラとホストの評価</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_generating_an_assessment_report_by_adding_systems_to_7mtt.html">
+        7-Mode にシステムを追加することによる評価レポートの作成 移行ツール
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_generating_an_assessment_report_by_importing_inventory_report_xml.html">
+        インベントリレポート XML をインポートして評価レポートを作成する
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/task_generating_fc_zone_plan.html">
+        <div class="na-navbar-padding"> FC ゾーン計画の生成</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_supported_configurations_for_generating_an_fc_zone_plan.html">
+        FC ゾーン計画の生成でサポートされる構成
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_how_you_can_use_assessment_executive_summary_for_transition_assessment.html">
+        評価のエグゼクティブサマリーを移行に使用する方法 評価
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_copy_based_transition_workflow.html">
+        Copy-Based Transition ワークフロー
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_data_and_configuration_migration_process.html">
+        <div class="na-navbar-padding"> データと構成のマイグレーションプロセス</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_how_you_transition_a_stand_alone_volume.html">
+        スタンドアロンボリュームの移行方法
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_how_you_transition_volumes_in_a_snapmirror_relationship.html">
+        SnapMirror 関係にあるボリュームの移行方法
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_preparing_for_copy_based_transition.html">
+        <div class="na-navbar-padding"> Copy-Based Transition の準備をしています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_requirements_for_copy_based_transition.html">
+        Copy-Based Transition の要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_port_requirements_for_communicating_with_7mtt.html">
+        7-Mode Transition Tool と通信するためのポート要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_restrictions_for_transition.html">
+        移行に関する制限事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_preparing_7_mode_system_for_transition.html">
+        7-Mode システムでの移行の準備
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/task_preparing_network_for_transition.html">
+        <div class="na-navbar-padding"> ネットワークでの移行の準備</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_transitioning_7_mode_ip_addresses.html">
+        7-Mode IP アドレスの移行に関する考慮事項
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_preparing_cluster_for_transition.html">
+        クラスタで移行準備をします
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/task_preparing_7_mode_volumes_and_aggregates_for_transition.html">
+        <div class="na-navbar-padding"> 7-Mode のアグリゲートとボリュームで移行準備をします</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_restrictions_for_copy_free_transition.html">
+        7-Mode ボリュームを移行する場合の制限事項
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/task_transitioning_to_clustered_ontap_8_3_from_a_7_mode_version_with_32_bit_data.html">
+        <div class="na-navbar-padding"> ONTAP 8.3 以降のサポートされるリリースに移行する準備をしています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_expanding_an_aggregate_to_64_bit_format_without_adding_storage.html">
+        アグリゲートの 64 ビット形式への拡張
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.html">
+        32 ビットボリュームと Snapshot コピーの検出と削除
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_deduplication_and_compression.html">
+        重複排除と圧縮に関する考慮事項
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_flexclone_volumes.html">
+        FlexClone ボリュームに関する考慮事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_quotas.html">
+        クォータに関する考慮事項
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_support_for_transitioning_snaplock_volumes.html">
+        <div class="na-navbar-padding"> SnapLock ボリュームの移行がサポートされます</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_transitioning_of_snaplock_enterprise_volumes.html">
+        SnapLock Enterprise ボリュームの移行に関する考慮事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_transitioning_of_snaplock_compliance_volumes.html">
+        SnapLock Compliance ボリュームの移行に関する考慮事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_transitioning_of_snaplock_audit_volumes.html">
+        SnapLock 監査ボリュームの移行に関する考慮事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_transitioning_of_7_mode_snaplock_options.html">
+        7-Mode の SnapLock オプションの移行に関する考慮事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_chain_of_custody_verification_for_7_mode_snaplock_volumes.html">
+        7-Mode SnapLock で CoC 検証を実施する場合の考慮事項 個のボリューム
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_preparing_for_name_services_transition.html">
+        <div class="na-navbar-padding"> ネームサービスの移行準備をしています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_supported_and_unsupported_name_services_configurations.html">
+        ネームサービスの移行：サポートされる構成とされない構成、必要な手動手順
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_transitioning_dns_and_ldap_configurations.html">
+        DNS 、 NIS 、 LDAP の構成の移行に関する考慮事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_transitioning_unix_users_and_groups.html">
+        ネットグループと UNIX ユーザおよびグループの移行に関する考慮事項
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_preparing_for_nfs_transition.html">
+        <div class="na-navbar-padding"> NFS の移行を準備しています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_prerequisites_to_transition_nfs_configurations.html">
+        NFS 構成を移行するための前提条件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html">
+        NFS の移行：サポートされる構成とされない構成、必要な手動手順
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_how_nfs_exports_are_transitioned.html">
+        NFS エクスポートが移行される仕組み
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_preparing_for_smb_cifs_transition.html">
+        <div class="na-navbar-padding"> SMB / CIFS の移行の準備</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_prerequisites_for_transitioning_cifs_configurations.html">
+        CIFS 構成を移行するための前提条件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html">
+        ONTAP への移行対象としてサポートされる CIFS 構成とされない CIFS 構成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_local_users_and_groups_transition.html">
+        CIFS ローカルユーザおよびローカルグループの移行に関する考慮事項
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_preparing_for_metrocluster_configuration_transition.html">
+        MetroCluster 構成の移行準備
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/task_preparing_for_san_transition.html">
+        <div class="na-navbar-padding"> SAN の移行準備をしています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_preparing_san_hosts_for_transition.html">
+        SAN ホストでの移行準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_configuring_zones_by_using_fc_zone_plan.html">
+        FC ゾーン計画を使用したゾーンの設定
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_creating_san_lifs_before_transition.html">
+        移行前に SAN LIF を作成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.html">
+        SAN の移行：サポートされる構成とされない構成、必要な手動手順
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_space_when_transitioning_san_volumes.html">
+        SAN ボリュームを移行する際のスペースに関する考慮事項
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_preparing_data_protection_features_for_transition.html">
+        <div class="na-navbar-padding"> データ保護機能の移行準備をしています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_supported_and_unsupported_data_protection_relationships.html">
+        データ保護の移行：サポートされる構成とされない構成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_using_snapmirror_for_transition.html">
+        SnapMirror を使用した移行に関する考慮事項
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_guidelines_for_deciding_when_to_cutover.html">
+        カットオーバーの実行タイミングを決定する際のガイドライン
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_impact_of_takeover_and_giveback_on_transition.html">
+        テイクオーバーとギブバックが移行に与える影響
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/task_transitioning_volumes_using_7mtt.html">
+        <div class="na-navbar-padding"> 7-Mode ボリュームからデータと構成をマイグレート</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/reference_transition_preparation_checklist.html">
+        移行準備チェックリスト
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_adding_controllers_and_clusters.html">
+        コントローラとクラスタを追加する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_creating_a_transition_project.html">
+        移行プロジェクトの作成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_customizing_configurations_for_transition.html">
+        7-Mode 構成の移行のカスタマイズ
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/task_running_prechecks.html">
+        <div class="na-navbar-padding"> 事前確認を実行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_severity_levels_for_precheck_messages.html">
+        事前確認メッセージの重大度レベル
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_starting_baseline_data_copy.html">
+        ベースラインデータコピーを開始しています
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_applying_7_mode_configurations.html">
+        7-Mode 構成の適用
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_configuring_zones_by_using_fc_zone_plan.html">
+        FC ゾーン計画を使用したゾーンの設定
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_performing_on_demand_snapmirror_update_operation.html">
+        SnapMirror 更新をオンデマンドで実行
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_completing_a_transition_project.html">
+        移行プロジェクトの完了
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_completing_chain_of_custody_verification.html">
+        CoC 検証の実行
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_transitioning_volumes_using_7mtt_cli.html">
+        <div class="na-navbar-padding"> 7-Mode Transition Tool CLI を使用したボリュームの移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_scenarios_for_selecting_volumes_in_a_session.html">
+        さまざまなシナリオを使用してプロジェクトのボリュームを選択します
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_transitioning_volumes_using_7mtt_cli.html">
+        <div class="na-navbar-padding"> 7-Mode Transition Tool CLI を使用したボリュームの移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_creating_a_transition_session.html">
+        移行プロジェクトの作成
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/task_transitioning_volumes_by_excluding_a_subset_of_configurations.html">
+        <div class="na-navbar-padding"> CLI を使用した 7-Mode 構成の移行のカスタマイズ</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/reference_configurations_that_can_be_excluded.html">
+        移行対象から除外可能な構成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/reference_example_consolidating_nfs_export_rules_for_transition.html">
+        の NFS エクスポートルールと Snapshot スケジュールの統合例 移行
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_running_precheck_on_a_session.html">
+        事前確認を実行
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_starting_data_copy_for_a_transition_session.html">
+        移行プロジェクトのデータコピーを開始します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_applying_configurations_to_ontap_volumes.html">
+        ONTAP ボリュームに構成を適用する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_completing_transition_process.html">
+        移行を完了します
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/reference_commands_for_managing_transition_sessions.html">
+        移行管理用のコマンド
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/task_performing_post_transition_tasks.html">
+        <div class="na-navbar-padding"> 移行後の手動タスクを実行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_configuring_zones_by_using_fc_zone_planner.html">
+        FC ゾーン計画を使用したゾーンの設定
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_recovering_from_a_failed_lun_transition.html">
+        LUN 移行が失敗した場合のリカバリ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_viewing_transitioned_san_configurations.html">
+        移行された SAN 構成を表示する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_limitations_with_snapshot_copies_and_luns_managed_by_snap_products.html">
+        SnapDrive で管理される LUN の 7-Mode Snapshot コピーに関する制限事項 および SnapManager への移行後の対応を示します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_post_transition_task_for_a_metrocluster_configuration.html">
+        移行後にリモートサイトで cron ジョブスケジュールを設定 MetroCluster 構成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_deleting_7_mode_volume_snapshot_copies_from_transitioned_volumes.html">
+        移行したボリュームから 7-Mode ボリュームの Snapshot コピーを削除する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_consolidating_snapshot_policies_and_cron_schedules_on_transitioned_volumes.html">
+        ボリューム移行後の cron スケジュールの統合
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_managing_a_transition_project.html">
+        <div class="na-navbar-padding"> 移行プロジェクトの管理</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_editing_a_subproject.html">
+        プロジェクトを編集する
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_managing_snapmirror_transfers_and_schedule.html">
+        <div class="na-navbar-padding"> SnapMirror 転送およびスケジュールの管理</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_creating_schedule_for_snapmirror_transfers.html">
+        SnapMirror 転送のデータコピースケジュールを作成します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_guidelines_for_creating_a_data_copy_schedule.html">
+        データコピースケジュールの作成に関する考慮事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_editing_or_deleting_snapmirror_transfer_schedule.html">
+        SnapMirror 転送のデータコピースケジュールを編集または削除する
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_managing_logical_interfaces.html">
+        論理インターフェイスを管理する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_removing_volumes_from_a_project.html">
+        プロジェクトからボリュームを削除する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_pausing_and_resuming_a_subproject.html">
+        プロジェクトの一時停止と再開
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_aborting_a_subproject.html">
+        プロジェクトを中止する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_deleting_a_project.html">
+        プロジェクトを削除する
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/concept_troubleshooting_web_interface_issues.html">
+        <div class="na-navbar-padding"> 問題のトラブルシューティング</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_collecting_tool_logs.html">
+        移行ログファイルをダウンロードしています
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/concept_log_files_for_7mtt.html">
+        7-Mode Transition Tool のログファイル
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-based/task_acknowledging_errors_to_continue_with_transition.html">
+        <div class="na-navbar-padding"> 無視できるエラーが発生した場合の移行の続行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/reference_ignorable_errors_during_transition.html">
+        移行時に無視できるエラーです
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/task_transitioning_a_metrocluster_configuration_if_a_switchover_or_switchback_event_occurs.html">
+        スイッチオーバーまたはスイッチオーバーが原因で失敗した MetroCluster 構成を移行する スイッチバック
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/reference_cannot_select_a_secondary_volume_from_volume_selection_pane.html">
+        Volume selection （ボリューム選択）ペインでセカンダリボリュームを選択できない
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/reference_cannot_select_volume_for_transition_if_tool_fails_to_retrieve_volume_information.html">
+        ツールで障害が発生した場合、移行対象のボリュームを選択できません ボリューム情報を取得します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/reference_cannot_proceed_from_volume_mapping_pane_if_selected_svm_has_no_aggregate.html">
+        選択した場合、ボリュームマッピングペインから続行できません SVM にアグリゲートがありません
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-based/reference_compression_fails_to_start_after_transition.html">
+        Data ONTAP 7.3.x からの移行後に圧縮は有効になりません
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/index.html">
+        <div class="na-navbar-padding"> コピーフリーの移行</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/concept_transition_overview.html">
+        <div class="na-navbar-padding"> 移行の概要</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_copy_free_transition_using_7mtt.html">
+        7-Mode Transition Tool を使用したコピーフリーの移行
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_transition_terminology.html">
+        移行に関する用語
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/concept_collecting_and_assessing_inventory_information.html">
+        <div class="na-navbar-padding"> インベントリ情報を収集して評価する</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_storage_and_host_version_requirements.html">
+        移行のための環境評価でのストレージ、ホスト、 FC スイッチのバージョン要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_preparing_7_mode_systems_for_inventory_collection.html">
+        移行のための環境評価を実行する 7-Mode システムとホストの準備
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_assessing_controllers_and_hosts.html">
+        <div class="na-navbar-padding"> コントローラとホストの評価</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_generating_an_assessment_report_by_adding_systems_to_7mtt.html">
+        7-Mode にシステムを追加することによる評価レポートの作成 移行ツール
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_generating_an_assessment_report_by_importing_inventory_report_xml.html">
+        インベントリレポート XML をインポートして評価レポートを作成する
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_generating_fc_zone_plan.html">
+        <div class="na-navbar-padding"> FC ゾーン計画の生成</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_supported_configurations_for_generating_an_fc_zone_plan.html">
+        FC ゾーン計画の生成でサポートされる構成
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_how_you_can_use_assessment_executive_summary_for_transition_assessment.html">
+        評価のエグゼクティブサマリーを移行に使用する方法 評価
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_copy_free_transition_workflow.html">
+        <div class="na-navbar-padding"> Copy-Free Transition ワークフロー</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_phases_of_copy_free_transition.html">
+        コピーフリーの移行のフェーズ
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/concept_preparing_for_migration.html">
+        <div class="na-navbar-padding"> Copy-Free Transition を準備しています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_requirements_for_copy_free_transition.html">
+        Copy-Free Transition の要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/reference_required_tools_and_documentation.html">
+        Copy-Free Transition に必要なツールとドキュメント
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_port_requirements_for_communicating_with_7mtt.html">
+        7-Mode Transition Tool と通信するためのポート要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_preparing_7_mode_system_for_transition.html">
+        7-Mode HA ペアでの移行の準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_setting_up_sp_or_rlm_for_transition.html">
+        7-Mode システムで SP または RLM をセットアップする コピーフリーの移行の場合
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_preparing_your_network_for_transition.html">
+        <div class="na-navbar-padding"> ネットワークでの移行の準備</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_considerations_for_transitioning_7_mode_ip_addresses.html">
+        7-Mode IP アドレスの移行に関する考慮事項
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_preparing_cluster_for_transition.html">
+        クラスタで移行準備をします
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_gathering_cabling_information_for_transition.html">
+        <div class="na-navbar-padding"> 移行のためのケーブル接続情報の収集</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/reference_copy_free_transition_cabling_worksheet.html">
+        コピーフリーの移行ケーブル接続ワークシート
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_preparing_7_mode_volumes_and_aggregates_for_transition.html">
+        <div class="na-navbar-padding"> 7-Mode のアグリゲートとボリュームで移行準備をします</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_restrictions_for_copy_free_transition.html">
+        7-Mode のアグリゲートとボリュームを移行する場合の制限事項
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_transitioning_to_clustered_ontap_8_3_from_a_7_mode_version_with_32_bit_data.html">
+        <div class="na-navbar-padding"> 32 ビットアグリゲートを使用する 7-Mode システムの移行準備</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_expanding_an_aggregate_to_64_bit_format_without_adding_storage.html">
+        アグリゲートの 64 ビット形式への拡張
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.html">
+        32 ビットボリュームと Snapshot コピーの検出と削除
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_aggregate_space_considerations_during_transition.html">
+        移行でのアグリゲートスペースの要件
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/concept_preparing_for_name_services_transition.html">
+        <div class="na-navbar-padding"> ネームサービスの移行準備をしています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_supported_and_unsupported_name_services_configurations.html">
+        ネームサービスの移行：サポートされる構成とされない構成、必要な手動手順
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_considerations_for_transitioning_dns_and_ldap_configurations.html">
+        DNS 、 NIS 、 LDAP の構成の移行に関する考慮事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_considerations_for_transitioning_unix_users_and_groups.html">
+        ネットグループと UNIX ユーザおよびグループの移行に関する考慮事項
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/concept_preparing_for_nfs_transition.html">
+        <div class="na-navbar-padding"> NFS の移行を準備しています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_prerequisites_to_transition_nfs_configurations.html">
+        NFS 構成を移行するための前提条件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html">
+        NFS の移行：サポートされる構成とされない構成、必要な手動手順
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_how_nfs_exports_are_transitioned.html">
+        NFS エクスポートが移行される仕組み
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/concept_preparing_for_cifs_transition.html">
+        <div class="na-navbar-padding"> SMB / CIFS の移行の準備</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_prerequisites_for_transitioning_cifs_configurations.html">
+        CIFS 構成を移行するための前提条件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html">
+        ONTAP への移行対象としてサポートされる CIFS 構成とされない CIFS 構成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_considerations_for_local_users_and_groups_transition.html">
+        CIFS ローカルユーザおよびローカルグループの移行に関する考慮事項
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_preparing_for_san_transition.html">
+        <div class="na-navbar-padding"> SAN の移行準備をしています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_creating_san_lifs_before_transition.html">
+        移行前に SAN LIF を作成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_configuring_zones_by_using_fc_zone_plan.html">
+        FC ゾーン計画を使用したゾーンの設定
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_preparing_san_hosts_for_transition.html">
+        SAN ホストでの移行準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.html">
+        SAN の移行：サポートされる構成とされない構成、必要な手動手順
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_considerations_for_space_when_transitioning_san_volumes.html">
+        SAN ボリュームを移行する際のスペースに関する考慮事項
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/concept_preparing_data_protection_features_for_transition.html">
+        <div class="na-navbar-padding"> データ保護機能の移行準備をしています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_preparing_cluster_for_transitioning_volume_snapmirror_relationships.html">
+        クラスタで Volume SnapMirror 関係を移行する準備をしています
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_supported_and_unsupported_data_protection_relationships.html">
+        データ保護の移行：サポートされる構成とされない構成
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_performing_copy_free_transition_of_7_mode_aggregates.html">
+        <div class="na-navbar-padding"> コピーフリーの移行を使用した 7-Mode アグリゲートの移行</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_planning_a_copy_free_transition_project.html">
+        <div class="na-navbar-padding"> コピーフリーの移行プロジェクトの計画</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/reference_copy_free_transition_project_planning_worksheet.html">
+        コピーフリーの移行プロジェクトの計画ワークシート
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_adding_controllers_and_clusters.html">
+        コントローラとクラスタを追加する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_selecting_source_7_mode_systems_for_transition.html">
+        コピーフリーの移行プロジェクトを作成する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_selecting_target_cluster_for_transition.html">
+        移行先のターゲットクラスタノードの選択
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_svm_and_volume_mapping.html">
+        SVM とボリュームのマッピング
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_selecting_lifs_to_transition.html">
+        移行する LIF を選択しています
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_customizing_configurations_for_transition.html">
+        <div class="na-navbar-padding"> 7-Mode 構成の移行のカスタマイズ</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/reference_example_consolidating_nfs_export_rules_for_transition.html">
+        の NFS エクスポートルールと Snapshot スケジュールの統合例 移行
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_running_prechecks.html">
+        <div class="na-navbar-padding"> 事前確認を実行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_severity_levels_for_precheck_messages.html">
+        事前確認メッセージの重大度レベル
+      </a></li></ul></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_applying_svm_configurations.html">
+        SVM 構成を適用しています
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_verifying_readiness_for_cutover.html">
+        7-Mode システムのカットオーバーの準備状況の検証
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_exporting_7_mode_system_and_hardware_information.html">
+        ストレージ構成をエクスポートして 7-Mode システムを停止します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_removing_disk_shelves_from_7_mode_and_connecting_to_cluster_nodes.html">
+        ディスクシェルフを 7-Mode システムから切断して接続 クラスタノード
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_importing_7_mode_data_to_clustered_ontap.html">
+        ONTAP への 7-Mode データのインポート
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_completing_post_transition_tasks_for_a_copy_free_transition.html">
+        <div class="na-navbar-padding"> 移行を完了します</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_restrictions_during_preproduction_testing.html">
+        テスト時の制限事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_rehosting_volumes_from_different_svms_to_a_single_svm.html">
+        移行したボリュームを別の SVM にリホストする
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_verifying_transition_configurations.html">
+        移行した構成の検証
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_performing_manual_configuration_tasks.html">
+        移行後に手動で設定タスクを実行
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_testing_workloads_and_applications.html">
+        ワークロードとアプリケーションのテスト
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_committing_7_mode_aggregates_to_clustered_ontap_format.html">
+        コピーフリーの移行プロジェクトのコミット
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_transitioning_a_snapmirror_relationship.html">
+        <div class="na-navbar-padding"> SnapMirror 関係を移行する</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_transitioning_primary_and_secondary_systems_of_a_snapmirror_relationship_in_staggered_way.html">
+        段階的な SnapMirror 関係にある HA ペアの移行 設定
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_transitioning_primary_and_secondary_systems_of_a_snapmirror_relationship_in_parallel.html">
+        SnapMirror 関係のプライマリシステムとセカンダリシステムを移行する 平行（ Parallel ）
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/concept_troubleshooting_transition_issues.html">
+        <div class="na-navbar-padding"> 移行に関する問題のトラブルシューティング</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_acknowledging_errors_to_continue_with_transition.html">
+        <div class="na-navbar-padding"> 無視できるエラーが発生した場合の移行の続行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/reference_ignorable_errors_during_transition.html">
+        移行時に無視できるエラーです
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_collecting_tool_logs.html">
+        移行ログファイルをダウンロードしています
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_log_files_for_7mtt.html">
+        7-Mode Transition Tool のログファイル
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_recovering_from_a_failed_lun_transition.html">
+        LUN 移行が失敗した場合のリカバリ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/reference_failed_to_boot_7_mode_controller_in_maintenance_mode.html">
+        メンテナンスモードで 7-Mode コントローラをブートできませんでした
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/concept_reverting_a_copy_free_transition_project.html">
+        <div class="na-navbar-padding"> 7-Mode への移行のロールバックの実行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/concept_when_to_revert_and_when_to_call_technical_support_transition.html">
+        移行のロールバックのタイミングとコールのタイミング テクニカルサポート
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/copy-free/task_performing_a_transition_rollback.html">
+        <div class="na-navbar-padding"> コピーフリーの移行プロジェクトをロールバックしています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/copy-free/task_running_manual_steps_for_rolling_back_transition.html">
+        手動による移行のロールバック
+      </a></li></ul></li></ul></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/inventory-collect/index.html">
+        <div class="na-navbar-padding"> 『 Host and Storage Information Collection Guide 』を参照してください</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/inventory-collect/concept_collecting_host_and_storage_inventory_information_for_transition_assessment.html">
+        <div class="na-navbar-padding"> ストレージとホストのインベントリ情報を収集</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/inventory-collect/concept_ontap_target_releases_supported_by_7mtt.html">
+        ONTAP のターゲットリリースは 7-Mode Transition Tool でサポートされます
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/inventory-collect/concept_system_requirements_for_running_ict.html">
+        Inventory Collect Tool を実行するためのシステム要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/inventory-collect/concept_storage_and_host_version_requirements.html">
+        インベントリを収集するためのストレージ、ホスト、 FC スイッチのバージョン要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/inventory-collect/task_preparing_7_mode_systems_for_inventory_collection.html">
+        7-Mode システムとホストでインベントリ収集の準備を行う
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/inventory-collect/concept_supported_configurations_for_generating_an_fc_zone_plan.html">
+        FC ゾーン計画の生成でサポートされる構成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/inventory-collect/reference_syntax_and_options.html">
+        構文とオプション
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/inventory-collect/task_collecting_inventory_and_generating_inventory_report.html">
+        インベントリの収集とインベントリレポートの生成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/inventory-collect/task_generating_fc_zone_plan.html">
+        FC ゾーン計画の生成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/inventory-collect/reference_collection_and_assessment_commands.html">
+        収集と評価のコマンド
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/inventory-collect/concept_where_to_find_information_about_transition_assessment.html">
+        移行のための環境評価に関する情報の参照先
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/snapmirror/index.html">
+        <div class="na-navbar-padding"> SnapMirror による 7-Mode データの移行</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/snapmirror/task_transitioning_7_mode_volumes_using_snapmirror.html">
+        <div class="na-navbar-padding"> SnapMirror を使用して 7-Mode ボリュームを移行する</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/snapmirror/concept_planning_for_transition.html">
+        <div class="na-navbar-padding"> 移行の計画</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/snapmirror/concept_features_and_volumes_not_supported_for_transition.html">
+        <div class="na-navbar-padding"> 移行では、機能とボリュームはサポートされていません</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/concept_unsupported_7_mode_san_functions.html">
+        SAN の移行でサポートされない機能
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/reference_7_mode_ontap_version_requirements_for_transitioning_volumes_using_snapmirror.html">
+        移行での 7-Mode のバージョン要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/concept_considerations_for_using_snapmirror_for_transition.html">
+        SnapMirror を使用した移行に関する考慮事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/concept_considerations_for_space_when_transitioning_san_volumes.html">
+        SAN ボリュームを移行する際のスペースに関する考慮事項
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/concept_guidelines_for_transitioning_snaplock_volumes.html">
+        SnapLock ボリュームの移行に関するガイドライン
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/snapmirror/task_preparing_for_transition.html">
+        <div class="na-navbar-padding"> 移行を準備しています</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/concept_licensing_requirements_for_transition.html">
+        移行のライセンス要件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_preparing_7_mode_system_for_transition.html">
+        7-Mode システムでの移行の準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_preparing_cluster_for_transition.html">
+        クラスタで移行準備をします
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_creating_a_transition_peering_relationship.html">
+        移行ピア関係を作成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_configuring_a_tcp_window_size_for_snapmirror_relationships.html">
+        SnapMirror 関係の TCP ウィンドウサイズの設定
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/snapmirror/task_transitioning_volumes.html">
+        <div class="na-navbar-padding"> ボリュームを移行する</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_transitioning_a_stand_alone_volume.html">
+        スタンドアロンボリュームの移行
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/snapmirror/task_transitioning_a_data_protection_relationship.html">
+        <div class="na-navbar-padding"> 段階的構成での Volume SnapMirror 関係の移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_transitioning_secondary_volume.html">
+        セカンダリボリュームを移行する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_transitioning_a_primary_volume.html">
+        プライマリボリュームを移行する
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_transitioning_a_volume_snapmirror_relationship_in_parallel.html">
+        Volume SnapMirror 関係を並行して移行する
+      </a></li></ul></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_transitioning_disaster_recovery_relationship.html">
+        vFiler ユニット間でディザスタリカバリ関係を移行する
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/snapmirror/task_recovering_from_a_disaster_at_7_mode_site_during_transition.html">
+        <div class="na-navbar-padding"> 移行中の 7-Mode サイトでの災害からの復旧</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_redirecting_clients_to_clustered_ontap_secondary_volume.html">
+        完了後に clustered Data ONTAP セカンダリボリュームにクライアントをリダイレクトします 災害が発生した場合
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_transitioning_7_mode_primary_as_a_standalone_volume.html">
+        7-Mode プライマリをスタンドアロンボリュームとして移行する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_redirecting_clients_to_clustered_ontap_primary_volume_after_disaster.html">
+        clustered Data ONTAP プライマリボリュームへのクライアントのリダイレクト
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/snapmirror/reference_troubleshooting.html">
+        <div class="na-navbar-padding"> SnapMirror 使用時の移行問題のトラブルシューティング</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_resuming_a_failed_snapmirror_transfer_transition.html">
+        失敗した SnapMirror ベースライン転送を再開します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/snapmirror/task_recovering_from_a_failed_lun_transition.html">
+        LUN 移行が失敗した場合のリカバリ
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/index.html">
+        <div class="na-navbar-padding"> SAN ホストの移行および修復</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_ontap_target_releases_supported_by_7mtt.html">
+        ONTAP のターゲットリリースは 7-Mode Transition Tool でサポートされます
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_7mtt_transition_phases.html">
+        7-Mode Transition Tool の移行フェーズ
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_vmware_esxi_host_remediation.html">
+        <div class="na-navbar-padding"> VMware ESXi ホストの修復</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_esxi_versions_and_features_supported_for_san_transitions_using_7mtt.html">
+        7MTT を使用した SAN の移行でサポートされる ESXi のバージョンと機能
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_transition_of_esxi_hosts.html">
+        <div class="na-navbar-padding"> ESXi ホストの移行準備</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_what_the_inventory_collect_tool_is.html">
+        Inventory Collect Tool の概要
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_linux_guest_operating_systems_for_transition.html">
+        Linux ゲスト OS での移行準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_preparing_windows_guest_operating_systems_for_transition.html">
+        Windows ゲスト OS での移行準備
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_how_to_identify_vm_snapshots_that_must_be_removed_before_transition.html">
+        <div class="na-navbar-padding"> 事前に削除が必要な VM の Snapshot を特定する方法 移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_deleting_vm_snapshots_using_vsphere_client.html">
+        vSphere Client を使用して VM Snapshot コピーを削除します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_removing_vm_snapshots_using_esxi_cli.html">
+        ESXi CLI を使用して VM Snapshot を削除している
+      </a></li></ul></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_transitioned_luns_and_esxi_host_applications_before_cutover.html">
+        カットオーバー前の移行した LUN と ESXi ホストアプリケーションのテスト コピーベースの移行のフェーズ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_downtime_at_precutover_phase_of_esxi_host_transition.html">
+        ESXi ホスト移行時の構成の適用（カットオーバー前）フェーズにおけるダウンタイム
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_post_transition_requirements_for_esxi_hosts.html">
+        <div class="na-navbar-padding"> ESXi ホストでの移行後の修復の要件</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_post_transition_esxi_host_remediation.html">
+        移行後の ESXi ホストの修復準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_reregistering_vms_after_transition_on_non_san_boot_esxi_host_using_vsphere_client.html">
+        を使用した非 SAN ブート ESXi ホストへの VM の再登録 vSphere Client の各機能を使用
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_reconfiguration_of_vmware_software_iscsi_initiator.html">
+        移行後の VMware ソフトウェア iSCSI イニシエータの再設定
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_setting_up_esxi_hosts_configured_for_san_boot_after_transition.html">
+        SAN ブート用に設定された ESXi ホストを移行後にセットアップする
+      </a></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/task_determining_whether_vmfs_volumes_need_to_be_remounted_after_transition.html">
+        <div class="na-navbar-padding"> 移行後に VMFS ボリュームの再マウントが必要かどうかを判断します</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_remounting_vmfs_volumes_after_transition_using_vsphere_client.html">
+        vSphere Client を使用した移行後の VMFS ボリュームの再マウント
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.html">
+        ESXi CLI を使用した移行後の VMFS ボリュームの再マウント
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/task_reattaching_rdm_luns_to_vms.html">
+        <div class="na-navbar-padding"> RDM LUN を VM に再接続</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_removing_stale_rdm_using_vsphere_client.html">
+        vSphere Client を使用して古い RDM を削除する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_reattaching_rdm_to_vms_using_vsphere_client.html">
+        vSphere Client を使用した RDM の VM への再接続
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_reattaching_rdm_using_esxi_cli_console.html">
+        ESXi CLI / コンソールを使用した RDM の再接続
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_post_transition_remediation_for_linux_and_windows_guest_operating_systems.html">
+        Linux および Windows ゲストオペレーティングシステムでの移行後の修復
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_configure_recommended_settings_for_esxi_hosts.html">
+        移行の修復後の ESXi ホストの推奨設定
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_enabling_caw_on_a_datastore_using_esxi_cli.html">
+        ESXi CLI を使用したデータストアでの CAW の有効化
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_linux_host_remediation.html">
+        <div class="na-navbar-padding"> RHEL ホストの修復</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/task_gathering_pretransition_information_from_inventory_assessment_workbook.html">
+        <div class="na-navbar-padding"> Inventory Assessment Workbook からの移行前の情報収集</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_what_the_inventory_collect_tool_is.html">
+        Inventory Collect Tool の概要
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_transitioning_rhel_dmmp_devices_without_file_systems.html">
+        <div class="na-navbar-padding"> ファイルシステムのない RHEL DMMP デバイスの移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_verifying_that_rhel_luns_are_ready_for_transition_using_inventory_assessment_workbook.html">
+        を使用した RHEL LUN の移行準備状況の確認 Inventory Assessment Workbook の作成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_verifying_rhel_5_luns_are_ready_for_transition_using_cli.html">
+        を使用した RHEL 5 LUN の移行準備状況の確認 CLI を使用します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_verifying_rhel_6_ddmp_devices_are_ready_for_transition_using_cli.html">
+        RHEL 6 DMMP デバイスの移行準備状況の確認 CLI を使用
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_dmmp_devices_on_rhel_before_cutover.html">
+        前の RHEL ホスト上のファイルシステムのない DMMP デバイスのテスト コピーベースの移行のカットオーバーフェーズ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_cutover_when_transitioning_linux_host_dmmp_device_without_file_system.html">
+        Linux ホストの DMMP デバイス移行時のカットオーバーの準備 ファイルシステムを使用しない場合
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_replacing_7_mode_wwids_on_linux_host_after_transition_of_luns.html">
+        移行後の Linux ホストにおける 7-Mode LUN WWID の置き換え LUN
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_transitioning_luns_with_mount_points_using_dmmp_devices_names.html">
+        <div class="na-navbar-padding"> DMMP デバイス名を使用するマウントポイントを含む LUN の移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_rhel_luns_transition_using_inventory_assessment_workbook.html">
+        DMMP デバイス名を使用するマウントポイントを含む RHEL LUN を準備しています Inventory Assessment Workbook を使用した移行
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_rhel_luns_for_transition_using_the_cli.html">
+        DMMP エイリアス名を使用するマウントポイントを含む RHEL LUN を準備しています CLI を使用した移行の場合
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_dmmp_devices_with_file_systems_on_rhel_hosts_before_cutover_phase.html">
+        前の RHEL ホスト上のファイルシステムを搭載した DMMP デバイスのテスト コピーベースの移行のカットオーバーフェーズ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.html">
+        マウントを含む LUN 移行時のカットオーバーフェーズの準備 Linux ホストで DMMP デバイス名を使用するポイントです
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_remounting_dmmp_devices_on_linux_hosts_after_transition.html">
+        移行後の Linux ホストへの DMMP デバイスの再マウント
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_transitioning_luns_with_mount_points_using_dmmp_alias_names.html">
+        <div class="na-navbar-padding"> DMMP エイリアス名を使用するマウントポイントを含む LUN の移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_rhel_luns_for_transition_using_the_cli.html">
+        DMMP エイリアス名を使用するマウントポイントを含む RHEL LUN を準備しています CLI を使用した移行の場合
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_luns_with_mounts_using_dmmp_aliases_on_rhel_hosts_before_cutover.html">
+        DMMP エイリアス名を使用するマウントポイントを含む LUN のテスト コピーベースの移行のカットオーバーフェーズ前の RHEL ホスト
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.html">
+        マウントを含む LUN 移行時のカットオーバーフェーズの準備 Linux ホストで DMMP デバイス名を使用するポイントです
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_remounting_luns_with_mount_point_using_dmmp_alias_name_on_linux_hosts_after_transition.html">
+        DMMP エイリアス名を使用するマウントポイントを含む LUN をに再マウントしています 移行後の Linux ホスト
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_transitioning_linux_host_file_systems_on_lvm_devices.html">
+        <div class="na-navbar-padding"> LVM デバイス上の Linux ホストファイルシステムの移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_luns_with_file_systems_on_lvm_devices_before_cutover_phase.html">
+        の前に、 LVM デバイス上のファイルシステムを搭載した LUN のテストを行います コピーベースの移行のカットオーバーフェーズ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_cutover_when_transitioning_linux_host_file_systems_on_lvm_devices.html">
+        Linux ホストファイルシステム移行時のカットオーバーフェーズの準備 LVM デバイス
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_mounting_logical_volumes_on_linux_host_after_transition.html">
+        移行後の Linux ホストへの論理ボリュームのマウント
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_transition_of_san_boot_luns.html">
+        <div class="na-navbar-padding"> SAN ブート LUN を移行します</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_types_of_san_boot_luns_supported_for_transition.html">
+        移行対象としてサポートされる SAN ブート LUN のタイプ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_transition_of_fc_or_fcoe_san_boot_luns.html">
+        FC または FCoE SAN ブート LUN の移行準備をしています RHEL ホスト
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_transition_of_iscsi_san_boot_luns.html">
+        iSCSI SAN ブート LUN の移行準備をしています
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_san_boot_luns_on_rhel_hosts_before_cutover.html">
+        カットオーバー前の RHEL ホスト上の SAN ブート LUN のテスト コピーベースの移行のフェーズ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_preparing_for_cutover_when_transitioning_san_boot_luns.html">
+        SAN ブート LUN 移行時のカットオーバーフェーズの準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_discovering_san_boot_luns_after_transition.html">
+        移行後に SAN ブート LUN を検出します
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_windows_host_remediation.html">
+        <div class="na-navbar-padding"> Windows ホストの修正</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_windows_hosts_for_transition.html">
+        <div class="na-navbar-padding"> Windows ホストでの移行準備</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_what_the_inventory_collect_tool_is.html">
+        Inventory Collect Tool の概要
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_transitioned_luns_on_windows_hosts_before_cutover.html">
+        カットオーバーフェーズ前の Windows ホスト上の移行した LUN のテスト
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_cutover_when_transitioning_windows_hosts.html">
+        Windows ホスト移行時のカットオーバーフェーズの準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_bringing_windows_hosts_online_after_transition.html">
+        移行後に Windows ホストをオンラインにします
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_exceptions_and_known_issues_when_transitioning_san_hosts_to_clustered_ontap.html">
+        SAN ホストを ONTAP に移行する際の例外と既知の問題
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_hp_ux_host_remediation.html">
+        <div class="na-navbar-padding"> HP-UX ホストの修復</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_transitioning_hp_ux_host_luns_with_file_systems.html">
+        <div class="na-navbar-padding"> ファイルシステムを搭載した HP-UX ホスト LUN の移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_to_transition_hp_ux_host_luns_with_file_systems.html">
+        ファイルシステムを搭載した HP-UX ホスト LUN の移行準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_data_luns_on_hp_ux_hosts_before_cutover.html">
+        カットオーバーフェーズ前の HP-UX ホスト上のデータ LUN のテスト コピーベースの移行の数
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_cutover_when_transitioning_hp_ux_host_data_luns_with_file_systems.html">
+        HP-UX ホストデータ LUN 移行時のカットオーバーフェーズの準備 ファイルシステムで実現できます
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_mounting_hp_ux_host_luns_with_file_systems_after_transition.html">
+        移行後のファイルシステムを搭載した HP-UX ホスト LUN のマウント
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_transitioning_hp_ux_host_san_boot_luns_with_fc_fcoe_configurations.html">
+        <div class="na-navbar-padding"> FC / FCoE 構成の HP-UX ホストの SAN ブート LUN の移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_to_transition_san_boot_luns_on_hp_ux_hosts_with_fc_configurations.html">
+        を搭載した HP-UX ホスト上の SAN ブート LUN の移行準備 FC 構成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_transitioned_san_boot_luns_on_hp_ux_hosts_before_cutover.html">
+        の前に、 HP-UX ホスト上の移行した SAN ブート LUN のテストを行いました コピーベースの移行のカットオーバーフェーズ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/concept_preparing_for_cutover_when_transitioning_san_boot_luns.html">
+        SAN ブート LUN 移行時のカットオーバーフェーズの準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_making_a_san_boot_lun_primary_for_hp_ux_emulex_hbas_after_transition.html">
+        SAN ブート LUN を用のプライマリブート LUN にします 移行後に HP-UX Emulex HBA を使用します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_making_san_boot_lun_primary_boot_lun_for_hp_ux_qlogic_hbas_after_transition.html">
+        SAN ブート LUN を用のプライマリブート LUN にします 移行後の HP-UX QLogic HBA
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_aix_host_remediation.html">
+        <div class="na-navbar-padding"> AIX ホストの修復</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_transition_of_san_boot_luns_on_aix_hosts_with_fc_fcoe_configurations.html">
+        <div class="na-navbar-padding"> FC / FCoE を使用する AIX ホスト上の SAN ブート LUN の移行 設定</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_to_transition_san_boot_luns_on_aix_hosts_with_fc_fcoe_configurations.html">
+        が搭載された AIX ホスト上の SAN ブート LUN の移行準備 FC / FCoE 構成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_transitioned_san_boot_luns_on_aix_hosts_before_cutover.html">
+        前に AIX ホスト上の移行した SAN ブート LUN をテストします コピーベースの移行のカットオーバーフェーズ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_cutover_when_transitioning_aix_hosts_with_fc_fcoe_configurations.html">
+        FC / FCoE 構成の AIX ホスト移行時のカットオーバーフェーズの準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_booting_from_san_boot_lun_on_aix_hosts_with_fc_fcoe_configurations_after_transition.html">
+        FC / FCoE を使用した AIX ホスト上の SAN ブート LUN からのブート 移行後の構成
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_transitioning_aix_host_data_luns_with_file_systems.html">
+        <div class="na-navbar-padding"> ファイルシステムを搭載した AIX ホストデータ LUN の移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_to_transition_aix_data_host_luns_with_file_systems.html">
+        ファイルシステムを搭載した AIX ホストデータ LUN の移行準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_transitioned_luns_on_aix_hosts_before_cutover.html">
+        カットオーバーフェーズ前の AIX ホスト上の移行した LUN のテスト コピーベースの移行の数
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_cutover_when_transitioning_aix_data_luns_with_file_systems.html">
+        AIX ホストデータ LUN 移行時のカットオーバーフェーズの準備 ファイルシステムで実現できます
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_mounting_aix_host_luns_with_file_systems_after_transition.html">
+        移行後のファイルシステムを搭載した AIX ホストデータ LUN のマウント
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_solaris_host_remediation.html">
+        <div class="na-navbar-padding"> Solaris ホストの修復</div>
+      </a>
+      <ul><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_transitioning_solaris_host_data_luns_with_zfs_file_systems.html">
+        <div class="na-navbar-padding"> ZFS ファイルシステムを搭載した Solaris ホストデータ LUN の移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_to_transition_solaris_host_data_luns_with_zfs_file_system.html">
+        ZFS ファイルを搭載した Solaris ホストデータ LUN の移行準備をしています システム
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_data_luns_on_solaris_hosts_with_zfs_file_system_before_cutover.html">
+        ZFS ファイルシステムを搭載した Solaris ホスト上のデータ LUN のテスト コピーベースの移行のカットオーバーフェーズ前
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_cutover_when_transitioning_solaris_host_data_luns_with_zfs_file_systems.html">
+        Solaris ホストデータ LUN 移行時のカットオーバーフェーズの準備 ZFS ファイルシステムでは
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_mounting_solaris_host_luns_with_zfs_file_systems_after_transition.html">
+        移行後の ZFS ファイルシステムを搭載した Solaris ホスト LUN のマウント
+      </a></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_transitioning_solaris_host_data_luns_with_sun_volume_manager.html">
+        <div class="na-navbar-padding"> Sun Volume Manager を搭載した Solaris ホストデータ LUN の移行</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_to_transition_solaris_host_data_luns_with_sun_volume_manager.html">
+        Sun Volume Manager を搭載した Solaris ホスト LUN の移行準備
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_testing_data_luns_on_solaris_hosts_with_sun_volume_manager_svm_before_cutover.html">
+        Sun Volume Manager を搭載した Solaris ホスト上のデータ LUN のテスト コピーベースの移行のカットオーバーフェーズ前
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_preparing_for_cutover_when_transitioning_solaris_host_sun_volume_manager_data_luns.html">
+        Solaris ホストの Sun Volume 移行時のカットオーバーフェーズの準備 Manager データ LUN
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_mounting_solaris_host_luns_with_sun_volume_manager_after_transition.html">
+        移行後の Solaris Volume Manager を搭載した Solaris ホスト LUN のマウント
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="/ja-jp/ontap-7mode-transition/san-host/concept_rolling_back_luns_to_7_mode_after_transition.html">
+        <div class="na-navbar-padding"> 移行後の 7-Mode への LUN のロールバック</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_rhel_hosts.html">
+        RHEL ホストにおける ONTAP LUN から 7-Mode LUN へのロールバック
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_windows_hosts.html">
+        Windows ホストにおける ONTAP LUN から 7-Mode LUN へのロールバック
+      </a></li></ul></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/ontap-7mode-transition/reference_legal_notices.html">
+        法的通知
+      </a></li></ul>
+</div>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container -->
+    <article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://www.netapp.com">ホーム</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">ドキュメント</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/ja-jp/ontap-7mode-transition/">ONTAP&nbsp;7-Mode&nbsp;Transition</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          FlexClone ボリュームに関する考慮事項
+        </li>
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> 日本語は機械翻訳による参考訳です。内容に矛盾や不一致があった場合には、英語の内容が優先されます。 </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">FlexClone ボリュームに関する考慮事項</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2021-04-24 04:30:01 +0000">04/24/2021</time>
+    
+  
+
+<span>寄稿者
+  <a target="_blank" href="https://github.com/netapp-ivanad">
+    <img  class="avatar avatar-small"
+          alt="netapp-ivanad"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/76115643?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+
+</p>
+
+
+<div class="paragraph lead">
+<p>FlexClone ボリュームを SVM に移行すると、クローンが親ボリュームからスプリットされ、 FlexVol ボリュームとしてデスティネーションクラスタに移行されます。その結果、移行プロセスでクローン階層と Storage Efficiency が失われます。</p>
+</div>
+<div class="paragraph">
+<p>ターゲットクラスタで Data ONTAP 8.3 以前が実行されている場合は、 7-Mode から移行した Snapshot コピーから FlexClone ボリュームを作成することはできません。ボリュームを ONTAP に移行したあとに作成された新しい Snapshot コピーから作成してください。clustered Data ONTAP 8.3.1 以降では、 7-Mode から移行した Snapshot コピーから FlexClone ボリュームを作成できます。</p>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/ontap-7mode-transition/issues/new?body=Page%3A%20[FlexClone ボリュームに関する考慮事項](https://docs.netapp.com/ja-jp/ontap-7mode-transition/copy-based/concept_considerations_for_flexclone_volumes.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/ontap-7mode-transition/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/ontap-7mode-transition/blob/main/copy-based/concept_considerations_for_flexclone_volumes.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/ontap-7mode-transition/images/edit-sm.svg" class="github-icon" />GitHub で編集</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/ontap-7mode-transition/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">このページ</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  <div style="clear: both"></div><!-- Main needs to have height -->
+</div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2021 NetApp, Inc.</a>
+            </li>
+
+</ul>
+</div>
+<div class="n-footer__social-links">
+<ul class="n-footer__social-link-list">
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
+<span class="n-footer__social-link-text">blog</span>
+<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+  <title>blog@</title>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#blog"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
+<span class="n-footer__social-link-text">community</span>
+<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+<title>community@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#comments"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
+<span class="n-footer__social-link-text">twitter</span>
+<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+<title>twitter@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#twitter"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
+<span class="n-footer__social-link-text">facebook</span>
+<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+<title>facebook@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#facebook"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+<span class="n-footer__social-link-text">linkedin</span>
+<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+<title>linkedin@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#linkedin"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+<span class="n-footer__social-link-text">youtube</span>
+<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+<title>youtube@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#youtube"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+<span class="n-footer__social-link-text">slideshare</span>
+<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+<title>slideshare@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#slideshare"></use>
+</svg>
+
+</a>
+</li>
+</ul>
+</div>
+
+</div>
+<div class="n-footer__bottom-right">
+  <p class="n-footer__fine-print">Web サイトについてのフィードバックを<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">お寄せください</a>
+  <a href="https://docs.netapp.com/ja-jp/announcements/" class="n-footer__copyright">お知らせ</a>
+  </p>
+</div>
+</div>
+</div>
+</footer>
+
+      </div>
+
+      <!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/ja-jp/ontap-7mode-transition/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/ja-jp/ontap-7mode-transition/js/prism.js'></script>
+      <script type="text/javascript" src='/ja-jp/ontap-7mode-transition/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/ja-jp/ontap-7mode-transition/js/www-ntap.js'></script>
+    <script src='/ja-jp/ontap-7mode-transition/js/tabbed-blocks.js'></script>
+  </body>
+
+  
+</html>
