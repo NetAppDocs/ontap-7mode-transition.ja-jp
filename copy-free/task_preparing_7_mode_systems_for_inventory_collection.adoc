@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare, systems, host, transition, ass
 summary: 評価レポートを正しく作成するには、 7-Mode システムおよびホストが一定のネットワーク要件とプロトコル要件を満たしている必要があります。 
 ---
 = 移行のための環境評価を実行する 7-Mode システムとホストの準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, delete, volume, snapshot, copy
 summary: 7-Mode ボリュームの Snapshot コピーは移行したボリュームから自動的に削除されないため、移行処理の完了後に手動で削除する必要があります。 
 ---
 = 移行したボリュームから 7-Mode ボリュームの Snapshot コピーを削除する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

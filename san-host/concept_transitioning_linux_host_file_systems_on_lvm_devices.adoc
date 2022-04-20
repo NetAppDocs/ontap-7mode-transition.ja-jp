@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, linux, host, file, systems, lvm, devices
 summary: 論理ボリュームマネージャ \ （ LVM \ ）上の Linux ホストファイルシステムを移行する場合は、カットオーバーフェーズに備えて特定の手順を実行し、移行後に論理ボリュームをマウントする必要があります。 
 ---
 = LVM デバイス上の Linux ホストファイルシステムの移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

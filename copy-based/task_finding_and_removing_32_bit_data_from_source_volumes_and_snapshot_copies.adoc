@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, find, remove, 32, volume, snapshot, co
 summary: すべてのアグリゲートを 64 ビット形式に拡張した場合でも、 32 ビット形式または混在形式の FlexVol ボリュームや Snapshot コピーが残っている可能性があります。Data ONTAP 8.3 以降を実行するクラスタからデータにアクセスするには、このようなボリュームや Snapshot コピーを削除する必要があります。 
 ---
 = 32 ビットボリュームと Snapshot コピーの検出と削除
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

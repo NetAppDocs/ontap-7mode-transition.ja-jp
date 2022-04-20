@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, trademark
 summary: 『 7-Mode 管理者ガイド』のコマンドマップの商標に関する情報。 
 ---
 = 商標です
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

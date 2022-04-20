@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, aggregates, volumes, restrictions
 summary: 7-Mode のアグリゲートとボリュームを移行する場合の制限事項を把握する必要があります。一部の制限事項は、 ONTAP でサポートされない機能によるものです。一部の制限事項については、対処策を実施することで移行を続行できます。 
 ---
 = 7-Mode のアグリゲートとボリュームを移行する場合の制限事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

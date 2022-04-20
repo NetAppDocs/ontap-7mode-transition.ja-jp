@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, space, considerations, transition, san, volume
 summary: 移行中にボリュームに十分なスペースを確保する必要があります。移行プロセスでは、データや Snapshot コピーの格納に必要なスペースに加えて、一部のファイルシステムメタデータの更新用に 1 つの LUN につき 1MB のスペースが必要です。 
 ---
 = SAN ボリュームを移行する際のスペースに関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

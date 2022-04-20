@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, volume, mapping, pane, svm, aggregate,
 summary: ツールにエラーメッセージが表示されます。 SVM にアグリゲートが割り当てられていません。選択した SVM にルートノードアグリゲート以外のアグリゲートがない場合は、一部のアグリゲートを SVM に割り当て、更新ボタンをクリックして、ボリュームマッピングペインで確認してください。 
 ---
 = 選択した場合、ボリュームマッピングペインから続行できません SVM にアグリゲートがありません
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

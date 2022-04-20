@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, enable, caw, datastore, esxi, cli
 summary: Data ONTAP 7-Mode で Compare and Write （ CAW ）がサポートされていなかった場合、 clustered Data ONTAP への移行時に CAW のサポートを手動で有効にする必要があります。clustered Data ONTAP では CAW がデフォルトでサポートされています。 
 ---
 = ESXi CLI を使用したデータストアでの CAW の有効化
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

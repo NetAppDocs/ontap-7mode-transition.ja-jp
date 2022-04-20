@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, cifs, configurations, prerequisites
 summary: CIFS 構成が 7-Mode Transition Tool で移行されるのは、 7-Mode システムおよびクラスタが一定の前提条件を満たしている場合のみです。条件が 1 つでも満たされていないと、構成は移行されません。 
 ---
 = CIFS 構成を移行するための前提条件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

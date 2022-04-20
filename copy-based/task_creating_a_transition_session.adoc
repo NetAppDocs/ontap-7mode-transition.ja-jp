@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, create, project
 summary: 移行対象の 7-Mode オブジェクトと ONTAP オブジェクトへのマッピング方法を指定して、移行プロジェクトを作成します。プロジェクトを作成すると、 7-Mode Transition Tool によって移行オブジェクトに関する情報が収集され、保存されます。このプロジェクト情報を使用して、移行を段階的に実行できます。 
 ---
 = 移行プロジェクトの作成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

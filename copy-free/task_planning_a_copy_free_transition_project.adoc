@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, plan, project
 summary: コピーフリーの移行プロジェクトの計画では、ソースの 7-Mode コントローラとターゲットクラスタノードの選択、 SVM への 7-Mode ボリュームのマッピング、移行対象の LIF の選択、および事前確認を実行します。 
 ---
 = コピーフリーの移行プロジェクトの計画
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

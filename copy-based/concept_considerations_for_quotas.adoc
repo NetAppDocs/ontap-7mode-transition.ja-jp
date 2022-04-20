@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, quotas
 summary: 「構成の適用」 \ （カットオーバー前 \ ）が読み取り専用モードおよび読み取り / 書き込みモードで実行される場合、クォータがどのように移行されるかを理解しておく必要があります。 
 ---
 = クォータに関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

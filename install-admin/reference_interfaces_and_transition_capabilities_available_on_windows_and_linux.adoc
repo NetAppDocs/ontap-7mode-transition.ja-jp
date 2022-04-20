@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, interfaces, transition, capabilities, windows
 summary: 7-Mode Transition Tool は、 Windows と Linux のどちらにもインストールできます。7-Mode Transition Tool をインストールする前に、サポートされる機能とユーザインターフェイスを理解しておく必要があります。 
 ---
 = Windows および Linux で使用できるインターフェイスと移行機能
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

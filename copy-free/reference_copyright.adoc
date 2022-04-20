@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, copyright
 summary: コピーフリーの移行ガイドの著作権情報。 
 ---
 = 著作権
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

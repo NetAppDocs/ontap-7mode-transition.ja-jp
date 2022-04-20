@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, system, requirements, transition, tool, linux
 summary: 7-Mode Transition Tool をインストールして実行するには、 Linux ホストが構成要件を満たしている必要があります。 
 ---
 = Linux で 7-Mode Transition Tool をインストールするためのシステム要件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

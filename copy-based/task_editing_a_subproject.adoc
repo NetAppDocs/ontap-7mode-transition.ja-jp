@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, edit, project
 summary: プロジェクトを編集して、ボリュームの追加や削除を行ったり、移行設定を変更したりすることができます。 
 ---
 = プロジェクトを編集する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

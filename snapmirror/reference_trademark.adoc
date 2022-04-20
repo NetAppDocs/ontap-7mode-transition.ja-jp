@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, trademark
 summary: SnapMirror テクノロジによる 7-Mode データの移行に関する商標情報。 
 ---
 = 商標です
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

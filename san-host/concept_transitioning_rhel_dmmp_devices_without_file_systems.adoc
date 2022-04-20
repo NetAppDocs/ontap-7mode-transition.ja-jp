@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rhel, dmmp, device, file, system
 summary: ファイルシステムのない Red Hat Enterprise Linux \ （ RHEL \ ） DMMP デバイスを移行する前に、 DMMP デバイスにファイルシステムがないことを確認する必要があります。また、カットオーバーフェーズに備えて特定の手順を実行し、移行後に WWID を置き換える必要があります。 
 ---
 = ファイルシステムのない RHEL DMMP デバイスの移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

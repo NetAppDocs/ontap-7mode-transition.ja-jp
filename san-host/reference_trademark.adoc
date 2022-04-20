@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, trademark
 summary: 『 SAN ホストの移行および修復ガイド』の商標に関する情報。 
 ---
 = 商標です
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

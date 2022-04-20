@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, linux, dmmp, device, host
 summary: ファイルシステムのない DMMP デバイスを Linux ホストから移行する場合は、カットオーバーフェーズを開始する前にいくつかの手順を実行する必要があります。 
 ---
 = Linux ホストの DMMP デバイス移行時のカットオーバーの準備 ファイルシステムを使用しない場合
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

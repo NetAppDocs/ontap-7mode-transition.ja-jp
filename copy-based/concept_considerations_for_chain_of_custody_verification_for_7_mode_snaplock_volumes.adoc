@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, chain, custody, verification, snaplock
 summary: 7-Mode SnapLock ボリュームで CoC 検証を実施する場合の考慮事項を確認しておく必要があります。 
 ---
 = 7-Mode SnapLock で CoC 検証を実施する場合の考慮事項 個のボリューム
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

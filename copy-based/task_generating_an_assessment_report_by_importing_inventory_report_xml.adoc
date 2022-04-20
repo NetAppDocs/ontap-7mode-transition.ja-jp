@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, generate, assessment, report, inventor
 summary: Inventory Collect Tool で作成されたインベントリ XML レポートをインポートして、ホストとコントローラの機能を評価できます。その後、評価レポートを作成して、移行先として選択した ONTAP バージョンでそれらのホストとコントローラがどのように動作するかを確認できます。 
 ---
 = インベントリレポート XML をインポートして評価レポートを作成する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

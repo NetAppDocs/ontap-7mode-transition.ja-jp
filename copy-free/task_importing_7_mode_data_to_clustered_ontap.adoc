@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, import, data
 summary: ケーブル接続を検証して問題をすべて解決したら、インポート処理を実行できます。このフェーズでは、マッピングしたクラスタノードにディスク所有権が割り当てられ、 7-Mode のアグリゲート、ボリューム、および LUN が ONTAP 形式に変換されます。ボリュームレベルおよび LUN レベルの構成がすべて適用されます。 
 ---
 = ONTAP への 7-Mode データのインポート
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

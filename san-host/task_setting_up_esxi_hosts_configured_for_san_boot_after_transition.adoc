@@ -5,6 +5,7 @@ keywords: esxi, configured, boot, ontap, san, host, transition
 summary: Data ONTAP 7-Mode から移行する前に ESXi ホストが SAN ブート用に設定されていた場合は、移行後にホストを使用する前にいくつかの手順を実行する必要があります。 
 ---
 = SAN ブート用に設定された ESXi ホストを移行後にセットアップする
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

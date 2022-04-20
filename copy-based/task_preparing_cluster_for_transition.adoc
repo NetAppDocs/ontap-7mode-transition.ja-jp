@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, cluster
 summary: 移行の前に、 HTTPS の許可、インタークラスタ LIF のセットアップ、ネットワーク接続の検証などを実行し、クラスタが移行の要件を満たしていることを確認する必要があります。 
 ---
 = クラスタで移行準備をします
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

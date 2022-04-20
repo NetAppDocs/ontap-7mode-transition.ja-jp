@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, runn, prechecks
 summary: 移行を開始する前に、事前確認を実行して問題を特定することができます。事前確認では、ソースの 7-Mode 、ターゲットの ONTAP 、および構成が移行対象として適切かどうかが検証されます。事前確認は何度でも実行できます。 
 ---
 = 事前確認を実行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

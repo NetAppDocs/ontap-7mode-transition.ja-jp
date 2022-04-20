@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, data, protection, supported, unsupporte
 summary: SnapMirror 関係の一部であるボリュームは移行できます。ただし、一部のデータ保護構成とディザスタリカバリ構成は移行対象としてサポートされていません。そのため、これらの構成を移行するには、いくつかの手順を手動で実行する必要があります。 
 ---
 = データ保護の移行：サポートされる構成とされない構成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

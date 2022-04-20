@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, netgroups, unix, user, groups
 summary: ネットグループ構成は、 7-Mode の /etc/netgroup ファイルのサイズが 5MB 未満の場合にのみ移行されます。UNIX ユーザおよびグループは、 SVM 上の UNIX ユーザおよびグループの総数が、 ONTAP でのユーザとグループの制限を超えない場合にのみ移行されます。 
 ---
 = ネットグループと UNIX ユーザおよびグループの移行に関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

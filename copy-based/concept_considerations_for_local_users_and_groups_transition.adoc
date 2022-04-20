@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, cifs, local, users, groups
 summary: CIFS ローカルユーザおよびローカルグループをマイグレートする場合の、移行処理の実行に関する考慮事項を理解しておく必要があります。 
 ---
 = CIFS ローカルユーザおよびローカルグループの移行に関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

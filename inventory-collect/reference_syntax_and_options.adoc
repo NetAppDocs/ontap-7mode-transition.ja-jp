@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, syntax, option, ict, inventory, collection
 summary: Inventory Collection Tool （ ICT\ ）コマンドは、コマンドラインインターフェイス \ （ CLI\ ）またはシステムの詳細を含むテキストファイルで指定されたコントローラおよびホストから、構成情報とインベントリ情報を収集します。ここでは、 ICT コマンドで使用できる構文とオプションを示します。 
 ---
 = 構文とオプション
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

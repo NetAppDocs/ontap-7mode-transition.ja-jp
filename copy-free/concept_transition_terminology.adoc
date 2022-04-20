@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, terminology
 summary: 7-Mode Transition Tool に関連する移行の用語を理解しておくと、移行プロセスを理解しやすくなります。 
 ---
 = 移行に関する用語
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

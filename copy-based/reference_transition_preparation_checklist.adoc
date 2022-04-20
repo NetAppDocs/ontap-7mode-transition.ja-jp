@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, preparation, checklist
 summary: 移行を開始する前に、移行の前提条件をすべて満たしていることを確認する必要があります。 
 ---
 = 移行準備チェックリスト
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remount, dmmp, devices, linux, hosts
 summary: ONTAP 7-Mode から clustered Data ONTAP に移行したあとで、 RHEL 5 および RHEL 6 用の DMMP デバイスを再マウントする必要があります。DMMP デバイスがマウントされるまで、 7-Mode LUN からホストにアクセスすることはできません。 
 ---
 = 移行後の Linux ホストへの DMMP デバイスの再マウント
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

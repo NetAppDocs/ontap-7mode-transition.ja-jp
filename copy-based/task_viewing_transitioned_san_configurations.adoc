@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, view, san, configurations
 summary: SAN ボリュームの LUN シリアル番号と LUN ID は、移行後に変更されます。移行された SAN 構成を表示するには、 7-Mode Transition Tool CLI を使用して以前の LUN から移行後の LUN へのマッピングを生成し、その情報を .csv ファイルにエクスポートします。 
 ---
 = 移行された SAN 構成を表示する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

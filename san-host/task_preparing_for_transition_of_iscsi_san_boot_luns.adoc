@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, iscsi, san, boot, lun
 summary: iSCSI SAN ブート LUN を移行する前に、ホストで特定の手順を実行する必要があります。Red Hat Enterprise Linux \ （ RHEL \ ） 5.x の移行はサポートされていません。RHEL 6 の移行はサポートされています。 
 ---
 = iSCSI SAN ブート LUN の移行準備をしています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

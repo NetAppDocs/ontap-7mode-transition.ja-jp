@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, lun, rhel, roll, back
 summary: Data ONTAP 7-Mode からの移行後に ONTAP LUN が想定どおりに動作しない場合は、 Red Hat Enterprise Linux\（ RHELD\） 5 または RHEL 6 ホストで ONTAP から 7-Mode LUN にロールバックできます。 
 ---
 = RHEL ホストにおける ONTAP LUN から 7-Mode LUN へのロールバック
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

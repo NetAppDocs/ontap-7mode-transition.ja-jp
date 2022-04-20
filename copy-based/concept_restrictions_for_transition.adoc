@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, restrictions
 summary: 一部の 7-Mode ボリュームと構成を移行する場合の制限事項を把握する必要があります。 
 ---
 = 移行に関する制限事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

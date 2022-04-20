@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rhel, 5, lun, cli
 summary: Red Hat Enterprise Linux \ （ RHEL \ ） 5 LUN に Device Mapper Multipath \ （ DMMP \ ）が設定されている場合、 Data ONTAP 7-Mode から clustered Data ONTAP に LUN を移行する前に、ファイルシステムが設定されていないことを確認する必要があります。 
 ---
 = を使用した RHEL 5 LUN の移行準備状況の確認 CLI を使用します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

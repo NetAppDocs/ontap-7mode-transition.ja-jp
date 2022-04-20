@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, collect, inventory, generating, inventory, report, tra
 summary: Data ONTAP システム（ 7-Mode システムとクラスタのノード）、スイッチ、ホスト、およびホストアプリケーションに関する情報を収集できます。この情報を使用して、移行のための環境評価に使用する 7-Mode システム、ホスト、およびホストアプリケーションの詳細情報を含むインベントリレポートを生成できます。 
 ---
 = インベントリの収集とインベントリレポートの生成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

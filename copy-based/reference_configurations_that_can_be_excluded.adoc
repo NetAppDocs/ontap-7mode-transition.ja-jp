@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, configurations, excluded
 summary: 7-Mode Transition Tool CLI の transition cbt property-set コマンドでプロパティ名を指定することで、 NFS 、 CIFS 、 SAN 、およびネームサービスの構成を移行から除外することで、構成の移行をカスタマイズできます。 
 ---
 = 移行対象から除外可能な構成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

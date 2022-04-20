@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snaplock, enterprise, volumes
 summary: 7-Mode Transition Tool では、スタンドアロンの SnapLock Enterprise ボリュームおよび SnapMirror 関係にある SnapLock Enterprise ボリュームの移行がサポートされます。 
 ---
 = SnapLock Enterprise ボリュームの移行に関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

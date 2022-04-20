@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, zones, fc, plans
 summary: SAN FC 環境を移行する前に、 FC ゾーンプランナーを使用してイニシエータホストとターゲットをグループ化し、ゾーンを設定する必要があります。 
 ---
 = FC ゾーン計画を使用したゾーンの設定
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

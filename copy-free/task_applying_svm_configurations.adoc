@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, apply, svm, configurations
 summary: SVM のプロビジョニングフェーズの前に、一部の構成を手動で適用する必要があります。その後、ツールを使用して、 7-Mode コントローラで定義されている構成（ /etc ディレクトリ内のファイル）または vFiler ユニットレベルで定義されている構成をすべて、マッピングされた SVM に適用できます。 
 ---
 = SVM 構成を適用しています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, storage, host, fc, switches, version, 
 summary: 移行のための環境評価でサポートされる Data ONTAP 7-Mode 、ホスト、および FC スイッチのバージョンを把握しておく必要があります。 
 ---
 = 移行のための環境評価でのストレージ、ホスト、 FC スイッチのバージョン要件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

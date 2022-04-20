@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, aggregates, transition
 summary: Copy-Free Transition ワークフローでは、プロジェクトの計画、 SVM への 7-Mode 構成の適用、 7-Mode システム情報のエクスポートと 7-Mode システムの停止、ディスクシェルフからクラスタノードへの手動でのケーブル接続、および 7-Mode のデータと構成のインポートを実行します。 
 ---
 = コピーフリーの移行を使用した 7-Mode アグリゲートの移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

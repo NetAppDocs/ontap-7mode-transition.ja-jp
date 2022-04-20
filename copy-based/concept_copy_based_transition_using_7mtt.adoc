@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, 7, mode, tool
 summary: 7-Mode Transition Tool では、 7-Mode のコントローラ、ホスト、スイッチ、およびアプリケーションに関する情報を収集して移行対象として評価し、コピーベースの移行を実行できます。その後、 7-Mode から ONTAP にデータと構成を移行できます。 
 ---
 = 7-Mode Transition Tool を使用したコピーベースの移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

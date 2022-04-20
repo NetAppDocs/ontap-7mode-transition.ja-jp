@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, system, requirements, windows, transition, to
 summary: 7-Mode Transition Tool をインストールして実行するには、 Windows ホストが構成要件を満たしている必要があります。 
 ---
 = Windows に 7-Mode Transition Tool をインストールするためのシステム要件 システム
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

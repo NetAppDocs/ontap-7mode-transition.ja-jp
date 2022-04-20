@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, snapmirror, transition, volume, data, protection, rela
 summary: SnapMirror テクノロジを使用して、スタンドアロンボリューム、またはデータ保護関係（ Volume SnapMirror 関係）にあるボリュームを移行できます。 
 ---
 = ボリュームを移行する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

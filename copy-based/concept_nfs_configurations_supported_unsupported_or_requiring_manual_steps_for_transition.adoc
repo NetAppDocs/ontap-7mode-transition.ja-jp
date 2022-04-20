@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, nfs, transition, supported, unsupporte
 summary: 一部の NFS 構成は ONTAP に移行されません。移行されないのは、 ONTAP でサポートされていない構成、 7-Mode とは機能が異なる構成、または手動で移行しなければならない構成です。事前確認のエラーおよび警告メッセージをすべて検証して、このような構成が移行に及ぼす影響を評価する必要があります。 
 ---
 = NFS の移行：サポートされる構成とされない構成、必要な手動手順
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

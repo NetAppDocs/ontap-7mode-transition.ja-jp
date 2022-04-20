@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, commands, map, commands
 summary: この章では、 7-Mode コマンドに対応する ONTAP コマンドを表にまとめています。ただし、 options コマンドは含まれていません。 
 ---
 = 7-Mode コマンドと ONTAP コマンドのマッピング
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, snapmirror, relationship
 summary: セカンダリ HA ペアを最初に移行し、 7-Mode プライマリボリュームと clustered Data ONTAP セカンダリボリュームの間に段階的な SnapMirror 関係を設定してから、プライマリ HA ペアを移行することができます。シナリオによっては、 7-Mode SnapMirror 関係のセカンダリとプライマリの HA ペアを並行して移行する必要があります。 
 ---
 = SnapMirror 関係を移行する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

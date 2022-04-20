@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, mount, logical, volumes, linux, hosts
 summary: ONTAP 7-Mode から clustered Data ONTAP に移行後、論理ボリュームはオフラインになります。LUN からホストにアクセスできるように、論理ボリュームをマウントする必要があります。 
 ---
 = 移行後の Linux ホストへの論理ボリュームのマウント
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

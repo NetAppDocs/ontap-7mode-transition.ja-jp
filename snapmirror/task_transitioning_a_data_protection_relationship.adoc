@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, staggered, configuration, volu
 summary: プライマリボリュームを移行する前にセカンダリボリュームを移行することにより、 7-Mode の Volume SnapMirror 関係を移行し、データ保護関係を保持することができます。この方法では、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間に段階的な SnapMirror DR 関係を設定します。 
 ---
 = 段階的構成での Volume SnapMirror 関係の移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

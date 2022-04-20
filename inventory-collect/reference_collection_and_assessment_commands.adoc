@@ -5,6 +5,7 @@ keywords: collection, assessment, commands, transition, 7, mode, inventory, coll
 summary: Inventory Collect Tool （ ICT ）は、コマンドのリストを使用してインベントリ XML レポートを生成し、コントローラ、ホスト、および FC スイッチからインベントリ情報を収集します。は、これらのシステムの機能を評価します。 およびに、移行先として選択した clustered Data ONTAP バージョンでそれらの機能がどのように動作するかを示します。 
 ---
 = 収集と評価のコマンド
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

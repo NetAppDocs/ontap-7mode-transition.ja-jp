@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snapmirror, transition, volumes, relat
 summary: SnapMirror 関係にある 7-Mode ボリュームを移行する場合は、最初にセカンダリボリュームを移行する必要があります。その後、 7-Mode プライマリボリュームと ONTAP セカンダリボリュームの間に Volume SnapMirror 関係が確立されます。 
 ---
 = SnapMirror 関係にあるボリュームの移行方法
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

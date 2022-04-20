@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, rehost, volumes, svm
 summary: ボリュームをリホストすると、データをコピーすることなく、移行したボリュームをある SVM から別の SVM に移行できます。リホスト処理では FC LUN を含むすべてのボリュームを 1 つの SVM に統合できるため、 7-Mode の Single-System Image \ （ SSI ；シングルシステムイメージ \ ）のセマンティクスを保持できます。移行した NAS ボリュームをリホストすることもできます。 
 ---
 = 移行したボリュームを別の SVM にリホストする
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

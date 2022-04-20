@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, volume, relationship, parallel
 summary: 7-Mode SnapMirror 関係のプライマリボリュームとセカンダリボリュームを、同じカットオーバー期間内に並行して移行することができます。移行後に、 ONTAP クラスタで Volume SnapMirror 関係を手動で設定する必要があります。SnapLock Compliance ボリュームを移行する場合は、この方法を使用する必要があります。 
 ---
 = Volume SnapMirror 関係を並行して移行する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

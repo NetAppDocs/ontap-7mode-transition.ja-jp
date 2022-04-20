@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, 7, mode, tool
 summary: 7-Mode Transition Tool では、インベントリを収集し、 7-Mode のコントローラ、ホスト、スイッチ、およびアプリケーションを移行対象として評価することができます。評価が完了したら、コピーフリーの移行を使用してデータと構成を ONTAP に移行できます。Copy-Free Transition では、すべてのディスクシェルフを 7-Mode HA ペアから切断して、ターゲットクラスタの HA ペアに接続します。 
 ---
 = 7-Mode Transition Tool を使用したコピーフリーの移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

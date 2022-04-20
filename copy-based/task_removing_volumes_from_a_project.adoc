@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, remove, volumes, project
 summary: 移行プロセスの実行中にプロジェクトから障害ボリュームを削除し、 Volume SnapMirror 関係を中止することができます。 
 ---
 = プロジェクトからボリュームを削除する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

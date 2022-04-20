@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, cabling, worksheet
 summary: Copy-Free Transition ケーブル接続ワークシートを使用して、ケーブル接続を計画できます。7-Mode コントローラとターゲットクラスタノードに接続するポートとディスクシェルフの情報を記録する必要があります。また、 7-Mode ディスクシェルフをターゲットクラスタノードに接続する際に使用するポートも記録しておく必要があります。 
 ---
 = コピーフリーの移行ケーブル接続ワークシート
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

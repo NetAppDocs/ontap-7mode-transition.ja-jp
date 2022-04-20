@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, limitations, snapshot, lun, snapdrive,
 summary: clustered Data ONTAP 8.3 に移行すると、移行した 7-Mode Snapshot コピーに対する SnapDrive と SnapManager のバックアップ検証処理とリストア処理が失敗します。clustered Data ONTAP 8.3.1 に移行すると、移行した 7-Mode Snapshot コピーに対する SnapManager for Microsoft Exchange Server\（ SME \ ）のバックアップ検証処理と SnapManager for Hyper-V \ （ SMHV \ ）のリストア処理が失敗します。 
 ---
 = SnapDrive で管理される LUN の 7-Mode Snapshot コピーに関する制限事項 および SnapManager への移行後の対応を示します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

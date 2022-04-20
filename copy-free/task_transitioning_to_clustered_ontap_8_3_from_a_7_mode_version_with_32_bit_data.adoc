@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare, 32, aggregates
 summary: ONTAP 8.3 以降では、 32 ビットのアグリゲート、ボリューム、および Snapshot コピーがサポートされません。そのため、 32 ビットのアグリゲートを 64 ビットに拡張してから、 32 ビットのボリュームおよび Snapshot コピーを見つけて 7-Mode システムから削除したうえで、移行を実行する必要があります。 
 ---
 = 32 ビットアグリゲートを使用する 7-Mode システムの移行準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

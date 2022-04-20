@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, lun, mount, points, dmmp, alias, names
 summary: エイリアス名を使用するマウントポイントを含む LUN を移行する場合は、カットオーバーフェーズに備えて特定の手順を実行し、移行後に LUN を再マウントする必要があります。 
 ---
 = DMMP エイリアス名を使用するマウントポイントを含む LUN の移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

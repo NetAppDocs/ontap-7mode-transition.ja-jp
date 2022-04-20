@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, customize, 7, mode
 summary: 7-Mode から ONTAP への構成の移行は、計画時に 2 つの方法でカスタマイズできます。1 つ以上の構成の移行は無視するかスキップできます。7-Mode NFS エクスポートルールを統合し、既存の NFS エクスポートポリシーと Snapshot ポリシーをターゲット SVM で再利用できます。 
 ---
 = 7-Mode 構成の移行のカスタマイズ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

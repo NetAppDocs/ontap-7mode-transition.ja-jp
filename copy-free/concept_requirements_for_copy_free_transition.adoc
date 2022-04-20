@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, requirements
 summary: Copy-Free Transition の対象となる 7-Mode システム、クラスタ、 ONTAP リリース、およびディスクシェルフの要件を理解しておく必要があります。 
 ---
 = Copy-Free Transition の要件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

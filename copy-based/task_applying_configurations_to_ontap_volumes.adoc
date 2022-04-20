@@ -5,6 +5,7 @@ keywords: apply, configuration, ontap, copy, based, transition
 summary: ベースラインデータコピーが完了したら、 7-Mode システムのすべての NAS 構成（プロトコルとサービスの構成を含む）を ONTAP ボリュームにコピーして適用することができます。ターゲットクラスタで Data ONTAP 8.3.2 以降が実行されている場合は、このフェーズで SAN 構成が移行されます。 
 ---
 = ONTAP ボリュームに構成を適用する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

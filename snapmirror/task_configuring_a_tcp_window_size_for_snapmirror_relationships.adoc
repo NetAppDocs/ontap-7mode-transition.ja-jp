@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, configure, tcp, window, size, snapmirror, relationship
 summary: 7-Mode ボリュームと ONTAP ボリュームの間の SnapMirror 関係に TCP ウィンドウサイズを設定すると、 SnapMirror 転送のスループットを向上させてレプリケーション処理を高速化できます。 
 ---
 = SnapMirror 関係の TCP ウィンドウサイズの設定
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

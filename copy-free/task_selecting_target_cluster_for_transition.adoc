@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, select, target, cluster, nodes
 summary: ターゲットクラスタの HA ペアを選択し、 HA ペアの各 7-Mode コントローラを対応するターゲットクラスタノードにマッピングすることができます。マッピングしたノードは、対応する 7-Mode コントローラのディスクシェルフを接続する必要があるクラスタノードです。 
 ---
 = 移行先のターゲットクラスタノードの選択
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, copyright
 summary: SnapMirror テクノロジを使用した 7-Mode データの移行に関する著作権情報。 
 ---
 = 著作権
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

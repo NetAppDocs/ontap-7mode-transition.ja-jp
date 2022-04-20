@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, transition, tool, blocked
 summary: 7-Mode Transition Tool のインストーラまたはアンインストーラを使用して処理（インストール、修復、再インストール、アップグレード、アンインストールなど）を実行する場合、 次のエラーメッセージが表示されます。 Another instance of NetApp 7-Mode Transition Tool Setup or Uninstall is runned.一度に実行できるインスタンスは 1 つだけです。 
 ---
 = 7-Mode Transition Tool のインストールまたはアンインストールがブロックされます
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

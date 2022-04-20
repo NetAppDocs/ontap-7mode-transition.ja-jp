@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, manage, logical, interfaces
 summary: プロジェクトに対して、 7-Mode IP アドレスを追加、編集、または削除することができます。 
 ---
 = 論理インターフェイスを管理する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

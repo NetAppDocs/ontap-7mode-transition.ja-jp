@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, phases
 summary: 7-Mode Transition Tool を使用したコピーフリーの移行は、計画、 SVM のプロビジョニング、エクスポートおよび停止、ケーブル接続、インポート、 テスト、運用の開始、コミット移行を効果的に管理するには、これらのフェーズについて理解する必要があります。 
 ---
 = コピーフリーの移行のフェーズ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

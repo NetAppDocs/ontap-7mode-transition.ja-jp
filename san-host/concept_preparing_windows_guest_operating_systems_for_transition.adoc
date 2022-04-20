@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, windows, guest, operating, systems
 summary: Windows VM で物理互換 RDM （ PTRDM ）デバイスを使用している場合は、移行前に Windows VM でディスクをオフラインにする必要があります。ディスクマネージャを使用して、ディスクをオフラインにすることができます。 
 ---
 = Windows ゲスト OS での移行準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

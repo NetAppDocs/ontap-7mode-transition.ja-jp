@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snaplock, audit, volumes
 summary: 7-Mode Transition Tool では、 SnapLock 監査ボリュームの移行がサポートされます。SnapLock 監査ボリュームを移行するワークフローは、 SnapLock Compliance ボリュームの移行と同じです。 
 ---
 = SnapLock 監査ボリュームの移行に関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

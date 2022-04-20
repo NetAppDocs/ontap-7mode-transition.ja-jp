@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, transition, windows
 summary: Windows システムでは、ウィザード形式の標準インストーラを使用して 7-Mode Transition Tool をダウンロードしてインストールできます。ただし、以前のバージョンの 7-Mode Transition Tool がインストールされている場合は、事前に一定の前提条件を確認しておく必要があります。 
 ---
 = Windows での 7-Mode Transition Tool のインストールまたはアンインストール システム
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

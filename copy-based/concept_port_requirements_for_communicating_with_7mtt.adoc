@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, port, requirements, communicating, too
 summary: 7-Mode Transition Tool は、特定のポートを介して 7-Mode システムおよびクラスタと通信します。7-Mode システムおよびクラスタで以下のポートが開いていて 7-Mode Transition Tool と通信できるようになっていることを確認する必要があります。 
 ---
 = 7-Mode Transition Tool と通信するためのポート要件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

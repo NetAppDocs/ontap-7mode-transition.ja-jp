@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, create, project
 summary: 移行プロジェクトを計画する際に最初に実行する手順は、ディスクシェルフ、アグリゲート、ボリューム、および構成を移行するソースの 7-Mode HA ペアを選択してから、移行プロジェクトを作成することです。 
 ---
 = コピーフリーの移行プロジェクトを作成する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

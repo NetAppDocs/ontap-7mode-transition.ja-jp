@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, boot, lun, rhel, cutover, copy, based
 summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Red Hat Enterprise Linux \ （ RHEL \ ）ホストのコピーベースの移行を実行する場合は、カットオーバーフェーズの前に移行した ONTAP SAN ブート LUN をテストすることができます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
 ---
 = カットオーバー前の RHEL ホスト上の SAN ブート LUN のテスト コピーベースの移行のフェーズ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

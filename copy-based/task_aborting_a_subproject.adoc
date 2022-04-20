@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, abort, project
 summary: コントローラやクラスタのパフォーマンスに影響が生じている場合などに、実行中のプロジェクトを中止することができます。実行中のプロジェクトはダッシュボードから中止できます。 
 ---
 = プロジェクトを中止する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

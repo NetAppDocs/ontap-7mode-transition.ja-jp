@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, lun, windows, hosts
 summary: Data ONTAP 7-Mode からの移行後に ONTAP LUN が想定どおりに動作しない場合は、 Windows ホストで ONTAP から 7-Mode LUN にロールバックできます。 
 ---
 = Windows ホストにおける ONTAP LUN から 7-Mode LUN へのロールバック
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

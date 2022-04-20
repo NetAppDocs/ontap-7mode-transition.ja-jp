@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, transition, tool, windows
 summary: ウィザード形式のインストーラを使用して Windows システムに 7-Mode Transition Tool をインストールできます。 
 ---
 = Windows システムへの 7-Mode Transition Tool のインストール
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

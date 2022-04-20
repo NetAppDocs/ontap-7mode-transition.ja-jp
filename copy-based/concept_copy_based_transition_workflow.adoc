@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, workflow
 summary: Copy-Based Transition ワークフローでは、マイグレーションの準備、データと構成のマイグレート、および移行後の設定を実行します。 
 ---
 = Copy-Based Transition ワークフロー
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

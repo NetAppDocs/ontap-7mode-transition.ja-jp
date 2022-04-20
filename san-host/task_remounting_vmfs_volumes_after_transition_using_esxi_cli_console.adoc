@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, esxi, cli, vmfs, volumes
 summary: 移行後、 ESXi CLI を使用してボリュームを再マウントし、データストアと VM を移行前の状態に戻すことができます。 
 ---
 = ESXi CLI を使用した移行後の VMFS ボリュームの再マウント
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

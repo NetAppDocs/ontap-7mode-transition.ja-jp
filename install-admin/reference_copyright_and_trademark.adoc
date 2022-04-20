@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, copyright, trademark, machine, translation
 summary: 『 7-Mode Transition Tool Installation and Setup Guide 』の著作権および商標に関する情報。 
 ---
 = 著作権、商標、機械翻訳
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

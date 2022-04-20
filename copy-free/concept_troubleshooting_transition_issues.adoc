@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, troubleshooting, issues
 summary: 7-Mode Transition Tool に関する問題をトラブルシューティングする方法およびログファイルの場所について理解しておく必要があります。7-Mode Transition Tool を使用していると、問題と解決策を識別するエラーメッセージが表示される場合があります。 
 ---
 = 移行に関する問題のトラブルシューティング
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, customize, cli
 summary: デフォルトでは、すべての 7-Mode 構成が ONTAP に移行されます。7-Mode Transition Tool CLI を使用して、ボリューム、 NFS 、 CIFS 、 SAN 、ネームサービスの構成の一部または全部を移行から除外することができます。また、 7-Mode の NFS エクスポートルールや Snapshot スケジュールを統合することや、既存の NFS エクスポートポリシーや Snapshot ポリシーをターゲット SVM で再利用することもできます。 
 ---
 = CLI を使用した 7-Mode 構成の移行のカスタマイズ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

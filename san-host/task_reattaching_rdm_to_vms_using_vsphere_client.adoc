@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rdm, vm, vshpere, client
 summary: 7-Mode Transition Tool （ 7MTT ）を使用して ESXi ホストを移行したあとで、 RDM を仮想マシン（ VM\ ）に再接続する必要があります。 
 ---
 = vSphere Client を使用した RDM の VM への再接続
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

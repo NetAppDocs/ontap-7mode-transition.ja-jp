@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, select, lif
 summary: 必要に応じて、移行後に SVM で設定する LIF を指定できます。7-Mode システムで使用している既存の IP アドレス、または新しい LIF を指定できます。移行されるのは NAS LIF のみです。FC LIF と iSCSI LIF は、 SVM のプロビジョニングフェーズの前に手動で設定しておく必要があります。 
 ---
 = 移行する LIF を選択しています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

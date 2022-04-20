@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, dns, nis, loap, configurations
 summary: Data ONTAP 7-Mode での DNS 、 NIS 、 LDAP の構成が、 ONTAP にどのように移行および適用されるかを理解しておく必要があります。 
 ---
 = DNS 、 NIS 、 LDAP の構成の移行に関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

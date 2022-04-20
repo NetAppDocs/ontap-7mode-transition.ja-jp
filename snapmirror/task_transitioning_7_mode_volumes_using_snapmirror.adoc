@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, volumes, snapmirror, ontap, clustered, dat
 summary: clustered Data ONTAP の SnapMirror コマンドを使用すると、 NAS および SAN 環境の 7-Mode ボリュームを clustered Data ONTAP ボリュームに移行できます。移行が完了したら、クラスタ上でプロトコル、サービス、その他の設定を行う必要があります 
 ---
 = SnapMirror を使用して 7-Mode ボリュームを移行する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

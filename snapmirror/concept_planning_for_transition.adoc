@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, plan, clustered, volumes, snapmirror
 summary: 7-Mode ボリュームから clustered ONTAP ボリュームにデータをコピーする前に、どのような場合に SnapMirror を使用して移行を実行するかを理解し、サポートされている 7-Mode のバージョンと移行可能なボリュームについて確認する必要があります。また、移行に関する考慮事項も把握しておく必要があります。 
 ---
 = 移行の計画
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

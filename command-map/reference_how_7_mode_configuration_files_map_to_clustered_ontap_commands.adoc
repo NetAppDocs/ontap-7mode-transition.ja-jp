@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, configuration, files, clustered, data
 summary: Data ONTAP 7-Mode では、通常フラットファイルを使用してストレージシステムを設定します。clustered Data ONTAP では、設定コマンドを使用します。7-Mode の構成ファイルと clustered Data ONTAP の構成コマンドのマッピングを理解しておく必要があります。 
 ---
 = 7-Mode 構成ファイルと clustered Data ONTAP コマンドのマッピング
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

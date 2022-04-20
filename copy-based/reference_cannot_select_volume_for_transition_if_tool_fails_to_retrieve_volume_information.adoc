@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, tool, fails, volume, information
 summary: ボリュームを選択しようとすると、ボリューム選択ペインに「ボリューム情報を取得できませんでした」というエラーメッセージが表示されます。通常このエラーは、コントローラがビジーである場合に発生します。 
 ---
 = ツールで障害が発生した場合、移行対象のボリュームを選択できません ボリューム情報を取得します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

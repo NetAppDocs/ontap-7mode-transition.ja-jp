@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, index
 summary: 7-Mode のコマンドと対応する ONTAP のコマンドを記載します 
 ---
 = 7-Mode 管理者用のコマンドマップ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

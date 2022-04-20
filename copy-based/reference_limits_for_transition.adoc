@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, limits
 summary: 7-Mode Transition Tool を使用してボリュームを移行する場合は、同時に評価できるコントローラとホストの数など、一定の制限を考慮する必要があります。マイグレーションでは、プロジェクト内のボリュームの数や同時に実行できるプロジェクトの数を確認する必要があります。 
 ---
 = 移行の制限
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

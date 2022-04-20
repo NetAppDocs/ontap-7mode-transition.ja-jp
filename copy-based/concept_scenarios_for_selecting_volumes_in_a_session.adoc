@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, scenarios, selecting, volumes, project
 summary: プロジェクトの構成を適切に計画し、 1 回の処理で移行する 7-Mode ボリュームを決めておくと、アプリケーションのダウンタイムを最小限に抑えることができます。いくつかのシナリオ例について理解しておくと、実際の環境でプロジェクトを作成する際に役立ちます。 
 ---
 = さまざまなシナリオを使用してプロジェクトのボリュームを選択します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

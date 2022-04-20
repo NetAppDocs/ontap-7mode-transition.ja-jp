@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, 7, mode
 summary: 移行を開始する前に、 SnapMirror ライセンスの追加、 7-Mode システムがターゲットクラスタと通信できるようにする、 TLS を有効にするなど、 7-Mode システムで一定の作業を完了しておく必要があります。 
 ---
 = 7-Mode システムでの移行の準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

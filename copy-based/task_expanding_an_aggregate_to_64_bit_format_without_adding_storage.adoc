@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, expand, aggregate, 64, bit, format
 summary: システムに 32 ビットアグリゲートが含まれている場合は、 Data ONTAP 8.3 以降のバージョンに移行する前に、システムを 7-Mode システムで 64 ビット形式に拡張する必要があります。これらのバージョンの Data ONTAP では 32 ビット形式がサポートされないためです。 
 ---
 = アグリゲートの 64 ビット形式への拡張
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

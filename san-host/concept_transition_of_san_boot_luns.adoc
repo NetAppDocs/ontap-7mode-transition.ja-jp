@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, san, boot, lun
 summary: 7-Mode Transition Tool \ （ 7MTT \ ）を使用して Data ONTAP 7-Mode から clustered Data ONTAP に移行する前に、 SAN ブート LUN をリブートする必要があります。カットオーバーフェーズに備えて特定の手順を実行し、移行後に LUN を検出する必要があります。 
 ---
 = SAN ブート LUN を移行します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

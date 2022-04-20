@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, copyright
 summary: 7-Mode Transition Tool インストールおよびセットアップガイドの著作権情報。 
 ---
 = 著作権
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

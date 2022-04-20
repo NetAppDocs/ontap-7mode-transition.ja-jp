@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, assess, controller, host
 summary: 環境内のセキュリティ規制に応じて、 7-Mode Transition Tool または Inventory Collect Tool を使用して、コントローラとホストに関する情報を収集して評価できます。 
 ---
 = コントローラとホストの評価
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

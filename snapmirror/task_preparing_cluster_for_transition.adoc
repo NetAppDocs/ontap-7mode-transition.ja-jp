@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, prepare, transition, cluster, requirements
 summary: 7-Mode システムを移行する前に、クラスタをセットアップしておく必要があります。また、 LIF のセットアップ、ネットワーク接続の検証など、移行の要件をクラスタが満たしていることを確認する必要があります。 
 ---
 = クラスタで移行準備をします
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

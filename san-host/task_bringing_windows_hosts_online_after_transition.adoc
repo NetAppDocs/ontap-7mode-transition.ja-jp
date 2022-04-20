@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, windows, host, online
 summary: Windows ホスト用の 7-Mode Transition Tool \ （ 7MTT \ ）を使用して LUN を移行したら、いくつかの手順を実行してホストをオンラインにし、データの提供を再開する必要があります。 
 ---
 = 移行後に Windows ホストをオンラインにします
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

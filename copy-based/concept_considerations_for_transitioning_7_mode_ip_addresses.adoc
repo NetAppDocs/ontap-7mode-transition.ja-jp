@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, 7, mode, ip, address
 summary: ONTAP で Storage Virtual Machine （ SVM ）に 7-Mode IP アドレスを移行する場合は、考慮すべき点がいくつかあります。 
 ---
 = 7-Mode IP アドレスの移行に関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

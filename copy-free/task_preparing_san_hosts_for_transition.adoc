@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, san, host
 summary: SAN 環境を移行するには、いくつかの手順を手動で実行し、 SAN ホストで移行準備をする必要があります。 
 ---
 = SAN ホストでの移行準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

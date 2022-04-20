@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, requirements
 summary: Copy-Based Transition の対象となる ONTAP のリリース要件、ライセンス要件、 7-Mode Transition Tool の要件を理解しておく必要があります。 
 ---
 = Copy-Based Transition の要件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

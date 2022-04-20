@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, transition, aix, host, data, lun, file, 
 summary: ファイルシステムを搭載した AIX ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する前に、移行プロセスに必要な情報を収集する必要があります。 
 ---
 = ファイルシステムを搭載した AIX ホストデータ LUN の移行準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

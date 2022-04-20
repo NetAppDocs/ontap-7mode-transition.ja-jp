@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, collect, storage, host, inventory, informa
 summary: Inventory Collect Tool は、 clustered Data ONTAP と 7-Mode のシステム、スイッチ、ホスト、およびそれらのホストで実行されているアプリケーションに関する情報を収集してインベントリレポートを作成するツールです。作成したインベントリレポートは、 7-Mode Transition Tool にインポートして移行のための環境評価に使用できます。 
 ---
 = ストレージとホストのインベントリ情報を収集
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

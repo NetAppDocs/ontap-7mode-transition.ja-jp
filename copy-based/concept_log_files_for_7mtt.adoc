@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, log, files, tool
 summary: 7-Mode Transition Tool では、システムで発生した移行処理の詳細を記録したログファイルが作成されます。ログファイルは、 7-Mode Transition Tool がインストールされているパスの logs ディレクトリにあります。 
 ---
 = 7-Mode Transition Tool のログファイル
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, consolidate, cron, schedules, transiti
 summary: 7-Mode Transition Tool は、移行したボリュームごとに固有のスケジュールを生成します。そのため、移行後に大量の cron スケジュールが生成される可能性があるため、移行後の cron スケジュールの統合方法を把握しておく必要があります。 
 ---
 = ボリューム移行後の cron スケジュールの統合
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

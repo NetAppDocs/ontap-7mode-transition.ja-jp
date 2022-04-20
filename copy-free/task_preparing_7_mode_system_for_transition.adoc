@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare, ha, pair
 summary: 移行を開始する前に、 7-Mode システムがターゲットクラスタと通信できるようにし、 HTTPS と TLS を有効にするなど、 7-Mode システムで一定の作業を完了しておく必要があります。 
 ---
 = 7-Mode HA ペアでの移行の準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

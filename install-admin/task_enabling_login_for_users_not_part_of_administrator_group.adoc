@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, enable, login, user, administrator, group
 summary: デフォルトでは、ユーザは 7-Mode Transition Tool がインストールされている Windows システムの Administrators グループに属している必要があります。Administrators グループに属していないユーザおよびツールをインストールできず、ツールがインストールされている Windows システムの使用は許可されているユーザについては、いつでもログインを有効にすることができます。 
 ---
 = Administrators グループに属していないユーザのログインの有効化
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

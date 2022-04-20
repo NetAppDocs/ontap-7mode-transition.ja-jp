@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, configure, zone, fc, plan
 summary: 移行が完了したら、 FC ゾーン計画を使用してゾーンを設定し、イニシエータホストとターゲットをグループ化してクラスタからのデータアクセスを提供する必要があります。 
 ---
 = FC ゾーン計画を使用したゾーンの設定
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

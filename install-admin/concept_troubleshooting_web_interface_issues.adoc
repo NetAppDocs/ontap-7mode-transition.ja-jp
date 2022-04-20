@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, troubleshoot, issues, errors
 summary: 7-Mode Transition Tool での代表的な問題とその解決方法を理解しておく必要があります。 
 ---
 = 問題のトラブルシューティング
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

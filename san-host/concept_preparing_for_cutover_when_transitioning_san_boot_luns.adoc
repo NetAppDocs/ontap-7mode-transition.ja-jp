@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, san, boot, lun
 summary: SAN ブート LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、カットオーバーフェーズを開始する前にいくつかの前提条件を確認しておく必要があります。 
 ---
 = SAN ブート LUN 移行時のカットオーバーフェーズの準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

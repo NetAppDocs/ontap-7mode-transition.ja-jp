@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, volume, secondary
 summary: セカンダリボリュームを移行するには、 SnapMirror 関係を作成し、ベースライン転送と増分更新を実行し、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間に SnapMirror 関係を設定する必要があります。 
 ---
 = セカンダリボリュームを移行する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

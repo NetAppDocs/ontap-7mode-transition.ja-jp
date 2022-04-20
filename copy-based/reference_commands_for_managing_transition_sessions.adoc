@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, cbt, command, manage
 summary: transition cbt コマンドを使用して、移行プロジェクトの作成、変更、削除、表示などの処理を管理することができます。 
 ---
 = 移行管理用のコマンド
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

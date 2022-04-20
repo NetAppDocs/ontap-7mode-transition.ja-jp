@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, license, requirements, transition, snapmirror, cluster
 summary: 7-Mode から clustered Data ONTAP にボリュームを移行する前に、 7-Mode ストレージシステムに SnapMirror のライセンスがあることを確認してください。7-Mode の Volume SnapMirror 関係を移行する場合は、ソースクラスタとデスティネーションクラスタでも SnapMirror のライセンスが必要です。 
 ---
 = 移行のライセンス要件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

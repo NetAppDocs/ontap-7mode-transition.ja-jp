@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, performing, rollback, 7, mode
 summary: ロールバックとは、 ONTAP システムへの移行を中止して、 7-Mode システムにリバートする処理です。移行のロールバックは手動で行います。ただし、 7-Mode Transition Tool には、ロールバックで実行する必要のある手動タスクの一覧が表示されます。 
 ---
 = 7-Mode への移行のロールバックの実行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

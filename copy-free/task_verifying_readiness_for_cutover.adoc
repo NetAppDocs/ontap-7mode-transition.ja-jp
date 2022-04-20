@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, verify, cutover, ready, systems
 summary: クライアントアクセスを切断する前に、 7-Mode システムのストレージカットオーバーの準備状況を検証できます。たとえば、 SP または RLM が 7-Mode システムで設定されているかどうか、ディスクシェルフ、アグリゲート、ボリュームの移行準備ができているかどうかを検証します。エクスポート処理の前に問題を手動で修正することで、ダウンタイムを短縮できます。 
 ---
 = 7-Mode システムのカットオーバーの準備状況の検証
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

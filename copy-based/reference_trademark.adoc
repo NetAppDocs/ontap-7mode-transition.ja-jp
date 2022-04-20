@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, trademark
 summary: 『 7-Mode Transition Tool Copy-Based Transition Guide 』の商標に関する情報。 
 ---
 = 商標です
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

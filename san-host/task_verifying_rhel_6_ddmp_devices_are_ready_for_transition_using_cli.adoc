@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rhel, ddmp, devices, cli
 summary: Red Hat Enterprise Linux \ （ RHEL\ ） 6 DMMP デバイスを移行する前に、デバイスが論理ボリュームマネージャ \ （ LVM ）に含まれておらず、ファイルシステムがないことを確認する必要があります。 
 ---
 = RHEL 6 DMMP デバイスの移行準備状況の確認 CLI を使用
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, resume, failed, snapmirror, baseline, transfer, transi
 summary: 移行中に SnapMirror ベースライン転送が失敗した場合、ネットワーク接続の切断、転送の中止、コントローラフェイルオーバーなど、様々な原因が考えられます。失敗した原因を修正後、再開チェックポイントがある場合は SnapMirror 転送を再開できます。 
 ---
 = 失敗した SnapMirror ベースライン転送を再開します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

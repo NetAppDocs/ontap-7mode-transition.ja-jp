@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, version, transition, requirements, data, clustered
 summary: 移行を実行する前に、 clustered Data ONTAP 8.3 以降への移行がサポートされる Data ONTAP 7-Mode のバージョンを確認しておく必要があります。 
 ---
 = 移行での 7-Mode のバージョン要件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

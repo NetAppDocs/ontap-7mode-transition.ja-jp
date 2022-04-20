@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, support, snaplock, volumes
 summary: 7-Mode Transition Tool では、 9.6 を除く ONTAP 9.0 リリースを実行しているターゲットクラスタへの SnapLock ボリュームの移行がサポートされます。 
 ---
 = SnapLock ボリュームの移行がサポートされます
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, create, data, copy, schedule
 summary: 7-Mode Transition Tool では、アクティブなスケジュールをチェックするスケジューラが 5 分ごとに実行されます。データコピースケジュールをアクティブにするための要件を確認しておく必要があります。データコピースケジュールの各種パラメータを設定する際に次のベストプラクティスに従うと、 SnapMirror 転送を効率的に管理できます。 
 ---
 = データコピースケジュールの作成に関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

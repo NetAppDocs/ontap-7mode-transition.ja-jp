@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, perform, manual, post, tasks
 summary: ストレージカットオーバーが終了して移行が完了したら、 ONTAP ボリュームにクライアントがアクセスできるようにする前に、移行されなかった機能を設定するタスクを実行する必要があります。 
 ---
 = 移行後の手動タスクを実行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

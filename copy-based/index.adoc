@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, index
 summary: 7-Mode Transition Tool を使用して、 7-Mode のコントローラ、ホスト、およびアプリケーションを移行の対象として評価し、 7-Mode システムから ONTAP にデータと構成をコピーベースでマイグレートする方法について説明します。 
 ---
 = Copy-Based Transition ガイド』を参照してください
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

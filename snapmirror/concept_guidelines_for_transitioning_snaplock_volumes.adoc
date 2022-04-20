@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, guidelines, snaplock, volumes, requirement
 summary: 7-Mode SnapLock ボリュームは、 ONTAP 9.5 以前で作成された SnapLock ボリュームに移行できます。SnapLock ボリュームの移行に関する要件とガイドラインを確認しておく必要があります。 
 ---
 = SnapLock ボリュームの移行に関するガイドライン
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

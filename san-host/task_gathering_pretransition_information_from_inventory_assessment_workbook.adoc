@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, pretransition, information, inventory, a
 summary: Inventory Assessment Workbook には、移行のさまざまなフェーズで必要となる情報が含まれています。移行を開始する前にこの情報を収集して記録し、プロセスをとおして必要に応じて参照できるようにしておく必要があります。 
 ---
 = Inventory Assessment Workbook からの移行前の情報収集
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

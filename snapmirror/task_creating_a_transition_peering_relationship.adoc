@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, create, peer, relationship, snapmirror
 summary: 7-Mode システムとクラスタの間の移行のための SnapMirror 関係を設定する前に、移行ピア関係を作成する必要があります。クラスタ管理者は、 vserver peer transition create コマンドを使用することにより、 SVM と 7-Mode システムの間の移行ピア関係を作成できます。 
 ---
 = 移行ピア関係を作成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

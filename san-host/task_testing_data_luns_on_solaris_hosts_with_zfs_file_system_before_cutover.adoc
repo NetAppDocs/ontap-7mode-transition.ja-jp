@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, data, lun, solaris, zfs, cutover, copy, 
 summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Solaris ホストの ZFS データ LUN を移行する場合は、カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、 MPIO デバイスがマウント可能であることを確認できます。 
 ---
 = ZFS ファイルシステムを搭載した Solaris ホスト上のデータ LUN のテスト コピーベースの移行のカットオーバーフェーズ前
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

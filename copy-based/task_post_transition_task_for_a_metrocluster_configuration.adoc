@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, cron, job, schedules, metrocluster, re
 summary: 移行中に作成された cron ジョブスケジュールはリモートサイトにレプリケートされないため、移行後のネゴシエートスイッチオーバーは失敗します。移行後にリモートサイトで cron ジョブスケジュールを手動で作成する必要があります。 
 ---
 = 移行後にリモートサイトで cron ジョブスケジュールを設定 MetroCluster 構成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

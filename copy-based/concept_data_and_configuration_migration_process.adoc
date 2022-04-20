@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, data, configuration, migration, proces
 summary: 7-Mode Transition Tool を使用したデータと構成のマイグレーションプロセスは、準備、ベースラインデータコピー、構成の適用（カットオーバー前）、ストレージカットオーバーの各フェーズで構成されます。CoC 検証の対象となる SnapLock ボリュームがある場合は、カットオーバー後に CoC 検証フェーズが追加されます。 
 ---
 = データと構成のマイグレーションプロセス
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

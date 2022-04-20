@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, linux, transition, copy, based
 summary: Linux システムでは、コマンドラインインターフェイスを使用して 7-Mode Transition Tool をダウンロードしてインストールできます。必要に応じて、 7-Mode Transition Tool をアンインストールできます。 
 ---
 = Linux での 7-Mode Transition Tool のインストールまたはアンインストール （コピーベースの移行のみ）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

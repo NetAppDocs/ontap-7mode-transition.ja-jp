@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, generate, fc, zone, plan
 summary: FC スイッチについては、移行のための環境評価レポートの一部として FC ゾーン計画を生成し、マイグレーション後にイニシエータホストとターゲットをグループ化するためのゾーンを設定する必要があります。 
 ---
 = FC ゾーン計画の生成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, supported, fc, zone, plan, generate
 summary: FC ゾーン計画の生成でサポートされる 7-Mode システム、ホスト、 FC スイッチ、およびクラスタの構成を理解しておく必要があります。移行後のクラスタのゾーンの設定には、この計画を使用する必要があります。 
 ---
 = FC ゾーン計画の生成でサポートされる構成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

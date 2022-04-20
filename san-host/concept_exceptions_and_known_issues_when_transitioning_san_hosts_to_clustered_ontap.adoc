@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, exceptions, issues, san, host
 summary: Data ONTAP 7-Mode から新しいバージョンの ONTAP に SAN ホストを移行する場合は、一定の例外および既知の問題を把握しておく必要があります。 
 ---
 = SAN ホストを ONTAP に移行する際の例外と既知の問題
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

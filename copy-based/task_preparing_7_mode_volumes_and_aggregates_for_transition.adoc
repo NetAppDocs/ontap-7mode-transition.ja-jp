@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, aggrates, volumes
 summary: 移行の前に、 7-Mode のアグリゲートとボリュームが移行対象として問題がないことを確認し、いくつかの手順を手動で実行する必要があります。たとえば、一部のタイプのボリュームは移行できません。また、 32 ビットデータは移行前に 7-Mode システムから削除する必要があります。 
 ---
 = 7-Mode のアグリゲートとボリュームで移行準備をします
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

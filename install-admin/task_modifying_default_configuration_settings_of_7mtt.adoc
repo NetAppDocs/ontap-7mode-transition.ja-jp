@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, modify, configuration, options, transition, t
 summary: 7-Mode Transition Tool で使用される構成オプションを変更するには、 $INSTALL_DIR\\etc\... ファイルを編集します。このファイルには、ツールの動作に必要なすべての構成可能オプションに関する情報が含まれています。 
 ---
 = 7-Mode Transition Tool の構成オプションの変更
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

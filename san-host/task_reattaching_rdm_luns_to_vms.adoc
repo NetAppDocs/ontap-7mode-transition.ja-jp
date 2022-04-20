@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rdm, lun, vm
 summary: Raw デバイスマッピング（ RDM ） LUN に接続されている VM が移行後に機能するようにするには、 LUN をホストする RDM ディスクを VM から削除する必要があります。その後、 7-Mode Transition Tool \ （ 7MTT \ ）から提供された LUN シリアル番号に基づいて、 RDM ディスクを VM に再接続します。 
 ---
 = RDM LUN を VM に再接続
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

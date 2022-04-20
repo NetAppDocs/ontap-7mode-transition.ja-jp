@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remove, stal, rdm, vsphere, client
 summary: ONTAP 7-Mode から clustered Data ONTAP への移行時には、すべての RDM LUN が「古く」なります。移行後に LUN でデータの提供を開始するには、これらの RDM を削除して再接続する必要があります。 
 ---
 = vSphere Client を使用して古い RDM を削除する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, metrocluster, configuration
 summary: MetroCluster 構成に移行する前に、 7-Mode ボリュームを ONTAP 内の MetroCluster 構成に移行する場合の要件と考慮事項を理解しておく必要があります。 
 ---
 = MetroCluster 構成の移行準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

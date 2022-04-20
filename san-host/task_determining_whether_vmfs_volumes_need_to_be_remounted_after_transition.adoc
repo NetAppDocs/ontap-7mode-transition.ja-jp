@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, vmfs, volumes, remounted
 summary: Data ONTAP 7-Mode から clustered Data ONTAP に移行したあと、 VMFS データストアと VM を移行前の状態に戻すために VMFS ボリュームの再マウントが必要になる場合があります。 
 ---
 = 移行後に VMFS ボリュームの再マウントが必要かどうかを判断します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

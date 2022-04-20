@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, lun, esxi, applications, cutover, phase,
 summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して ESXi ホストを移行する場合は、カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、ホストとアプリケーションをオンラインにできるかどうかを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
 ---
 = カットオーバー前の移行した LUN と ESXi ホストアプリケーションのテスト コピーベースの移行のフェーズ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

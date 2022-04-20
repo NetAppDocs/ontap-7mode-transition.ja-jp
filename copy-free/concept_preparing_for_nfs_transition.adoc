@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare, nfs
 summary: 7-Mode システムに NFS のライセンスが設定されていて NFS サービスが実行されている場合は、クラスタおよびターゲット SVM で NFS 構成を移行する準備を手動で行う必要があります。また、移行される構成についても把握しておく必要があります。 
 ---
 = NFS の移行を準備しています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, san, boot, lun, supported
 summary: Data ONTAP 7-Mode から clustered Data ONTAP への移行対象としてサポートされるのは、特定のタイプの SAN ブート LUN のみです。 
 ---
 = 移行対象としてサポートされる SAN ブート LUN のタイプ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

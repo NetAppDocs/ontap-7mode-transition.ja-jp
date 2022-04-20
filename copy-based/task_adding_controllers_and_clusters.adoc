@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, add, controller, clusters
 summary: 移行を開始するには、移行に必要な 7-Mode コントローラとクラスタを追加する必要があります。評価対象に含まれている 7-Mode コントローラは、自動的に移行対象として追加されます。 
 ---
 = コントローラとクラスタを追加する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

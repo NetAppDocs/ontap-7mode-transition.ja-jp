@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, hp, ux, hosts, fc, configurations
 summary: FC 構成の HP-UX ホスト上の SAN ブート LUN を移行する前に、 HP-UX がインストールされている 7-Mode LUN の名前、その LUN の SCSI デバイス名、アジャイル命名規則、 WWID を記録しておく必要があります。 
 ---
 = を搭載した HP-UX ホスト上の SAN ブート LUN の移行準備 FC 構成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

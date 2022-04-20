@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, perform, demand, snapmirror, updates
 summary: カットオーバー処理の前にすべてのボリュームに対して SnapMirror 差分更新を実行し、カットオーバーにかかる時間を短縮できます。 
 ---
 = SnapMirror 更新をオンデマンドで実行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, commit, project
 summary: 移行の最後の手順は、 Copy-Free Transition プロジェクトのコミットです。アグリゲートをコミットしたあとで、 7-Mode へのロールバックを実行することはできません。 
 ---
 = コピーフリーの移行プロジェクトのコミット
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

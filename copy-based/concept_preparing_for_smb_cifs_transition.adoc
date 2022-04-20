@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, smb, cifs
 summary: 7-Mode システムに SMB / CIFS のライセンスがあり、 SMB / CIFS サービスが実行されている場合は、 SMB / CIFS 構成を移行するために、 SMB / CIFS ライセンスの追加や SMB / CIFS サーバの作成などのいくつかのタスクをターゲットクラスタと SVM で手動で実行する必要があります。 
 ---
 = SMB / CIFS の移行の準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

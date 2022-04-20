@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, edit, delete, data, copy, snapmirror, 
 summary: 他の DR スケジュールを設定または変更した結果、移行のデータコピースケジュールの変更が必要になった場合は、 SnapMirror のベースラインコピー処理、更新処理、および再同期処理に使用するデータコピースケジュールを編集または削除できます。 
 ---
 = SnapMirror 転送のデータコピースケジュールを編集または削除する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

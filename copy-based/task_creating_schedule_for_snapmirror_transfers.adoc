@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, create, data, copy, schedule, snapmirr
 summary: データコピースケジュールを作成して、プロジェクト内のボリュームの移行データコピー処理を効率的に管理することができます。また、 SnapMirror の同時転送数が上限に達してレプリケーション処理が失敗することがないように、このスケジュールの実行中に同時に実行する SnapMirror 転送の数も指定できます。 
 ---
 = SnapMirror 転送のデータコピースケジュールを作成します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

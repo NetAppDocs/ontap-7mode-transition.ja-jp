@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, index
 summary: 7-Mode Transition Tool を使用して ONTAP にデータと構成を移行する場合に、 VMware ESXi 、 Red Hat Linux 、 Windows の各ホストで実行する移行前の手順と移行後の手順について説明します。 
 ---
 = 『 SAN ホストの移行および修復ガイド』
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

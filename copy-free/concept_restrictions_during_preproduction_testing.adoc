@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, preproduction, testing, restrictions
 summary: テスト時にはブロックされる処理、および推奨されない処理があります。これらの制限は、移行をコミットしない場合に 7-Mode へのロールバックを可能にするためにあります。 
 ---
 = テスト時の制限事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

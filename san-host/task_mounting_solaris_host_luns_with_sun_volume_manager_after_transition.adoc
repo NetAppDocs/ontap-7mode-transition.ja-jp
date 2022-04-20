@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, mount, solaris, host, lun, volume, manag
 summary: Solaris Volume Manager を搭載した Solaris ホスト LUN を ONTAP 7-Mode から clustered ONTAP に移行した場合、移行後に LUN をマウントする必要があります。 
 ---
 = 移行後の Solaris Volume Manager を搭載した Solaris ホスト LUN のマウント
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, reconfiguration, vmware, software, iscsi
 summary: VMware ソフトウェア iSCSI イニシエータを搭載した Data ONTAP 7-Mode システムに ESXi ホストがアクセスしていた場合は、 7-Mode から clustered Data ONTAP への移行後に ESXi ホストで VMware ソフトウェア iSCSI イニシエータを再設定し、新しい clustered Data ONTAP ターゲットを検出できるようにする必要があります。 
 ---
 = 移行後の VMware ソフトウェア iSCSI イニシエータの再設定
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

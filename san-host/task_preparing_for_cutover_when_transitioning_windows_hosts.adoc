@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, windows, hosts
 summary: Windows ホストを Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、移行の開始後、カットオーバーフェーズを開始する前にいくつかの手順を実行する必要があります。 
 ---
 = Windows ホスト移行時のカットオーバーフェーズの準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

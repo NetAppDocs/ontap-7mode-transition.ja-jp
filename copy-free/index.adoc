@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, index
 summary: 7-Mode Transition Tool を使用して、 7-Mode HA ペアから ONTAP クラスタに移行する方法について説明します。この方法では、データをディスクからコピーする必要はありません。既存のディスクシェルフは新しいクラスタに接続されます。 
 ---
 = コピーフリーの移行ガイド
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

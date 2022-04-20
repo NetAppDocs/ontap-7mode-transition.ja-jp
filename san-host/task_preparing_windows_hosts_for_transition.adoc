@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, windows, host
 summary: Windows ホストを Data ONTAP 7-Mode から clustered Data ONTAP に移行する前にいくつかの手順を実行する必要があります。 
 ---
 = Windows ホストでの移行準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

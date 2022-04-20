@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, disconnect, disk, shelves, connect, clu
 summary: 7-Mode ディスクシェルフをターゲットクラスタノードにケーブル接続する作業は手動で行います。ディスクシェルフのケーブル接続が完了したら、 Config Advisor を使用してケーブル接続を検証することを推奨します。その後、 7-Mode Transition Tool を使用してケーブル接続を検証します。ツールで実行されるチェックは、 Config Advisor で実行されるチェックの一部です。 
 ---
 = ディスクシェルフを 7-Mode システムから切断して接続 クラスタノード
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

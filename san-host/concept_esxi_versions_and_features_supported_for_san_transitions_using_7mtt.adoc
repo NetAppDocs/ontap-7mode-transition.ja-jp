@@ -5,6 +5,7 @@ keywords: esxi, ontap, san, host, transition, versions, san, 7mtt, features
 summary: 7-Mode Transition Tool \ （ 7MTT \ ）を使用した SAN の移行では、 ESXi の特定のバージョンと機能のみサポートされます。 
 ---
 = 7MTT を使用した SAN の移行でサポートされる ESXi のバージョンと機能
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

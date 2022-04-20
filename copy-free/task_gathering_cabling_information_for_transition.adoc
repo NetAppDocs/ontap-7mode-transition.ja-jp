@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, gather, cabling, information
 summary: コピーフリーの移行を開始する前に、 7-Mode コントローラのアダプタ、ポート、ディスクシェルフ、およびストレージ接続に関する情報を収集し、 7-Mode ディスクシェルフをターゲットクラスタノードに接続する方法を計画する必要があります。 
 ---
 = 移行のためのケーブル接続情報の収集
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

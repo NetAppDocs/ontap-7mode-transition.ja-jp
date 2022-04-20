@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, aggregate, space, requirements
 summary: 移行の前に、 7-Mode アグリゲートに十分な空きスペースがあることを確認する必要があります。7-Mode Transition Tool は、物理スペース、論理スペース、 Snapshot コピーの占有スペース、およびスペースギャランティの設定に基づいて、アグリゲートに対してさまざまなスペースチェックを実行します。また、 Flash Pool アグリゲートのスペースに関する考慮事項も把握しておく必要があります。 
 ---
 = 移行でのアグリゲートスペースの要件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

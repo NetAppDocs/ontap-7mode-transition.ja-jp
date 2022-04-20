@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, commands, options
 summary: Data ONTAP 7-Mode では、 options コマンドを実行して、ストレージシステムソフトウェアの設定可能なオプションを設定します。ONTAP では、コマンドパラメータを使用して、これらのオプションを設定します。以降の表を使用して、 7-Mode コマンドと ONTAP コマンドのマッピングを確認できます。 
 ---
 = 7-Mode オプションと ONTAP コマンドのマッピング
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, solaris, host, data, lun, zfs, file, sys
 summary: 7-Mode Transition Tool （ 7MTT ）を使用して、 ZFS ファイルシステムを搭載した Solaris ホストデータ LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行する場合は、移行の前後に特定の手順を実行して、ホストに関する移行の問題を修復する必要があります。 
 ---
 = ZFS ファイルシステムを搭載した Solaris ホストデータ LUN の移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

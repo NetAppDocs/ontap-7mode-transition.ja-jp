@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, assessment, report, add, transition, to
 summary: 7-Mode Transition Tool にシステムを追加することで、コントローラ、ホスト、および FC スイッチのインベントリ情報を収集できます。そのあとに評価レポートを作成して、追加したシステムの機能を評価するとともに、移行先として選択した ONTAP バージョンでそれらの機能がどのように動作するかを確認できます。 
 ---
 = 7-Mode にシステムを追加することによる評価レポートの作成 移行ツール
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

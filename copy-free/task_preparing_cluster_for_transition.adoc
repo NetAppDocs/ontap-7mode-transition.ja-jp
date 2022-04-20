@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, cluster, prepare
 summary: 移行の前に、クラスタが 7-Mode Transition Tool と通信できるように準備し、 SVM で移行準備をする必要があります。データアグリゲートがあるターゲット HA ペアに移行できます。 
 ---
 = クラスタで移行準備をします
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

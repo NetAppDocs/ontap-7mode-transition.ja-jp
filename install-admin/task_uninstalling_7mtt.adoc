@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, transition, tool, windows
 summary: Windows のプログラムアンインストールユーティリティを使用して、 7-Mode Transition Tool をアンインストールすることができます。 
 ---
 = Windows システムでの 7-Mode Transition Tool のアンインストール
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

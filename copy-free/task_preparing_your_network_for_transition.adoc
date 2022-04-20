@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare, network
 summary: 論理ポート（ VLAN およびインターフェイスグループ）を作成して、クラスタのデータネットワークで移行準備をする必要があります。 
 ---
 = ネットワークでの移行の準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

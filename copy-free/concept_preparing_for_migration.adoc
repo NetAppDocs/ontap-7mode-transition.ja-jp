@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare
 summary: Copy-Free Transition を開始する前に、移行する 7-Mode HA ペアを特定し、マイグレーションの要件と制限事項を把握して、 7-Mode システムとクラスタで移行準備をする必要があります。また、移行対象としてサポートされる Data ONTAP 機能とサポートされない機能を把握しておく必要があります。 
 ---
 = Copy-Free Transition を準備しています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, lun, mount, points, dmmp, device, name
 summary: DMMP デバイス名を使用するマウントポイントを含む LUN を移行する前に、 DMMP デバイス名を対応するファイルシステム UUID 番号に置き換える必要があります。カットオーバーフェーズに備えて特定の手順を実行し、移行後にホストで DMMP デバイスを再マウントする必要があります。Red Hat Enterprise Linux \ （ RHEL \ ） 5 および RHEL 6 についても同じ手順を実行します。 
 ---
 = DMMP デバイス名を使用するマウントポイントを含む LUN の移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

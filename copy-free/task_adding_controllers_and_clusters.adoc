@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, add, controllers, clusters
 summary: 移行を開始するには、 7-Mode HA ペアの両方のノードを含む 7-Mode コントローラと、移行に必要なクラスタを追加する必要があります。クラスタはクラスタ管理インターフェイスを使用して追加します。 
 ---
 = コントローラとクラスタを追加する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

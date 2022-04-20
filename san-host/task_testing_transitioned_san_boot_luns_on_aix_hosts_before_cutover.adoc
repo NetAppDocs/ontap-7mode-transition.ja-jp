@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, boot, lun, aix, hosts, cutover, phase, c
 summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して 7-Mode Windows ホスト LUN を移行する場合は、カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、 LUN が想定どおりに機能していることを確認できます。 
 ---
 = 前に AIX ホスト上の移行した SAN ブート LUN をテストします コピーベースの移行のカットオーバーフェーズ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

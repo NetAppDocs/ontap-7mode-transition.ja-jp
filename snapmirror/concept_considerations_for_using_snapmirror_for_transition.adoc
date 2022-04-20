@@ -5,6 +5,7 @@ keywords: ontap, 7, transition, mode, snapmirror, operations, snapvault, conside
 summary: SnapMirror または SnapVault 処理と同時に 7-Mode システムで実行する場合は、 SnapMirror の同時転送数、データコピースケジュール、複数のパスを使用した移行など、一定の考慮事項に注意する必要があります。 
 ---
 = SnapMirror を使用した移行に関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

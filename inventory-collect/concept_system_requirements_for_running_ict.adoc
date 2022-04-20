@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, system, requirements, inventory, collect, 
 summary: Inventory Collect Tool は、 Windows システムにダウンロードして実行することができます。Inventory Collect Tool を実行するには、 Windows システムが構成要件を満たしている必要があります。 
 ---
 = Inventory Collect Tool を実行するためのシステム要件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

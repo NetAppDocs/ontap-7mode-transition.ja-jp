@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, disaster, recovery, relationship, vfiler, 
 summary: 7-Mode システムのプライマリ vFiler ユニットとセカンダリ vFiler ユニット間のディザスタリカバリ（ DR ）関係を、クラスタ内のソース SVM とデスティネーション SVM 間のディザスタリカバリ関係に移行できます。 
 ---
 = vFiler ユニット間でディザスタリカバリ関係を移行する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

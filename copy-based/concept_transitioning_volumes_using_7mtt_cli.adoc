@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, cli, tool, columes
 summary: 7-Mode Transition Tool では、コマンドを使用して 7-Mode ボリュームを移行できます。7-Mode Transition Tool を Linux システムにインストールした場合は、 CLI を使用して移行を実行する必要があります。 
 ---
 = 7-Mode Transition Tool CLI を使用したボリュームの移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

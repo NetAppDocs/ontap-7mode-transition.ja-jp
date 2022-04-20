@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, transition, linux
 summary: Linux システムでは、コマンドラインインターフェイスを使用して 7-Mode Transition Tool をインストールできます。 
 ---
 = Linux への 7-Mode Transition Tool のインストール
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, overview
 summary: clustered ONTAP への移行では、現在の環境を確認し、移行対象を決定するとともに、デスティネーションシステムの最適な構成を設計し、データと構成のマイグレート方法を計画し、必要に応じて環境を更新します。 
 ---
 = 移行の概要
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

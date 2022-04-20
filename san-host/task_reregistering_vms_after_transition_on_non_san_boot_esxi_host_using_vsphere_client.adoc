@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, vm, esxi, vsphere, client
 summary: SAN ブート以外のホストを移行したあと、仮想マシン（ VM ）を再登録する必要があります。 
 ---
 = を使用した非 SAN ブート ESXi ホストへの VM の再登録 vSphere Client の各機能を使用
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, assessment, executive, summary
 summary: 移行に関するエグゼクティブサマリーには、環境内の 7-Mode コントローラ、ホスト、および FC スイッチの概要が示されます。このサマリーは、現在使用している機能の評価レポートであり、ストレージ環境内の各ボリュームに適した移行方法が提示されます。このサマリーを使用して移行を計画できます。 
 ---
 = 評価のエグゼクティブサマリーを移行に使用する方法 評価
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

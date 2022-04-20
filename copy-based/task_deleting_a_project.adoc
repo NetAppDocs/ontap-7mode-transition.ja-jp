@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, delete, project
 summary: 不要になったプロジェクトはダッシュボードから削除できます。 
 ---
 = プロジェクトを削除する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

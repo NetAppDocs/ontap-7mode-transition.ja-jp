@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, copy, free, transition, based
 summary: 7-Mode Transition Tool では、コピーベースの移行またはコピーフリーの移行を使用して、 7-Mode から ONTAP にデータと構成を移行できます。移行の前に、この 2 つの方法の違いを理解しておくことが重要です。 
 ---
 = コピーフリーの移行とコピーベースの移行の比較
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

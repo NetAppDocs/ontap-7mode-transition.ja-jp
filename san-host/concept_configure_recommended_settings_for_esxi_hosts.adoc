@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, recommended, settings, esxi, hosts
 summary: ESXi ホストの移行後の修復手順が完了したら、ホスト上の clustered Data ONTAP に対して ESXi ホストの推奨設定を適用する必要があります。 
 ---
 = 移行の修復後の ESXi ホストの推奨設定
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

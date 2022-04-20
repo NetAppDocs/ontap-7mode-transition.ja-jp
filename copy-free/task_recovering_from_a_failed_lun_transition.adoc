@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, recover, failed, lun
 summary: LUN を含むボリュームの移行が失敗した場合は、 lun transition 7-mode show コマンドを使用して、 ONTAP に移行されなかった LUN を確認してから、対処方法を特定できます。 
 ---
 = LUN 移行が失敗した場合のリカバリ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

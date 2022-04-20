@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, vm, snapshots, removed, identify
 summary: 仮想 RDM が接続された Snapshot 仮想マシン（ VM\ ）は、 Data ONTAP 7-Mode から clustered Data ONTAP へ移行することができません。これらの Snapshot は、移行前に削除する必要があります。VMFS vDisk と物理 RDM （ PTRDM ）のみを使用する VM の Snapshot は移行可能なため、 Snapshot を削除する必要はありません。 
 ---
 = 事前に削除が必要な VM の Snapshot を特定する方法 移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

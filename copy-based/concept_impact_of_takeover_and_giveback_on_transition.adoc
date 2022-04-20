@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, impact, takeover, giveback
 summary: 移行の準備、開始、一時停止、再開、完了などの移行処理 コントローラのテイクオーバーまたはギブバックの実行中に失敗した場合 
 ---
 = テイクオーバーとギブバックが移行に与える影響
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, prepare, system, snapmirror
 summary: 移行を開始する前に、 SnapMirror ライセンスを追加する、 7-Mode システムがターゲットクラスタと通信できるようにするなど、 7-Mode システムで一定の作業を完了しておく必要があります。 
 ---
 = 7-Mode システムでの移行の準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

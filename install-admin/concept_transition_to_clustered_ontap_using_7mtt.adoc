@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, transition, tool, clustered
 summary: 7-Mode Transition Tool では、 7-Mode のコントローラ、ホスト、スイッチ、およびアプリケーションのインベントリを収集し、 clustered ONTAP への移行の準備状況を評価することができます。評価が完了したら、コピーベースの移行方式またはコピーフリーの移行方式を使用して、 7-Mode から clustered ONTAP にデータと構成をマイグレートできます。7-Mode Transition Tool は、ネットアップサポートサイトからダウンロードして、 Linux システムまたは Windows システムにインストールできます。 
 ---
 = 7-Mode Transition Tool を使用して、 clustered ONTAP に移行する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

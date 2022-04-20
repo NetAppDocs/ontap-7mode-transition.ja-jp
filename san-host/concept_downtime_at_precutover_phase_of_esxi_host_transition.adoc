@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, downtime, apply, configurations, precuto
 summary: ESXi ホストを移行する場合、構成の適用（カットオーバー前）フェーズでダウンタイムを計画する必要があります。 
 ---
 = ESXi ホスト移行時の構成の適用（カットオーバー前）フェーズにおけるダウンタイム
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

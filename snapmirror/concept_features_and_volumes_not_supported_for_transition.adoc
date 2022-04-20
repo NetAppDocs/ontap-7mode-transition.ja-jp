@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, feature, volumes, supported, snapmirror
 summary: 一部の機能は clustered Data ONTAP で使用できないため、トラディショナルボリュームなどの一部の 7-Mode ボリューム、および同期 SnapMirror 関係などの一部の 7-Mode 機能は移行できません。 
 ---
 = 移行では、機能とボリュームはサポートされていません
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

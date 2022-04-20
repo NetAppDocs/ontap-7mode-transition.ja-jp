@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, roll, back, project
 summary: 移行したアグリゲートをコミットする前であれば、コピーフリーの移行のどのフェーズでも、移行をロールバックして 7-Mode にリバートできます。ロールバックは手動で行います。7-Mode Transition Tool を使用して、ロールバックで実行する必要のある手動の手順を生成できます。 
 ---
 = コピーフリーの移行プロジェクトをロールバックしています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

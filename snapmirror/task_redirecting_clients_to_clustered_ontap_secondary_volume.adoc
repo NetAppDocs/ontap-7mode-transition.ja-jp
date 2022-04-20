@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, redirect, clients, disaster, c
 summary: 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間に SnapMirror ディザスタリカバリ（ DR ）関係を確立している場合、 7-Mode のプライマリサイトで災害が発生したら、クライアントアクセスを clustered Data ONTAP のセカンダリボリュームにリダイレクトする必要があります。 
 ---
 = 完了後に clustered Data ONTAP セカンダリボリュームにクライアントをリダイレクトします 災害が発生した場合
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

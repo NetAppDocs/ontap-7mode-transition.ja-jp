@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, delete, vm, snapshots, copy, vsphere, cl
 summary: ESXi CLI を使い慣れていない場合や、 vSphere Client を使用する方が便利な環境では、 vSphere Client を使用して仮想マシン（ VM\ ）の Snapshot を削除できます。 
 ---
 = vSphere Client を使用して VM Snapshot コピーを削除します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

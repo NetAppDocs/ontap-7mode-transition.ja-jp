@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, performing, manual, configuration
 summary: 移行したボリュームにアクセスするワークロードとアプリケーションで必要ないくつかの設定タスクを手動で実行する必要があります。事前確認の結果から手動タスクのリストを取得できます。 
 ---
 = 移行後に手動で設定タスクを実行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

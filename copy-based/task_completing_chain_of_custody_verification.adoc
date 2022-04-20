@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, complete, chain, custody, verification
 summary: CoC 検証の対象として選択されている SnapLock ボリュームがある場合は、 CoC 処理を実行して CoC レポートを作成する必要があります。 
 ---
 = CoC 検証の実行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, flexclone, volume
 summary: FlexClone ボリュームを SVM に移行すると、クローンが親ボリュームからスプリットされ、 FlexVol ボリュームとしてデスティネーションクラスタに移行されます。その結果、移行プロセスでクローン階層と Storage Efficiency が失われます。 
 ---
 = FlexClone ボリュームに関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

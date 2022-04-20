@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, map, svm, volumes
 summary: HA ペアの各 7-Mode コントローラをターゲット SVM にマッピングする必要があります。vFiler ユニットがある場合は、 vFiler ユニットごとにターゲット SVM を選択する必要があります。7-Mode コントローラまたは vFiler ユニットのボリュームは、マッピングした SVM に移行されます。 
 ---
 = SVM とボリュームのマッピング
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

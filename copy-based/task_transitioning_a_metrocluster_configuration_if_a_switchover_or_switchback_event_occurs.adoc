@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, metrocluster, configuration, failed, s
 summary: 移行の準備、開始、一時停止、再開、完了などの移行処理 MetroCluster スイッチオーバー中または MetroCluster スイッチバック後に失敗した場合移行を再開するには、 SnapMirror 関係を手動で再確立する必要があります。 
 ---
 = スイッチオーバーまたはスイッチオーバーが原因で失敗した MetroCluster 構成を移行する スイッチバック
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

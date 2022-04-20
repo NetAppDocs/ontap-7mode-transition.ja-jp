@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, exporte, storage, configurations, halt
 summary: 移行のカットオーバー期間はエクスポートフェーズから始まります。このフェーズでは、システム情報、ディスクシェルフの詳細、およびストレージ構成が 7-Mode システムから収集され、 7-Mode ストレージシステムが停止します。 
 ---
 = ストレージ構成をエクスポートして 7-Mode システムを停止します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

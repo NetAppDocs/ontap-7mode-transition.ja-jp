@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, discover, san, boot, lun
 summary: SAN ブート LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行したら、ホスト上で SAN ブート LUN を検出する必要があります。これは、コピーベースの移行（ CBT ）とコピーフリーの移行（ CFT ）に必要な手順です。これは、環境 FC 、 FCoE 、および iSCSI の構成です。 
 ---
 = 移行後に SAN ブート LUN を検出します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

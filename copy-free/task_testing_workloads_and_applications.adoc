@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, test, workload, application
 summary: すべてのワークロードとアプリケーションをテスト運用環境で手動でテストする必要があります。その後、プロジェクトをコミットする前に短期間だけ運用を開始して、ロールバックが必要かどうかを評価できます。 
 ---
 = ワークロードとアプリケーションのテスト
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

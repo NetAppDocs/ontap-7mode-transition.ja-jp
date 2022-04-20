@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, complete, project
 summary: 移行を完了するには、個々のプロジェクトを完了します。この処理はシステムの停止を伴うため、実行するタイミングを検討する必要があります。SnapMirror 関係にあるボリュームを移行する際には、プライマリプロジェクトの移行を実行する前にセカンダリプロジェクトが完了している必要があります。 
 ---
 = 移行プロジェクトの完了
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

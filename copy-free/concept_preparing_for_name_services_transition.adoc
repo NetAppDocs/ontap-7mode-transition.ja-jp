@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, name, services, prepare
 summary: DNS 、 LDAP 、 NIS 、ホスト、ネームサービススイッチなどのネームサービス設定 UNIX ユーザおよびグループおよびネットグループの構成は 7-Mode Transition Tool で移行されます。ネームサービス構成を移行する前に、いくつかの考慮事項を理解しておく必要があります。 
 ---
 = ネームサービスの移行準備をしています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

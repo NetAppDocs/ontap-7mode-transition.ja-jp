@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, prepare, system, host, inventory, collecti
 summary: インベントリレポートを正常に生成するには、 7-Mode システムおよびホストが一定のネットワーク要件とプロトコル要件を満たしている必要があります。 
 ---
 = 7-Mode システムとホストでインベントリ収集の準備を行う
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, host, lvm, device
 summary: 論理ボリュームマネージャ \ （ LVM \ ）デバイス上の Linux ホストファイルシステムを移行する場合は、カットオーバーフェーズの前にいくつかの手順を実行する必要があります。 
 ---
 = Linux ホストファイルシステム移行時のカットオーバーフェーズの準備 LVM デバイス
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

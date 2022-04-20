@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare, cluster, snapmirror, relations
 summary: 7-Mode の Volume SnapMirror 関係を移行するには、ソースとデスティネーションのクラスタに SnapMirror ライセンスを追加する必要があります。また、 SnapMirror 関係のプライマリボリュームとセカンダリボリュームの移行先となるクラスタ間にクラスタピア関係を作成し、 SnapMirror スケジュールを作成する必要があります。 
 ---
 = クラスタで Volume SnapMirror 関係を移行する準備をしています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

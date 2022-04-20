@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, severity, levels, precheck, messages
 summary: 移行の事前確認処理を実行して、 7-Mode ボリュームが移行可能かどうかを検証できます。移行の事前確認では、移行に関する問題がすべて報告されます。移行の問題には、問題が移行プロセスに与える影響に応じて重大度レベルが割り当てられます。 
 ---
 = 事前確認メッセージの重大度レベル
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

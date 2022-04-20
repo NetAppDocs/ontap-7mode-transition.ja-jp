@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, copyright
 summary: SAN ホストの移行および修復ガイドの著作権情報。 
 ---
 = 著作権
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

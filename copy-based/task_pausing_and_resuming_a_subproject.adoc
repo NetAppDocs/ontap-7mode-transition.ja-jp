@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, pause, resume, project
 summary: データコピーを開始したプロジェクトを一時停止および再開できます。 
 ---
 = プロジェクトの一時停止と再開
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

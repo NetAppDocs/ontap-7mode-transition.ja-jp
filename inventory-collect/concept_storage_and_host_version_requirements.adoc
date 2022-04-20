@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, storage, host, fc, switches, version, requ
 summary: インベントリ情報を収集できる Data ONTAP 7-Mode 、ホスト、および FC スイッチのバージョンを把握しておく必要があります。 
 ---
 = インベントリを収集するためのストレージ、ホスト、 FC スイッチのバージョン要件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

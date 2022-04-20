@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, failed, boot, controller, maintenance, 
 summary: 次のエラーメッセージが表示されて、エクスポートおよび停止処理が失敗します。 Failed to boot the 7-Mode controller in maintenance mode.保守モードでコントローラを手動で停止してブートし、処理を再実行する必要があります。 
 ---
 = メンテナンスモードで 7-Mode コントローラをブートできませんでした
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, san, boot, lun, primary, hp, ux, emulex,
 summary: Data ONTAP 7-Mode の HP-UX ホストが SAN ブートであった場合は、 clustered Data ONTAP への移行後に SAN ブート LUN をプライマリブート LUN にする必要があります。 
 ---
 = SAN ブート LUN を用のプライマリブート LUN にします 移行後に HP-UX Emulex HBA を使用します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

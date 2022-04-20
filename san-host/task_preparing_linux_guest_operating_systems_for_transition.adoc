@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, linux, operating, system
 summary: 7-Mode LUN が物理互換 RDM （ PTRDM\ ）としてブートデバイス用の Linux 仮想マシン（ VM\ ）にマッピングされている場合は、 Linux VM で移行準備のための手順を実行する必要があります。 
 ---
 = Linux ゲスト OS での移行準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, clustered, commands, options, configu
 summary: Data ONTAP 7-Mode から clustered Data ONTAP に移行する際には、 clustered Data ONTAP と 7-Mode のコマンド、オプション、構成ファイルの対応が記載されたコマンドマップを参照すると便利です。 
 ---
 = 7-Mode 管理者用の clustered Data ONTAP のコマンド、オプション、構成ファイルの対応マップ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, workflow
 summary: Copy-Free Transition ワークフローには、移行の準備、移行の実行、および移行の完了が含まれます。これらのタスクの一部は、 7-Mode システムとクラスタで手動で実行する必要があります。 
 ---
 = Copy-Free Transition ワークフロー
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

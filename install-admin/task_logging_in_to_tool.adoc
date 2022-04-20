@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, login, transition, tool
 summary: 7-Mode Transition Tool （ Web インターフェイス）にログインするには、ツールがインストールされている Windows システムのクレデンシャルを使用します。ログインする手順は、ユーザクレデンシャルのタイプによって異なります。 
 ---
 = 7-Mode Transition Tool へのログイン
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

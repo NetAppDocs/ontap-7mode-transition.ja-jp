@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, name, services, required, manual, steps
 summary: 7-Mode Transition Tool で移行されるネームサービス構成を理解しておく必要があります。ONTAP でサポートされていないか、または手動で移行しなければならない一部のネームサービス構成は、 ONTAP に移行されません。 
 ---
 = ネームサービスの移行：サポートされる構成とされない構成、必要な手動手順
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

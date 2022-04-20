@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, roll, back, transition, technical, supp
 summary: テスト環境またはラボ環境のクラスタはテクニカルサポートの支援なしでロールバックできますが、移行中や移行後に問題が発生した場合や、本番環境のクラスタで実行された移行をロールバックする場合は、テクニカルサポートに問い合わせる必要があります。 
 ---
 = 移行のロールバックのタイミングとコールのタイミング テクニカルサポート
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, start, data, copy, project
 summary: ベースライン転送のために、 7-Mode ボリュームから ONTAP ボリュームへのデータコピーを開始することができます。ベースライン転送は、プロジェクトで設定されているデータコピースケジュールがアクティブになると開始されます。ベースライン転送の完了後は、データコピースケジュールに基づいて定期的に ONTAP ボリュームが更新されます。 
 ---
 = 移行プロジェクトのデータコピーを開始します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

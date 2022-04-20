@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, primary, secondary, system, snapmirror,
 summary: 7-Mode SnapMirror 関係のボリュームを含むプライマリ HA ペアとセカンダリ HA ペアを並行して移行することができます。移行後に、 clustered Data ONTAP で Volume SnapMirror 関係を手動で設定する必要があります。SnapMirror 関係は移行後も維持されます。ベースラインの再設定は必要ありません。 
 ---
 = SnapMirror 関係のプライマリシステムとセカンダリシステムを移行する 平行（ Parallel ）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

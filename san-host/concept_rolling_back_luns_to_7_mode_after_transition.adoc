@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rolling, lun, 7, mode
 summary: clustered Data ONTAP LUN のパフォーマンスに満足できない場合は、コピーフリーの移行用に clustered Data ONTAP から Data ONTAP 7-Mode にロールバックできます（ CFT ）。コピーベースの移行（ CBT ）では、ロールバックはサポートされていません。ロールバックは特定のホストでのみサポートされます。 
 ---
 = 移行後の 7-Mode への LUN のロールバック
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

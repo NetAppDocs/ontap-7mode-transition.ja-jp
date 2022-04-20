@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, primary, volume, snapmirror
 summary: プライマリボリュームを移行するには、 7-Mode のプライマリボリュームから clustered Data ONTAP のプライマリボリュームへデータをコピーし、 7-Mode のプライマリボリュームと clustered Data ONTAP のセカンダリボリュームの間のディザスタリカバリ関係を削除し、 clustered Data ONTAP のプライマリボリュームとセカンダリボリュームの間に SnapMirror 関係を確立する必要があります。 
 ---
 = プライマリボリュームを移行する
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, supported, unsupported, cifs, configur
 summary: ONTAP でサポートされていないか、または手動で移行しなければならない一部の CIFS 構成は、 ONTAP に移行されません。事前確認のエラーおよび警告メッセージをすべて検証して、このような構成が移行に及ぼす影響を評価する必要があります。 
 ---
 = ONTAP への移行対象としてサポートされる CIFS 構成とされない CIFS 構成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

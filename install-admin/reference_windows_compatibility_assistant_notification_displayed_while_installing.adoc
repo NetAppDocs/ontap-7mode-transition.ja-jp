@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, windows, assistant, notification, compatibili
 summary: ツールのインストール中に、 Windows のプログラム互換性アシスタントから、プログラムが正しくインストールされなかった可能性があることが通知される場合があります。この通知は、必ずしもプログラムが正しくインストールされなかったことを示すものではありません。 
 ---
 = ツールのインストール中に Windows のプログラム互換性アシスタントから通知が表示される
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

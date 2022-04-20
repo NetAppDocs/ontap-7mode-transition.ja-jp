@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, post, remediation, esxi, host
 summary: 7-Mode Transition Tool （ 7MTT ）を使用して ESXi ホストの LUN を Data ONTAP 7-Mode から clustered Data ONTAP に移行したら、一連の修復タスクを実行して LUN をオンラインにし、データの提供を開始する必要があります。 
 ---
 = ESXi ホストでの移行後の修復の要件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

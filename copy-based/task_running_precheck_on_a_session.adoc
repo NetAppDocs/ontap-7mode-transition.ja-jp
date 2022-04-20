@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, run, prechecks
 summary: 移行セッションを作成したら、 transition precheck コマンドでセッションを検証して、 7-Mode 環境が移行可能かどうかを確認できます。7-Mode ストレージシステムと SVM の間で、機能やセキュリティ設定などの要素に互換性があるかどうかを確認できます。 
 ---
 = 事前確認を実行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

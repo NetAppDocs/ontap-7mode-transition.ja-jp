@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare
 summary: 7-Mode から ONTAP へのデータコピー処理を開始する前に、マイグレーションの要件と制限事項を理解し、 7-Mode システムとクラスタで一定の作業を完了しておく必要があります。 
 ---
 = Copy-Based Transition の準備をしています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

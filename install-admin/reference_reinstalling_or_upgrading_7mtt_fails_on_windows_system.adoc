@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, reinstall, upgrade, transition, tool, fail, w
 summary: ここでは、 Windows システムで 7-Mode Transition Tool を再インストールまたはアップグレードするときに発生するエラーについて説明します。また、エラーの理由とエラー解決手順も記載します。 
 ---
 = Windows で 7-Mode Transition Tool の再インストールまたはアップグレードが失敗する システム
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

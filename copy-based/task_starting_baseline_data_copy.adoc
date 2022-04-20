@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, start, baseline, copy
 summary: プロジェクトを作成し、事前確認処理が完了したら、 7-Mode ボリュームから ONTAP ボリュームへのデータコピーを開始します。ベースラインデータコピー処理は、プロジェクトごとに開始できます。データコピー中は、不要なシステムプロセスとネットワークアクティビティを停止する必要があります。 
 ---
 = ベースラインデータコピーを開始しています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, san, prepare
 summary: SAN 環境を移行するには、 SAN の移行対象としてサポートされる構成について理解し、 SVM に SAN LIF を作成し、 SAN ホストで移行準備をする必要があります。 
 ---
 = SAN の移行準備をしています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

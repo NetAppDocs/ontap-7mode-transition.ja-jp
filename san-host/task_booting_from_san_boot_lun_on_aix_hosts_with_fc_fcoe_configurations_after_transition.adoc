@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, booting, san, lun, aix, host, fc, fcoe, 
 summary: FC または FCoE 構成の AIX ホスト上の SAN ブート LUN を移行した場合、移行後に特定の手順を実行して SAN ブート LUN からホストをブートする必要があります。 
 ---
 = FC / FCoE を使用した AIX ホスト上の SAN ブート LUN からのブート 移行後の構成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, redirect, clients, clustered, data, primary, volume, s
 summary: 7-Mode のプライマリボリュームがオンラインに復帰したら、 7-Mode のプライマリボリュームを移行し、 clustered Data ONTAP のセカンダリボリュームとの SnapMirror 関係を確立して、クライアントアクセスを clustered Data ONTAP のプライマリボリュームにリダイレクトできます。 
 ---
 = clustered Data ONTAP プライマリボリュームへのクライアントのリダイレクト
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

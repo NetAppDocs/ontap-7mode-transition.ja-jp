@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snaplock, compliance, volumes
 summary: 7-Mode Transition Tool では、スタンドアロンの SnapLock Compliance ボリュームおよび SnapMirror 関係にある SnapLock Compliance ボリュームの移行がサポートされます。 
 ---
 = SnapLock Compliance ボリュームの移行に関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

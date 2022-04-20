@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, manage, snapmirror, transfer, schedule
 summary: データコピーフェーズでは、データコピースケジュールに基づいて clustered Data ONTAP ボリュームが 7-Mode ボリュームのデータで定期的に更新されます。SnapMirror のベースラインコピー処理、更新処理、および再同期処理に使用されるデータコピースケジュールの作成、編集、削除を行うことができます。 
 ---
 = SnapMirror 転送およびスケジュールの管理
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

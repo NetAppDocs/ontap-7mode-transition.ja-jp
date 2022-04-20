@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, continue, ignorable, errors
 summary: 移行を中断するエラーが移行時に発生する場合があります。7-Mode Transition Tool CLI で問題を承認することで、これらのエラーの一部は無視できます。移行を続行するには、エラーを無視したあとに、中断した処理を再実行する必要があります。 
 ---
 = 無視できるエラーが発生した場合の移行の続行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

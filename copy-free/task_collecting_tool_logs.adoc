@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, download, log, files
 summary: 7-Mode Transition Tool では、システムで実行された移行評価とマイグレーション処理の詳細が記録されたログファイルが作成されます。 
 ---
 = 移行ログファイルをダウンロードしています
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

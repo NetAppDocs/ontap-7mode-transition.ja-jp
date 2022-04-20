@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, boot, lun, primary, hp, ux, logic, hbas
 summary: Data ONTAP 7-Mode の HP-UX ホストが SAN ブートであった場合は、 clustered Data ONTAP への移行後に SAN ブート LUN をプライマリブート LUN にする必要があります。 
 ---
 = SAN ブート LUN を用のプライマリブート LUN にします 移行後の HP-UX QLogic HBA
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

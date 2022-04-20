@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, target, release, support, transition, tool
 summary: ONTAP 移行ターゲットクラスタがサポートされるかどうかは、使用する移行方法、コピーベースまたはコピーフリー、および 7-Mode Transition Tool のバージョンによって異なります。 
 ---
 = ONTAP のターゲットリリースは 7-Mode Transition Tool でサポートされます
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

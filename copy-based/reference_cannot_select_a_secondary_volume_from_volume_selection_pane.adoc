@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, select, secondary, volume, pan, select
 summary: ボリュームがオンラインでない場合や SnapMirror 関係が解除されている場合は、ボリューム選択ペインでセカンダリボリュームを選択して、 Volume SnapMirror 関係として移行することはできません。 
 ---
 = Volume selection （ボリューム選択）ペインでセカンダリボリュームを選択できない
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

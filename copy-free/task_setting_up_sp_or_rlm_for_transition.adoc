@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, sp, rlm, system, set, up
 summary: 7-Mode ストレージシステムでサービスプロセッサ（ sp\ ）または Remote LAN Module （ RLM\ ）をまだ設定していない場合、または IPv6 アドレスを使用して SP または RLM を設定している場合は、 IPv4 アドレスを使用して SP または RLM を設定する必要があります。 
 ---
 = 7-Mode システムで SP または RLM をセットアップする コピーフリーの移行の場合
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

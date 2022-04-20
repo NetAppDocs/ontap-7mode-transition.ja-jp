@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, stand, alone, volume, snapmirror
 summary: スタンドアロンボリュームを移行するには、 SnapMirror 関係を作成し、ベースライン転送を実行し、差分更新を実行し、データコピー処理を監視し、 SnapMirror 関係を解除して、クライアントアクセスを 7-Mode ボリュームから clustered Data ONTAP ボリュームへ移動する必要があります。 
 ---
 = スタンドアロンボリュームの移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

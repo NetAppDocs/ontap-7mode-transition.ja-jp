@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remount, vmfs, volumes, vshpere, client
 summary: 移行後、 VMFS ボリュームを再マウントして、データストアと仮想マシン（ VM ）を移行前の状態に戻す必要があります。ESXi CLI を使い慣れていない場合や、 vSphere Client を使用する方が便利な環境では、 vSphere Client を使用してボリュームを再マウントできます。 
 ---
 = vSphere Client を使用した移行後の VMFS ボリュームの再マウント
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

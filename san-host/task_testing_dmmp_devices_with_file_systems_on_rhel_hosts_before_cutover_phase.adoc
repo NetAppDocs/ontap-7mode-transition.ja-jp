@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, dmmp, devices, rhel, hosts, cutover, pha
 summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して Red Hat Enterprise Linux \ （ RHEL \ ）ホストのコピーベースの移行を実行する場合は、 カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストして、 DMMP デバイスがマウント可能であることを確認できます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
 ---
 = 前の RHEL ホスト上のファイルシステムを搭載した DMMP デバイスのテスト コピーベースの移行のカットオーバーフェーズ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, boot, lun, hp, ux, cutover, phase, copy,
 summary: 7-Mode Transition Tool \ （ 7MTT \ ） 2.2 以降および Data ONTAP 8.3.2 以降を使用して HP-UX ホストの SAN ブート LUN を移行する場合は、カットオーバーフェーズの前に移行した clustered Data ONTAP LUN をテストできます。ソースホストでは、テスト中もソースの 7-Mode LUN への I/O を引き続き実行できます。 
 ---
 = の前に、 HP-UX ホスト上の移行した SAN ブート LUN のテストを行いました コピーベースの移行のカットオーバーフェーズ
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

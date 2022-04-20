@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, aix, host, fc, fcoe, con
 summary: FC または FCoE 構成の AIX ホストのカットオーバーフェーズを開始する前に、特定の手順を実行する必要があります。 
 ---
 = FC / FCoE 構成の AIX ホスト移行時のカットオーバーフェーズの準備
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

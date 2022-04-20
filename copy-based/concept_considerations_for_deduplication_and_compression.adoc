@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, deduplication, compression
 summary: 圧縮を使用する場合は、ソースボリュームとデスティネーションボリュームが 64 ビットアグリゲートに属している必要があります。ソースボリュームでの圧縮と重複排除によるすべての削減効果は、ネットワーク経由での移行中も維持されます。移行後は、圧縮と重複排除のすべての属性とストレージ削減効果が、ソースボリュームからデスティネーションボリュームに継承されます。 
 ---
 = 重複排除と圧縮に関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

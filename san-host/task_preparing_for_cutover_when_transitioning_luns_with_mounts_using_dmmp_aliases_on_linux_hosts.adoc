@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, lun, point, dmmp, device
 summary: Linux ホスト上のエイリアス名を使用するマウントポイントを含む LUN を移行する場合は、カットオーバーフェーズを開始する前にいくつかの手順を実行する必要があります。 
 ---
 = マウントを含む LUN 移行時のカットオーバーフェーズの準備 Linux ホストで DMMP デバイス名を使用するポイントです
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, manual, roll, back
 summary: 移行をロールバックする場合は、クラスタおよび 7-Mode システムでいくつかの手順を手動で実行する必要があります。手動のロールバック手順の一覧は 7-Mode Transition Tool で生成されます。 
 ---
 = 手動による移行のロールバック
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

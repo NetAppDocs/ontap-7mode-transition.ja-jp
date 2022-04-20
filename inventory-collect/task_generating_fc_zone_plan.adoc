@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, generate, fc, zone, plan, transition
 summary: Data ONTAP システム、ホスト、および FC スイッチに関する情報を収集したあと、 FC ゾーン計画を生成できます。これは、移行後にクラスタ内のスイッチを構成するために使用します。 
 ---
 = FC ゾーン計画の生成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

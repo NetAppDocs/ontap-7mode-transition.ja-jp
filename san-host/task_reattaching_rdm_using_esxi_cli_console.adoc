@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rdm, esxi, cli, console
 summary: Data ONTAP 7-Mode から clustered Data ONTAP に移行したあとで、 raw デバイスマッピング（ RDM ）を再接続する必要があります。 
 ---
 = ESXi CLI / コンソールを使用した RDM の再接続
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, migrate, data, configuration, volumes
 summary: 7-Mode Transition Tool を使用してボリュームまたは Volume SnapMirror 関係をマイグレートするには、まずプロジェクトを設定し、ベースラインコピーを開始して、プロジェクトを完了する必要があります。 
 ---
 = 7-Mode ボリュームからデータと構成をマイグレート
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

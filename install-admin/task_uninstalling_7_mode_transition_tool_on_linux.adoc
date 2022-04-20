@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, transition, tool, linux
 summary: Linux では、コマンドラインインターフェイスを使用して 7-Mode Transition Tool をアンインストールできます。 
 ---
 = Linux での 7-Mode Transition Tool のアンインストール
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

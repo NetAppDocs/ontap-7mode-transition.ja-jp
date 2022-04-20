@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, compression, data, enable, error
 summary: Data ONTAP 7.3.x を実行しているシステムの 32 ビットボリュームを、 64 ビットアグリゲートに含まれる ONTAP に移行した場合、移行後の ONTAP ボリュームで圧縮は有効になりません。ボリュームが 32 ビットから 64 ビットにアップグレードされるまで、圧縮を有効にすることはできません。 
 ---
 = Data ONTAP 7.3.x からの移行後に圧縮は有効になりません
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

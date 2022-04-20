@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, troubleshoot, transition, snapmirror, issues, problems
 summary: トラブルシューティング情報は、 SnapMirror コマンドを使用して 7-Mode データを移行するときに発生する問題を特定し、解決する上で役立ちます。 
 ---
 = SnapMirror 使用時の移行問題のトラブルシューティング
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, ignorable, errors
 summary: 移行時に発生するエラーの一部は無視できます。移行を続行する前に、これらのエラーを承認する必要があります。 
 ---
 = 移行時に無視できるエラーです
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

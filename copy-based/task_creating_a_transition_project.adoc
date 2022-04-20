@@ -5,6 +5,7 @@ keywords: create, transition, project, ontap, copy, based, transition
 summary: 移行プロジェクトの作成では、 7-Mode ボリュームの選択と Storage Virtual Machine （ SVM ）へのマッピング、インターフェイスのマッピング、および SnapMirror 関係のデータコピースケジュールの作成を行います。 
 ---
 = 移行プロジェクトの作成
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

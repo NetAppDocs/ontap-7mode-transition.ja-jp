@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snapmirror
 summary: データコピースケジュールを作成し、既存の 7-Mode から 7-Mode への SnapMirror 処理や SnapVault 処理に影響を与えずに、移行処理用に SnapMirror データ転送をカスタマイズすることができます。 
 ---
 = SnapMirror を使用した移行に関する考慮事項
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

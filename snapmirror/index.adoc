@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, snapmirror, transition, index, data
 summary: SnapMirror コマンドを使用して 7-Mode システムから ONTAP にデータを移行する方法について説明します。 
 ---
 = SnapMirror ® テクノロジによる 7-Mode データの移行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

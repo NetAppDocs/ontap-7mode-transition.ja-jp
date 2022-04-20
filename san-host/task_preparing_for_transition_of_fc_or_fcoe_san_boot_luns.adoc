@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, transition, fc, fcoe, san, boot, lun, rh
 summary: FC または FCoE SAN ブート LUN を移行する前に、 Red Hat Enterprise Linux （ RHEL \ ）ホストで特定の手順を実行する必要があります。 
 ---
 = FC または FCoE SAN ブート LUN の移行準備をしています RHEL ホスト
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

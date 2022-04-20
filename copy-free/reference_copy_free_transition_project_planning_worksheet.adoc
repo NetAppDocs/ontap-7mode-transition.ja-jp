@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, project, planning, worksheet
 summary: Copy-Free Transition 計画ワークシートを使用して、ノードマッピング、 SVM マッピング、ボリュームマッピング、および移行する LIF の情報を記録できます。このワークシートは、 7-Mode Transition Tool を使用して移行プロジェクトを作成する場合に役立ちます。ワークシートに記入する際は、ガイドラインを確認してください。 
 ---
 = コピーフリーの移行プロジェクトの計画ワークシート
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
