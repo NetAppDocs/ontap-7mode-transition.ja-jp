@@ -16,20 +16,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/>
-  
-  <meta name="description" content="7-Mode Transition Tool では、 7-Mode のコントローラ、ホスト、スイッチ、およびアプリケーションに関する情報を収集して移行対象として評価し、コピーベースの移行を実行できます。その後、 7-Mode から ONTAP にデータと構成を移行できます。">
-  <meta name="keywords" content=" ontap, copy, based, transition, 7, mode, tool">
-  
-  
-
-  <!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="7-Mode Transition Tool では、 7-Mode のコントローラ、ホスト、スイッチ、およびアプリケーションに関する情報を収集して移行対象として評価し、コピーベースの移行を実行できます。その後、 7-Mode から ONTAP にデータと構成を移行できます。">
+  <meta name="keywords" content=" ontap, copy, based, transition, 7, mode, tool"><!-- Icons -->
   <link rel="icon" href="/ja-jp/ontap-7mode-transition/images/favicon.ico" type="image/x-icon">
 
-  <!-- RSS Feed -->
-  
-
-  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
 
   <!-- Elastic Search -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
@@ -54,52 +45,65 @@
   <link rel="stylesheet" href='/ja-jp/ontap-7mode-transition/css/na-utility.css' type='text/css'>
   <link rel="stylesheet" href='/ja-jp/ontap-7mode-transition/css/na-sidebar.css' type='text/css'>
   <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/custom-dropdown.css' type='text/css'>
   <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/na-pagenav.css' type='text/css'>
 
   
   <link rel="stylesheet" href="/ja-jp/ontap-7mode-transition/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/ja-jp/ontap-7mode-transition/css/tabbed-blocks.css" type="text/css">
-  <link rel="stylesheet" href='/ja-jp/ontap-7mode-transition/css/product-family.css' type="text/css">
-  
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    if (document.location.hostname === "docs.netapp.com") {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
 
-  
-  <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/na-feature.css' type='text/css'>
-  
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      head.appendChild(onetrustScript);
+    }
 
+    function OptanonWrapper() { }
 
+    if (document.location.hostname === "docs.netapp.com") {
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+      head.appendChild(adobe);
+
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81697994-3');
+    }
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-  <!-- Used to import Promise for IE. Required for SearchKit -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
-  
-    <script src='/ja-jp/ontap-7mode-transition/js/na-search.js'></script>
-  
 
-  
-  <script src='/ja-jp/ontap-7mode-transition/js/na-pagenav.js'></script>
-  
-
-  <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/prism.css' type='text/css'>
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/ja-jp/ontap-7mode-transition/js/na-search.js'></script><script src='/ja-jp/ontap-7mode-transition/js/na-pagenav.js'></script><link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/ja-jp/ontap-7mode-transition/css/prism-netapp.css' type='text/css'>
 
 
   <script src='/ja-jp/ontap-7mode-transition/js/na-utility.js'></script>
   <script src='/ja-jp/ontap-7mode-transition/js/clouddocs.js'></script>
-  <script>
-  if (document.location.hostname === "docs.netapp.com") {
-    var head = document.getElementsByTagName('head')[0];
-    var adobe = document.createElement("script");
-    adobe.type = "text/javascript";
-    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
-    head.appendChild(adobe);
-  }
-  </script>
   <script src='/ja-jp/ontap-7mode-transition/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src='/ja-jp/ontap-7mode-transition/js/toc.js'></script>
-  <script src='/ja-jp/ontap-7mode-transition/js/customscripts.js'></script>
-
-  <script>
+  <script src='/ja-jp/ontap-7mode-transition/js/customscripts.js'></script><script>
       $(document).ready(function() {
           
           var collapseOnInit = true;
@@ -148,17 +152,8 @@
               $("#tg-sb-icon").toggleClass('fa-toggle-off');
           });
       });
-  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
-  <script>
-  if (document.location.hostname === "docs.netapp.com") {
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-81697994-3');
-  }
   </script>
-  <script src='/ja-jp/ontap-7mode-transition/js/version-dropdown.js'></script>
-  <script src='/ja-jp/ontap-7mode-transition/js/product-family.js'></script>
+  <script src='/ja-jp/ontap-7mode-transition/js/custom-dropdown.js'></script>
   <script src='/ja-jp/ontap-7mode-transition/js/FileSaver.min.js'></script>
   <script src='/ja-jp/ontap-7mode-transition/js/jszip-utils.min.js'></script>
   <script src='/ja-jp/ontap-7mode-transition/js/jszip.min.js'></script>
@@ -166,11 +161,26 @@
 </head>
 
 
-  <body class role="document">
+  <body class role="document" data-flavor="">
     <div id="page" class="n-off-canvas-menu">
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/ontap-7mode-transition/issues/new?body=Page%3A%20[7-Mode Transition Tool を使用したコピーベースの移行](https://docs.netapp.com/ja-jp/ontap-7mode-transition/copy-based/concept_copy_based_transition_using_7mtt.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/ontap-7mode-transition/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/ontap-7mode-transition/blob/main/copy-based/concept_copy_based_transition_using_7mtt.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/ontap-7mode-transition/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/ontap-7mode-transition/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">このページ</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
   <!-- Start top_hat -->
   <div class="n-top-hat">
     <div class="n-container">
@@ -253,7 +263,8 @@
           data-did-you-mean="{suggestion} を検索" 
           data-no-results-found-did-you-mean="{query} に該当する結果はありません。{suggestion} の間違いではありませんか?" 
           data-results-found="{hitCount} 件見つかりました"  
-          data-sk-es-pf-indexes=""></div>
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
           <button class="n-property-bar__search-toggle-button" type="button">
             <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
               <title>search</title>
@@ -342,6 +353,9 @@
 </div>
 <div class="n-pdf-body-container">
   <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
         <a target="_blank" href="/ja-jp/ontap-7mode-transition/pdfs/fullsite-sidebar/7_Mode_Transition_Documentation__を参照してください.pdf" >
           <img src="/ja-jp/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
 
@@ -352,6 +366,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_管理用のコマンドマップ.pdf" 
@@ -382,6 +399,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_Transition_Tool_のインストールと管理.pdf" 
@@ -395,6 +415,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_Transition_Tool_を使用して__clustered_ONTAP_に移行する.pdf" 
@@ -423,6 +446,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Windows_での_7_Mode_Transition_Tool_のインストールまたはアンインストール_システム.pdf" 
@@ -455,6 +481,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Linux_での_7_Mode_Transition_Tool_のインストールまたはアンインストール__コピーベースの移行のみ_.pdf" 
@@ -485,6 +514,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/問題のトラブルシューティング.pdf" 
@@ -524,6 +556,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コピーベースの移行.pdf" 
@@ -537,6 +572,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行の概要.pdf" 
@@ -574,6 +612,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/インベントリ情報を収集して評価する.pdf" 
@@ -591,6 +632,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コントローラとホストの評価.pdf" 
@@ -617,6 +661,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/FC_ゾーン計画の生成.pdf" 
@@ -654,6 +701,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/データと構成のマイグレーションプロセス.pdf" 
@@ -680,6 +730,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Copy_Based_Transition_の準備をしています.pdf" 
@@ -701,6 +754,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ネットワークでの移行の準備.pdf" 
@@ -727,6 +783,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_のアグリゲートとボリュームで移行準備をします.pdf" 
@@ -742,6 +801,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ONTAP_8_3_以降のサポートされるリリースに移行する準備をしています.pdf" 
@@ -783,6 +845,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapLock_ボリュームの移行がサポートされます.pdf" 
@@ -815,6 +880,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ネームサービスの移行準備をしています.pdf" 
@@ -843,6 +911,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/NFS_の移行を準備しています.pdf" 
@@ -871,6 +942,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SMB___CIFS_の移行の準備.pdf" 
@@ -901,6 +975,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SAN_の移行準備をしています.pdf" 
@@ -933,6 +1010,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/データ保護機能の移行準備をしています.pdf" 
@@ -972,6 +1052,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_ボリュームからデータと構成をマイグレート.pdf" 
@@ -993,6 +1076,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/事前確認を実行.pdf" 
@@ -1038,6 +1124,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_Transition_Tool_CLI_を使用したボリュームの移行.pdf" 
@@ -1053,6 +1142,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_Transition_Tool_CLI_を使用したボリュームの移行.pdf" 
@@ -1068,6 +1160,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/CLI_を使用した_7_Mode_構成の移行のカスタマイズ.pdf" 
@@ -1122,6 +1217,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行後の手動タスクを実行.pdf" 
@@ -1158,6 +1256,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行プロジェクトの管理.pdf" 
@@ -1173,6 +1274,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapMirror_転送およびスケジュールの管理.pdf" 
@@ -1220,6 +1324,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/問題のトラブルシューティング.pdf" 
@@ -1237,6 +1344,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/無視できるエラーが発生した場合の移行の続行.pdf" 
@@ -1289,6 +1399,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コピーフリーの移行.pdf" 
@@ -1302,6 +1415,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行の概要.pdf" 
@@ -1328,6 +1444,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/インベントリ情報を収集して評価する.pdf" 
@@ -1345,6 +1464,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コントローラとホストの評価.pdf" 
@@ -1371,6 +1493,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/FC_ゾーン計画の生成.pdf" 
@@ -1406,6 +1531,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Copy_Free_Transition_ワークフロー.pdf" 
@@ -1430,6 +1558,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Copy_Free_Transition_を準備しています.pdf" 
@@ -1453,6 +1584,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ネットワークでの移行の準備.pdf" 
@@ -1479,6 +1613,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行のためのケーブル接続情報の収集.pdf" 
@@ -1503,6 +1640,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_のアグリゲートとボリュームで移行準備をします.pdf" 
@@ -1518,6 +1658,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/32_ビットアグリゲートを使用する_7_Mode_システムの移行準備.pdf" 
@@ -1555,6 +1698,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ネームサービスの移行準備をしています.pdf" 
@@ -1583,6 +1729,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/NFS_の移行を準備しています.pdf" 
@@ -1611,6 +1760,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SMB___CIFS_の移行の準備.pdf" 
@@ -1639,6 +1791,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SAN_の移行準備をしています.pdf" 
@@ -1671,6 +1826,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/データ保護機能の移行準備をしています.pdf" 
@@ -1706,6 +1864,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コピーフリーの移行を使用した_7_Mode_アグリゲートの移行.pdf" 
@@ -1719,6 +1880,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コピーフリーの移行プロジェクトの計画.pdf" 
@@ -1744,6 +1908,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_構成の移行のカスタマイズ.pdf" 
@@ -1768,6 +1935,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/事前確認を実行.pdf" 
@@ -1820,6 +1990,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行を完了します.pdf" 
@@ -1854,6 +2027,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapMirror_関係を移行する.pdf" 
@@ -1880,6 +2056,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行に関する問題のトラブルシューティング.pdf" 
@@ -1893,6 +2072,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/無視できるエラーが発生した場合の移行の続行.pdf" 
@@ -1934,6 +2116,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/7_Mode_への移行のロールバックの実行.pdf" 
@@ -1949,6 +2134,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/コピーフリーの移行プロジェクトをロールバックしています.pdf" 
@@ -1991,6 +2179,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/__Host_and_Storage_Information_Collection_Guide__を参照してください.pdf" 
@@ -2004,6 +2195,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ストレージとホストのインベントリ情報を収集.pdf" 
@@ -2055,6 +2249,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapMirror_による_7_Mode_データの移行.pdf" 
@@ -2068,6 +2265,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapMirror_を使用して_7_Mode_ボリュームを移行する.pdf" 
@@ -2081,6 +2281,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行の計画.pdf" 
@@ -2094,6 +2297,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行では_機能とボリュームはサポートされていません.pdf" 
@@ -2135,6 +2341,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行を準備しています.pdf" 
@@ -2167,6 +2376,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ボリュームを移行する.pdf" 
@@ -2182,6 +2394,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/段階的構成での_Volume_SnapMirror_関係の移行.pdf" 
@@ -2230,6 +2445,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行中の_7_Mode_サイトでの災害からの復旧.pdf" 
@@ -2258,6 +2476,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SnapMirror_使用時の移行問題のトラブルシューティング.pdf" 
@@ -2293,6 +2514,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SAN_ホストの移行および修復.pdf" 
@@ -2310,6 +2534,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/VMware_ESXi_ホストの修復.pdf" 
@@ -2325,6 +2552,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ESXi_ホストの移行準備.pdf" 
@@ -2344,6 +2574,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/事前に削除が必要な_VM_の_Snapshot_を特定する方法_移行.pdf" 
@@ -2383,6 +2616,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ESXi_ホストでの移行後の修復の要件.pdf" 
@@ -2404,6 +2640,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行後に_VMFS_ボリュームの再マウントが必要かどうかを判断します.pdf" 
@@ -2430,6 +2669,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/RDM_LUN_を_VM_に再接続.pdf" 
@@ -2482,6 +2724,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/RHEL_ホストの修復.pdf" 
@@ -2495,6 +2740,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Inventory_Assessment_Workbook_からの移行前の情報収集.pdf" 
@@ -2519,6 +2767,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ファイルシステムのない_RHEL_DMMP_デバイスの移行.pdf" 
@@ -2553,6 +2804,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/DMMP_デバイス名を使用するマウントポイントを含む_LUN_の移行.pdf" 
@@ -2585,6 +2839,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/DMMP_エイリアス名を使用するマウントポイントを含む_LUN_の移行.pdf" 
@@ -2615,6 +2872,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/LVM_デバイス上の_Linux_ホストファイルシステムの移行.pdf" 
@@ -2643,6 +2903,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/SAN_ブート_LUN_を移行します.pdf" 
@@ -2686,6 +2949,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Windows_ホストの修正.pdf" 
@@ -2699,6 +2965,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Windows_ホストでの移行準備.pdf" 
@@ -2740,6 +3009,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/HP_UX_ホストの修復.pdf" 
@@ -2753,6 +3025,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ファイルシステムを搭載した_HP_UX_ホスト_LUN_の移行.pdf" 
@@ -2783,6 +3058,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/FC___FCoE_構成の_HP_UX_ホストの_SAN_ブート_LUN_の移行.pdf" 
@@ -2824,6 +3102,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/AIX_ホストの修復.pdf" 
@@ -2837,6 +3118,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/FC___FCoE_を使用する_AIX_ホスト上の_SAN_ブート_LUN_の移行_設定.pdf" 
@@ -2867,6 +3151,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ファイルシステムを搭載した_AIX_ホストデータ_LUN_の移行.pdf" 
@@ -2906,6 +3193,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Solaris_ホストの修復.pdf" 
@@ -2919,6 +3209,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/ZFS_ファイルシステムを搭載した_Solaris_ホストデータ_LUN_の移行.pdf" 
@@ -2949,6 +3242,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/Sun_Volume_Manager_を搭載した_Solaris_ホストデータ_LUN_の移行.pdf" 
@@ -2988,6 +3284,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/ja-jp/ontap-7mode-transition/pdfs/sidebar/移行後の_7_Mode_への_LUN_のロールバック.pdf" 
@@ -3933,30 +4232,27 @@
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
 
+
   </div>
   
 
   <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
-    <!-- Begin of page container -->
-    <article class="page-content">
+    <!-- Begin of page container --><article class="page-content">
       <div class="ie-utility">
   <div class="ie-menu">
     <div class="n-breadcrumb">
       <ul class="n-breadcrumb__list">
         <li class="n-breadcrumb__list-item">
-          <a href="https://www.netapp.com">ホーム</a>
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          <a href="https://docs.netapp.com">ドキュメント</a>
-        </li>
+        
+
         
 
         <li class="n-breadcrumb__list-item">
           <a href="/ja-jp/ontap-7mode-transition/">ONTAP&nbsp;7-Mode&nbsp;Transition</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          7-Mode Transition Tool を使用したコピーベースの移行
-        </li>
+
       </ul>
     </div>
     <div style="clear: both"></div><!-- Main needs to have height -->
@@ -3985,24 +4281,12 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-31 17:42:24 +0000">01/31/2022</time>
+    <time datetime="2022-04-20 21:30:40 +0000">04/20/2022</time>
     
   
 
-<span>寄稿者
-  <a target="_blank" href="https://github.com/netapp-ivanad">
-    <img  class="avatar avatar-small"
-          alt="netapp-ivanad"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/76115643?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
-</span>
-
 
 </p>
-
 
 <div id="preamble">
 <div class="sectionbody">
@@ -4085,27 +4369,7 @@ SAN は ONTAP 8.3 以降のサポートされるリリースにのみ移行で�
     <!-- Page Container -->
   </div>
 
-  
-  <!-- Start Page Toolbar -->
-  <div class="page-nav-toolbar">
-    <div id="version-dropdown"></div>
-    <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/ontap-7mode-transition/issues/new?body=Page%3A%20[7-Mode Transition Tool を使用したコピーベースの移行](https://docs.netapp.com/ja-jp/ontap-7mode-transition/copy-based/concept_copy_based_transition_using_7mtt.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/ontap-7mode-transition/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/ontap-7mode-transition/blob/main/copy-based/concept_copy_based_transition_using_7mtt.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/ontap-7mode-transition/images/edit-sm.svg" class="github-icon" />GitHub で編集</a>
-      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/ontap-7mode-transition/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a>
-    </div>
-    <div class="page-nav-container">
-      <nav class="page-nav-fixed">
-        <div class="page-nav-title">このページ</div>
-        <div class="page-nav-links">
-          <ul class="page-nav-inner" id="page-menu"></ul>
-        </div>
-      </nav>
-    </div>
-  </div>
-  
-  <div style="clear: both"></div><!-- Main needs to have height -->
-</div>
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
 
         </main>
 
@@ -4113,103 +4377,125 @@ SAN は ONTAP 8.3 以降のサポートされるリリースにのみ移行で�
   <div class="n-footer__bottom">
     <div class="n-container">
       <div class="n-footer__bottom-left">
-
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
             </li>
-
-</ul>
-</div>
-<div class="n-footer__social-links">
-<ul class="n-footer__social-link-list">
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
-<span class="n-footer__social-link-text">blog</span>
-<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
-  <title>blog@</title>
-  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#blog"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
-<span class="n-footer__social-link-text">community</span>
-<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
-<title>community@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#comments"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
-<span class="n-footer__social-link-text">twitter</span>
-<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
-<title>twitter@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#twitter"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
-<span class="n-footer__social-link-text">facebook</span>
-<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
-<title>facebook@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#facebook"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
-<span class="n-footer__social-link-text">linkedin</span>
-<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
-<title>linkedin@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#linkedin"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
-<span class="n-footer__social-link-text">youtube</span>
-<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
-<title>youtube@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#youtube"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
-<span class="n-footer__social-link-text">slideshare</span>
-<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
-<title>slideshare@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#slideshare"></use>
-</svg>
-
-</a>
-</li>
-</ul>
-</div>
-
-</div>
-<div class="n-footer__bottom-right">
-  <p class="n-footer__fine-print">Web サイトについてのフィードバックを<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">お寄せください</a>
-  <a href="https://docs.netapp.com/ja-jp/announcements/" class="n-footer__copyright">お知らせ</a>
-  </p>
-</div>
-</div>
-</div>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">利用条件</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">プライバシー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">クッキー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">クッキーの設定</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <span class="n-footer__fine-print">Web サイトについてのフィードバックを</span>
+              <a target="_self" href="javascript:netapp_mailto()">お寄せください</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://docs.netapp.com/ja-jp/announcements/">お知らせ</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/ontap-7mode-transition/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
-      </div>
-
-      <!-- Elasticsearch JS -->
+      </div><!-- Elasticsearch JS -->
       <script type="text/javascript" src='/ja-jp/ontap-7mode-transition/js/bundle.js'></script>
 
       <!-- Syntax Highlighting -->
@@ -4224,7 +4510,4 @@ SAN は ONTAP 8.3 以降のサポートされるリリースにのみ移行で�
     </script>
     <script src='/ja-jp/ontap-7mode-transition/js/www-ntap.js'></script>
     <script src='/ja-jp/ontap-7mode-transition/js/tabbed-blocks.js'></script>
-  </body>
-
-  
-</html>
+  </body></html>
