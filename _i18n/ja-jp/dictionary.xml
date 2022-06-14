@@ -1799,7 +1799,6 @@
   <block id="902c0c6711149dc80ee1ec798672da2a" category="list-text">7-Mode Transition Tool では、 vFiler ユニットのルートボリュームがデフォルトの vFiler ユニットに属する qtree に基づいている場合、そのルートボリュームは移行されません。</block>
   <block id="aec68d7de9088eaf3f88f305dc20a67f" category="list-text">7-Mode Transition Tool では、ボリュームとその qtree が別々の vFiler ユニットに属している場合、ボリュームは移行されません。</block>
   <block id="d8b6ec5a952cdc2d6a3524903a90fa21" category="paragraph">このようなボリュームを移行すると、 qtree にアクセスできなくなります。</block>
-  <block id="04d39dfeb5faffda762cf1acdae0cc20" category="list-text">移行したボリュームを FlexGroup ボリュームに変換することはできません。</block>
   <block id="ec95dc299bb96af52039f89734b543eb" category="paragraph">上記の制限事項の一部については、事前確認処理で情報が表示されます。</block>
   <block id="4f7096702540ecebfa36742113464b45" category="summary">NFS 構成が 7-Mode Transition Tool で移行されるのは、 7-Mode システムおよびクラスタが一定の前提条件を満たしている場合のみです。条件が 1 つでも満たされていないと、構成は移行されません。</block>
   <block id="4f2fc9886dac8cfd7dd67a63a3505b77" category="doc">NFS 構成を移行するための前提条件</block>
@@ -7388,4 +7387,8 @@
   <block id="9b362042e3261f213cb36240632cabd5" category="paragraph"><block ref="9b362042e3261f213cb36240632cabd5" category="inline-link-rx"></block></block>
   <block id="fb434b026a4b3aa9c5aeb3ee21af0d81" category="inline-link-macro">手順 3.</block>
   <block id="6aa5dee008838df0194def910f0b3065" category="list-text">に進みます <block ref="012d273ac06ba0defaa828e3a44b011b" category="inline-link-macro-rx"></block>。</block>
+  <block id="182051b066ceb3730c91bc37bf2ef32d" category="paragraph">7-Modeソースボリュームと同じ属性に設定して、デスティネーションONTAP ボリュームをプロビジョニングすることを推奨します。一致する属性には、次のものがあります。</block>
+  <block id="6a76182840bc8cb17fc284d39d33bc7b" category="list-text">ボリュームサイズ：ONTAP ボリュームは、7-Modeボリューム以上のサイズである必要があります。</block>
+  <block id="9d4d145a5064a246d799bd034370a277" category="list-text">Language：ONTAP ボリュームの設定が7-Modeボリュームの設定と同じであることが必要です。</block>
+  <block id="a3ffa67a8aa91c98ab4a9e9dc74a21a3" category="paragraph">7-Mode Transition Toolは、7-Modeボリュームと一致する属性を使用して、ONTAP ボリュームを自動的にプロビジョニングします。</block>
 </blocks>

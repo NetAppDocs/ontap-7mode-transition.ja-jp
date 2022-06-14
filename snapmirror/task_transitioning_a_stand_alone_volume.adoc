@@ -20,6 +20,14 @@ xref:task_preparing_for_transition.adoc[移行を準備しています]
 
 
 
+7-Modeソースボリュームと同じ属性に設定して、デスティネーションONTAP ボリュームをプロビジョニングすることを推奨します。一致する属性には、次のものがあります。
+
+* ボリュームサイズ：ONTAP ボリュームは、7-Modeボリューム以上のサイズである必要があります。
+* Language：ONTAP ボリュームの設定が7-Modeボリュームの設定と同じであることが必要です。
+
+
+7-Mode Transition Toolは、7-Modeボリュームと一致する属性を使用して、ONTAP ボリュームを自動的にプロビジョニングします。
+
 .手順
 . 7-Mode ボリュームから clustered Data ONTAP ボリュームへ、データをコピーします。
 +
