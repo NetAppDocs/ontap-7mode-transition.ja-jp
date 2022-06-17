@@ -44,7 +44,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["ソ�
 +
 [listing]
 ----
-cluster1::> network interface create -vserver cluster1-01 -lif intercluster_lif -role intercluster -home-node cluster1-01 -home-port e0c -address 192.0.2.130 -netmask 255.255.255.0
+cluster1::> network interface create -vserver cluster1 -lif intercluster_lif -role intercluster -home-node cluster1-01 -home-port e0c -address 192.0.2.130 -netmask 255.255.255.0
 ----
 .. インタークラスタ LIF の静的ルートを作成します。
 +
@@ -72,8 +72,6 @@ system7mode is alive
 マルチパスの場合は、各ノードに 2 つのクラスタ間 LIF が必要です。
 
 https://docs.netapp.com/us-en/ontap/networking/index.html["ネットワークと LIF の管理"]
-
-* 関連情報 *
 
 xref:task_creating_a_transition_peering_relationship.adoc[移行ピア関係を作成]
 
