@@ -69,3 +69,7 @@ homepage:
     - title: Windows の場合
       summary: Microsoft Windows ホストの移行前と移行後の手順を確認
       url: "/san-host/concept_windows_host_remediation.html"
+product-family:
+  name: ONTAP
+  repo: ontap-family
+  sidebar_label: All ONTAP product documentation
