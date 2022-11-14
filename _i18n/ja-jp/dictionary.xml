@@ -1319,7 +1319,6 @@
   <block id="c4c49be017ca0a65bd15e47c6123b875" category="list-text">ホストをシャットダウンします。</block>
   <block id="a3100bf3334206028c894a5568ddcf09" category="summary">新機能、アップグレードの注意事項、解決済みの問題、既知の制限事項、および既知の問題について説明します。</block>
   <block id="a36356967ba019ce3f720deb36e80a91" category="inline-link-macro">『 7-Mode Transition Release Notes 』</block>
-  <block id="0b5140d2bd87babd5325d2c620f67458" category="paragraph">。 <block ref="e11c70138711c8e98b53b976fc9ee495" category="inline-link-macro-rx"></block> 新機能、アップグレードに関する注意事項、解決済みの問題、既知の制限事項、および既知の問題について説明する。</block>
   <block id="dbd469acdcbd52648cb242bcfda6add3" category="paragraph">リリースノートにアクセスするには、ネットアップサポートサイトにサインオンする必要があります。</block>
   <block id="b8d4024f87cca58114b2a38fda09416c" category="summary">Inventory Collect Tool は、 clustered Data ONTAP と 7-Mode のシステム、スイッチ、ホスト、およびそれらのホストで実行されているアプリケーションに関する情報を収集してインベントリレポートを作成するツールです。作成したインベントリレポートは、 7-Mode Transition Tool にインポートして移行のための環境評価に使用できます。</block>
   <block id="bc378c34e41237b33a2ff0be776ee38e" category="doc">ストレージとホストのインベントリ情報を収集</block>
@@ -4354,7 +4353,6 @@
   <block id="bef0ecaff88f9e1fe834c31db5e173a0" category="list-text">Red Hat Enterprise Linux 7.0 （ 7-Mode Transition Tool バージョン 3.3.2 以降）</block>
   <block id="275d22b5a45e39f77f0883aa64f3a396" category="list-text">CentOS リリース 6.4</block>
   <block id="e175ac66c6d8ee1c08565e54a926608d" category="admonition">上記のソフトウェア要件とハードウェア要件を満たしている Linux 仮想マシンにも、 7-Mode Transition Tool をインストールできます。</block>
-  <block id="cd1e0efe07681923a24b966e9a1b6626" category="list-text">64 ビット Oracle JRE 1.8 Update 45</block>
   <block id="7dcffacdfc39b07e76761b6019697a9b" category="list-text">7-zip ユーティリティ (rpmforge-release-0.3.6-1.el5.rf.x86_64.rpm`)</block>
   <block id="3f372cd6b37fbd4ee876989cc8704622" category="admonition">JRE 1.8 および 7-zip ユーティリティは、 7-Mode Transition Tool を設定する前に Linux システムにインストールする必要があります。</block>
   <block id="a39a7f83b9f1dbd1a95e70292f6f89e1" category="summary">ウィザード形式のインストーラを使用して Windows システムに 7-Mode Transition Tool をインストールできます。</block>
@@ -4400,9 +4398,7 @@
   <block id="68925d6f6e91cb5d27c6e86a7c6d2202" category="list-text">「 * rm -rf NetApp_7ModeTransitionTool * 」と入力します</block>
   <block id="fd00b11ac62d48083e1c4fad16747fc0" category="summary">Windows システムでは、ウィザード形式の標準インストーラを使用して 7-Mode Transition Tool をダウンロードしてインストールできます。ただし、以前のバージョンの 7-Mode Transition Tool がインストールされている場合は、事前に一定の前提条件を確認しておく必要があります。</block>
   <block id="0dde23a3f51b9430f58ea2e62f0d1056" category="doc">Windows での 7-Mode Transition Tool のインストールまたはアンインストール システム</block>
-  <block id="9ea0f21dd3ae9719b3998e259c4c948a" category="list-text">システムにバージョン 3.0 より前の 7-Mode Transition Tool がインストールされている場合は、 7-Mode Transition Tool 3.3 をインストールする前に、古い 7-Mode Transition Tool をアンインストールする必要があります。</block>
   <block id="c9c4393484646c8d4d10a30fc46c0024" category="paragraph">アンインストール時にログファイルの保持を選択した場合は、ログファイルのバックアップを作成する必要があります。アンインストール後に 7-Mode Transition Tool インストーラを実行すると、同じフォルダにツールがインストールされ、ログファイルが上書きされます。</block>
-  <block id="af8fd495d2564f954308446d06867289" category="list-text">システムに 7-Mode Transition Tool 3.0 以降がインストールされている場合は、 7-Mode Transition Tool 3.3 をインストールする前に次の条件を満たす必要があります。</block>
   <block id="ea3c03fc1e8cc41bfa7761c8673cf886" category="list-text">既存のコピーベースの移行プロジェクトをすべて完了させるか中止する必要があります。</block>
   <block id="c289e5fe5901e5b311647e928a94d2fb" category="list-text">既存のコピーフリーの移行プロジェクトをすべて完了させるか、ロールバックを完了させる必要があります。</block>
   <block id="1331c3e183f8e77aa86f8e580329346e" category="summary">デフォルトでは、ユーザは 7-Mode Transition Tool がインストールされている Windows システムの Administrators グループに属している必要があります。Administrators グループに属していないユーザおよびツールをインストールできず、ツールがインストールされている Windows システムの使用は許可されているユーザについては、いつでもログインを有効にすることができます。</block>
@@ -4521,10 +4517,7 @@
   <block id="d54a88e6102488b4686f328a0f54c5a8" category="list-text">7-Mode Transition Tool バージョン 3.3 では、次のいずれかのバージョンのオペレーティングシステムを使用することもできます。</block>
   <block id="85114c48e2a0154779b7fda0b396bfb0" category="list-text">Windows 10 Professional</block>
   <block id="b65ad8a600c099620c7449bd7ce9f7ac" category="admonition">上記のソフトウェア要件とハードウェア要件を満たしている Windows 仮想マシンにも、 7-Mode Transition Tool をインストールできます。</block>
-  <block id="c230fdb80b8da757746cad17d0846f23" category="list-text">64 ビット Oracle Java Runtime Environment （ JRE ） 1.8 Update 144</block>
-  <block id="6f4734ae41213296dedbb453ce6b4fc8" category="admonition">Windows ホストに JRE がインストールされていない場合、または 32 ビット JRE がインストールされている場合は、 7-Mode Transition Tool インストーラによって自動的に 64 ビット JRE 1.8 Update 144 がインストールされます。これより前のバージョンの 64 ビット JRE がインストールされている場合は、自動的にそのバージョンが JRE 1.8 Update 144 に更新されます。</block>
   <block id="9db8379d081443245f4a410ecbcac0cb" category="paragraph">JRE が自動的に更新されると、以前のバージョンの JRE を必要とする他のアプリケーションが影響を受ける可能性があります。</block>
-  <block id="5a61241aaacfbb3eb5c7b5535936e03f" category="admonition">JRE 1.8 Update 46 以降（ JRE 1.8 Update 144 を含む）では、 7-Mode Transition Tool が Data ONTAP 7-Mode システムおよび ONTAP システムと通信するためには、 ONTAP 7-Mode システムおよび Data ONTAP システムでの SSL キーの長さが 1024 文字以上である必要があります。</block>
   <block id="0e093531365c0bba31e2b45abf2bc1c3" category="inline-link">7MTT ： TLS または SSL 通信の問題を解決する方法</block>
   <block id="91615dc67083d816145f87b6060ace0b" category="paragraph"><block ref="91615dc67083d816145f87b6060ace0b" category="inline-link-rx"></block></block>
   <block id="ad5a4b432b50a54689ad10768c2c0b54" category="section-title">サーバ構成の要件</block>
@@ -4746,7 +4739,6 @@
   <block id="65e84ecaa52346aec5017788a0053bd0" category="list-text">すべての手動手順が完了したら、 7-Mode Transition Tool で * Verify 7-Mode * をクリックして、 7-Mode コントローラでデータを提供する準備ができていることを確認します。</block>
   <block id="edf2b823aa90c47cd55fba790571f091" category="summary">Copy-Free Transition の対象となる 7-Mode システム、クラスタ、 ONTAP リリース、およびディスクシェルフの要件を理解しておく必要があります。</block>
   <block id="073bb844ce96de466c497c49182ec95c" category="doc">Copy-Free Transition の要件</block>
-  <block id="b39e432a1f354787452d348ec8ccfc4d" category="paragraph"><block ref="b39e432a1f354787452d348ec8ccfc4d" category="inline-link-rx"></block></block>
   <block id="cbeed5953d12aa26561b627080a4f3b2" category="list-text">* プラットフォームモデル *</block>
   <block id="ee8dffd6f42ed6aaddd3ceb34f416a24" category="paragraph">コピーフリーの移行は、ミッドエンドとハイエンドの FAS システムおよび IBM N シリーズシステムでのみサポートされます。。<block ref="ae0acc7a1cf35a69eb7b42685c902841" category="inline-link-rx"></block> 7-Mode システムとターゲットクラスタノードでサポートされるプラットフォームの最新情報を用意します。</block>
   <block id="bda5dca34b28efd1af01bf48bafb4c83" category="list-text">* 7-Mode ソースシステムでの Data ONTAP *</block>
@@ -4986,7 +4978,6 @@
   <block id="91e49defec04fb08286cf30273bff3b1" category="doc">7-Mode への移行のロールバックの実行</block>
   <block id="a5fcd981b8e8ee7e2ab2c63c4777deaf" category="paragraph">SVM のプロビジョニング、エクスポート、ケーブル接続、インポート、テストの各フェーズで移行プロジェクトをロールバックできます。移行プロジェクトのコミット後は、ロールバックできません。</block>
   <block id="4d2f48d910d6c30be0d9dac2a50501e5" category="paragraph">移行したボリュームで LUN クローンや LUN クローンなどの新規に書き込まれたデータや変更されたデータは、ロールバック後に失われます。ボリュームは元の 7-Mode の状態にリバートされます。</block>
-  <block id="f478f948e7ee04a9bd3244ae1fdefb7f" category="admonition">ホストとコントローラをコピーフリーの移行の対象として評価するには、 Inventory Collect Tool 3.3 を使用してインベントリを収集する必要があります。</block>
   <block id="a277f36ffb4c75e1a0ce36b5a8203d18" category="summary">移行の前に、 7-Mode アグリゲートに十分な空きスペースがあることを確認する必要があります。7-Mode Transition Tool は、物理スペース、論理スペース、 Snapshot コピーの占有スペース、およびスペースギャランティの設定に基づいて、アグリゲートに対してさまざまなスペースチェックを実行します。また、 Flash Pool アグリゲートのスペースに関する考慮事項も把握しておく必要があります。</block>
   <block id="36ae65b24edae14e4f1f53b16a7dbb0e" category="doc">移行でのアグリゲートスペースの要件</block>
   <block id="d5c91ce39c9ad72ad2741dd822487329" category="section-title">アグリゲートの物理スペース</block>
@@ -7391,4 +7382,17 @@
   <block id="80a4be74705a612be3887e601f338c11" category="sidebar">Red Hat Enterprise に対する移行前と移行後の要件を確認します Linux ホスト</block>
   <block id="624868dc01678d5268f2ce0a2b5e6de8" category="sidebar">Microsoft Windows ホストの移行前と移行後の手順を確認</block>
   <block id="84a6933c212881ac1351cccc03b06c5a" category="sidebar">7-Mode 管理用のコマンドマップ</block>
+  <block id="49640ebd1f7f02a38a79638aca90ba3f" category="paragraph">ONTAP 9.10.1、ONTAP 9.11.1以前のサポートされるリリース</block>
+  <block id="c45454a225fb911ddb8f9c192a897fdd" category="paragraph">3.5.0</block>
+  <block id="9e5847802a04b3aeaaf3d2904bc221ba" category="paragraph">。 <block ref="f69448c82034041cb590913655249707" category="inline-link-macro-rx"></block> 新機能、アップグレードに関する注意事項、解決済みの問題、既知の制限事項、および既知の問題について説明する。</block>
+  <block id="8d8bb27db49aa4f6be45f0dc1c08177f" category="list-text">64ビットOracle Java Runtime Environment（JRE）1.8 Update 331</block>
+  <block id="f36838ca59d078d785b9d63c0606a383" category="admonition">WindowsホストにJREがインストールされていない場合、または32ビットJREがインストールされている場合は、7-Mode Transition Toolインストーラによって自動的に64ビットJRE 1.8 Update 331がインストールされます。以前のバージョンの64ビットJREがインストールされている場合は、自動的にそのバージョンがJRE 1.8 Update 331に更新されます。</block>
+  <block id="d6bf1e6c9be2cb497bd73e626210075f" category="admonition">JRE 1.8 Update 46以降（JRE 1.8 Update 331を含む）では、7-Mode Transition ToolがData ONTAP 7-ModeシステムおよびONTAP システムと通信するためには、Data ONTAP 7-ModeシステムおよびONTAP システムでのSSLキーの長さが1024以上である必要があります。</block>
+  <block id="e10a550ac8477468a5588480882bda67" category="list-text">64ビットOracle JRE 1.8 Update 331</block>
+  <block id="ea31ac5ad2e06c3fe9cb8195db5adf51" category="list-text">システムにバージョン3.0より前の7-Mode Transition Toolがインストールされている場合は、最新バージョンをインストールする前にアンインストールする必要があります。</block>
+  <block id="29e1a4e919eb5c025fe148e0b575ffaa" category="list-text">システムに7-Mode Transition Tool 3.0以降がインストールされている場合は、最新バージョンの7-Mode Transition Toolをインストールする前に次の条件を満たしている必要があります。</block>
+  <block id="6f6819dd21dbd8a646ea9df4c166c414" category="admonition">ホストとコントローラをコピーフリーの移行の対象として評価するには、最新バージョンのInventory Collect Toolを使用してインベントリを収集する必要があります。</block>
+  <block id="c56554efd1f85bba5b98f6ca401f2fda" category="paragraph"><block ref="c56554efd1f85bba5b98f6ca401f2fda" category="inline-link-macro-rx"></block></block>
+  <block id="2926f2591b66c0122ef9f741a49d26aa" category="paragraph">どちらの場合も、最新バージョンのInventory Collect Toolを使用してインベントリを収集する必要があります。</block>
+  <block id="d1b92a4930d50c6ed1038655db0d2684" category="sidebar">すべてのONTAP 製品ドキュメント</block>
 </blocks>

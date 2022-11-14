@@ -15,7 +15,7 @@ clustered ONTAP への移行では、現在の環境を確認し、移行対象�
 
 サポートされるターゲットリリースおよび既知の問題に関する最新情報については、最新の 7-Mode Transition Tool リリースノートを参照してください。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["『 7-Mode Transition Tool Release Notes 』"]
+link:https://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["『 7-Mode Transition Tool Release Notes 』"]
 
 最初に、現在のストレージ環境、ホスト、およびアプリケーションを含む、現在の環境に関する情報を収集する必要があります。ストレージインベントリを収集したら、現在使用している機能を評価し、選択した ONTAP バージョンとの相違点を確認します。これらの作業は、 7-Mode Transition Tool を使用して実行できます。
 

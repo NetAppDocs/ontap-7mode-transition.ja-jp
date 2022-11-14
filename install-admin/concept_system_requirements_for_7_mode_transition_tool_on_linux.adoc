@@ -40,7 +40,7 @@ NOTE: 上記のソフトウェア要件とハードウェア要件を満たし�
 
 
 
-* 64 ビット Oracle JRE 1.8 Update 45
+* 64ビットOracle JRE 1.8 Update 331
 * 7-zip ユーティリティ (rpmforge-release-0.3.6-1.el5.rf.x86_64.rpm`)
 
 

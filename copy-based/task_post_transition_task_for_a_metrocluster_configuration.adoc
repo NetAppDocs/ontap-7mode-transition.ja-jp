@@ -20,5 +20,5 @@ summary: 移行中に作成された cron ジョブスケジュールはリモ�
 +
 image::../media/mcc_cron_jobs.gif[MCC cron ジョブ]
 
-. リモート・サイトのクラスタ CLI から ' に記録されている job schedule cron create コマンドを実行します <<STEP_F72D5FA759564336A365328A3414D57A,手順 1.>>。
+. リモート・サイトのクラスタ CLI から ' に記録されている job schedule cron create コマンドを実行します ,手順 1.。
 
