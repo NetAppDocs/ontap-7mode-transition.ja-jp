@@ -11,14 +11,28 @@ summary: clustered Data ONTAP の SnapMirror コマンドを使用すると、 N
 
 
 [role="lead"]
-clustered Data ONTAP の SnapMirror コマンドを使用すると、 NAS および SAN 環境の 7-Mode ボリュームを clustered Data ONTAP ボリュームに移行できます。移行が完了したら、クラスタ上でプロトコル、サービス、その他の設定を行う必要があります。
+ONTAP 9.12.1以降では、SnapMirrorテクノロジを使用する7-Modeボリュームを移行できなくなりました。
 
-* 推奨事項： * 7-Mode ボリュームを移行する場合は、 7-Mode Transition Tool の使用を推奨します。マイグレーションプロセスのすべてのステップで 7-Mode とクラスタの両方が事前確認で検証されるため、多数の潜在的な問題を回避できます。このツールを使用すると、データ移行だけでなく、すべてのプロトコル、ネットワーク、サービスの設定の移行も大幅に簡易化されます。
+ただし、ONTAP 9.11.1以前のリリースでは、clustered Data ONTAP のSnapMirrorコマンドを使用して、NASおよびSAN環境の7-Modeボリュームをclustered Data ONTAP ボリュームに移行できます。移行が完了したら、クラスタ上でプロトコル、サービス、その他の設定を行う必要があります。
+
+*推奨事項：* ONTAP 9.11.1以前のリリースでは、7-Modeボリュームをコピーベースで移行する場合に7-Mode Transition Toolを使用してください。これは、マイグレーションプロセスのすべてのステップで7-Modeボリュームとクラスタの両方を事前に検証するチェック機能があるためです。これにより、多数の潜在的な問題を回避できます。このツールを使用すると、データ移行だけでなく、すべてのプロトコル、ネットワーク、サービスの設定の移行も大幅に簡易化されます。
 
 http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["『 7-Mode Transition Tool Release Notes 』"]
 
 この手順は、 SnapMirror を使用した移行で実行する必要があるタスクの概要を提供します。
 
+[NOTE]
+====
+ONTAP 9.12.1にアップグレードする前に、次の作業を行う必要があります。
+
+.手順
+. 次のコマンドを実行して、SnapMirrorデスティネーションボリュームを書き込み可能にします。
+`snapmirror break`
+. 次のコマンドを実行して、すべてのTDP SnapMirror関係を削除します。
+`snapmirror delete`
+
+
+====
 . xref:concept_planning_for_transition.adoc[移行予定のボリュームがサポートされていることを確認します 移行の場合]。
 . xref:task_preparing_7_mode_system_for_transition.adoc[7-Mode システムで移行を準備]。
 . xref:task_preparing_cluster_for_transition.adoc[クラスタで移行を準備]。
