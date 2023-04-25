@@ -1836,17 +1836,12 @@
   <block id="9ab93b9801d24dd493ae9317fa868d24" category="summary">7-Mode SnapLock ボリュームは、 ONTAP 9.5 以前で作成された SnapLock ボリュームに移行できます。SnapLock ボリュームの移行に関する要件とガイドラインを確認しておく必要があります。</block>
   <block id="02118662550617557a19da794441a679" category="doc">SnapLock ボリュームの移行に関するガイドライン</block>
   <block id="9775f07e175b548ab2bd419f19070f93" category="list-text">SnapLock に LUN が含まれている場合、 7-Mode SnapLock ボリュームの移行はサポートされていません。</block>
-  <block id="cf4fd90637510c596991d81db7107f4e" category="list-text">7-Mode の SnapLock Enterprise ボリュームは、 ONTAP 9.5 以前の SnapLock Enterprise ボリュームにのみ移行できます。</block>
-  <block id="0c8ef814c009d3861680ce164fba0dec" category="list-text">7-Mode の SnapLock Compliance ボリュームは、 ONTAP 9.5 以前の SnapLock Compliance ボリュームにのみ移行できます。</block>
   <block id="8a7eb801e6d32d53d8569ffc29d3b3b4" category="list-text">7-Mode の Volume SnapMirror 関係を移行する場合、 SnapLock Enterprise ボリュームに対してのみ段階的移行（セカンダリを移行してからプライマリを移行）を使用できます。</block>
   <block id="f49c7c11d30827c5826315411d6e270b" category="paragraph">7-Mode プライマリボリュームと ONTAP セカンダリボリュームの間の SnapMirror ディザスタリカバリ（ DR ）関係は、 SnapLock Enterprise ボリュームでのみサポートされ、 SnapLock Compliance ボリュームではサポートされません。</block>
   <block id="e66bfbd1a867ce9b8450d9c27fc293c5" category="inline-xref-macro">段階的構成での Volume SnapMirror 関係の移行</block>
-  <block id="1cde198e883c2df917f6d51bae4a77b1" category="paragraph"><block ref="1cde198e883c2df917f6d51bae4a77b1" category="inline-xref-macro-rx"></block></block>
   <block id="49b288fe4fe7fdfa9bacf0edfbf42dd0" category="list-text">SnapLock Compliance ボリューム間の 7-Mode Volume SnapMirror 関係を移行するには、プライマリボリュームとセカンダリボリュームを並行して移行する必要があります。</block>
   <block id="e4712d813b35a52028d5c00ce5892b92" category="inline-xref-macro">Volume SnapMirror 関係を並行して移行する</block>
-  <block id="bbdb7841fc38b8d7be1d2a2b7d6c3514" category="paragraph"><block ref="bbdb7841fc38b8d7be1d2a2b7d6c3514" category="inline-xref-macro-rx"></block></block>
   <block id="0fa5978d853b9b8f9a804a9ddf7dacd7" category="inline-link">SnapLock テクノロジを使用したアーカイブとコンプライアンス</block>
-  <block id="acd084e701650a06feecd55f2315ff07" category="paragraph"><block ref="acd084e701650a06feecd55f2315ff07" category="inline-link-rx"></block></block>
   <block id="4776c09bc65cff2b5c2ede615b312ea6" category="summary">7-Mode システムのプライマリ vFiler ユニットとセカンダリ vFiler ユニット間のディザスタリカバリ（ DR ）関係を、クラスタ内のソース SVM とデスティネーション SVM 間のディザスタリカバリ関係に移行できます。</block>
   <block id="4a28e7e8bad9747daad2ccfb2e117e49" category="doc">vFiler ユニット間でディザスタリカバリ関係を移行する</block>
   <block id="a4f06c8c506394d7d3ad3d9a6bbaa64f" category="paragraph">7-Mode システムのプライマリ vFiler ユニットとセカンダリ vFiler ユニット間のディザスタリカバリ（ DR ）関係を、クラスタ内のソース SVM とデスティネーション SVM 間のディザスタリカバリ関係に移行できます。</block>
@@ -7402,4 +7397,15 @@
   <block id="30f60d67f457bb040dffde52197a54da" category="paragraph-title">関連情報</block>
   <block id="bcb3bf3e1c3ba469a7b1637a41c81602" category="list-text">ONTAP 9.9.1以降のリリース</block>
   <block id="3b6e2da5c7b4f7bde13de4a566801528" category="list-text">ONTAP 9.10.1以降のリリース</block>
+  <block id="02c0afc6dc57e30e77048bd78577f569" category="paragraph">7-Mode SnapLock をONTAP 9に移行する場合は、次の要件とガイドラインを確認しておく必要があります。</block>
+  <block id="3c6e2b20b81b258a6d07d897dcbc8837" category="list-text">ONTAP 9.6を除くすべてのONTAP 9リリースで、7-ModeのSnapLock EnterpriseボリュームをSnapLock Enterpriseボリュームに移行できます。</block>
+  <block id="608d66a1ffc83b62ff9b96b7a6066895" category="list-text">ONTAP 9.6を除くすべてのONTAP 9リリースで、7-Mode SnapLock ComplianceボリュームをSnapLock Complianceボリュームに移行できます。</block>
+  <block id="d36c067563923a380ef9881a94cc42b6" category="inline-xref-macro">段階的構成でのVolume SnapMirror関係の移行^</block>
+  <block id="0cd6f41df3c2d79cbd91a1447c9355fe" category="paragraph"><block ref="0cd6f41df3c2d79cbd91a1447c9355fe" category="inline-xref-macro-rx"></block></block>
+  <block id="17fe715938ef8ba6b00ab8211c5adc65" category="inline-xref-macro">Volume SnapMirror関係を並行して移行^</block>
+  <block id="99697f507574bc1c8485cdace03a71af" category="paragraph"><block ref="99697f507574bc1c8485cdace03a71af" category="inline-xref-macro-rx"></block></block>
+  <block id="c905bec502c0652d10ba29c85c9c376b" category="list-text">ONTAP 9.10.1以降では、SnapLock ボリュームとSnapLock以外のボリュームを同じアグリゲート内に作成できます。</block>
+  <block id="856bd2e5c36198b1a4a96c3c36174ff1" category="paragraph">7-ModeのSnapLock ボリュームをONTAP 9.10.1以降に移行する場合は、を使用してONTAP ボリュームを手動で作成する必要があります<block ref="9febb3295321c7fd9a2154b2dd4fe68c" prefix=" " category="inline-code"></block> フラグ。ボリュームを手動で作成したら、7-Mode Transition Toolで移行を管理します。</block>
+  <block id="a0067b25c6979c2f6c86fb81b30b1b94" category="paragraph">ONTAP 9.10.1以降で7-Mode Transition Toolを使用してボリュームを作成すると、そのボリュームはSnapLock ボリュームとして作成されず、SnapMirrorベースラインが失敗します。</block>
+  <block id="b5d693096cb7f86384fa4012d1d2a0cb" category="paragraph"><block ref="b5d693096cb7f86384fa4012d1d2a0cb" category="inline-link-rx"></block></block>
 </blocks>

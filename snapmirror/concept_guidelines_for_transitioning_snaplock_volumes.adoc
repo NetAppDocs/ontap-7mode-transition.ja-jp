@@ -11,24 +11,31 @@ summary: 7-Mode SnapLock ボリュームは、 ONTAP 9.5 以前で作成され�
 
 
 [role="lead"]
-7-Mode SnapLock ボリュームは、 ONTAP 9.5 以前で作成された SnapLock ボリュームに移行できます。SnapLock ボリュームの移行に関する要件とガイドラインを確認しておく必要があります。
+7-Mode SnapLock をONTAP 9に移行する場合は、次の要件とガイドラインを確認しておく必要があります。
 
 * SnapLock に LUN が含まれている場合、 7-Mode SnapLock ボリュームの移行はサポートされていません。
-* 7-Mode の SnapLock Enterprise ボリュームは、 ONTAP 9.5 以前の SnapLock Enterprise ボリュームにのみ移行できます。
-* 7-Mode の SnapLock Compliance ボリュームは、 ONTAP 9.5 以前の SnapLock Compliance ボリュームにのみ移行できます。
+* ONTAP 9.6を除くすべてのONTAP 9リリースで、7-ModeのSnapLock EnterpriseボリュームをSnapLock Enterpriseボリュームに移行できます。
+* ONTAP 9.6を除くすべてのONTAP 9リリースで、7-Mode SnapLock ComplianceボリュームをSnapLock Complianceボリュームに移行できます。
 * 7-Mode の Volume SnapMirror 関係を移行する場合、 SnapLock Enterprise ボリュームに対してのみ段階的移行（セカンダリを移行してからプライマリを移行）を使用できます。
 +
 7-Mode プライマリボリュームと ONTAP セカンダリボリュームの間の SnapMirror ディザスタリカバリ（ DR ）関係は、 SnapLock Enterprise ボリュームでのみサポートされ、 SnapLock Compliance ボリュームではサポートされません。
 
 +
-xref:task_transitioning_a_data_protection_relationship.adoc[段階的構成での Volume SnapMirror 関係の移行]
+xref:task_transitioning_a_data_protection_relationship.adoc[段階的構成でのVolume SnapMirror関係の移行^]
 
 * SnapLock Compliance ボリューム間の 7-Mode Volume SnapMirror 関係を移行するには、プライマリボリュームとセカンダリボリュームを並行して移行する必要があります。
 +
-xref:task_transitioning_a_volume_snapmirror_relationship_in_parallel.adoc[Volume SnapMirror 関係を並行して移行する]
+xref:task_transitioning_a_volume_snapmirror_relationship_in_parallel.adoc[Volume SnapMirror関係を並行して移行^]
+
+* ONTAP 9.10.1以降では、SnapLock ボリュームとSnapLock以外のボリュームを同じアグリゲート内に作成できます。
++
+7-ModeのSnapLock ボリュームをONTAP 9.10.1以降に移行する場合は、を使用してONTAP ボリュームを手動で作成する必要があります `-snaplock-type {non-snaplock|compliance|enterprise}` フラグ。ボリュームを手動で作成したら、7-Mode Transition Toolで移行を管理します。
+
++
+ONTAP 9.10.1以降で7-Mode Transition Toolを使用してボリュームを作成すると、そのボリュームはSnapLock ボリュームとして作成されず、SnapMirrorベースラインが失敗します。
 
 
 
 * 関連情報 *
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-arch-con/home.html["SnapLock テクノロジを使用したアーカイブとコンプライアンス"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-arch-con/home.html["SnapLock テクノロジを使用したアーカイブとコンプライアンス"^]
