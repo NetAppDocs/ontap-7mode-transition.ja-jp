@@ -38,7 +38,7 @@ HA ペア
  a| 
 プラットフォーム要件
  a| 
-ミッドレベルとハイレベルのプラットフォームでのみサポートされます https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]
+ミッドレベルとハイレベルのプラットフォームでのみサポートされます https://["NetApp Interoperability Matrix Tool で確認できます"]
  a| 
 すべてのプラットフォームでサポートされます
 

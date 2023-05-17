@@ -19,6 +19,6 @@ Hyper-V ストレージのライブマイグレーションの詳細について
 
 * 7-Mode コントローラの両方のノードで同じ igroup 名を使用している場合、移行ツールが igroup の競合を解決できないことがあります。
 +
-バグ ID https://mysupport.netapp.com/NOW/cgi-bin/bol?Type=Detail&Display=769715["769715"]。
+バグ ID https://["769715"]。
 
 

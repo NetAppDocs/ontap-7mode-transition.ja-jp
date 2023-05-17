@@ -15,7 +15,7 @@ summary: 7-Mode システムを移行する前に、クラスタをセットア�
 
 * クラスタと SVM のセットアップが完了している必要があります。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["ソフトウェアのセットアップ"]
+https://["ソフトウェアのセットアップ"]
 
 +
 ターゲット SVM が SVM ディザスタリカバリ関係にないことを確認します。
@@ -71,9 +71,9 @@ system7mode is alive
 
 マルチパスの場合は、各ノードに 2 つのクラスタ間 LIF が必要です。
 
-https://docs.netapp.com/us-en/ontap/networking/index.html["ネットワークと LIF の管理"]
+https://["ネットワークと LIF の管理"]
 
 .関連情報
 xref:task_creating_a_transition_peering_relationship.adoc[移行ピア関係を作成]
 
-https://mysupport.netapp.com/site/docs-and-kb["ネットアップのマニュアル： Product Library A-Z"]
+https://["ネットアップのマニュアル： Product Library A-Z"]

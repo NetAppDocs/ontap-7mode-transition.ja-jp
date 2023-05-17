@@ -17,7 +17,7 @@ SnapMirror テクノロジを使用して、スタンドアロンボリューム
 
 LUN を含むスタンドアロンボリュームまたは Volume SnapMirror 関係を移行した場合は、 igroup を作成して LUN をマッピングする必要があります。その後、移行した clustered Data ONTAP ボリュームへのアクセスを設定する前に、必要な移行後のタスクをホスト上で実行する必要があります。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN ホストの移行および修復"]
+http://["SAN ホストの移行および修復"]
 
 * 関連情報 *
 

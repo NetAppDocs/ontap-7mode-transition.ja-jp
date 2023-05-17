@@ -15,7 +15,7 @@ Copy-Based Transition の対象となる ONTAP のリリース要件、ライセ
 
 * * Data ONTAP 7-Mode ソースシステム *
 +
-7-Mode Transition Tool によるマイグレーションでサポートされる 7-Mode のリリースのリストについては、を参照してください https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]。
+7-Mode Transition Tool によるマイグレーションでサポートされる 7-Mode のリリースのリストについては、を参照してください https://["NetApp Interoperability Matrix Tool で確認できます"]。
 
 * * ONTAP ターゲット・システム *
 +
@@ -93,6 +93,6 @@ CoC 検証を実行する必要がある場合は、デスティネーション�
 
 * * 移行のための環境評価に必要なストレージ、ホスト、 FC スイッチのバージョン
 +
-7-Mode Transition Tool による環境評価でサポートされる 7-Mode システム、ホスト、および FC スイッチのバージョンについては、を参照してください https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]。
+7-Mode Transition Tool による環境評価でサポートされる 7-Mode システム、ホスト、および FC スイッチのバージョンについては、を参照してください https://["NetApp Interoperability Matrix Tool で確認できます"]。
 
 

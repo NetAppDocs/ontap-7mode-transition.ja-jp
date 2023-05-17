@@ -2255,10 +2255,6 @@
   <block id="5c9d0c61fc3df4c3b48f672ad1791a25" category="list-text">iSCSI アクセスリスト情報</block>
   <block id="399f3bd12f59e76045b7f1b63ad23338" category="list-text">iSNS 構成</block>
   <block id="9890518c62c2764f187a51ee54f7022f" category="list-text">iSCSI CHAP および RADIUS の構成</block>
-  <block id="344245ffd5e989ae89c20e32c008fa81" category="inline-link">ネットワークおよび LIF の管理 / ONTAP 9.7 以前</block>
-  <block id="deacabb337a4e4593417f763b7ee9cdd" category="paragraph"><block ref="deacabb337a4e4593417f763b7ee9cdd" category="inline-link-rx"></block></block>
-  <block id="1d3cfe94d22cd88aa57d3292be16ce6a" category="inline-link">ネットワークおよび LIF の管理 / ONTAP 9.8 以降</block>
-  <block id="7c2408d034a81cd431503102ae3cf257" category="paragraph"><block ref="7c2408d034a81cd431503102ae3cf257" category="inline-link-rx"></block></block>
   <block id="b8466bb302aa3fea8310b6641002d381" category="summary">移行を完了するには、個々のプロジェクトを完了します。この処理はシステムの停止を伴うため、実行するタイミングを検討する必要があります。SnapMirror 関係にあるボリュームを移行する際には、プライマリプロジェクトの移行を実行する前にセカンダリプロジェクトが完了している必要があります。</block>
   <block id="dfa9d672e260d28e7e2c3da1f81804c9" category="doc">移行プロジェクトの完了</block>
   <block id="18efe2cf1d521979dfb7038353e18119" category="paragraph">ストレージカットオーバーは数分で完了します。データの再マウントに必要な時間は、クライアントによって異なります。ストレージカットオーバーのタイミングやシステム停止時間は、次の要因によって異なります。</block>
@@ -3903,7 +3899,6 @@
   <block id="7ac8b020eee94acd30b5741365ce17d4" category="paragraph">「 * network ipspace create * 」</block>
   <block id="daac7c5e933e7182b9747eedf6596702" category="paragraph">移行対象として選択した 7-Mode IP アドレスまたは新しい LIF がマッピングされた SVM の IPspace に作成されます。</block>
   <block id="d0342cf9d6f5d666bdde2bd79ba27922" category="admonition">IPv6 アドレスは移行できないため、移行後に手動で設定する必要があります。</block>
-  <block id="bc3d619cb2db28a4bb6fdf98a10e1f1f" category="paragraph"><block ref="bc3d619cb2db28a4bb6fdf98a10e1f1f" category="inline-link-rx"></block></block>
   <block id="eee62c06f0e4e31c35c86062b58ed57a" category="summary">移行を開始する前に、 SnapMirror ライセンスの追加、 7-Mode システムがターゲットクラスタと通信できるようにする、 TLS を有効にするなど、 7-Mode システムで一定の作業を完了しておく必要があります。</block>
   <block id="908cdd997b186d311ba53823359ff525" category="list-text">SnapMirror 機能を有効にします :+`* options snapmirror.enable on *`</block>
   <block id="a1705c662eae56b55f6aa2a982ee9965" category="list-text">「 snapvault.access 」オプションの値を、クラスタ上のすべてのクラスタ間 LIF の IP アドレスに設定します。</block>
@@ -4679,8 +4674,6 @@
   <block id="3d8681c4860ac3a57d1d2f7bc8baa5bb" category="summary">HA ペアの各 7-Mode コントローラをターゲット SVM にマッピングする必要があります。vFiler ユニットがある場合は、 vFiler ユニットごとにターゲット SVM を選択する必要があります。7-Mode コントローラまたは vFiler ユニットのボリュームは、マッピングした SVM に移行されます。</block>
   <block id="e355b11e2eaa9d7eea05fa53b25548c5" category="doc">SVM とボリュームのマッピング</block>
   <block id="e864ae7abd9c7cc9f36d51906c0d8eda" category="paragraph">ターゲットクラスタに SVM を作成しておく必要があります。</block>
-  <block id="c7e90c4bd08c796e50d8af0c6b346a93" category="inline-link">System Manager を使用したクラスタの管理</block>
-  <block id="e68762e2e9b4dde18fd46ef04bf3d83f" category="paragraph"><block ref="e68762e2e9b4dde18fd46ef04bf3d83f" category="inline-link-rx"></block></block>
   <block id="5e182e8774fba8b1f9c1b6c53951c7e8" category="paragraph">vFiler ユニットと SVM のマッピングは 1 つだけです。他の 7-Mode コントローラまたは vFiler ユニットのボリュームを、マッピングした SVM に移行することはできません。</block>
   <block id="3d70219dc8889e33c3d610573ae98ff5" category="list-text">SVM とボリュームマッピングタブで、各 7-Mode コントローラまたは vFiler ユニットからボリュームを移行するターゲット SVM を選択します。</block>
   <block id="ef57257a0f8fb5ef6b194bfb4db960a2" category="paragraph">デフォルトまたはデフォルト以外の IPspace の SVM をターゲットに指定できます。</block>
@@ -4909,11 +4902,7 @@
   <block id="89e9376c64d88102a1755b2bcb5ebdc8" category="paragraph">ボリュームのスペースが不足しているため、ボリュームのスペースギャランティが現在無効になっている。</block>
   <block id="37cbd8ae933eaccbe38fb27aa9624b57" category="paragraph">qtree エクスポートルールが 7-Mode システムに存在する。</block>
   <block id="0529ad04c3bacd18bc088e405c872bc9" category="paragraph">このエラーを承認する場合は、 Data ONTAP 7-Mode と ONTAP の qtree エクスポートルールの違いを把握しておく必要があります。7-Mode Transition Tool によって NFS エクスポートルールが適用されたあとで、いくつかの手順を手動で実行しなければならない場合があります。</block>
-  <block id="635d884e298b628bc86c8dfa3beaa43b" category="inline-link">ネットアップの技術情報アーティクル 8010371 ：「 7MTT Precheck 10111 - Transitioning 7-Mode volumes qtree レベルのエクスポートがある</block>
-  <block id="b7d9c1c9dc21f73a9710e128f255e3de" category="paragraph"><block ref="76cc089251289f20d272d580a0cb7fad" category="inline-link-rx"></block></block>
   <block id="5124096f4b11e70bfd162b28f23501b0" category="paragraph">移行するオブジェクトと構成は一定の制限を超えます。ストレージカットオーバーに時間がかかる可能性があり、ダウンタイムに備えておく必要があります。</block>
-  <block id="55aa226e76142230ea3e2e60c3300d1c" category="inline-link">ネットアップの技術情報アーティクル 3014882 ：「 Considerations for reducing the storage cutover time during Copy-Free Transition</block>
-  <block id="f5620ac4f331783f990692b9f2078fe8" category="paragraph"><block ref="a86b9e1b927d9778e699c72d1d375399" category="inline-link-rx"></block></block>
   <block id="c75b197507e2d158f2e5b19e24d219f3" category="paragraph">7-Mode システムの CIFS Active Directory ドメインがターゲット SVM の CIFS Active Directory ドメインと異なる場合であっても、 7-Mode Transition Tool で CIFS 構成の移行が続行される。</block>
   <block id="41c2904cfced31e323718ea98cede375" category="paragraph">7-Mode システムとターゲット SVM の CIFS Active Directory ドメインが信頼できるドメインであることを確認する必要があります。信頼できない場合、ターゲット SVM への CIFS 構成の移行は失敗します。</block>
   <block id="32f0eae804f29186c7413dc355cd4b42" category="paragraph"><block ref="32f0eae804f29186c7413dc355cd4b42" category="inline-link-rx"></block></block>
@@ -7408,4 +7397,10 @@
   <block id="856bd2e5c36198b1a4a96c3c36174ff1" category="paragraph">7-ModeのSnapLock ボリュームをONTAP 9.10.1以降に移行する場合は、を使用してONTAP ボリュームを手動で作成する必要があります<block ref="9febb3295321c7fd9a2154b2dd4fe68c" prefix=" " category="inline-code"></block> フラグ。ボリュームを手動で作成したら、7-Mode Transition Toolで移行を管理します。</block>
   <block id="a0067b25c6979c2f6c86fb81b30b1b94" category="paragraph">ONTAP 9.10.1以降で7-Mode Transition Toolを使用してボリュームを作成すると、そのボリュームはSnapLock ボリュームとして作成されず、SnapMirrorベースラインが失敗します。</block>
   <block id="b5d693096cb7f86384fa4012d1d2a0cb" category="paragraph"><block ref="b5d693096cb7f86384fa4012d1d2a0cb" category="inline-link-rx"></block></block>
+  <block id="62862e43a259c6f657835385994bd50d" category="inline-link">7MTT Precheck 10111 - qtreeレベルのエクスポートがある7-Modeボリュームを移行する</block>
+  <block id="57c8efcc3c67cc0cf40f5ccea4480938" category="paragraph"><block ref="57c8efcc3c67cc0cf40f5ccea4480938" category="inline-link-rx"></block></block>
+  <block id="fe4c4243327571d5d4dfbb7d050df34d" category="inline-link">コピーフリーの移行中のストレージカットオーバー時間を短縮するための考慮事項</block>
+  <block id="6705b8d93729b2ab59445f3c547fe952" category="paragraph"><block ref="6705b8d93729b2ab59445f3c547fe952" category="inline-link-rx"></block></block>
+  <block id="53b500e941f815e0da37832bbbb3f265" category="inline-link">System Manager を使用したクラスタ管理</block>
+  <block id="54875b6362e405aeb3f3e1f1b65a3cc7" category="paragraph"><block ref="54875b6362e405aeb3f3e1f1b65a3cc7" category="inline-link-rx"></block></block>
 </blocks>

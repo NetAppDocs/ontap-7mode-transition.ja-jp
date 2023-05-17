@@ -64,6 +64,6 @@ SVM で次の LDAP オプションを手動で設定する必要があります�
 
 xref:task_customizing_configurations_for_transition.adoc[7-Mode 構成の移行のカスタマイズ]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]
+https://["NFS の管理"]
 
-https://docs.netapp.com/us-en/ontap/networking/index.html["ネットワークと LIF の管理"]
+https://["ネットワークと LIF の管理"]

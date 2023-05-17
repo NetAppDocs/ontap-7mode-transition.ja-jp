@@ -30,9 +30,9 @@ SAS ディスクシェルフを接続する際の考慮事項を確認してお�
 .. シェルフ ID が重複している場合（ 7-Mode のディスクシェルフ ID がターゲットクラスタノードのディスクシェルフで使用されている場合）は、 ID を変更します。
 +
 *** SAS ディスクシェルフの場合、有効なシェルフ ID は 00~99 です。
-*** SAS シェルフ ID は、 HA ペア内で一意であることが必要です。https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["『 SAS Disk Shelves Installation and Service Guide for DS4243 、 DS2246 、 DS4486 、 and DS4246 』を参照してください"]
+*** SAS シェルフ ID は、 HA ペア内で一意であることが必要です。https://["『 SAS Disk Shelves Installation and Service Guide for DS4243 、 DS2246 、 DS4486 、 and DS4246 』を参照してください"]
 *** FC ディスクシェルフの場合、有効なシェルフ ID は 1~7 です。
-*** FC シェルフ ID は、各 FC ループ内で一意である必要があります。https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC および DS14mk4 FC ハードウェアサービスガイド"]
+*** FC シェルフ ID は、各 FC ループ内で一意である必要があります。https://["DS14mk2 FC および DS14mk4 FC ハードウェアサービスガイド"]
 
 
 .. ディスクシェルフの電源を再投入して、新しい ID を有効にします。
@@ -69,13 +69,13 @@ NOTE: ディスクシェルフを別のスタックに接続することを推�
 
 |===
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["『 SAS Disk Shelves Installation and Service Guide for DS4243 、 DS2246 、 DS4486 、 and DS4246 』を参照してください"]
+https://["『 SAS Disk Shelves Installation and Service Guide for DS4243 、 DS2246 、 DS4486 、 and DS4246 』を参照してください"]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMM1280273["DiskShelf14mk2 AT ハードウェアサービスガイド"]
+https://["DiskShelf14mk2 AT ハードウェアサービスガイド"]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC および DS14mk4 FC ハードウェアサービスガイド"]
+https://["DS14mk2 FC および DS14mk4 FC ハードウェアサービスガイド"]
 
 . ディスクシェルフの電源をオンにします。
 +
@@ -87,7 +87,7 @@ IMPORTANT: 次の手順に進む前に、 70 秒以上待機する必要があ�
 Config Advisor で特定されたケーブル接続の問題をすべて修正する必要があります。
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["ネットアップのダウンロード： Config Advisor"]
+https://["ネットアップのダウンロード： Config Advisor"]
 
 . 7-Mode Transition Tool で、 * ケーブル接続を検証 * をクリックします。
 +

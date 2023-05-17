@@ -43,4 +43,4 @@ NOTE: Kerberos 構成を移行する場合は、少なくとも 1 つの LIF を
 
 xref:concept_how_nfs_exports_are_transitioned.adoc[NFS エクスポートが移行される仕組み]
 
-http://docs.netapp.com/ontap-9/index.jsp["ネットアップのマニュアル： ONTAP 9"]
+http://["ネットアップのマニュアル： ONTAP 9"]

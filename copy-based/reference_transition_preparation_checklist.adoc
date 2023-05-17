@@ -22,7 +22,7 @@ summary: 移行を開始する前に、移行の前提条件をすべて満た�
 
 
  a| 
-サポートされる 7-Mode バージョン https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]
+サポートされる 7-Mode バージョン https://["NetApp Interoperability Matrix Tool で確認できます"]
  a| 
 
 

@@ -51,4 +51,4 @@ NOTE: このトラフィックがファイアウォールでブロックされ�
 
 * 関連情報 *
 
-http://docs.netapp.com/us-en/ontap-7mode-transition/install-admin/index.html["7-Mode Transition Tool のインストールと管理"]
+http://["7-Mode Transition Tool のインストールと管理"]

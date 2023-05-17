@@ -151,7 +151,7 @@ NOTE: FC LIF と iSCSI LIF は 7-Mode Transition Tool では移行されませ�
  a| 
 `*transition cbt add-primary-7-mode -system-p_project_name_-h_source -host_f_management-ipaddress _-d _data-copy-ipaddress _[-m_multipathing-ipaddress _]*
 
-詳細については、を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/CBT_%3A_How_to_provide_all_the_required_primary_7-Mode_details_for_a_given_secondary_project["CBT ：特定のセカンダリプロジェクトに必要なプライマリ 7-Mode の詳細をすべて提供する方法"]。
+詳細については、を参照してください https://["CBT ：特定のセカンダリプロジェクトに必要なプライマリ 7-Mode の詳細をすべて提供する方法"]。
 
 
 
@@ -160,7 +160,7 @@ NOTE: FC LIF と iSCSI LIF は 7-Mode Transition Tool では移行されませ�
  a| 
 `*transition cbt add-secondary-cluster-mode-system-p_project_name_-h_c-mode-host-name _v_vserver-name_*`
 
-詳細については、を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/CBT%3A_How_to_add_the_required_secondary_cluster_details_to_the_primary_project["CBT ：必要なセカンダリクラスタの詳細をプライマリプロジェクトに追加する方法"]
+詳細については、を参照してください https://["CBT ：必要なセカンダリクラスタの詳細をプライマリプロジェクトに追加する方法"]
 
 |===
 +

@@ -38,4 +38,4 @@ NFS 構成が 7-Mode Transition Tool で移行されるのは、 7-Mode シス�
 
 * 関連情報 *
 
-http://docs.netapp.com/ontap-9/index.jsp["ネットアップのマニュアル： ONTAP 9"]
+http://["ネットアップのマニュアル： ONTAP 9"]

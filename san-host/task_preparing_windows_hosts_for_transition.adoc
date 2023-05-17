@@ -36,4 +36,4 @@ NOTE: Windows 2003 を使用している場合は、 Windows 2008 にアップ�
 
 * 関連情報 *
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanconf/home.html["SAN の設定"]
+https://["SAN の設定"]

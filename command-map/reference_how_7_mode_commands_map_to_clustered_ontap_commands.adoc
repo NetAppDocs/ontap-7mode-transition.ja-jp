@@ -859,7 +859,7 @@ du -vservername_-path_path_pathname_-uvolume file show -disk -usage -vserver vse
  a| 
 サポートされないテープバックアップのマニュアルの説明に従って 'NDMP を使用してバックアップを開始する必要がありますdump-to-null 機能の場合は、 NDMP 環境変数 DUMP_TO_NULL を設定する必要があります。
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["テープバックアップによるデータ保護"]
+https://["テープバックアップによるデータ保護"]
 
 |===
 [role="lead"]
@@ -2500,7 +2500,7 @@ reboot-inhibit-takeover true -node nodename _
 
 テープバックアップのマニュアルに従って、 NDMP を使用してリストアを開始する必要があります。
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["テープバックアップによるデータ保護"]
+https://["テープバックアップによるデータ保護"]
 
 
 
@@ -4053,7 +4053,7 @@ volume show -fields aggregate 」のように表示されます
 * SnapMirror を使用して元のボリュームをレプリケートしたあと、 SnapMirror 関係を解除して読み書き可能なボリュームにします。
 
 
-http://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-5578BA46-5522-4BA6-B354-5C924B8207B1.html["論理ストレージ管理ガイド』を参照してください"]
+http://["論理ストレージ管理ガイド』を参照してください"]
 
 
 

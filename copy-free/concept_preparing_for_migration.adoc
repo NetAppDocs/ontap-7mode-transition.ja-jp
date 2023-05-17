@@ -17,4 +17,4 @@ image::../media/delete_me_cft_preparation_workflow.gif[CFT を削除する準備
 
 * 関連情報 *
 
-https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]
+https://["NetApp Interoperability Matrix Tool で確認できます"]

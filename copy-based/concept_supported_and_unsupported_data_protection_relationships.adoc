@@ -28,7 +28,7 @@ Volume SnapMirror 関係は 7-Mode Transition Tool を使用して移行でき�
 SnapVault 関係のソースであるボリュームはマイグレートできますが、 SnapVault 関係は移行されません。SnapVault 関係のデスティネーションボリュームは、 SnapVault バックアップを停止したあとにマイグレートできます。
 
 +
-http://www.netapp.com/us/media/tr-4052.pdf["ネットアップテクニカルレポート 4052 ：『 Successfully Transitioning to Clustered Data ONTAP （ Data ONTAP 8.2.x and 8.3 ）』"]
+http://["ネットアップテクニカルレポート 4052 ：『 Successfully Transitioning to Clustered Data ONTAP （ Data ONTAP 8.2.x and 8.3 ）』"]
 
 * qtree SnapMirror 関係
 +
@@ -43,7 +43,7 @@ qtree SnapMirror 関係のソースである qtree を含むボリュームは�
 移行の完了後、移行したボリュームのバックアップポリシーを ONTAP で手動で設定する必要があります。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["テープバックアップによるデータ保護"]
+https://["テープバックアップによるデータ保護"]
 
 * 同期 SnapMirror 関係
 +

@@ -55,7 +55,7 @@ NOTE: 新しい LIF を作成した場合は、すべてのプロジェクトが
 
 ONTAP 9.3 以降のサポートされるリリースを実行しているクラスタ間の SnapMirror 関係の移行が完了したら、 SnapMirror 関係のタイプを DP から XDP に変換する必要があります。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["データ保護"]
+http://["データ保護"]
 
 * 関連情報 *
 

@@ -15,4 +15,4 @@ summary: 移行のための環境評価でサポートされる Data ONTAP 7-Mod
 
 7-Mode Transition Tool による環境評価でサポートされる 7-Mode システム、ホスト、および FC スイッチのバージョンについては、 NetApp Interoperability Matrix Tool を参照してください。
 
-https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]
+https://["NetApp Interoperability Matrix Tool で確認できます"]

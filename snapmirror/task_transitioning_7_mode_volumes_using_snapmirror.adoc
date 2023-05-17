@@ -17,7 +17,7 @@ ONTAP 9.12.1以降では、SnapMirrorテクノロジを使用する7-Modeボリ�
 
 *推奨事項：* ONTAP 9.11.1以前のリリースでは、7-Modeボリュームをコピーベースで移行する場合に7-Mode Transition Toolを使用してください。これは、マイグレーションプロセスのすべてのステップで7-Modeボリュームとクラスタの両方を事前に検証するチェック機能があるためです。これにより、多数の潜在的な問題を回避できます。このツールを使用すると、データ移行だけでなく、すべてのプロトコル、ネットワーク、サービスの設定の移行も大幅に簡易化されます。
 
-http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["『 7-Mode Transition Tool Release Notes 』"]
+http://["『 7-Mode Transition Tool Release Notes 』"]
 
 この手順は、 SnapMirror を使用した移行で実行する必要があるタスクの概要を提供します。
 
@@ -44,23 +44,23 @@ ONTAP 9.12.1にアップグレードする前に、次の作業を行う必要�
 
 * オプション： SVM にデータ LIF を作成してクライアントアクセスを有効にする
 +
-https://docs.netapp.com/us-en/ontap/networking/index.html["ネットワークと LIF の管理"]。
+https://["ネットワークと LIF の管理"]。
 
 * SVM で、プロトコル、ネットワーク、およびサービスを設定します。
 +
-** https://docs.netapp.com/us-en/ontap/networking/index.html["ネットワークと LIF の管理"]。
-** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB / CIFS の管理"]
-** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]
+** https://["ネットワークと LIF の管理"]。
+** http://["SMB / CIFS の管理"]
+** https://["NFS の管理"]
 
 
 * igroup を作成して LUN をマッピングします
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 管理"]
+https://["SAN 管理"]
 
 * LUN を含むボリュームを移行する場合は、移行した clustered Data ONTAP ボリュームへのアクセスをリストアする前に、必要な移行後のタスクをホスト上で実行する必要があります。
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN ホストの移行および修復"]
+http://["SAN ホストの移行および修復"]
 
 
 
-https://mysupport.netapp.com/site/global/dashboard["ネットアップサポート"]
+https://["ネットアップサポート"]

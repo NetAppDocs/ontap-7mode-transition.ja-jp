@@ -19,7 +19,7 @@ Config Advisor は、コピーフリーの移行に必要なツールです。�
 
 7-Mode ディスクシェルフをターゲットクラスタノードに接続したあとにケーブル接続を検証するには、 Config Advisor の「 Transition 」実行プロファイルを使用する必要があります。
 
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["ネットアップのダウンロード： Config Advisor"]
+https://["ネットアップのダウンロード： Config Advisor"]
 
 
 
@@ -27,4 +27,4 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["ネッ
 
 Copy-Free Transition を使用した移行時に SAN ホストで実行する必要のある、移行前と移行後の手順について説明します。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN ホストの移行および修復"]
+http://["SAN ホストの移行および修復"]

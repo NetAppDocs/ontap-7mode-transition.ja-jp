@@ -87,8 +87,6 @@ NAS プロトコルを使用した LUN の共有
 
 * 関連情報 *
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]
+https://["NFS の管理"]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["ネットワークおよび LIF の管理 / ONTAP 9.7 以前"]
-
-https://docs.netapp.com/us-en/ontap/networking/index.html["ネットワークおよび LIF の管理 / ONTAP 9.8 以降"]
+https://["ネットワークと LIF の管理"]

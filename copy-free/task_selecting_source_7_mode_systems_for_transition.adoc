@@ -15,7 +15,7 @@ summary: 移行プロジェクトを計画する際に最初に実行する手�
 
 * 移行する HA ペアの 7-Mode コントローラは、 Copy-Free Transition でサポートされるプラットフォームで、サポートされる ONTAP バージョンを実行している必要があります。
 +
-https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]
+https://["NetApp Interoperability Matrix Tool で確認できます"]
 
 * HA 構成の両方のコントローラが正常に動作している必要があります。
 +

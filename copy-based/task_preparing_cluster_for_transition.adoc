@@ -15,7 +15,7 @@ summary: 移行の前に、 HTTPS の許可、インタークラスタ LIF の�
 
 * クラスタと SVM のセットアップが完了している必要があります。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["ソフトウェアのセットアップ"]
+https://["ソフトウェアのセットアップ"]
 
 +
 ターゲット SVM が SVM ディザスタリカバリ関係にないことを確認します。
@@ -28,7 +28,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["ソ�
 この追加スペースは、移行したボリュームを 64 ビット形式にアップグレードするために必要です。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["ディスクおよびアグリゲートの管理"]
+https://["ディスクおよびアグリゲートの管理"]
 
 * Volume SnapMirror 関係を移行するときに SVM ピア関係を確立するには、次の条件が満たされている必要があります。
 +
@@ -114,7 +114,7 @@ mgmt
 
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["システム管理"]
+https://["システム管理"]
 
 . クラスタの各ノードにインタークラスタ LIF を作成し、クラスタと 7-Mode システムが通信できるようにします。
 +
@@ -165,7 +165,7 @@ system7mode is alive
 マルチパスの場合は、各ノードに 2 つのクラスタ間 LIF が必要です。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["ネットワークと LIF の管理"]
+https://["ネットワークと LIF の管理"]
 
 
 

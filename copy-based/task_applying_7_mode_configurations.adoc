@@ -123,4 +123,4 @@ xref:task_managing_logical_interfaces.adoc[論理インターフェイスを管�
 
 xref:concept_considerations_for_quotas.adoc[クォータに関する考慮事項]
 
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_v2.0%2F%2FTransitioned_Data_ONTAP_features["7MTT v2.0/Transitioned Data ONTAP の機能"]
+https://["7MTT v2.0/Transitioned Data ONTAP の機能"]

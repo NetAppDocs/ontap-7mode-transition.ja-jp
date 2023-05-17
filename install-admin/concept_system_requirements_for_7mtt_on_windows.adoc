@@ -72,7 +72,7 @@ JRE が自動的に更新されると、以前のバージョンの JRE を必�
 NOTE: JRE 1.8 Update 46以降（JRE 1.8 Update 331を含む）では、7-Mode Transition ToolがData ONTAP 7-ModeシステムおよびONTAP システムと通信するためには、Data ONTAP 7-ModeシステムおよびONTAP システムでのSSLキーの長さが1024以上である必要があります。
 
 +
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT%3A_How_to_resolve_TLS_or_SSL_communication_issue["7MTT ： TLS または SSL 通信の問題を解決する方法"]
+https://["7MTT ： TLS または SSL 通信の問題を解決する方法"]
 
 
 
@@ -134,4 +134,4 @@ NOTE: Microsoft Internet Explorer を Web ブラウザとして使用してい�
 
 * 関連情報 *
 
-https://mysupport.netapp.com/NOW/products/interoperability["ネットアップの相互運用性"]
+https://["ネットアップの相互運用性"]
