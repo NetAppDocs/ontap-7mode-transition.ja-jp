@@ -144,7 +144,7 @@ transition cbt pause （移行の CBT 一時停止
  a| 
 「 transition cbt add-primary-7-mode-system` 」
 
-https://["CBT ：特定のセカンダリプロジェクトに必要なプライマリ 7-Mode の詳細をすべて提供する方法"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/CBT_%3A_How_to_provide_all_the_required_primary_7-Mode_details_for_a_given_secondary_project["CBT ：特定のセカンダリプロジェクトに必要なプライマリ 7-Mode の詳細をすべて提供する方法"]
 
 
 
@@ -153,7 +153,7 @@ ONTAP セカンダリシステムに関する情報をプライマリに追加�
  a| 
 transition cbt add-secondary-cluster-mode-system`
 
-https://["CBT ：必要なセカンダリクラスタの詳細をプライマリプロジェクトに追加する方法"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/CBT%3A_How_to_add_the_required_secondary_cluster_details_to_the_primary_project["CBT ：必要なセカンダリクラスタの詳細をプライマリプロジェクトに追加する方法"]
 
 
 

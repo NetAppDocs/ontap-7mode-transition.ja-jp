@@ -101,4 +101,4 @@ Flash Pool アグリゲートの SSD の空きスペースが SSD の合計デ�
 
 xref:reference_ignorable_errors_during_transition.adoc[移行時に無視できるエラーです]
 
-https://["ディスクおよびアグリゲートの管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["ディスクおよびアグリゲートの管理"]

@@ -107,7 +107,7 @@ qtree エクスポートルールが 7-Mode システムに存在する。
 
 このエラーを承認する場合は、 Data ONTAP 7-Mode と ONTAP の qtree エクスポートルールの違いを把握しておく必要があります。7-Mode Transition Tool によって NFS エクスポートルールが適用されたあとで、いくつかの手順を手動で実行しなければならない場合があります。
 
-https://["7MTT Precheck 10111 - qtreeレベルのエクスポートがある7-Modeボリュームを移行する"]
+https://kb.netapp.com/onprem/ontap/da/NAS/7MTT_Precheck_10111_-_How_to_transition_7-Mode_volumes_that_have_qtree_level_exports["7MTT Precheck 10111 - qtreeレベルのエクスポートがある7-Modeボリュームを移行する"]
 
 
 
@@ -116,7 +116,7 @@ https://["7MTT Precheck 10111 - qtreeレベルのエクスポートがある7-Mo
  a| 
 移行するオブジェクトと構成は一定の制限を超えます。ストレージカットオーバーに時間がかかる可能性があり、ダウンタイムに備えておく必要があります。
 
-https://["コピーフリーの移行中のストレージカットオーバー時間を短縮するための考慮事項"]
+https://kb.netapp.com/onprem/ontap/os/Storage_cutover_time_considerations_for_Copy-Free_Transition["コピーフリーの移行中のストレージカットオーバー時間を短縮するための考慮事項"]
 
 
 
@@ -127,7 +127,7 @@ https://["コピーフリーの移行中のストレージカットオーバー�
 
 7-Mode システムとターゲット SVM の CIFS Active Directory ドメインが信頼できるドメインであることを確認する必要があります。信頼できない場合、ターゲット SVM への CIFS 構成の移行は失敗します。
 
-https://["Active Directory ドメインがの場合の CIFS 構成の移行方法 7-Mode とターゲット SVM で CIFS サーバが異なります"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_transition_CIFS_configurations_when_Active_Directory_Domain_of_CIFS_server_on_7-Mode_and_target_SVM_are_different["Active Directory ドメインがの場合の CIFS 構成の移行方法 7-Mode とターゲット SVM で CIFS サーバが異なります"]
 
 |===
 

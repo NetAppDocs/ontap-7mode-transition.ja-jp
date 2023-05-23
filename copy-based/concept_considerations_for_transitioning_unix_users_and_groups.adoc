@@ -35,4 +35,4 @@ summary: ネットグループ構成は、 7-Mode の /etc/netgroup ファイル
 
 * 関連情報 *
 
-https://["NFS の管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]

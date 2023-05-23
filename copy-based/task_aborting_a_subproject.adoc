@@ -43,6 +43,6 @@ NOTE: 7-Mode プロジェクトを中止した場合、そのプロジェクト�
 
 
 
-http://["ONTAP 9 のコマンド"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 のコマンド"]
 
-https://["Data ONTAP 8.2 コマンド：マニュアルページリファレンス Vol.1 』を参照してください"]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1511537["Data ONTAP 8.2 コマンド：マニュアルページリファレンス Vol.1 』を参照してください"]

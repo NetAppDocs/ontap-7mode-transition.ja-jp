@@ -47,6 +47,6 @@ VMware HA と DRS は移行時にサポートされません。
 
 * 関連情報 *
 
-http://["で VMware DRS クラスタを無効にする際のリソースプールの保持 vSphere Web Client の場合"]
+http://kb.vmware.com/kb/2032893["で VMware DRS クラスタを無効にする際のリソースプールの保持 vSphere Web Client の場合"]
 
-http://["VMware High Availability （ HA ；高可用性）の無効化"]
+http://kb.vmware.com/kb/1008025["VMware High Availability （ HA ；高可用性）の無効化"]

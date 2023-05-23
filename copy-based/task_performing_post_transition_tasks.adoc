@@ -24,7 +24,7 @@ summary: ストレージカットオーバーが終了して移行が完了し�
 
 . SAN の移行：ホストを手動で再設定します。
 +
-http://["SAN ホストの移行および修復"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN ホストの移行および修復"]
 
 . 次の点を検証し、 SVM がクライアントにデータを提供できる状態であることを確認します。
 +
@@ -37,4 +37,4 @@ http://["SAN ホストの移行および修復"]
 
 * 関連情報 *
 
-http://["ネットアップのマニュアル： ONTAP 9"]
+http://docs.netapp.com/ontap-9/index.jsp["ネットアップのマニュアル： ONTAP 9"]

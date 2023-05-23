@@ -15,7 +15,7 @@ ONTAP 移行ターゲットクラスタがサポートされるかどうかは�
 
 サポートされるターゲットリリースおよび既知の問題に関する最新情報については、最新の 7-Mode Transition Tool リリースノートを参照してください。
 
-https://["『 7-Mode Transition Tool Release Notes 』"]
+https://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["『 7-Mode Transition Tool Release Notes 』"]
 
 これらの ONTAP ターゲットリリースでは、コピーベースの移行がサポートされています。
 

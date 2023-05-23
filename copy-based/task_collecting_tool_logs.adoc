@@ -23,4 +23,4 @@ summary: 7-Mode Transition Tool では、システムで実行された移行評
 
 * 関連情報 *
 
-https://["ネットアップにファイルをアップロードする方法"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["ネットアップにファイルをアップロードする方法"]

@@ -20,7 +20,7 @@ summary: 7-Mode Transition Tool \ （ 7MTT \ ）を使用して SAN 環境の ON
 Veritas Dynamic MultiPathing （ DMP ）環境または Solaris MPxIO 環境で動作するように SAN ブート LUN をセットアップするには、 Solaris Host Utilities を実行し、 FC プロトコルを使用します。SAN ブート LUN のセットアップ方法は、ボリュームマネージャとファイルシステムによって異なります。
 
 +
-https://["『 Solaris Host Utilities 6.2 Installation and Setup Guide 』"]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2748974["『 Solaris Host Utilities 6.2 Installation and Setup Guide 』"]
 
 * Solaris ホストクラスタリングの移行
 * Veritas 構成の略

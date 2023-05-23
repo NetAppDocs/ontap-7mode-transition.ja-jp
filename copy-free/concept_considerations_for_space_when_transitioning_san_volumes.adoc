@@ -23,4 +23,4 @@ summary: 移行中にボリュームに十分なスペースを確保する必�
 
 xref:task_recovering_from_a_failed_lun_transition.adoc[LUN 移行が失敗した場合のリカバリ]
 
-http://["ネットアップのマニュアル： ONTAP 9"]
+http://docs.netapp.com/ontap-9/index.jsp["ネットアップのマニュアル： ONTAP 9"]

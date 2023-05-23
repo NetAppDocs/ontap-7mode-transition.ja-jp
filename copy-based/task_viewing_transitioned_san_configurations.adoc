@@ -49,4 +49,4 @@ LUN#2,/vol/vol_SANdataset_sm_0/lun-payroll,dtY5B4tFAaAC,LnxGrp2,2,/vol/vol_SANda
 
 移行した ONTAP ボリュームへのアクセスをリストアする前に、必要な移行後のタスクをホスト上で実行する必要があります。
 
-http://["SAN ホストの移行および修復"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN ホストの移行および修復"]

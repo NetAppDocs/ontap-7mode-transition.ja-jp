@@ -108,4 +108,4 @@ actual オプションを使用してエクスポートルールが設定され�
 
 xref:task_customizing_configurations_for_transition.adoc[7-Mode 構成の移行のカスタマイズ]
 
-https://["NFS の管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]

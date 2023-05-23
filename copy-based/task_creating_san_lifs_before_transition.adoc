@@ -34,4 +34,4 @@ FC LIF と iSCSI LIF は 7-Mode Transition Tool では移行されないため�
 
 * 関連情報 *
 
-https://["SAN 管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 管理"]

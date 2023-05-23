@@ -15,15 +15,15 @@ SAN 環境を移行するには、いくつかの手順を手動で実行し、 
 
 Inventory Collect Tool を使用して、 SAN ホストのインベントリワークブックを生成しておく必要があります。
 
-http://["ホストとストレージの移行情報を収集"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-ict-icg/home.html["ホストとストレージの移行情報を収集"]
 
 .手順
 . ホストが移行対象としてサポートされていることを確認します。
 +
-https://["NetApp Interoperability Matrix Tool で確認できます"]
+https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]
 
 . 移行前の手順をホストで実行します。
 +
-http://["SAN ホストの移行および修復"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN ホストの移行および修復"]
 
 

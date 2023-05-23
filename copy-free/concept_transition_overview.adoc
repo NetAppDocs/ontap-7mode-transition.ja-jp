@@ -25,4 +25,4 @@ link:https://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["『
 
 * 関連情報 *
 
-http://["ネットアップのマニュアル： ONTAP 9"]
+http://docs.netapp.com/ontap-9/index.jsp["ネットアップのマニュアル： ONTAP 9"]

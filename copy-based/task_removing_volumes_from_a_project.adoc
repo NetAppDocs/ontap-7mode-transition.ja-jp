@@ -29,7 +29,7 @@ ONTAP ボリュームを削除し、 SnapMirror 関係を解除することを�
 
 . クラスタで、移行の一環として作成された ONTAP ボリュームを削除します。
 +
-http://["ONTAP 9 のコマンド"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 のコマンド"]
 
 . 7-Mode システムで、 ONTAP ボリュームとの SnapMirror 関係を解除します。
 . Volume SnapMirror 関係を中止する場合は、次の手順を実行します。
@@ -40,4 +40,4 @@ http://["ONTAP 9 のコマンド"]
 
 
 
-https://["clustered Data ONTAP 8.3 7-Mode 管理者向けのコマンドマップ"]
+https://library.netapp.com/ecm/ecm_get_file/ECMP1610200["clustered Data ONTAP 8.3 7-Mode 管理者向けのコマンドマップ"]

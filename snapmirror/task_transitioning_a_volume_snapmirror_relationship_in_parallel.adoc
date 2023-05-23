@@ -37,11 +37,11 @@ xref:task_transitioning_a_stand_alone_volume.adoc[スタンドアロンボリュ
 
 . 移行したプライマリボリュームとセカンダリボリュームを含む SVM 間にクラスタ間 SVM ピア関係を作成します。
 +
-https://["システム管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["システム管理"]
 
 . 移行したプライマリボリュームとセカンダリボリュームの間に Volume SnapMirror 関係を作成します。
 +
-https://["ボリュームディザスタリカバリの簡単な設定"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-cg/home.html["ボリュームディザスタリカバリの簡単な設定"]
 
 . デスティネーションボリュームで、 SnapMirror 関係のソースボリュームとデスティネーションボリュームを再同期します。
 +

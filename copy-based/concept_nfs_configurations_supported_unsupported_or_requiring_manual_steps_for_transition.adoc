@@ -107,4 +107,4 @@ summary: 一部の NFS 構成は ONTAP に移行されません。移行され�
 
 * 関連情報 *
 
-https://["NFS の管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS の管理"]

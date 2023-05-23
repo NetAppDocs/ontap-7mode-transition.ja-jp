@@ -61,7 +61,7 @@ host1> sysconfig 3
 7-Mode システムの拡張カードがデスティネーションのプラットフォームと ONTAP バージョンでもサポートされている場合は、拡張カードの移動を計画できます。必要に応じて、 PAM カードについても計画できます。
 
 +
-https://["NetApp Hardware Universe の略"]
+https://hwu.netapp.com["NetApp Hardware Universe の略"]
 
 .. ディスクシェルフのケーブル接続に使用するデスティネーションポートを計画します。
 +
@@ -96,8 +96,8 @@ https://["NetApp Hardware Universe の略"]
 
 * 関連情報 *
 
-https://["『 SAS Disk Shelves Installation and Service Guide for DS4243 、 DS2246 、 DS4486 、 and DS4246 』を参照してください"]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["『 SAS Disk Shelves Installation and Service Guide for DS4243 、 DS2246 、 DS4486 、 and DS4246 』を参照してください"]
 
-https://["DiskShelf14mk2 AT ハードウェアサービスガイド"]
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280273["DiskShelf14mk2 AT ハードウェアサービスガイド"]
 
-https://["DS14mk2 FC および DS14mk4 FC ハードウェアサービスガイド"]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC および DS14mk4 FC ハードウェアサービスガイド"]

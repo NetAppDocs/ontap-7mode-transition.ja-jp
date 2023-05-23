@@ -36,21 +36,21 @@ summary: 移行時に発生するエラーの一部は無視できます。移�
  a| 
 「 nfs-qtrees -exported 」と表示されます
  a| 
-このエラーを承認する場合は、 Data ONTAP 7-Mode と ONTAP の qtree エクスポートルールの違いを理解しておく必要があります。また、 7-Mode Transition Tool によって NFS エクスポートルールが適用されたあとで手動で実行しなければならない手順についても理解しておく必要があります。 https://["7MTT Precheck 10111 - 7-Mode ボリュームの移行方法 qtree レベルのエクスポートを設定する"]
+このエラーを承認する場合は、 Data ONTAP 7-Mode と ONTAP の qtree エクスポートルールの違いを理解しておく必要があります。また、 7-Mode Transition Tool によって NFS エクスポートルールが適用されたあとで手動で実行しなければならない手順についても理解しておく必要があります。 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_Precheck_10111_-_How_to_transition_7-Mode_volumes_that_have_qtree_level_exports["7MTT Precheck 10111 - 7-Mode ボリュームの移行方法 qtree レベルのエクスポートを設定する"]
 
 
 
  a| 
 「 ignore-cifs-ad-domain-mismatch 」
  a| 
-このエラーを承認すると、 7-Mode システムの CIFS Active Directory （ AD ）ドメインがターゲット SVM の CIFS AD ドメインと異なる場合であっても、 7-Mode Transition Tool では CIFS 構成の移行が続行されます。7-Mode システムとターゲット SVM の CIFS AD ドメインが信頼できるドメインであることを確認する必要があります。信頼できない場合、ターゲット SVM への CIFS 構成の移行は失敗します。 https://["Active Directory ドメインがの場合の CIFS 構成の移行方法 7-Mode とターゲット SVM で CIFS サーバが異なります"]
+このエラーを承認すると、 7-Mode システムの CIFS Active Directory （ AD ）ドメインがターゲット SVM の CIFS AD ドメインと異なる場合であっても、 7-Mode Transition Tool では CIFS 構成の移行が続行されます。7-Mode システムとターゲット SVM の CIFS AD ドメインが信頼できるドメインであることを確認する必要があります。信頼できない場合、ターゲット SVM への CIFS 構成の移行は失敗します。 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_transition_CIFS_configurations_when_Active_Directory_Domain_of_CIFS_server_on_7-Mode_and_target_SVM_are_different["Active Directory ドメインがの場合の CIFS 構成の移行方法 7-Mode とターゲット SVM で CIFS サーバが異なります"]
 
 
 
  a| 
 「 ignore-ping-check-from-ic-LIFs to -7mode`
  a| 
-このエラーをプロジェクトに追加すると、ターゲットクラスタのクラスタ間 LIF から 7-Mode ストレージシステムへの ping の送信チェックが実行されません。https://["7MTT Copy-Based Transition - シナリオの処理方法 7-Mode のデータコピー IP アドレスにターゲットクラスタから到達できません インタークラスタ LIF"]
+このエラーをプロジェクトに追加すると、ターゲットクラスタのクラスタ間 LIF から 7-Mode ストレージシステムへの ping の送信チェックが実行されません。https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_cbt_-_How_to_handle_the_scenario_where_7-Mode_data-copy_IP_address["7MTT Copy-Based Transition - シナリオの処理方法 7-Mode のデータコピー IP アドレスにターゲットクラスタから到達できません インタークラスタ LIF"]
 
 
 
@@ -64,7 +64,7 @@ summary: 移行時に発生するエラーの一部は無視できます。移�
  a| 
 「 ignore-configurion-limits-check 」
  a| 
-このオプションを使用して構成の制限（事前確認のエラー）を承認し、移行を続行できます。このエラーを承認すると、ストレージカットオーバーに 3~8 時間以上かかります。これには、エクスポート、停止、インポートの各処理（自動処理）の時間と、ディスクシェルフを新しいコントローラに接続するための時間が含まれます。 https://["Copy-Free Transition でのストレージカットオーバーの時間に関する考慮事項"]
+このオプションを使用して構成の制限（事前確認のエラー）を承認し、移行を続行できます。このエラーを承認すると、ストレージカットオーバーに 3~8 時間以上かかります。これには、エクスポート、停止、インポートの各処理（自動処理）の時間と、ディスクシェルフを新しいコントローラに接続するための時間が含まれます。 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Storage_cutover_time_considerations_for_Copy-Free_Transition["Copy-Free Transition でのストレージカットオーバーの時間に関する考慮事項"]
 
 
 

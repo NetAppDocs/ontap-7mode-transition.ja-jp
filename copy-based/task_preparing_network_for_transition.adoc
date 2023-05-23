@@ -44,4 +44,4 @@ NOTE: IPv6 アドレスは移行できないため、移行後に手動で設定
 
 * 関連情報 *
 
-https://["ネットワークと LIF の管理"]
+https://docs.netapp.com/us-en/ontap/networking/index.html["ネットワークと LIF の管理"]

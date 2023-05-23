@@ -21,4 +21,4 @@ summary: セカンダリ HA ペアを最初に移行し、 7-Mode プライマ�
 
 * 関連情報 *
 
-https://["System Manager を使用したクラスタ管理"]
+https://docs.netapp.com/us-en/ontap/concept_administration_overview.html["System Manager を使用したクラスタ管理"]

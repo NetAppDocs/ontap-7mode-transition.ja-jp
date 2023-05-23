@@ -27,7 +27,7 @@ xref:concept_system_requirements_for_7mtt_on_windows.adoc[Windows での 7-Mode 
 .手順
 . ネットアップサポートサイトからソフトウェアをダウンロードします。
 +
-http://["ネットアップのダウンロード：ソフトウェア"]
+http://mysupport.netapp.com/NOW/cgi-bin/software["ネットアップのダウンロード：ソフトウェア"]
 
 . NetApp_7ModeTransitionTool_Setup.exe ファイルを実行します
 . 7-Mode Transition Tool Setup の開始画面で、 * Next * をクリックします。

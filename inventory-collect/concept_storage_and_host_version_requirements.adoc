@@ -15,4 +15,4 @@ summary: インベントリ情報を収集できる Data ONTAP 7-Mode 、ホス�
 
 Inventory Collect Tool による環境評価でサポートされる 7-Mode システム、ホスト、および FC スイッチのバージョンについては、 Interoperability Matrix を参照してください。
 
-https://["NetApp Interoperability Matrix Tool で確認できます"]
+https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]

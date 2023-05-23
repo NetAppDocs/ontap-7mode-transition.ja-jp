@@ -15,7 +15,7 @@ summary: 7-Mode ボリュームから clustered ONTAP ボリュームにデー�
 
 移行に関する問題が発生した場合は、移行先リリースの _Release Notes を確認しておく必要があります。
 
-https://["ONTAP 9 リリースノート"]
+https://library.netapp.com/ecmdocs/ECMLP2492508/html/frameset.html["ONTAP 9 リリースノート"]
 
 7-Mode ボリュームと clustered ONTAP ボリュームの間の SnapMirror 関係は、次のリリースでサポートされています。
 

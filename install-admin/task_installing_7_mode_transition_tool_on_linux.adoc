@@ -23,7 +23,7 @@ xref:concept_system_requirements_for_7_mode_transition_tool_on_linux.adoc[Linux 
 .手順
 . NetApp Support Site から「 tar.gz 」ファイルをダウンロードします。
 +
-http://["ネットアップのダウンロード：ソフトウェア"]
+http://mysupport.netapp.com/NOW/cgi-bin/software["ネットアップのダウンロード：ソフトウェア"]
 
 . Linux システムのディレクトリに「 tar.gz 」ファイルを展開します。
 +

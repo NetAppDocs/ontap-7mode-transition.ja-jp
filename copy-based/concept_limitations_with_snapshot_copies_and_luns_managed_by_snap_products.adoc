@@ -43,18 +43,18 @@ NOTE: clustered Data ONTAP で新たに作成した Snapshot コピーに対し�
 
 7-Mode Snapshot コピーの有効期限が切れるまで 7-Mode システムを維持することを推奨します。
 
-http://["ネットアップのマニュアル： SnapManager for Microsoft Exchange Server"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30034["ネットアップのマニュアル： SnapManager for Microsoft Exchange Server"]
 
-http://["ネットアップのマニュアル： SnapManager for Hyper-V"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30055["ネットアップのマニュアル： SnapManager for Hyper-V"]
 
-http://["ネットアップのマニュアル： SnapManager for SAP"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30037["ネットアップのマニュアル： SnapManager for SAP"]
 
-http://["ネットアップのマニュアル： SnapManager for Oracle"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30040["ネットアップのマニュアル： SnapManager for Oracle"]
 
-http://["ネットアップのマニュアル： SnapDrive for UNIX"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30050["ネットアップのマニュアル： SnapDrive for UNIX"]
 
-http://["ネットアップのマニュアル： SnapDrive for Windows （現在のリリース）"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30049["ネットアップのマニュアル： SnapDrive for Windows （現在のリリース）"]
 
-http://["ネットアップのマニュアル： SnapManager for Microsoft SQL Server"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30041["ネットアップのマニュアル： SnapManager for Microsoft SQL Server"]
 
-http://["ネットアップのマニュアル： SnapManager for Microsoft SharePoint"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30036["ネットアップのマニュアル： SnapManager for Microsoft SharePoint"]

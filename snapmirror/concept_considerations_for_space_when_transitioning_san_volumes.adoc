@@ -23,4 +23,4 @@ summary: 移行中にボリュームに十分なスペースを確保する必�
 
 * 関連情報 *
 
-http://["ネットアップのマニュアル： ONTAP 9"]
+http://docs.netapp.com/ontap-9/index.jsp["ネットアップのマニュアル： ONTAP 9"]

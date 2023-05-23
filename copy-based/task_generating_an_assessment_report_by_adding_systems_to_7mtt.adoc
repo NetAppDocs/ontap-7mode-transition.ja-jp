@@ -43,7 +43,7 @@ readme ファイルは '_7-Mode_Transition_Tool_installed_location \bin\ict に�
 +
 ... [ レポート ] メニューの [ 日次エクスポートの完了 *] をクリックします。
 ... ［ 日次エクスポートの完了 ］ ダイアログボックスの検索フィールドに「 FAS 」と入力します。
-... ONTAP SAN ホストの Excel ファイルをダウンロードして保存します。https://["NetApp Interoperability Matrix Tool で確認できます"]
+... ONTAP SAN ホストの Excel ファイルをダウンロードして保存します。https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool で確認できます"]
 
 
 .. CLI から 'transition IMT import' コマンドを使用して IMT データをインポートします

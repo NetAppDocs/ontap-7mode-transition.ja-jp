@@ -263,7 +263,7 @@ CoC 検証処理を実行します。
 . ターゲットクラスタで Data ONTAP 8.3.1 以前が実行されている場合は、セカンダリ LUN を手動でマッピングする必要があります。
 . SAN を移行する場合は、ホストを手動で再設定します。
 +
-http://["SAN ホストの移行および修復"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN ホストの移行および修復"]
 
 . 次の点を検証し、 SVM がクライアントにデータを提供できる状態であることを確認します。
 +

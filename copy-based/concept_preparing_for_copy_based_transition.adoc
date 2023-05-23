@@ -28,6 +28,6 @@ summary: 7-Mode から ONTAP へのデータコピー処理を開始する前に
 
 xref:reference_transition_preparation_checklist.adoc[移行準備チェックリスト]
 
-https://["7MTT v2.0/Transitioned Data ONTAP の機能"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_v2.0%2F%2FTransitioned_Data_ONTAP_features["7MTT v2.0/Transitioned Data ONTAP の機能"]
 
 link:https://mysupport.netapp.com/matrix/imt.jsp?components=68128;&solution=1&isHWU&src=IMT["NetApp Interoperability Matrix Tool で確認できます"^]
