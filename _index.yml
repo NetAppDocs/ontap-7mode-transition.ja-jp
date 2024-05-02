@@ -1,0 +1,40 @@
+---
+indexpage:
+  title: 7-Mode Transition Documentation
+  summary: 7-Mode Transition Toolのインストールとセットアップ、SnapMirrorコマンドを使用した移行データ、コピーベースまたはコピーフリーの移行の実行、移行に関する情報の収集、SANホストの移行前
+    / 移行後の手順の完了に役立つ情報が記載されています。
+  keywords: transition, copy, free, 7-mode transition
+  lead: 7-Mode Transition Documentationには、7-Mode Transition Toolのインストールとセットアップ、SnapMirrorコマンドを使用したデータの移行、コピーベースまたはコピーフリーの移行の実行、移行用の情報の収集、SANホストの移行前および移行後の手順の実行に役立つ情報が含まれています。
+  tiles:
+  - title: はじめに
+    links:
+    - title: 新機能
+      url: releasenotes.html
+    - title: 7-Mode Transition Tool をインストールする
+      url: "/install-admin/concept_transition_to_clustered_ontap_using_7mtt.html"
+    - title: 移行に必要なデータを収集
+      url: "/inventory-collect/concept_collecting_host_and_storage_inventory_information_for_transition_assessment.html"
+  - title: 7-Mode 管理者用のコマンドマップ
+    links:
+    - title: 7-Mode コマンドと ONTAP コマンドのマッピング
+      url: "/command-map/reference_how_7_mode_commands_map_to_clustered_ontap_commands.html"
+    - title: 7-Mode オプションと ONTAP コマンドのマッピング
+      url: "/command-map/reference_how_7_mode_options_map_to_clustered_ontap_commands.html"
+    - title: 7-Mode 構成ファイルと ONTAP コマンドのマッピング
+      url: "/command-map/reference_how_7_mode_configuration_files_map_to_clustered_ontap_commands.html"
+  - title: 移行方法
+    links:
+    - title: コピーベースの移行
+      url: "/copy-based/concept_copy_based_transition_workflow.html"
+    - title: コピーフリーの移行
+      url: "/copy-free/task_copy_free_transition_workflow.html"
+    - title: SnapMirror を使用してデータを移行する
+      url: "/snapmirror/task_transitioning_7_mode_volumes_using_snapmirror.html"
+  - title: SAN ホストの移行および修復
+    links:
+    - title: VMware ESXi
+      url: "/san-host/concept_vmware_esxi_host_remediation.html"
+    - title: Red Hat Enterprise Linux の場合
+      url: "/san-host/concept_linux_host_remediation.html"
+    - title: Windows の場合
+      url: "/san-host/concept_windows_host_remediation.html"

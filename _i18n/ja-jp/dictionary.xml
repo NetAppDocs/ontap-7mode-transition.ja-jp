@@ -7343,26 +7343,14 @@
   <block id="9653cf98bd0bafa030e219a7067934ce" category="sidebar">7-Mode からの移行</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">はじめに</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新機能</block>
-  <block id="d176f598177def951b765d49b8a1ad4d" category="sidebar">最新バージョンの 7-Mode の新機能を参照してください 移行ツール</block>
   <block id="35895df246ab4fab18a15ad7203002a7" category="sidebar">7-Mode Transition Tool をインストールする</block>
-  <block id="7ea7bcc99dddaa8df76f592001954899" category="sidebar">Microsoft Windows またはにツールをインストールする方法について説明します Linux の場合</block>
   <block id="35f0393a0f809b8834f1e94cf9aeb75d" category="sidebar">移行に必要なデータを収集</block>
-  <block id="f8d6780cf027291bb431321789717f05" category="sidebar">移行に不可欠な情報を収集する方法をご確認ください</block>
   <block id="9715d735daefe53c846d6422d269ba9c" category="sidebar">7-Mode 管理者用のコマンドマップ</block>
-  <block id="347239ff36e364d3f29f508ab66f7e5b" category="sidebar">7-Mode コマンドの ONTAP コマンドを探します</block>
-  <block id="2d0b993704b5291e3d8c9104cd1eb3f4" category="sidebar">7-Mode オプションと ONTAP コマンドパラメータのマッピングを確認します</block>
   <block id="d1cb91eced95c7ff33565c2ab700e6eb" category="sidebar">7-Mode 構成ファイルと ONTAP コマンドのマッピング</block>
-  <block id="a04ffe42a976aa7c8eb5782495546115" category="sidebar">7-Mode 構成ファイルと ONTAP 構成コマンドのマッピングを作成する</block>
   <block id="dc8134f825a7c1a45f8329a7db06ba5a" category="sidebar">移行方法</block>
-  <block id="95f77135b69a05aefa342ac301235f29" category="sidebar">ツールを使用して、 7-Mode からコピーベースの移行を実行します を ONTAP に移動します</block>
-  <block id="a3fa8f36cd3178033ace1b35c238f00d" category="sidebar">ツールを使用して、 7-Mode からコピーフリーの移行を実行します を ONTAP に移動します</block>
   <block id="606f512fc14158269146a632e3444e35" category="sidebar">SnapMirror を使用してデータを移行する</block>
-  <block id="5d2368c109186f55545b33483e97e8d0" category="sidebar">を使用して、 7-Mode から ONTAP にデータを移行する方法を理解します SnapMirror コマンド</block>
   <block id="f7eea647714641318ee86fedbbed4691" category="sidebar">VMware ESXi</block>
-  <block id="689c2aa583e8cf3395af25aaa2ef63f5" category="sidebar">VMware ESXi ホストの移行前と移行後の要件を把握します</block>
   <block id="c73bbd3786350b0a8d3577d82afdf489" category="sidebar">Red Hat Enterprise Linux の場合</block>
-  <block id="80a4be74705a612be3887e601f338c11" category="sidebar">Red Hat Enterprise に対する移行前と移行後の要件を確認します Linux ホスト</block>
-  <block id="624868dc01678d5268f2ce0a2b5e6de8" category="sidebar">Microsoft Windows ホストの移行前と移行後の手順を確認</block>
   <block id="84a6933c212881ac1351cccc03b06c5a" category="sidebar">7-Mode 管理用のコマンドマップ</block>
   <block id="49640ebd1f7f02a38a79638aca90ba3f" category="paragraph">ONTAP 9.10.1、ONTAP 9.11.1以前のサポートされるリリース</block>
   <block id="c45454a225fb911ddb8f9c192a897fdd" category="paragraph">3.5.0</block>
@@ -7376,7 +7364,6 @@
   <block id="6f6819dd21dbd8a646ea9df4c166c414" category="admonition">ホストとコントローラをコピーフリーの移行の対象として評価するには、最新バージョンのInventory Collect Toolを使用してインベントリを収集する必要があります。</block>
   <block id="c56554efd1f85bba5b98f6ca401f2fda" category="paragraph"><block ref="c56554efd1f85bba5b98f6ca401f2fda" category="inline-link-macro-rx"></block></block>
   <block id="2926f2591b66c0122ef9f741a49d26aa" category="paragraph">どちらの場合も、最新バージョンのInventory Collect Toolを使用してインベントリを収集する必要があります。</block>
-  <block id="d1b92a4930d50c6ed1038655db0d2684" category="sidebar">すべてのONTAP 製品ドキュメント</block>
   <block id="83e14c89cceb4cee82c0bcea3943ea26" category="paragraph">ONTAP 9.12.1以降では、SnapMirrorテクノロジを使用する7-Modeボリュームを移行できなくなりました。</block>
   <block id="8d73bc8fd1f6fe79df1b2f9f4cb47d7a" category="paragraph">ただし、ONTAP 9.11.1以前のリリースでは、clustered Data ONTAP のSnapMirrorコマンドを使用して、NASおよびSAN環境の7-Modeボリュームをclustered Data ONTAP ボリュームに移行できます。移行が完了したら、クラスタ上でプロトコル、サービス、その他の設定を行う必要があります。</block>
   <block id="8f2de78b174393b6f012a8a48075011a" category="paragraph">*推奨事項：* ONTAP 9.11.1以前のリリースでは、7-Modeボリュームをコピーベースで移行する場合に7-Mode Transition Toolを使用してください。これは、マイグレーションプロセスのすべてのステップで7-Modeボリュームとクラスタの両方を事前に検証するチェック機能があるためです。これにより、多数の潜在的な問題を回避できます。このツールを使用すると、データ移行だけでなく、すべてのプロトコル、ネットワーク、サービスの設定の移行も大幅に簡易化されます。</block>
@@ -7403,4 +7390,5 @@
   <block id="6705b8d93729b2ab59445f3c547fe952" category="paragraph"><block ref="6705b8d93729b2ab59445f3c547fe952" category="inline-link-rx"></block></block>
   <block id="53b500e941f815e0da37832bbbb3f265" category="inline-link">System Manager を使用したクラスタ管理</block>
   <block id="54875b6362e405aeb3f3e1f1b65a3cc7" category="paragraph"><block ref="54875b6362e405aeb3f3e1f1b65a3cc7" category="inline-link-rx"></block></block>
+  <block id="e8fb469abd5e30926d4d1c7fc20519c2" category="sidebar">7-Mode Transition Documentationには、7-Mode Transition Toolのインストールとセットアップ、SnapMirrorコマンドを使用したデータの移行、コピーベースまたはコピーフリーの移行の実行、移行用の情報の収集、SANホストの移行前および移行後の手順の実行に役立つ情報が含まれています。</block>
 </blocks>
