@@ -34,7 +34,7 @@ NFS クライアントが qtree をマウントするには、読み取り専用
 * 読み取り専用、読み取り / 書き込み、およびルートのアクセス権限リストと同じホストを組み合わせて指定した場合は、移行後にエクスポートルールを評価して、そのホストに適したアクセス権限を決定する必要があります。
 
 
-http://www.netapp.com/us/media/tr-4067.pdf["ネットアップテクニカルレポート 4067 ：『 NFS Best Practice and Implementation Guide 』"]
+https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf["ネットアップテクニカルレポート 4067 ：『 NFS Best Practice and Implementation Guide 』"^]
 
 
 

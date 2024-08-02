@@ -2131,7 +2131,6 @@
   <block id="b94690f1d58e7f298c4e94a655b35110" category="paragraph">NFS クライアントが qtree をマウントするには、読み取り専用権限のあるボリュームに qtree が属している必要があります。ボリュームレベルでの読み取り専用権限がないと、 NFS クライアントは qtree をマウントできません。</block>
   <block id="1b4bd805f1c43c7d5c9719dce981c2f4" category="list-text">読み取り専用、読み取り / 書き込み、およびルートのアクセス権限リストと同じホストを組み合わせて指定した場合は、移行後にエクスポートルールを評価して、そのホストに適したアクセス権限を決定する必要があります。</block>
   <block id="8fad4be94e9aa7ce4db57aef3f0d7941" category="inline-link">ネットアップテクニカルレポート 4067 ：『 NFS Best Practice and Implementation Guide 』</block>
-  <block id="2e5e5fdaff65cd094319505704237d70" category="paragraph"><block ref="2e5e5fdaff65cd094319505704237d70" category="inline-link-rx"></block></block>
   <block id="b014fe06ce5f68b47e31838c02f8644b" category="section-title">例：ボリュームのエクスポートポリシーを変更して qtree へのアクセスを許可する</block>
   <block id="c4d849bb273335cc15c5a5e062d19ca2" category="paragraph">7-Mode ストレージシステム（ 192.168.26.18 ）で、 NFS クライアント 192.168.10.10 に対してボリューム volstd10 と qtree qtree1 への読み取り / 書き込みアクセスを許可する次のエクスポートルールが設定されているとします。</block>
   <block id="1907717ab9a8223ee3ce06ec78e360cc" category="paragraph">移行後、 ONTAP でボリューム volsdt10 のエクスポートポリシーが次のように設定されます。</block>
@@ -2209,7 +2208,6 @@
   <block id="b26873df0260bdc332a7511f6823cf63" category="section-title">サポートされない構成です</block>
   <block id="13d7f1dcc81c04ad955be7fac11f0dd2" category="paragraph">SnapVault 関係のソースであるボリュームはマイグレートできますが、 SnapVault 関係は移行されません。SnapVault 関係のデスティネーションボリュームは、 SnapVault バックアップを停止したあとにマイグレートできます。</block>
   <block id="664f739c9dfce166b4c021cac0d8633e" category="inline-link">ネットアップテクニカルレポート 4052 ：『 Successfully Transitioning to Clustered Data ONTAP （ Data ONTAP 8.2.x and 8.3 ）』</block>
-  <block id="755b3c98012d25558d664e3aae2c2528" category="paragraph"><block ref="755b3c98012d25558d664e3aae2c2528" category="inline-link-rx"></block></block>
   <block id="5f052fe6d1cf03ee0aad8adaf6cfce33" category="paragraph">qtree SnapMirror 関係のソースである qtree を含むボリュームは移行できますが、 qtree SnapMirror 関係は移行されません。qtree SnapMirror 関係のデスティネーションである、 qtree を含むボリュームは、 qtree SnapMirror 関係を解除したあとにマイグレートできます。</block>
   <block id="12bf4a0df40a0e7f3ab871d77ed71810" category="list-text">ディザスタリカバリ vFiler ユニット</block>
   <block id="f2c1164fe54082eb59b10eda4f7977af" category="paragraph">ディザスタリカバリ vFiler ユニットのソースボリュームはマイグレートできますが、ディザスタリカバリ vFiler ユニットは移行されません。ディザスタリカバリ vFiler ユニットのデスティネーションボリュームは、ディザスタリカバリ関係を削除したあとにマイグレートできます。</block>
@@ -3462,7 +3460,6 @@
   <block id="ee938c4ccb225fb1eaa8be3c480458c0" category="paragraph">次のワークフローを使用して、移行前にアップグレードが必要かどうかを判断してください。</block>
   <block id="92cd2f5e96983a715cf5b509f4aa5a2b" category="image-alt">32 ビットアップグレードパスが更新されました</block>
   <block id="13434f43b15c9640896f4fc73fa54221" category="inline-link">ネットアップテクニカルレポート 3978 ：『 In-Place Expansion of 32-Bit Aggregates to 64-Bit Overview and Best Practices 』</block>
-  <block id="0a2da8e756e37983a5c9c20d332cfa66" category="paragraph"><block ref="0a2da8e756e37983a5c9c20d332cfa66" category="inline-link-rx"></block></block>
   <block id="e3df5ef073b271a2ba79e39a4ae6b6b2" category="summary">ONTAP で Storage Virtual Machine （ SVM ）に 7-Mode IP アドレスを移行する場合は、考慮すべき点がいくつかあります。</block>
   <block id="1726e8fbaa1087828a16e1ea877a3703" category="doc">7-Mode IP アドレスの移行に関する考慮事項</block>
   <block id="57e346ac0ca80d2340f351f133fa9f13" category="paragraph">ONTAP の Storage Virtual Machine （ SVM ）に 7-Mode IP アドレスを移行する場合は、考慮すべき点がいくつかあります。</block>
@@ -7391,4 +7388,7 @@
   <block id="53b500e941f815e0da37832bbbb3f265" category="inline-link">System Manager を使用したクラスタ管理</block>
   <block id="54875b6362e405aeb3f3e1f1b65a3cc7" category="paragraph"><block ref="54875b6362e405aeb3f3e1f1b65a3cc7" category="inline-link-rx"></block></block>
   <block id="e8fb469abd5e30926d4d1c7fc20519c2" category="sidebar">7-Mode Transition Documentationには、7-Mode Transition Toolのインストールとセットアップ、SnapMirrorコマンドを使用したデータの移行、コピーベースまたはコピーフリーの移行の実行、移行用の情報の収集、SANホストの移行前および移行後の手順の実行に役立つ情報が含まれています。</block>
+  <block id="6819367dcff0e5919ebb17505dc3e140" category="paragraph"><block ref="6819367dcff0e5919ebb17505dc3e140" category="inline-link-rx"></block></block>
+  <block id="07c5daecfe0dafef7e4667a307affc19" category="paragraph"><block ref="07c5daecfe0dafef7e4667a307affc19" category="inline-link-rx"></block></block>
+  <block id="f7042196519d0be4fd9ec6a8bd4a4b28" category="paragraph"><block ref="f7042196519d0be4fd9ec6a8bd4a4b28" category="inline-link-rx"></block></block>
 </blocks>

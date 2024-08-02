@@ -24,7 +24,7 @@ summary: 7-Mode のアグリゲートとボリュームを移行する場合の�
 トラディショナルボリュームを移行するには、ホストベースの移行方法を使用します。
 
 +
-http://www.netapp.com/us/media/tr-4052.pdf["ネットアップテクニカルレポート 4052 ：『 Successfully Transitioning to Clustered Data ONTAP （ Data ONTAP 8.2.x and 8.3 ）』"]
+https://www.netapp.com/pdf.html?item=/media/19510-tr-4052.pdf["ネットアップテクニカルレポート 4052 ：『 Successfully Transitioning to Clustered Data ONTAP （ Data ONTAP 8.2.x and 8.3 ）』"^]
 
 * SnapLock ボリューム
 +

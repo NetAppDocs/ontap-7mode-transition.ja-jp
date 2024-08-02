@@ -22,4 +22,4 @@ image::../media/32bit_upgrade_path_updated.gif[32 ビットアップグレード
 
 * 関連情報 *
 
-http://www.netapp.com/us/media/tr-3978.pdf["ネットアップテクニカルレポート 3978 ：『 In-Place Expansion of 32-Bit Aggregates to 64-Bit Overview and Best Practices 』"]
+https://www.netapp.com/pdf.html?item=/media/19679-tr-3978.pdf["ネットアップテクニカルレポート 3978 ：『 In-Place Expansion of 32-Bit Aggregates to 64-Bit Overview and Best Practices 』"^]
